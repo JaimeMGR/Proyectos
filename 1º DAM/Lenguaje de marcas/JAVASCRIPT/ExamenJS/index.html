@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <style>
+        header {
+            background-color: #ffffff50;
+            color: #000000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+          }
+        body{
+            background-color: rgb(255, 233, 209);
+        }
+      h1{
+        text-align: center;
+      }
+        /* Estilos para las tablas */
+      table {
+        border-collapse: collapse;
+        margin: 0 auto;
+      }
+      
+      td, th {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+        background-color: #c2ffe7;
+        font-weight: bold;
+      }
+      
+      /* Estilos para separar las tablas */
+      table + table {
+        margin-top: 50px;
+      }
+
+      footer{
+        text-align:center;
+      }
+    </style>
+    <script>
+        // Función para generar las tablas de multiplicar
+        function generarTablas() {
+          // Obtener la tabla en la que se agregarán las filas
+          var tabla = document.getElementById("tabla");
+          
+          // Generar las filas de la tabla
+          for (var i = 1; i <= 10; i++) {
+            // Crear una fila
+            var fila = document.createElement("tr");
+            
+            // Agregar una celda para el número
+            var celdaNumero = document.createElement("td");
+            celdaNumero.innerHTML = i;
+            fila.appendChild(celdaNumero);
+            
+            // Agregar las celdas de la multiplicación
+            for (var j = 0; j <= 10; j++) {
+              var celdaMultiplicacion = document.createElement("td");
+              celdaMultiplicacion.innerHTML = i + "x" + j + "=" + (i*j);
+              fila.appendChild(celdaMultiplicacion);
+            }
+            
+            // Agregar la fila a la tabla
+            tabla.appendChild(fila);
+          }
+        }
+    </script>
+</head>
+<header><a>Inicio</a> | <a href=/ExamenJS/frutas.html>Frutas</a> | <a href=/ExamenJS/elementos.html>Elementos</a> | <a href=/ExamenJS/datos.html>Datos</a></header>
+<body onload="generarTablas()">
+    <h1>TABLAS DE MULTIPLICAR DEL 1 AL 10</h1>
+    <table id="tabla">
+    </table>
+    <br>
+<footer><a>Ejercicios realizados por Jaime Molina Granados</a> </footer>
+</body>
+</html>

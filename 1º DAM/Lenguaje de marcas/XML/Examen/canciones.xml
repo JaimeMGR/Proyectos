@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml—stylesheet type="text/xsl" href="discos.XSL"?>
+<CATALOGO>
+    <DISCO>
+        <TITULO>ME VA LA VIDA</TITULO>
+        <AUTOR>JULIO IGLESIAS</AUTOR>
+        <PAIS>ESPANA</PAIS>
+        <COMPANIA>Kamaleon</COMPANIA>
+        <PRECIO>9.80</PRECIO>
+        <ANIO>1985</ANIO>
+    </DISCO>
+    <DISCO>
+        <TITULO>GRANDES EXITOS</TITULO>
+        <AUTOR>UN PINGUINO EN MI ASCENSOR</AUTOR>
+        <PAIS>PORTUGAL</PAIS>
+        <COMPANIA>Pingu-records</COMPANIA>
+        <PRECIO>14.80</PRECIO>
+        <ANIO>1992</ANIO>
+    </DISCO>
+    <DISCO>
+        <TITULO>UNCHAIN MY HEART</TITULO>
+        <AUTOR>JOE COCKER</AUTOR>
+        <PAIS>USA</PAIS>
+        <COMPANIA>EMI</COMPANIA>
+        <PRECIO>9.20</PRECIO>
+        <ANIO>1987</ANIO>
+    </DISCO>
+</CATALOGO>

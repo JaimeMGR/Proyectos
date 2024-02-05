@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ciclos>
+    <ciclo codigo="ASIR">
+        <nombre>Administración de Sistemas Informáticos en Red</nombre>
+        <grado>Superior</grado>
+    </ciclo>
+    <ciclo codigo="DAM">
+        <nombre>Desarrollo de Aplicaciones Multiplataforma</nombre>
+        <grado>Superior</grado>
+    </ciclo>
+    <ciclo codigo="DAW">
+        <nombre>Desarrollo de Aplicaciones Web</nombre>
+        <grado>Superior</grado>
+    </ciclo>
+    <ciclo codigo="SMR">
+        <nombre>sistemas Microinformáticos y Redes</nombre>
+        <grado>Medio</grado>
+    </ciclo>
+</ciclos>

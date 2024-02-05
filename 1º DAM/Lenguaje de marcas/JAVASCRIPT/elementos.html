@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fondo {
+            background: lightgrey;
+        }
+
+        .otroFondo {
+            background: lightsalmon;
+        }
+    </style>
+    <script>
+        
+
+        function inicio() 
+        {
+            const elemento = document.getElementById("salida");
+            elemento.innerHTML= "Bienvenido a mi página<br>";
+            elemento.addEventListener("click", crearNuevoElemento);
+            
+            const boton = document.getElementById("boton");
+            boton.addEventListener("click", cambiarColor);
+
+            
+        }
+
+        function crearNuevoElemento() {
+            var elementoNuevo = 
+                document.createElement("p");
+            elementoNuevo.innerHTML=
+                "Nuevo <strong>párrafo</strong>";
+            document.body.appendChild(elementoNuevo);
+        }
+
+        function cambiarColor() {
+            const elemento = document.getElementById("salida");
+            /*if (elemento.style.background=="lightgreen")
+                elemento.style.background="lightgrey";
+            else elemento.style.background="lightgreen";*/
+            elemento.classList.toggle("otroFondo");
+
+        }
+    window.addEventListener("load", inicio);
+    </script>
+</head>
+<body>
+   <main>
+        <h1>Probando objetos con JS</h1>
+
+        <p id="salida" class="fondo">
+
+        </p>
+        <form>
+            <button id="boton" type="button">Haz clic aquí</button>
+        </form>
+   </main> 
+</body>
+</html>

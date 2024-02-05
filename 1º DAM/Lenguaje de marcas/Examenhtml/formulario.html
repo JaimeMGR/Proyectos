@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <style>
+        input[type=text], 
+        input[type=email] 
+        input[type=number]{
+        width: 30%;
+        padding: 10px 20px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        border-radius: 8px;
+      }
+
+
+      input[type=text]:focus,
+      input[type=email]:focus,
+      input[type=number]:focus{
+        background-color: rgb(255, 247, 134);
+        cursor:grab;
+      }
+</style>
+    <main>
+    <a href=index.html>Inicio</a> | <a href="tabla.html">Tabla</a> | <a href="lista.html">Lista</a> | <a>Formulario</a>      
+
+<body style="background-color: rgb(253, 248, 180);">
+    <h1 style="color: Red">EJERCICIO PARA FORMULARIOS</h1>
+    <form method="get">
+        <label for="Nombre">Nombre:</label>
+        <input type="text" name="nombre" placeholder="Introduzca nombre (20 caracteres)" size="45" maxlength="20" />
+        <br>
+        <br>
+        <label for="Apellidos">Apellidos:</label>
+        <input type="text" name="Apellidos" placeholder="Introduzca apellidos (30 caracteres)" size="45" maxlength="30" />
+        <br>
+        <br>
+        <label for="Email">Email:</label>
+        <input type="email" name="email" placeholder="Introduzca email (40 caracteres)" size="45" maxlength="40" />
+        <br>
+        <br>
+        <label for="Edad">Edad</label>
+        <select name="Edad" id="Edad">
+            <option>Menor de 18</option>
+            <option>Entre 18 y 30</option>
+            <option>Mayor de 30</option>
+        </select>
+        <br>
+        <fieldset>
+            <legend>Habilidades</legend>
+        <input type="radio" value="Programación" id="Programación"/>
+        <label for="Programación">Programación</label><br>
+        <input type="radio" value="Diseño" id="Diseño"/>
+        <label for="Diseño">Diseño</label><br>
+        <input type="radio" value="Pruebas" id="Pruebas"/>
+        <label for="Pruebas">Pruebas</label><br>
+        </fieldset>
+        <label for="Poblaciones">Poblaciones</label>
+        <select name="Poblaciones" id="Poblaciones">
+            <option>Granada</option>
+            <option>Madrid</option>
+            <option>Sevilla</option>
+        </select>
+        <p></p>
+        <button style="background-color: rgb(255, 255, 255)">Enviar</button>
+        <u><hr>Ejercicio realizado por Jaime molina Granados</hr></u>
+        
+    </form>
+</main>
+</body>
+</html>

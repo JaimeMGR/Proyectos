@@ -1,0 +1,64 @@
+element.style {
+}
+body {
+    background: #fff;
+}
+body {
+    margin: 0;
+}
+body {
+    line-height: 1.3;
+    font-family: robotoRegular,Arial,sans-serif;
+    font-size: 16px;
+}
+body {
+    line-height: 1;
+}
+abbr, address, article, aside, b, blockquote, body, canvas, caption, cite, code, dd, del, details, dfn, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, header, html, i, iframe, img, ins, kbd, label, legend, li, menu, nav, object, ol, p, pre, q, samp, small, span, strong, sub, sup, table, tbody, td, tfoot, th, thead, tr, ul, var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+}
+*, :after, :before {
+    box-sizing: inherit;
+}
+hoja de estilo de user-agent
+body {
+    display: block;
+    margin: 8px;
+}
+@media (min-width: 25.875em)
+:root {
+    --carousel-separtion: 16;
+}
+:root {
+    --carousel-separtion: 8;
+}
+:root {
+    --swiper-theme-color: #007aff;
+}
+:root {
+    --ue-c-notification-tooltip-icon-color1: #ffcb7a;
+    --ue-c-notification-tooltip-icon-color2: #797979;
+}
+:root {
+    --ue-c-notification-tooltip-icon-color1: #293a4b;
+    --ue-c-notification-tooltip-icon-color2: #fff;
+}
+:root {
+    --ue-c-main-header-more-icon: #000;
+}
+html {
+    --lh: 1.4rem;
+    line-height: var(--lh);
+    -webkit-text-size-adjust: 100%;
+}
+*, :after, :before {
+    box-sizing: inherit;
+}
+*, :after, :before {
+    box-sizing: inherit;
+}

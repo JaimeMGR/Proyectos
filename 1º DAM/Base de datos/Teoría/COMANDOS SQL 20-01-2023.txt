@@ -1,0 +1,158 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Vie Ene 20 12:01:25 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Introduzca el nombre de usuario: insert into tlibrotema values (1,1)
+SP2-0306: Opci¾n no vßlida.
+Sintaxis: CONN[ECT] [{logon|/|proxy} [AS {SYSDBA|SYSOPER|SYSASM|SYSBACKUP|SYSDG|SYSKM|SYSRAC}] [edici¾n=valor]]
+donde <conexi¾n> ::= <usuario>[/<contrase±a>][@<identificador_conexi¾n>]
+      <proxy> ::= <proxyuser>[<usuario>][/<contrase±a>][@<identificador_conexi¾n>]
+Introduzca el nombre de usuario: insert into tlibrotema values (1,1);
+SP2-0306: Opci¾n no vßlida.
+Sintaxis: CONN[ECT] [{logon|/|proxy} [AS {SYSDBA|SYSOPER|SYSASM|SYSBACKUP|SYSDG|SYSKM|SYSRAC}] [edici¾n=valor]]
+donde <conexi¾n> ::= <usuario>[/<contrase±a>][@<identificador_conexi¾n>]
+      <proxy> ::= <proxyuser>[<usuario>][/<contrase±a>][@<identificador_conexi¾n>]
+Introduzca el nombre de usuario: system
+Introduzca la contrase±a:
+Hora de ┌ltima Conexi¾n Correcta: Vie Ene 20 2023 11:49:16 +01:00
+
+Conectado a:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> insert into tlibrotema values (1,1);
+insert into tlibrotema values (1,1)
+*
+ERROR en lÝnea 1:
+ORA-02291: restricci¾n de integridad (SYSTEM.NLIBROID) violada - clave
+principal no encontrada
+
+
+SQL> select * from librotema;
+select * from librotema
+              *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> select * from tlibrotema;
+
+ninguna fila seleccionada
+
+SQL> select nlibroid from tlibrotema;
+
+ninguna fila seleccionada
+
+SQL> select nlibroid from tlibrotema group by nlibroid;
+
+ninguna fila seleccionada
+
+SQL> select ntemaid, nlibroid from tlibrotema group by ntemaid;
+select ntemaid, nlibroid from tlibrotema group by ntemaid
+                *
+ERROR en lÝnea 1:
+ORA-00979: no es una expresi¾n GROUP BY
+
+
+SQL> select nlibroid, sum(ntemaid) from tlibrotema group by nlibroid;
+
+ninguna fila seleccionada
+
+SQL> select nlibroid, sum(ntemaid) from tlibrotema where nlibroid=1 group by nlibroid;
+
+ninguna fila seleccionada
+
+SQL> desc tlibro;
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBROID                                  NOT NULL NUMBER(7)
+ CTITULO                                   NOT NULL VARCHAR2(30)
+ NANYOPUBLICACION                                   CHAR(4)
+ NEDITORIALID                              NOT NULL NUMBER(2)
+
+SQL> desc ttema;
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NTEMAID                                   NOT NULL NUMBER(3)
+ CNOMBRE                                            VARCHAR2(20)
+
+SQL> desc tlibrotema;
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBROID                                  NOT NULL NUMBER(7)
+ NTEMAID                                   NOT NULL NUMBER(3)
+
+SQL> select ctitulo "Título del lubro" from lubro;
+select ctitulo "Título del lubro" from lubro
+                                        *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> select ctitulo "Título del lubro" from tlibro;
+
+ninguna fila seleccionada
+
+SQL> select ctitulo "Título del lubro", cnombre "Descripción del tema" from tlibro;
+select ctitulo "Título del lubro", cnombre "Descripción del tema" from tlibro
+                                    *
+ERROR en lÝnea 1:
+ORA-00904: "CNOMBRE": identificador no vßlido
+
+
+SQL> select ctitulo "Título del lubro", cnombre "Descripción del tema" from tlibrotema, tlibro, ttema where nlibroid=nlibroid;
+select ctitulo "Título del lubro", cnombre "Descripción del tema" from tlibrotema, tlibro, ttema where nlibroid=nlibroid
+                                                                                                                  *
+ERROR en lÝnea 1:
+ORA-00918: columna definida de forma ambigua
+
+
+SQL> select ctitulo "Título del lubro", cnombre "Descripción del tema" from tlibrotema a, tlibro b, ttema c where nlibroid=nlibroid;
+select ctitulo "Título del lubro", cnombre "Descripción del tema" from tlibrotema a, tlibro b, ttema c where nlibroid=nlibroid
+                                                                                                                        *
+ERROR en lÝnea 1:
+ORA-00918: columna definida de forma ambigua
+
+
+SQL> select ctitulo "Título del lubro", cnombre "Descripción del tema" from tlibrotema a, tlibro b, ttema c where b.nlibroid=a.nlibroid annd c.ntemaid=a.ntemaid;
+select ctitulo "Título del lubro", cnombre "Descripción del tema" from tlibrotema a, tlibro b, ttema c where b.nlibroid=a.nlibroid annd c.ntemaid=a.ntemaid
+                                                                                                                                     *
+ERROR en lÝnea 1:
+ORA-00933: comando SQL no terminado correctamente
+
+
+SQL> select ctitulo "Título del lubro", cnombre "Descripción del tema" from tlibrotema a, tlibro b, ttema c where b.nlibroid=a.nlibroid and c.ntemaid=a.ntemaid;
+
+ninguna fila seleccionada
+
+SQL> select * from tlibrotema;
+
+ninguna fila seleccionada
+
+SQL>  select * from tlibro where nLibroID in (select nLibroID from tlibrotema);
+
+ninguna fila seleccionada
+
+SQL> select * from tlibro where nlibroid in (select nlibroid from tlibrotema);
+
+ninguna fila seleccionada
+
+SQL> select * from tlibrp where nlibroid in (1,2,3);
+select * from tlibrp where nlibroid in (1,2,3)
+              *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> select * from tlibro where nlibroid in (1,2,3);
+
+ninguna fila seleccionada
+
+SQL> select * from tlibro where nlibroid in (1,1,2,2,3,3);
+
+ninguna fila seleccionada
+
+SQL>
+SQL>

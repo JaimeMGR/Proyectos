@@ -1,0 +1,711 @@
+PREGUNTA 1
+Correcta
+Se puntúa 1,0 sobre 1,0
+Marcar pregunta
+Enunciado de la pregunta
+Dado el siguiente fragmento de código XML:
+
+...
+    <Empleados>
+        <personal>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+            <nif nacionalidad="española">1234X</nif>
+            <telefono>958234421</telefono>
+        </personal>
+        <laboral dep="ADM">
+            <sueldo>1200</sueldo>
+            <plus fecha="2023-05-10">100</plus>
+            <plus fecha="2023-05-20">50</plus>
+            <irpf>5</irpf>
+...
+    <Empleados>
+        <personal>
+            <nif nacionalidad="italiana">8888</nif>
+            <nombre>Ana</nombre>
+            <apellidos>López</apellidos>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1500</sueldo>
+            <irpf>4.2</irpf>
+...
+        <Empleados>
+        <personal>
+            <nombre>Carmen</nombre>
+            <apellidos>Ruiz</apellidos>
+            <telefono>95898655</telefono>
+            <nif>3456G</nif>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1400</sueldo>
+            <irpf>2</irpf>
+...
+
+¿Cómo se completa el siguiente fragmento XSD?
+            <xs:element name="plus" type="tipoPlus" ...
+            <xs:element name="irpf" type="tipoIRPF" />
+        </xs:sequence>
+        <xs:attribute name = 'dep' type = 'tipoDep'/>
+   </xs:complexType>
+</xs:element>
+<xs:complexType name="tipoPlus">
+    <xs:simpleContent>
+        <xs:extension base="xs:string">
+            <xs:attribute name="fecha" type="xs:date" Respuesta
+use="required"
+/>
+        </xs:extension>
+    </xs:simpleContent>
+</xs:complexType>
+
+
+Retroalimentación
+La respuesta correcta es: use="required"
+PREGUNTA 2
+Correcta
+Se puntúa 1,0 sobre 1,0
+Marcar pregunta
+Enunciado de la pregunta
+Dado el siguiente fragmento de código XML:
+
+...
+    <Empleados>
+        <personal>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+            <nif nacionalidad="española">1234X</nif>
+            <telefono>958234421</telefono>
+        </personal>
+        <laboral dep="ADM">
+            <sueldo>1200</sueldo>
+            <plus fecha="2023-05-10">100</plus>
+            <plus fecha="2023-05-20">50</plus>
+            <irpf>5</irpf>
+...
+    <Empleados>
+        <personal>
+            <nif nacionalidad="italiana">8888</nif>
+            <nombre>Ana</nombre>
+            <apellidos>López</apellidos>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1500</sueldo>
+            <irpf>4.2</irpf>
+...
+        <Empleados>
+        <personal>
+            <nombre>Carmen</nombre>
+            <apellidos>Ruiz</apellidos>
+            <telefono>95898655</telefono>
+            <nif>3456G</nif>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1400</sueldo>
+            <irpf>2</irpf>
+...
+
+¿Cómo se completa el siguiente fragmento XSD?
+<xs:element name="personal">
+    <xs:complexType>
+        <xs:Respuesta
+all
+>
+            <xs:element name="nombre" type="xs:string"></xs:element>
+            <xs:element name="apellidos" type="xs:string"></xs:element>
+            <xs:element name="nif" type="tipoNacionalidad"></xs:element>
+
+
+Retroalimentación
+La respuesta correcta es: all
+PREGUNTA 3
+Correcta
+Se puntúa 1,0 sobre 1,0
+Marcar pregunta
+Enunciado de la pregunta
+Dado el siguiente fragmento de código XML:
+
+...
+    <Empleados>
+        <personal>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+            <nif nacionalidad="española">1234X</nif>
+            <telefono>958234421</telefono>
+        </personal>
+        <laboral dep="ADM">
+            <sueldo>1200</sueldo>
+            <plus fecha="2023-05-10">100</plus>
+            <plus fecha="2023-05-20">50</plus>
+            <irpf>5</irpf>
+...
+    <Empleados>
+        <personal>
+            <nif nacionalidad="italiana">8888</nif>
+            <nombre>Ana</nombre>
+            <apellidos>López</apellidos>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1500</sueldo>
+            <irpf>4.2</irpf>
+...
+        <Empleados>
+        <personal>
+            <nombre>Carmen</nombre>
+            <apellidos>Ruiz</apellidos>
+            <telefono>95898655</telefono>
+            <nif>3456G</nif>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1400</sueldo>
+            <irpf>2</irpf>
+...
+
+¿Cómo se completa el siguiente fragmento XSD?
+    <xs:Respuesta
+sequence
+>
+        <xs:element ref="personal"></xs:element>
+        <xs:element ref="laboral"></xs:element>
+
+
+Retroalimentación
+La respuesta correcta es: sequence
+PREGUNTA 4
+Correcta
+Se puntúa 1,0 sobre 1,0
+Marcar pregunta
+Enunciado de la pregunta
+Dado el siguiente fragmento de código XML:
+
+...
+    <Empleados>
+        <personal>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+            <nif nacionalidad="española">1234X</nif>
+            <telefono>958234421</telefono>
+        </personal>
+        <laboral dep="ADM">
+            <sueldo>1200</sueldo>
+            <plus fecha="2023-05-10">100</plus>
+            <plus fecha="2023-05-20">50</plus>
+            <irpf>5</irpf>
+...
+    <Empleados>
+        <personal>
+            <nif nacionalidad="italiana">8888</nif>
+            <nombre>Ana</nombre>
+            <apellidos>López</apellidos>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1500</sueldo>
+            <irpf>4.2</irpf>
+...
+        <Empleados>
+        <personal>
+            <nombre>Carmen</nombre>
+            <apellidos>Ruiz</apellidos>
+            <telefono>95898655</telefono>
+            <nif>3456G</nif>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1400</sueldo>
+            <irpf>2</irpf>
+...
+
+¿Cómo se completa el siguiente fragmento XSD?
+<xs:element name="plus" type="tipoPlus" Respuesta
+minOccurs="0" maxOccurs="unbounded"
+></xs:element>
+
+
+Retroalimentación
+La respuesta correcta es: minOccurs="0" maxOccurs="unbounded"
+PREGUNTA 5
+Correcta
+Se puntúa 1,0 sobre 1,0
+Marcar pregunta
+Enunciado de la pregunta
+Dado el siguiente fragmento de código XML:
+
+...
+    <Empleados>
+        <personal>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+            <nif nacionalidad="española">1234X</nif>
+            <telefono>958234421</telefono>
+        </personal>
+        <laboral dep="ADM">
+            <sueldo>1200</sueldo>
+            <plus fecha="2023-05-10">100</plus>
+            <plus fecha="2023-05-20">50</plus>
+            <irpf>5</irpf>
+...
+    <Empleados>
+        <personal>
+            <nif nacionalidad="italiana">8888</nif>
+            <nombre>Ana</nombre>
+            <apellidos>López</apellidos>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1500</sueldo>
+            <irpf>4.2</irpf>
+...
+        <Empleados>
+        <personal>
+            <nombre>Carmen</nombre>
+            <apellidos>Ruiz</apellidos>
+            <telefono>95898655</telefono>
+            <nif>3456G</nif>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1400</sueldo>
+            <irpf>2</irpf>
+...
+
+¿Cómo se completa el siguiente fragmento XSD?
+<xs:element name="telefono" type="xs:string" Respuesta
+minOccurs="0"
+></xs:element>
+
+
+Retroalimentación
+La respuesta correcta es: minOccurs="0"
+PREGUNTA 6
+Correcta
+Se puntúa 1,0 sobre 1,0
+Marcar pregunta
+Enunciado de la pregunta
+Dado el siguiente fragmento de código XML:
+
+...
+    <Empleados>
+        <personal>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+            <nif nacionalidad="española">1234X</nif>
+            <telefono>958234421</telefono>
+        </personal>
+        <laboral dep="ADM">
+            <sueldo>1200</sueldo>
+            <plus razon="23/05/09">100</plus>
+            <plus>50</plus>
+            <autonomo>5</autonomo>
+...
+    <Empleados>
+        <personal>
+            <nombre>Ana</nombre>
+            <apellidos>López</apellidos>
+            <nif nacionalidad="italiana">8888</nif>
+            <telefono>958233355</telefono>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1500</sueldo>
+            <irpf>4</irpf>
+...
+        <Empleados>
+        <personal>
+            <nombre>Carmen</nombre>
+            <apellidos>Ruiz</apellidos>
+            <nif nacionalidad="española">3456G</nif>
+            <telefono>95898655</telefono>
+            <telefono>95828855</telefono>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1400</sueldo>
+            <irpf>2</irpf>
+...
+
+¿Cómo se completa el siguiente fragmento DTD?
+...
+<!ATTLIST plus razon Respuesta
+CDATA
+ >
+
+
+Retroalimentación
+La respuesta correcta es: CDATA
+PREGUNTA 7
+Correcta
+Se puntúa 1,0 sobre 1,0
+Marcar pregunta
+Enunciado de la pregunta
+Dado el siguiente fragmento de código XML:
+
+...
+    <Empleados>
+        <personal>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+            <nif nacionalidad="española">1234X</nif>
+            <telefono>958234421</telefono>
+        </personal>
+        <laboral dep="ADM">
+            <sueldo>1200</sueldo>
+            <plus razon="23/05/09">100</plus>
+            <plus>50</plus>
+            <autonomo>5</autonomo>
+...
+    <Empleados>
+        <personal>
+            <nombre>Ana</nombre>
+            <apellidos>López</apellidos>
+            <nif nacionalidad="italiana">8888</nif>
+            <telefono>958233355</telefono>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1500</sueldo>
+            <irpf>4</irpf>
+...
+        <Empleados>
+        <personal>
+            <nombre>Carmen</nombre>
+            <apellidos>Ruiz</apellidos>
+            <nif nacionalidad="española">3456G</nif>
+            <telefono>95898655</telefono>
+            <telefono>95828855</telefono>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1400</sueldo>
+            <irpf>2</irpf>
+...
+
+¿Cómo se completa el siguiente fragmento DTD?
+...
+<!ELEMENT laboral (sueldo, plus Respuesta
+irpf
+,  ...)>
+
+
+Retroalimentación
+La respuesta correcta es:
+PREGUNTA 8
+Correcta
+Se puntúa 1,0 sobre 1,0
+Marcar pregunta
+Enunciado de la pregunta
+Dado el siguiente fragmento de código XML:
+
+...
+    <Empleados>
+        <personal>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+            <nif nacionalidad="española">1234X</nif>
+            <telefono>958234421</telefono>
+        </personal>
+        <laboral dep="ADM">
+            <sueldo>1200</sueldo>
+            <plus razon="23/05/09">100</plus>
+            <plus>50</plus>
+            <autonomo>5</autonomo>
+...
+    <Empleados>
+        <personal>
+            <nombre>Ana</nombre>
+            <apellidos>López</apellidos>
+            <nif nacionalidad="italiana">8888</nif>
+            <telefono>958233355</telefono>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1500</sueldo>
+            <irpf>4</irpf>
+...
+        <Empleados>
+        <personal>
+            <nombre>Carmen</nombre>
+            <apellidos>Ruiz</apellidos>
+            <nif nacionalidad="española">3456G</nif>
+            <telefono>95898655</telefono>
+            <telefono>95828855</telefono>
+        </personal>
+        <laboral dep="RRHH">
+            <sueldo>1400</sueldo>
+            <irpf>2</irpf>
+...
+
+¿Cómo se completa el siguiente fragmento DTD?
+...
+<!ATTLIST laboral dep Respuesta
+(ADM|IT|RRHH)
+ "IT">
+
+
+Retroalimentación
+La respuesta correcta es: (ADM|IT|RRHH)
+PREGUNTA 9
+Incorrecta
+Se puntúa 0,0 sobre 1,0
+Marcar pregunta
+Enunciado de la pregunta
+Dado el siguiente fragmento de código XML:
+
+...
+    <Empleados>
+        <personal>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+            <nif nacionalidad="española">1234X</nif>
+            <telefono>958234421</telefono>
+        </personal>
+        <laboral dep="ADM">
+            <sueldo>1200</sueldo>
+            <plus razon="23/05/09">100</plus>
+            <plus>50</plus>
+            <autonomo>5</autonomo>
+...
+    <Empleados>
+        <personal>
+            <nombre>Ana</nombre>
+            <apellidos>López</apellidos>
+            <nif nacionalidad="italiana">8888</nif>
+            <telefono>958233355</telefono>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1500</sueldo>
+            <irpf>4</irpf>
+...
+        <Empleados>
+        <personal>
+            <nombre>Carmen</nombre>
+            <apellidos>Ruiz</apellidos>
+            <nif nacionalidad="española">3456G</nif>
+            <telefono>95898655</telefono>
+            <telefono>95828855</telefono>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1400</sueldo>
+            <irpf>2</irpf>
+...
+
+¿Cómo se completa el siguiente fragmento DTD?
+...
+<!ELEMENT laboral (sueldo, plus*, Respuesta
+irpf
+)>
+
+
+Retroalimentación
+La respuesta correcta es: (irpf | autonomo)
+PREGUNTA 10
+Correcta
+Se puntúa 1,0 sobre 1,0
+Marcar pregunta
+Enunciado de la pregunta
+Dado el siguiente fragmento de código XML:
+
+...
+    <Empleados>
+        <personal>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+            <nif nacionalidad="española">1234X</nif>
+            <telefono>958234421</telefono>
+        </personal>
+        <laboral dep="ADM">
+            <sueldo>1200</sueldo>
+            <plus razon="23/05/09">100</plus>
+            <plus>50</plus>
+            <autonomo>5</autonomo>
+...
+    <Empleados>
+        <personal>
+            <nombre>Ana</nombre>
+            <apellidos>López</apellidos>
+            <nif nacionalidad="italiana">8888</nif>
+            <telefono>958233355</telefono>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1500</sueldo>
+            <irpf>4</irpf>
+...
+        <Empleados>
+        <personal>
+            <nombre>Carmen</nombre>
+            <apellidos>Ruiz</apellidos>
+            <nif nacionalidad="española">3456G</nif>
+            <telefono>95898655</telefono>
+            <telefono>95828855</telefono>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1400</sueldo>
+            <irpf>2</irpf>
+...
+
+¿Cómo se completa el siguiente fragmento DTD?
+...
+<!ELEMENT Empresa (Empleados)Respuesta
++
+>
+
+
+Retroalimentación
+La respuesta correcta es: +
+PREGUNTA 11
+Correcta
+Se puntúa 1,0 sobre 1,0
+Marcar pregunta
+Enunciado de la pregunta
+Dado el siguiente fragmento de código XML:
+
+...
+    <Empleados>
+        <personal>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+            <nif nacionalidad="española">1234X</nif>
+            <telefono>958234421</telefono>
+        </personal>
+        <laboral dep="ADM">
+            <sueldo>1200</sueldo>
+            <plus fecha="2023-05-10">100</plus>
+            <plus fecha="2023-05-20">50</plus>
+            <irpf>5</irpf>
+...
+    <Empleados>
+        <personal>
+            <nif nacionalidad="italiana">8888</nif>
+            <nombre>Ana</nombre>
+            <apellidos>López</apellidos>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1500</sueldo>
+            <irpf>4.2</irpf>
+...
+        <Empleados>
+        <personal>
+            <nombre>Carmen</nombre>
+            <apellidos>Ruiz</apellidos>
+            <telefono>95898655</telefono>
+            <nif>3456G</nif>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1400</sueldo>
+            <irpf>2</irpf>
+...
+
+¿Cómo se completa el siguiente fragmento XSD?
+...
+<xs:element name="irpf" type="tipoIRPF" />
+...
+<xs:simpleType name="tipoIRPF">
+        <xs:restriction Respuesta
+base="xs:float"
+>
+            <xs:minInclusive value="0.0" />
+            <xs:maxInclusive value="20.0" />
+        </xs:restriction>
+</xs:simpleType>
+
+
+Retroalimentación
+La respuesta correcta es: base="xs:float"
+PREGUNTA 12
+Correcta
+Se puntúa 1,0 sobre 1,0
+Marcar pregunta
+Enunciado de la pregunta
+Dado el siguiente fragmento de código XML:
+
+...
+    <Empleados>
+        <personal>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+            <nif nacionalidad="española">1234X</nif>
+            <telefono>958234421</telefono>
+        </personal>
+        <laboral dep="ADM">
+            <sueldo>1200</sueldo>
+            <plus razon="23/05/09">100</plus>
+            <plus>50</plus>
+            <autonomo>5</autonomo>
+...
+    <Empleados>
+        <personal>
+            <nombre>Ana</nombre>
+            <apellidos>López</apellidos>
+            <nif nacionalidad="italiana">8888</nif>
+            <telefono>958233355</telefono>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1500</sueldo>
+            <irpf>4</irpf>
+...
+        <Empleados>
+        <personal>
+            <nombre>Carmen</nombre>
+            <apellidos>Ruiz</apellidos>
+            <nif nacionalidad="española">3456G</nif>
+            <telefono>95898655</telefono>
+            <telefono>95828855</telefono>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1400</sueldo>
+            <irpf>2</irpf>
+...
+
+¿Cómo se completa el siguiente fragmento DTD?
+...
+<!ATTLIST nif nacionalidad CDATA Respuesta
+#REQUIRED
+ >
+
+
+Retroalimentación
+La respuesta correcta es: #REQUIRED
+PREGUNTA 13
+Correcta
+Se puntúa 1,0 sobre 1,0
+Marcar pregunta
+Enunciado de la pregunta
+Dado el siguiente fragmento de código XML:
+
+...
+    <Empleados>
+        <personal>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+            <nif nacionalidad="española">1234X</nif>
+            <telefono>958234421</telefono>
+        </personal>
+        <laboral dep="ADM">
+            <sueldo>1200</sueldo>
+            <plus razon="23/05/09">100</plus>
+            <plus>50</plus>
+            <autonomo>5</autonomo>
+...
+    <Empleados>
+        <personal>
+            <nombre>Ana</nombre>
+            <apellidos>López</apellidos>
+            <nif nacionalidad="italiana">8888</nif>
+            <telefono>958233355</telefono>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1500</sueldo>
+            <irpf>4</irpf>
+...
+        <Empleados>
+        <personal>
+            <nombre>Carmen</nombre>
+            <apellidos>Ruiz</apellidos>
+            <nif nacionalidad="española">3456G</nif>
+            <telefono>95898655</telefono>
+            <telefono>95828855</telefono>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1400</sueldo>
+            <irpf>2</irpf>
+...
+
+¿Cómo se completa el siguiente fragmento DTD?
+...
+<!ELEMENT personal (nombre, apellidos, nif, telefono Respuesta
++
+>
+
+
+Retroalimentación
+La respuesta correcta es: +

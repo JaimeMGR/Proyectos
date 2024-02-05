@@ -1,0 +1,880 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Vie Feb 10 12:48:05 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Introduzca el nombre de usuario: system/1234
+Hora de ┌ltima Conexi¾n Correcta: Vie Feb 10 2023 12:44:45 +01:00
+
+Conectado a:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> drop user C##pruebas cascade;
+
+Usuario borrado.
+
+SQL> create user c##pruebas identified by 1234;
+
+Usuario creado.
+
+SQL>
+SQL> grant all privileges to c##pruebas;
+
+Concesi¾n terminada correctamente.
+
+SQL> connect c##pruebas/1234;
+Conectado.
+SQL> create table tlibro (nlibroID numeric(5) primary key, ctitulo varchar2(40), nAnyoPublicacion numeric(4), neditorialID numeric(5));
+
+Tabla creada.
+
+SQL> create table TEditorial (nEditorialID numeric(5) primary key, cnombre varchar2(40), nPaisIDn numeric(4));
+
+Tabla creada.
+
+SQL> create table TPais (npaisid numeric(4) primary key, cnombre varchar2(30));
+
+Tabla creada.
+
+SQL> insert into teditorial values (1,'Alfaguara','');
+
+1 fila creada.
+
+SQL> insert into teditorial values (2,'Edelvives','');
+
+1 fila creada.
+
+SQL> insert into teditorial values (3,'Planeta','');
+
+1 fila creada.
+
+SQL> insert into teditorial values (4,'Santillana','');
+
+1 fila creada.
+
+SQL> insert into teditorial values (5,'El barco de Alejandro','');
+
+1 fila creada.
+
+SQL>  insert into tlibro values (1','Fray Perico y su burrico','');
+ERROR:
+ORA-01756: la cadena entrecomillada no estß terminada correctamente
+
+
+SQL> insert into tlibro values (1','Fray Perico y su burrico','');
+ERROR:
+ORA-01756: la cadena entrecomillada no estß terminada correctamente
+
+
+SQL> insert into tlibro values (1,'Fray Perico y su burrico','1940',1);
+
+1 fila creada.
+
+SQL> insert into tlibro values (2,'El señor de los marranillos','1965',2);
+
+1 fila creada.
+
+SQL> insert into tlibro values (3,'Harry Pajoter 1','1980',3);
+
+1 fila creada.
+
+SQL> insert into tlibro values (4,'Kamasutra','1351',4);
+
+1 fila creada.
+
+SQL> insert into tlibro values (5,'Lo que el viento no se pudo llevar','1923',5);
+
+1 fila creada.
+
+SQL> create table temp as select * from tlibro;
+
+Tabla creada.
+
+SQL> insert into temp (select 11,'11',11,11 from tlibro);
+
+5 filas creadas.
+
+SQL> commit;
+
+Confirmaci¾n terminada.
+
+SQL> create table tejemplar (csignatura char(9), nlibroid numeric(5));
+
+Tabla creada.
+
+SQL> create table tprestamo(cignatura char(9), cnif char(10), dprestamo date);
+
+Tabla creada.
+
+SQL>  insert into tejemplar values('123456789', 1);
+
+1 fila creada.
+
+SQL> insert into tejemplar values('123456780', 2);
+
+1 fila creada.
+
+SQL> insert into tejemplar values('123456781', 3);
+
+1 fila creada.
+
+SQL> insert into tejemplar values('123456782', 4);
+
+1 fila creada.
+
+SQL> create table ttema (ntemaid numeric(3), cnombre varchar2(20));
+
+Tabla creada.
+
+SQL> create table tlibrotema (nlibroid numeric(5), ntemaid numeric(3));
+
+Tabla creada.
+
+SQL> insert into ttema values (1, 'Historia');
+
+1 fila creada.
+
+SQL> insert into ttema values (2, 'Biografía');
+
+1 fila creada.
+
+SQL>  insert into ttema values (3, 'Matemáticas');
+
+1 fila creada.
+
+SQL>  insert into ttema values (4, 'Lengua');
+
+1 fila creada.
+
+SQL> insert into ttema values (5, 'Física');
+
+1 fila creada.
+
+SQL> insert into tlibrotema values(1, 1);
+
+1 fila creada.
+
+SQL>  insert into tlibrotema values(1, 2); 
+  2
+SQL>  insert into tlibrotema values(1, 2);
+
+1 fila creada.
+
+SQL>  insert into tlibrotema values(2, 1);
+
+1 fila creada.
+
+SQL>  insert into tlibrotema values(2, 3);
+
+1 fila creada.
+
+SQL>  insert into tlibrotema values(3, 2);
+
+1 fila creada.
+
+SQL>  insert into tlibrotema values(3, 4);
+
+1 fila creada.
+
+SQL> insert into tlibrotema values(4, 3);
+
+1 fila creada.
+
+SQL> insert into tlibrotema values(4, 4); 
+  2
+SQL> insert into tlibrotema values(4, 4);
+
+1 fila creada.
+
+SQL> commit;
+
+Confirmaci¾n terminada.
+
+SQL> desc tprestamo;
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ CIGNATURA                                          CHAR(9)
+ CNIF                                               CHAR(10)
+ DPRESTAMO                                          DATE
+
+SQL>  insert into tejemplar values('123456789', 1)select * from tprestamo;
+ insert into tejemplar values('123456789', 1)select * from tprestamo
+                                             *
+ERROR en lÝnea 1:
+ORA-00933: comando SQL no terminado correctamente
+
+
+SQL> select * from tprestamo;
+
+ninguna fila seleccionada
+
+SQL> insert into tprestamo values('123456789','12345678H','30/03/1990');
+
+1 fila creada.
+
+SQL> insert into tprestamo values('123456789','43434343H','30/03/1991');
+
+1 fila creada.
+
+SQL> insert into tprestamo values('123456789','12121212H','30/03/1995');
+
+1 fila creada.
+
+SQL> insert into tprestamo values('123456789','435543534H','30/03/1996');
+
+1 fila creada.
+
+SQL> insert into tprestamo values('123456789','48963782H','30/03/2127');
+
+1 fila creada.
+
+SQL> select * from tprestamo;
+
+CIGNATURA CNIF       DPRESTAM
+--------- ---------- --------
+123456789 12345678H  30/03/90
+123456789 43434343H  30/03/91
+123456789 12121212H  30/03/95
+123456789 435543534H 30/03/96
+123456789 48963782H  30/03/27
+
+SQL> set linesize 120;
+SQL> select * from tprestamo;
+
+CIGNATURA CNIF       DPRESTAM
+--------- ---------- --------
+123456789 12345678H  30/03/90
+123456789 43434343H  30/03/91
+123456789 12121212H  30/03/95
+123456789 435543534H 30/03/96
+123456789 48963782H  30/03/27
+
+SQL> select csignatura from tprestamo;
+select csignatura from tprestamo
+       *
+ERROR en lÝnea 1:
+ORA-00904: "CSIGNATURA": identificador no vßlido
+
+
+SQL> select cignatura from tprestamo;
+
+CIGNATURA
+---------
+123456789
+123456789
+123456789
+123456789
+123456789
+
+SQL> select distinct cignatura from tprestamo;
+
+CIGNATURA
+---------
+123456789
+
+SQL> insert into tprestamo values('123451289','438353534H','30/10/1996');
+
+1 fila creada.
+
+SQL> select distinct cignatura from tprestamo;
+
+CIGNATURA
+---------
+123456789
+123451289
+
+SQL> select nlibroid from tejemplar where tejemplar.cignatura not in (select distinct tprestamo.cignatura from tprestamo);
+select nlibroid from tejemplar where tejemplar.cignatura not in (select distinct tprestamo.cignatura from tprestamo)
+                                     *
+ERROR en lÝnea 1:
+ORA-00904: "TEJEMPLAR"."CIGNATURA": identificador no vßlido
+
+
+SQL> select ctitulo from tejemplar, tlibro where tejemplar.cignatura not in (select distinct tprestamo.cignatura from tprestamo) and tlibro.nlibroid = tejemplar.nlibroid;
+select ctitulo from tejemplar, tlibro where tejemplar.cignatura not in (select distinct tprestamo.cignatura from tprestamo) and tlibro.nlibroid = tejemplar.nlibroid
+                                            *
+ERROR en lÝnea 1:
+ORA-00904: "TEJEMPLAR"."CIGNATURA": identificador no vßlido
+
+
+SQL> select ctitulo from tejemplar, tlibro where tejemplar.cignatura not in (select distinct tprestamo.cignatura from tprestamo) and tlibro.nlibroid = tejemplar.nlibroid;
+select ctitulo from tejemplar, tlibro where tejemplar.cignatura not in (select distinct tprestamo.cignatura from tprestamo) and tlibro.nlibroid = tejemplar.nlibroid
+                                            *
+ERROR en lÝnea 1:
+ORA-00904: "TEJEMPLAR"."CIGNATURA": identificador no vßlido
+
+
+SQL> select ctitulo from tejemplar, tlibro where tejemplar.csignatura not in (select distinct tprestamo.cignatura from tprestamo) and tlibro.nlibroid = tejemplar.nlibroid;
+
+CTITULO
+----------------------------------------
+Harry Pajoter 1
+El señor de los marranillos
+Kamasutra
+
+SQL> select tlibro.ctitulo from tejemplar, tlibro where tejemplar.csignatura not in (select distinct tprestamo.cignatura from tprestamo) and tlibro.nlibroid = tejemplar.nlibroid;
+
+CTITULO
+----------------------------------------
+Harry Pajoter 1
+El señor de los marranillos
+Kamasutra
+
+SQL> select tlibro.ctitulo from tejemplar, tlibro where tejemplar.csignatura not in (select distinct tprest              select tlibro.ctitulo from tejemplar, tlibro where tejemplar.csignatura not in (select distinct tprestamo.cignatura from tprestamo) and tlibro.nlibroid = tejemplar.nlibroid;  distinct tprestamo.cignatura from tprestamo) and tlibro.nlibroid = tejemplar.nlibroid;
+CTITULO
+----------------------------------------
+Harry Pajoter 1
+El señor de los marranillos
+Kamasutra
+
+SQL> select tlibro.ctitulo from tejemplar, tlibro where tejemplar.csignatura not in (select distinct tprestamo.cignatura from tprestamo) and tlibro.nlibroid = tejemplar.nlibroid;
+
+CTITULO
+----------------------------------------
+Harry Pajoter 1
+El señor de los marranillos
+Kamasutra
+
+SQL> select * from tejemplar
+  2  ;
+
+CSIGNATUR   NLIBROID
+--------- ----------
+123456789          1
+123456780          2
+123456781          3
+123456782          4
+
+SQL>  insert into tejemplar values('123456783', 5);
+
+1 fila creada.
+
+SQL> select * from tejemplar
+  2  ;
+
+CSIGNATUR   NLIBROID
+--------- ----------
+123456789          1
+123456780          2
+123456781          3
+123456782          4
+123456783          5
+
+SQL> select * from tejemplar;
+
+CSIGNATUR   NLIBROID
+--------- ----------
+123456789          1
+123456780          2
+123456781          3
+123456782          4
+123456783          5
+
+SQL> select tlibro.ctitulo from tejemplar, tlibro where tejemplar.csignatura not in (select distinct tprestamo.cignatura from tprestamo) and tlibro.nlibroid = tejemplar.nlibroid;
+
+CTITULO
+----------------------------------------
+Lo que el viento no se pudo llevar
+Harry Pajoter 1
+El señor de los marranillos
+Kamasutra
+
+SQL> select * from tlibro;
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION NEDITORIALID
+---------- ---------------------------------------- ---------------- ------------
+         1 Fray Perico y su burrico                             1940            1
+         2 El señor de los marranillos                          1965            2
+         3 Harry Pajoter 1                                      1980            3
+         4 Kamasutra                                            1351            4
+         5 Lo que el viento no se pudo llevar                   1923            5
+
+SQL> count (select * from tlibro);
+SP2-0734: inicio "count (sel..." de comando desconocido - resto de la lÝnea ignorado.
+SQL> select count ctitulo from tlibro;
+select count ctitulo from tlibro
+       *
+ERROR en lÝnea 1:
+ORA-00904: "COUNT": identificador no vßlido
+
+
+SQL> select count(*) ctitulo from tlibro;
+
+   CTITULO
+----------
+         5
+
+SQL> select count(*) ctitulo from tlibro where ctitulo.teditorial;
+select count(*) ctitulo from tlibro where ctitulo.teditorial
+                                                           *
+ERROR en lÝnea 1:
+ORA-00920: operador relacional no vßlido
+
+
+SQL> count (select * from tejemplar);
+SP2-0734: inicio "count (sel..." de comando desconocido - resto de la lÝnea ignorado.
+SQL> select count(*) ctitulo from tejemplar;
+
+   CTITULO
+----------
+         5
+
+SQL> select count(*) ctitulo from tlibros;
+select count(*) ctitulo from tlibros
+                             *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> select count(*) ctitulo from tlibro;
+
+   CTITULO
+----------
+         5
+
+SQL> select count(*) ctitulo from tlibro group by neditorialid;
+
+   CTITULO
+----------
+         1
+         1
+         1
+         1
+         1
+
+SQL> select count(*) neditorialid from tlibro group by neditorialid;
+
+NEDITORIALID
+------------
+           1
+           1
+           1
+           1
+           1
+
+SQL> select count(*) ,neditorialid from tlibro group by neditorialid;
+
+  COUNT(*) NEDITORIALID
+---------- ------------
+         1            1
+         1            2
+         1            3
+         1            4
+         1            5
+
+SQL> select count(*) ,ctitulo from tlibro group by neditorialid;
+select count(*) ,ctitulo from tlibro group by neditorialid
+                 *
+ERROR en lÝnea 1:
+ORA-00979: no es una expresi¾n GROUP BY
+
+
+SQL> select count(*) ,neditorialid from tlibro group by neditorialid;
+
+  COUNT(*) NEDITORIALID
+---------- ------------
+         1            1
+         1            2
+         1            3
+         1            4
+         1            5
+
+SQL> select count(*) ,teditorial.cnombre from tlibro group by neditorialid;
+select count(*) ,teditorial.cnombre from tlibro group by neditorialid
+                 *
+ERROR en lÝnea 1:
+ORA-00904: "TEDITORIAL"."CNOMBRE": identificador no vßlido
+
+
+SQL> select count(*) ,teditorial.cnombre from tlibro, teditorial where teditorial.nlibroid = tlibro.nlibroid group by neditorialid;
+select count(*) ,teditorial.cnombre from tlibro, teditorial where teditorial.nlibroid = tlibro.nlibroid group by neditorialid
+
+           *
+ERROR en lÝnea 1:
+ORA-00918: columna definida de forma ambigua
+
+
+SQL> select count(*) ,teditorial.cnombre from tlibro, teditorial where teditorial.nlibroid = tlibro.nlibroid group by tlibro.neditorialid;
+select count(*) ,teditorial.cnombre from tlibro, teditorial where teditorial.nlibroid = tlibro.nlibroid group by tlibro.neditorialid
+                                                                  *
+ERROR en lÝnea 1:
+ORA-00904: "TEDITORIAL"."NLIBROID": identificador no vßlido
+
+
+SQL> select count(*) ,teditorial.cnombre from tlibro, teditorial where teditorial.neditorialid = tlibro.nlibroid group by tlibro.neditorialid;
+select count(*) ,teditorial.cnombre from tlibro, teditorial where teditorial.neditorialid = tlibro.nlibroid group by tlibro.neditorialid
+                 *
+ERROR en lÝnea 1:
+ORA-00979: no es una expresi¾n GROUP BY
+
+
+SQL> select count(*) ,teditorial.cnombre from tlibro, teditorial where teditoria.neditorialid = tlibro.nlibroid group by tlibro.neditorialid;
+select count(*) ,teditorial.cnombre from tlibro, teditorial where teditoria.neditorialid = tlibro.nlibroid group by tlibro.neditorialid
+                                                                  *
+ERROR en lÝnea 1:
+ORA-00904: "TEDITORIA"."NEDITORIALID": identificador no vßlido
+
+
+SQL> select count(*) ,teditorial.cnombre from tlibro, teditorial where teditorial.neditorialid = tlibro.nlibroid group by tlibro.neditorialid;
+select count(*) ,teditorial.cnombre from tlibro, teditorial where teditorial.neditorialid = tlibro.nlibroid group by tlibro.neditorialid
+                 *
+ERROR en lÝnea 1:
+ORA-00979: no es una expresi¾n GROUP BY
+
+
+SQL> select count(*) ,teditorial.cnombre from tlibro, teditorial where teditorial.neditorialid = tlibro.nlibroid group by tlibro.neditorialid;
+select count(*) ,teditorial.cnombre from tlibro, teditorial where teditorial.neditorialid = tlibro.nlibroid group by tlibro.neditorialid
+                 *
+ERROR en lÝnea 1:
+ORA-00979: no es una expresi¾n GROUP BY
+
+
+SQL> select count(*) ,teditorial.cnombre from tlibro, teditorial where teditorial.neditorialid = tlibro.nlibroid group by tlibro.neditorialid;
+select count(*) ,teditorial.cnombre from tlibro, teditorial where teditorial.neditorialid = tlibro.nlibroid group by tlibro.neditorialid
+                 *
+ERROR en lÝnea 1:
+ORA-00979: no es una expresi¾n GROUP BY
+
+
+SQL> select count(*) ,teditorial.cnombre from tlibro, teditorial where teditorial.neditorialid = tlibro.nlibroid group by teditorial.cnombre;
+
+  COUNT(*) CNOMBRE
+---------- ----------------------------------------
+         1 Alfaguara
+         1 Edelvives
+         1 Planeta
+         1 Santillana
+         1 El barco de Alejandro
+
+SQL> select count(*) as "Numero de libros" ,teditorial.cnombre as "Título de libros"from tlibro, teditorial where teditorial.neditorialid = tlibro.nlibroid group by teditorial.cnombre;
+
+Numero de libros Título de libros
+---------------- ----------------------------------------
+               1 Alfaguara
+               1 Edelvives
+               1 Planeta
+               1 Santillana
+               1 El barco de Alejandro
+
+SQL> select count(*) as "Numero de libros" ,teditorial.cnombre as "Editorial de libros"from tlibro, teditorial where teditorial.neditorialid = tlibro.nlibroid group by teditorial.cnombre;
+
+Numero de libros Editorial de libros
+---------------- ----------------------------------------
+               1 Alfaguara
+               1 Edelvives
+               1 Planeta
+               1 Santillana
+               1 El barco de Alejandro
+
+SQL>
+SQL> select * from tsocio;
+select * from tsocio
+              *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> select * from tsocios;
+select * from tsocios
+              *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> select * from tsocio;
+select * from tsocio
+              *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> select * from tsocio;
+select * from tsocio
+              *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> create table tsocio (cnif char(9), cnombre varchar2(20), capellidos varchar2(30), cdireccion varchar2(40), ctelefono char(9), dnacimiento date, dalta date);
+
+Tabla creada.
+
+SQL> select cnif from tprestamo;
+
+CNIF
+----------
+12345678H
+43434343H
+12121212H
+435543534H
+48963782H
+438353534H
+
+6 filas seleccionadas.
+
+SQL> select count(*) from tprestamo where tprestamo.dfecha;
+select count(*) from tprestamo where tprestamo.dfecha
+                                                    *
+ERROR en lÝnea 1:
+ORA-00920: operador relacional no vßlido
+
+
+SQL> select count(*) from tprestamo where tprestamo.dprestamo;
+select count(*) from tprestamo where tprestamo.dprestamo
+                                                       *
+ERROR en lÝnea 1:
+ORA-00920: operador relacional no vßlido
+
+
+SQL> select count(*) from tprestamo where tprestamo.dprestamo > '31/12/2012' and tprestamo.dprestamo < '01/01/2014';
+
+  COUNT(*)
+----------
+         0
+
+SQL> select count(*) from tprestamo where year(tprestamo.dprestamo) = 2013;
+select count(*) from tprestamo where year(tprestamo.dprestamo) = 2013
+                                     *
+ERROR en lÝnea 1:
+ORA-00904: "YEAR": identificador no vßlido
+
+
+SQL> select count(*) from tprestamo where substr(tochar(tprestamo.dprestamo),6,4) = 2013;
+select count(*) from tprestamo where substr(tochar(tprestamo.dprestamo),6,4) = 2013
+                                            *
+ERROR en lÝnea 1:
+ORA-00904: "TOCHAR": identificador no vßlido
+
+
+SQL> select count(*) from tprestamo where substr(tochar(tprestamo.dprestamo),6,4) = '2013';
+select count(*) from tprestamo where substr(tochar(tprestamo.dprestamo),6,4) = '2013'
+                                            *
+ERROR en lÝnea 1:
+ORA-00904: "TOCHAR": identificador no vßlido
+
+
+SQL> select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo),6,4) = '2013';
+
+  COUNT(*)
+----------
+         0
+
+SQL> select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo),6,4) = '1995';
+
+  COUNT(*)
+----------
+         0
+
+SQL> select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo),6,4) = '1996';
+
+  COUNT(*)
+----------
+         0
+
+SQL> select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo),6,4) = '2014';
+
+  COUNT(*)
+----------
+         0
+
+SQL> select count(*) from tprestamo where tprestamo.dprestamo > '31/12/2012' and tprestamo.dprestamo < '01/01/2014';
+
+  COUNT(*)
+----------
+         0
+
+SQL> select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),6,4) = '2013';
+
+  COUNT(*)
+----------
+         0
+
+SQL> select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),6,4) = '2013';
+
+  COUNT(*)
+----------
+         0
+
+SQL> select substr(to_char(dprestamo),6,4);
+select substr(to_char(dprestamo),6,4)
+                                    *
+ERROR en lÝnea 1:
+ORA-00923: palabra clave FROM no encontrada donde se esperaba
+
+
+SQL> select substr(to_char(dprestamo),6,4) from tprestamo;;
+select substr(to_char(dprestamo),6,4) from tprestamo;
+                                                    *
+ERROR en lÝnea 1:
+ORA-00933: comando SQL no terminado correctamente
+
+
+SQL> select substr(to_char(dprestamo),6,4) from tprestamo;
+
+SUBSTR(TO_CH
+------------
+/90
+/91
+/95
+/96
+/27
+/96
+
+6 filas seleccionadas.
+
+SQL> select substr(to_char(dprestamo),7,4) from tprestamo;
+
+SUBSTR(T
+--------
+90
+91
+95
+96
+27
+96
+
+6 filas seleccionadas.
+
+SQL> select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '2013';
+
+  COUNT(*)
+----------
+         0
+
+SQL> select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1995';
+
+  COUNT(*)
+----------
+         1
+
+SQL> select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1994';
+
+  COUNT(*)
+----------
+         0
+
+SQL> select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1996';
+
+  COUNT(*)
+----------
+         2
+
+SQL> insert into tprestamo values ('123456780','12345678H','31/05/199');
+
+1 fila creada.
+
+SQL> select count(distinct cnif) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy')
+,7,4) = '1990');
+select count(distinct cnif) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990')
+
+         *
+ERROR en lÝnea 1:
+ORA-00933: comando SQL no terminado correctamente
+
+
+SQL> select count(distinct cnif) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990');
+select count(distinct cnif) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990')
+
+         *
+ERROR en lÝnea 1:
+ORA-00933: comando SQL no terminado correctamente
+
+
+SQL> select count(distinct cnif) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990');
+select count(distinct cnif) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990')
+
+         *
+ERROR en lÝnea 1:
+ORA-00933: comando SQL no terminado correctamente
+
+
+SQL> select count(distinct cnif) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990';
+
+COUNT(DISTINCTCNIF)
+-------------------
+                  1
+
+SQL> select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990';
+
+  COUNT(*)
+----------
+         1
+
+SQL> select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990' and tsocio.cnif = tprestamo.cnif;;
+select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990' and tsocio.cnif = tprestamo.cnif;
+
+                              *
+ERROR en lÝnea 1:
+ORA-00933: comando SQL no terminado correctamente
+
+
+SQL> select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990' and tsocio.cnif = tprestamo.cnif;
+select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990' and tsocio.cnif = tprestamo.cnif
+
+  *
+ERROR en lÝnea 1:
+ORA-00904: "TSOCIO"."CNIF": identificador no vßlido
+
+
+SQL> select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990' and tsocio.cnif = tprestamo.cnif;
+select count(*) from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990' and tsocio.cnif = tprestamo.cnif
+
+  *
+ERROR en lÝnea 1:
+ORA-00904: "TSOCIO"."CNIF": identificador no vßlido
+
+
+SQL> select count(*) from tsocio where tsocio.cnif in (select cnif from tprestamo) where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990' and tsocio.cnif = tprestamo.cnif;
+select count(*) from tsocio where tsocio.cnif in (select cnif from tprestamo) where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990' and tsocio.cnif = tprestamo.cnif
+                                                                              *
+ERROR en lÝnea 1:
+ORA-00933: comando SQL no terminado correctamente
+
+
+SQL> select count(*) from tsocio where tsocio.cnif in (select cnif from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990');
+
+  COUNT(*)
+----------
+         0
+
+SQL> select count(*) from tsocio where tsocio.cnif in (select cnif from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1995');
+
+  COUNT(*)
+----------
+         0
+
+SQL> select count(*) from tsocio where tsocio.cnif in (select cnif from tprestamo where substr(to_char(tprestamo.dprestamo,'dd/mm/yyyy'),7,4) = '1990');
+
+  COUNT(*)
+----------
+         0
+
+SQL> select * from tprestamo;
+
+CIGNATURA CNIF       DPRESTAM
+--------- ---------- --------
+123456789 12345678H  30/03/90
+123456789 43434343H  30/03/91
+123456789 12121212H  30/03/95
+123456789 435543534H 30/03/96
+123456789 48963782H  30/03/27
+123451289 438353534H 30/10/96
+123456780 12345678H  31/05/99
+
+7 filas seleccionadas.
+
+SQL> select count(*) from tsocio where tsocio.cnif in (select cnif from tprestamo where substr(to_char(dprestamo,'dd/mm/yyyy'),7,4) = '1990');
+
+  COUNT(*)
+----------
+         0
+
+SQL> select count(*) from tsocio where tsocio.cnif in (select cnif from tprestamo where substr(to_char(dprestamo,'dd/mm/yyyy'),7,4) = '1990');
+
+  COUNT(*)
+----------
+         0
+
+SQL>

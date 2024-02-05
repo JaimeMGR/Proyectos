@@ -1,0 +1,5 @@
+ORG 2000h
+MOV AX, 10h
+MOV DX, 30h
+ADD AX, DX
+END

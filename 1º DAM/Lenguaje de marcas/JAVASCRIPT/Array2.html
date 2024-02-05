@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var lista = [12, 5, 80, 24];
+        
+        var listaNueva = lista.every((valor) =>{
+            if (valor <=100) {
+                return true;
+            }
+            else return false;
+            
+        });
+        document.write(lista);
+        document.write("<br>");
+        document.write(lista);
+
+        var frutas = ["pera", "Manzana", "piña", "plátano", "kiwi"];
+        document.write("<br>");
+        //operador flechas
+        var frutas2 = lista.filter((frutas) => {
+            if (frutas.charAt(0).toLowerCase()!="m") {
+                return true;
+            else  return false;
+        });
+        document.write(frutas2);
+        
+        var edades = [12, 5, 80, 34];
+ 
+        var valido = edades.every((valor)=> {
+            return valor <18;          
+        });
+ 
+        if (valido) document.write("Todos son menores de edad");
+        else document.write("Hay algún mayor camuflado");
+        
+    </script>
+</body>
+</html>

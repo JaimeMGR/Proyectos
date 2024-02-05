@@ -1,0 +1,6 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<usuario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="usuarios2.xsd">
+  <nombre>Francisco J. García</nombre>
+  <email>user2@ibrolm.com</email>
+  <fechaNac>2018-10-25</fechaNac>
+</usuario>

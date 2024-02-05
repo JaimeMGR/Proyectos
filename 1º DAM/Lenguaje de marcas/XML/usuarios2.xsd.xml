@@ -1,0 +1,5 @@
+<usuario>
+  <nombre>string</nombre>
+  <email>string</email>
+  <fechaNac>2008-09-29</fechaNac>
+</usuario>

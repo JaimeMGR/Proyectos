@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function irADatos() {
+            var id = document.getElementById("nombre");
+            console.log(id.value);
+            location.href = "datos.html?id="
+            + id.value;
+            
+        }
+
+        function irAQuienes() {
+            var id = document.getElementById("nombre");
+            console.log(id.value);
+            location.href = "quienes.html?id="
+            + id.value;
+            
+        }
+    </script>
+    <style>
+        #ira {
+            color: green;
+            font-weight: bold;
+        }
+
+        #ira:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Inicio</h1>
+        <p> Estamos probando una página con Selenium</p>
+        <p>
+            <form name="frm1" method="">
+                <input type="text" id="nombre">
+                <button type="button" onclick="irADatos()">Enviar</button>
+            </form>
+
+            <span id="ira" onclick="irAQuienes()">Ir a a quienes somos<span>
+        </p>
+    </main>
+</body>
+</html>

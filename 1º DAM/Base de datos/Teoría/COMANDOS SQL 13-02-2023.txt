@@ -1,0 +1,2018 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Lun Feb 13 09:41:05 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Introduzca el nombre de usuario: c##pruebas/1234
+Hora de ┌ltima Conexi¾n Correcta: Lun Feb 13 2023 08:13:37 +01:00
+
+Conectado a:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> select count(*) from tprestamo where cnif='12345678H' and nanyopublicacion=2014;
+select count(*) from tprestamo where cnif='12345678H' and nanyopublicacion=2014
+                                                          *
+ERROR en lÝnea 1:
+ORA-00904: "NANYOPUBLICACION": identificador no vßlido
+
+
+SQL> select count(*) from tprestamo where cnif='12345678H' and nanyopublicacion = 2014;
+select count(*) from tprestamo where cnif='12345678H' and nanyopublicacion = 2014
+                                                          *
+ERROR en lÝnea 1:
+ORA-00904: "NANYOPUBLICACION": identificador no vßlido
+
+
+SQL> select count(*) from tprestamo where cnif='12345678H' and dprestamo between '01/01/2014' and '31/12/2014';
+
+  COUNT(*)
+----------
+         0
+
+SQL> select count(*) from tprestamo where cnif='12345678H' and dprestamo between '01/01/1990' and '31/12/1990' group by dprestamo;
+
+  COUNT(*)
+----------
+         1
+
+SQL> select count(*) from tprestamo where cnif='12345678H' and dprestamo between '01/01/1990' and '31/12/1990' group by dprestamo having cnif=12345678H;
+select count(*) from tprestamo where cnif='12345678H' and dprestamo between '01/01/1990' and '31/12/1990' group by dprestamo having cnif=12345678H
+                                           *
+ERROR en lÝnea 1:
+ORA-00933: comando SQL no terminado correctamente
+
+
+SQL> select count(*) from tprestamo where cnif='12345678H' group by dprestamo having dprestamo between '01/01/1990' and '31/12/1990';
+
+  COUNT(*)
+----------
+         1
+
+SQL> select count(*) from tprestamo where cnif='12345678H' and dprestamo between '01/01/1990' and '31/12/1990' group by dprestamo having count(+) >=3;
+select count(*) from tprestamo where cnif='12345678H' and dprestamo between '01/01/1990' and '31/12/1990' group by dprestamo having count(+) >=3
+
+                              *
+ERROR en lÝnea 1:
+ORA-00904: "COUNT": identificador no vßlido
+
+
+SQL> select count(*) from tprestamo where cnif='12345678H' and dprestamo between '01/01/1990' and '31/12/1990' group by dprestamo having count(*) >=3;
+
+ninguna fila seleccionada
+
+SQL> select * from tsocios order by dalta, capellidos, cnombre;
+select * from tsocios order by dalta, capellidos, cnombre
+              *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> select * from tsocio order by dalta, capellidos, cnombre;
+
+ninguna fila seleccionada
+
+SQL> select * from tsocio order by dnacimiento, dalta, capellidos, cnombre;
+
+ninguna fila seleccionada
+
+SQL> select * from tsocio order by dnacimiento, capellidos, cnombre;
+
+ninguna fila seleccionada
+
+SQL> select * from tsocio order by dnacimiento desc, capellidos, cnombre;
+
+ninguna fila seleccionada
+
+SQL> select * from tsocio order by dnacimiento desc, capellidos, cnombre;
+
+ninguna fila seleccionada
+
+SQL> select ctitulo from tlibro where neditorialid = 32;
+
+ninguna fila seleccionada
+
+SQL> select ctitulo from tlibro, ttema where neditorialid = 32;
+
+ninguna fila seleccionada
+
+SQL> select ctitulo from tlibro, tlibrotema where neditorialid = 32;
+
+ninguna fila seleccionada
+
+SQL> select ctitulo from tlibro, tlibrotema, ttema where tlibro.neditorialid = 32 and tlibro.nlibroid= tlibrotema.nlubroid and ttema.ntemaid = tlibrotema;
+select ctitulo from tlibro, tlibrotema, ttema where tlibro.neditorialid = 32 and tlibro.nlibroid = tlibrotema.nlubroid and ttema.ntemaid = tlibrotema
+
+                                     *
+ERROR en lÝnea 1:
+ORA-00904: "TLIBROTEMA": identificador no vßlido
+
+
+SQL> select ctitulo from tlibro, tlibrotema, ttema where tlibro.neditorialid = 32 and tlibro.nlibroid= tlibrotema.nlubroid and ttema.ntemaid = tlibrotema.ntemaid;
+select ctitulo from tlibro, tlibrotema, ttema where tlibro.neditorialid = 32 and tlibro.nlibroid = tlibrotema.nlubroid and ttema.ntemaid = tlibrotema.ntemaid
+                                                                                                   *
+ERROR en lÝnea 1:
+ORA-00904: "TLIBROTEMA"."NLUBROID": identificador no vßlido
+
+
+SQL> select ctitulo from tlibro, tlibrotema, ttema where tlibro.neditorialid = 32 and tlibro.nlibroid= tlibrotema.nlubroid and ttema.ntemaid = tlibrotema.ntemaid;
+select ctitulo from tlibro, tlibrotema, ttema where tlibro.neditorialid = 32 and tlibro.nlibroid = tlibrotema.nlubroid and ttema.ntemaid = tlibrotema.ntemaid
+                                                                                                   *
+ERROR en lÝnea 1:
+ORA-00904: "TLIBROTEMA"."NLUBROID": identificador no vßlido
+
+
+SQL> select ctitulo from tlibro, tlibrotema, ttema where tlibro.neditorialid = 32 and tlibro.nlibroid= tlibrotema.nlubroid and ttema.ntemaid = tlibrotema.ntemaid
+  2
+SQL> select tlibro.ctitulo, ttema.cnombre from tlibro, tlibrotema, ttema where neditorialid = 32 and t
+libro.nlibroid = tlibrotema.nlibroid and ttema.ntemaid = tlibrotemaid;
+select tlibro.ctitulo, ttema.cnombre from tlibro, tlibrotema, ttema where neditorialid = 32 and tlibro.nlibroid = tlibrotema.nlibroid and ttema.ntemaid = tlibrotemaid
+
+                                                    *
+ERROR en lÝnea 1:
+ORA-00904: "TLIBROTEMAID": identificador no vßlido
+
+
+SQL> select tlibro.ctitulo, ttema.cnombre from tlibro, tlibrotema, ttema where neditorialid = 32 and tlibrotema.nlibroid = tlibro.nlibroid and ttema.ntemaid = tlibrotemaid;
+select tlibro.ctitulo, ttema.cnombre from tlibro, tlibrotema, ttema where neditorialid = 32 and tlibrotema.nlibroid = tlibro.nlibroid and ttema.ntemaid = tlibrotemaid
+
+                                                    *
+ERROR en lÝnea 1:
+ORA-00904: "TLIBROTEMAID": identificador no vßlido
+
+
+SQL> select tlibro.ctitulo, ttema.cnombre from tlibro, tlibrotema, ttema where neditorialid = 32 and tlibrotema.nlibroid = tlibro.nlibroid and ttema.ntemaid = tlibroid;
+select tlibro.ctitulo, ttema.cnombre from tlibro, tlibrotema, ttema where neditorialid = 32 and tlibrotema.nlibroid = tlibro.nlibroid and ttema.ntemaid = tlibroid
+
+                                                    *
+ERROR en lÝnea 1:
+ORA-00904: "TLIBROID": identificador no vßlido
+
+
+SQL> select tlibro.ctitulo, ttema.cnombre from tlibro, tlibrotema, ttema where neditorialid = 32 and tlibrotema.nlibroid = tlibro.nlibroid and ttema.ntemaid = tlibrotemaid;
+select tlibro.ctitulo, ttema.cnombre from tlibro, tlibrotema, ttema where neditorialid = 32 and tlibrotema.nlibroid = tlibro.nlibroid and ttema.ntemaid = tlibrotemaid
+
+                                                    *
+ERROR en lÝnea 1:
+ORA-00904: "TLIBROTEMAID": identificador no vßlido
+
+
+SQL> select count(*) and dinero=$ from tautor and $=dinero where count in(select cautorid from tlibroa
+utor group cautor having count(*) >=3;
+select count(*) and dinero=$ from tautor and $=dinero where count in(select cautorid from tlibroautorgroup cautor having count(*) >=3
+                *
+ERROR en lÝnea 1:
+ORA-00923: palabra clave FROM no encontrada donde se esperaba
+
+
+SQL> select count(*) and dinero=$ from tautor and $=dinero where count in(select cautorid from tlibroautor group cautor having count(*) >=3;
+select count(*) and dinero=$ from tautor and $=dinero where count in(select cautorid from tlibroautorgroup cautor having count(*) >=3
+                *
+ERROR en lÝnea 1:
+ORA-00923: palabra clave FROM no encontrada donde se esperaba
+
+
+SQL> select tautor.cnombre, tautor.capellidos, count(*) from tautor, tlibroautor where tlibroautor.nau
+torID = tautor.nautorID group by tautor.cnombre, taurot.capellidos;
+select tautor.cnombre, tautor.capellidos, count(*) from tautor, tlibroautor where tlibroautor.nautorID = tautor.nautorID group by tautor.cnombre, taurot.capellidos
+
+                                            *
+ERROR en lÝnea 1:
+ORA-00904: "TAUROT"."CAPELLIDOS": identificador no vßlido
+
+
+SQL> select tautor.cnombre, tautor.capellidos, count(*) from tautor, tlibroautor where tlibroautor.nautorID = tautor.nautorID group by tautor.cnombre, tautor.capellidos;
+
+CNOMBRE              CAPELLIDOS                       COUNT(*)
+-------------------- ------------------------------ ----------
+Luis                 González                                2
+Teresa               Pedraza                                 2
+Emulia               Arroquia                                3
+Andrés               Lopera                                  1
+Fulgencio            Apellidoraro                            2
+
+SQL> select tautor.cnombre, tautor.capellidos from tautor, tlibroautor, tlibro where tlibroautor.nauto
+rid = tautor.nautorid and tlibro.nlibroid = tlibroautor.nlibroid;
+
+CNOMBRE              CAPELLIDOS
+-------------------- ------------------------------
+Luis                 González
+Teresa               Pedraza
+Teresa               Pedraza
+Emulia               Arroquia
+Emulia               Arroquia
+Andrés               Lopera
+Fulgencio            Apellidoraro
+Luis                 González
+Fulgencio            Apellidoraro
+Emulia               Arroquia
+
+10 filas seleccionadas.
+
+SQL> select tautor.cnombre, tautor.capellidos min(tlibro.nanyopublicacion) from tautor, tlibroautor, tlibro where tlibroautor.nautorid = tautor.nautorid and tlibro.nlibroid = tlibroautor.nlibroid;
+select tautor.cnombre, tautor.capellidos min(tlibro.nanyopublicacion) from tautor, tlibroautor, tlibro where tlibroautor.nautorid = tautor.nautorid and tlibro.nlibroid = tlibroautor.nlibroid
+                                            *
+ERROR en lÝnea 1:
+ORA-00923: palabra clave FROM no encontrada donde se esperaba
+
+
+SQL> select tautor.cnombre, tautor.capellidos min(tlibro.nanyopublicacion) from tautor, tlibroautor, tlibro where tlibroautor.nautorid = tautor.nautorid and tlibro.nlibroid = tlibroautor.nlibroid;
+select tautor.cnombre, tautor.capellidos min(tlibro.nanyopublicacion) from tautor, tlibroautor, tlibro where tlibroautor.nautorid = tautor.nautorid and tlibro.nlibroid = tlibroautor.nlibroid
+                                            *
+ERROR en lÝnea 1:
+ORA-00923: palabra clave FROM no encontrada donde se esperaba
+
+
+SQL> select tautor.cnombre, tautor.capellidos, min(tlibro.nanyopublicacion) from tautor, tlibroautor,
+tlibro where tlibroautor.nautorid = tautor.nautorid and tlibro.nlibroid = tlibroautor.nlibroid group b
+y tautor.cnombre, tautor.capellidos;
+
+CNOMBRE              CAPELLIDOS                     MIN(TLIBRO.NANYOPUBLICACION)
+-------------------- ------------------------------ ----------------------------
+Luis                 González                                               1351
+Teresa               Pedraza                                                1940
+Emulia               Arroquia                                               1923
+Andrés               Lopera                                                 1980
+Fulgencio            Apellidoraro                                           1351
+
+SQL> <select tlibro.ctitulo, tsocio.cnombre, tsocio.capellidos from tlibro, tejemplar, tprestamo, tsocio where tejemplar.nlibroid 0 tlibro.nlibroid and tprestamo.csignatura = tejemplar.csignatura and tsocio.cnif = tprestamo.cnif;
+SP2-0734: inicio "<select tl..." de comando desconocido - resto de la lÝnea ignorado.
+SQL> <select tlibro.ctitulo, tsocio.cnombre, tsocio.capellidos from tlibro, tejemplar, tprestamo, tsocio where tejemplar.nlibroid 0 tlibro.nlibroid and tprestamo.csignatura = tejemplar.csignatura and tsocio.cnif = tprestamo.cnif;
+SP2-0734: inicio "<select tl..." de comando desconocido - resto de la lÝnea ignorado.
+SQL> select * from tprestamo;
+
+CIGNATURA CNIF       DPRESTAM
+--------- ---------- --------
+123456789 12345678H  30/03/90
+123456789 43434343H  30/03/91
+123456789 12121212H  30/03/95
+123456789 435543534H 30/03/96
+123456789 48963782H  30/03/27
+123451289 438353534H 30/10/96
+123456780 12345678H  31/05/99
+
+7 filas seleccionadas.
+
+SQL> select * from tprestamo;
+
+CIGNATURA CNIF       DPRESTAM
+--------- ---------- --------
+123456789 12345678H  30/03/90
+123456789 43434343H  30/03/91
+123456789 12121212H  30/03/95
+123456789 435543534H 30/03/96
+123456789 48963782H  30/03/27
+123451289 438353534H 30/10/96
+123456780 12345678H  31/05/99
+
+7 filas seleccionadas.
+
+SQL>
+SQL> <select tlibro.ctitulo, tsocio.cnombre, tsocio.capellidos from tlibro, tejemplar, tprestamo, tsocio where tejemplar.nlibroid 0 tlibro.nlibroid and tprestamo.csignatura = tejemplar.csignatura and tsocio.cnif = tprestamo.cnif;
+SP2-0734: inicio "<select tl..." de comando desconocido - resto de la lÝnea ignorado.
+SQL> <select tlibro.ctitulo, tsocio.cnombre, tsocio.capellidos from tlibro, tejemplar, tprestamo, tsocio where tejemplar.nlibroid 0 tlibro.nlibroid and tprestamo.csignatura = tejemplar.csignatura and tsocio.cnif = tprestamo.cnif;
+SP2-0734: inicio "<select tl..." de comando desconocido - resto de la lÝnea ignorado.
+SQL> <select tlibro.ctitulo, tsocio.cnombre, tsocio.capellidos from tlibro, tejemplar, tprestamo, tsocio where tejemplar.nlibroid 0 tlibro.nlibroid and tprestamo.csignatura = tejemplar.csignatura and tsocio.cnif = tprestamo.cnif;
+SP2-0734: inicio "<select tl..." de comando desconocido - resto de la lÝnea ignorado.
+SQL>
+SQL>
+SQL> <select tlibro.ctitulo, tsocio.cnombre, tsocio.capellidos from tlibro, tejemplar, tprestamo, tsocio where tejemplar.nlibroid 0 tlibro.nlibroid and tprestamo.csignatura = tejemplar.csignatura and tsocio.cnif = tprestamo.cnif;
+SP2-0734: inicio "<select tl..." de comando desconocido - resto de la lÝnea ignorado.
+SP2-0044: Si desea ver una lista de comandos conocidos escriba HELP
+ y para salir EXIT.
+SQL> <select tlibro.ctitulo, tsocio.cnombre, tsocio.capellidos from tlibro, tejemplar, tprestamo, tsocio where tejemplar.nlibroid 0 tlibro.nlibroid and tprestamo.csignatura = tejemplar.csignatura and tsocio.cnif = tprestamo.cnif;
+SP2-0734: inicio "<select tl..." de comando desconocido - resto de la lÝnea ignorado.
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL> <select tlibro.ctitulo, tsocio.cnombre, tsocio.capellidos from tlibro, tejemplar, tprestamo, tsocio where tejemplar.nlibroid 0 tlibro.nlibroid and tprestamo.csignatura = tejemplar.csignatura and tsocio.cnif = tprestamo.cnif;
+SP2-0734: inicio "<select tl..." de comando desconocido - resto de la lÝnea ignorado.
+SQL> HELP
+
+ HELP
+ ----
+
+ Accesses this command line help system. Enter HELP INDEX or ? INDEX
+ for a list of topics.
+
+ You can view SQL*Plus resources at
+     http://www.oracle.com/technology/documentation/
+
+ ******************************************************************************
+
+ HELP|? [topic]
+
+
+SQL> select tautor.cnombre, tautor.capellidos, min(tlibro.nanyopublicacion) from tautor, tlibroautor,tlibro where tlibroautor.nautorid = tautor.nautorid and tlibro.nlibroid = tlibroautor.nlibroid group by tautor.cnombre, tautor.capellidos;
+
+CNOMBRE              CAPELLIDOS                     MIN(TLIBRO.NANYOPUBLICACION)
+-------------------- ------------------------------ ----------------------------
+Luis                 González                                               1351
+Teresa               Pedraza                                                1940
+Emulia               Arroquia                                               1923
+Andrés               Lopera                                                 1980
+Fulgencio            Apellidoraro                                           1351
+
+SQL> select ttema.cnombre, tlibro.cnombre from tlibro, tlibrotema, ttema ;
+select ttema.cnombre, tlibro.cnombre from tlibro, tlibrotema, ttema
+                      *
+ERROR en lÝnea 1:
+ORA-00904: "TLIBRO"."CNOMBRE": identificador no vßlido
+
+
+SQL> select ttema.cnombre, tlibro.cnombre from tlibro, tlibrotema, ttema;
+select ttema.cnombre, tlibro.cnombre from tlibro, tlibrotema, ttema
+                      *
+ERROR en lÝnea 1:
+ORA-00904: "TLIBRO"."CNOMBRE": identificador no vßlido
+
+
+SQL> select ttema.cnombre, tlibro.ctitulo from tlibro, tlibrotema, ttema;
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Historia             Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+
+200 filas seleccionadas.
+
+SQL> select ttema.cnombre, tlibro.ctitulo from tlibro, tlibrotema, ttema where ;
+select ttema.cnombre, tlibro.ctitulo from tlibro, tlibrotema, ttema where
+                                                                         *
+ERROR en lÝnea 1:
+ORA-00936: falta una expresi¾n
+
+
+SQL> select ttema.cnombre, tlibro.ctitulo from tlibro, tlibrotema, ttema where ttema.cnombre ;
+select ttema.cnombre, tlibro.ctitulo from tlibro, tlibrotema, ttema where ttema.cnombre
+                                                                                       *
+ERROR en lÝnea 1:
+ORA-00920: operador relacional no vßlido
+
+
+SQL> select ttema.cnombre, tlibro.ctitulo from tlibro, tlibrotema, ttema where ttema.cnombre is not null;
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            El señor de los marranillos
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Kamasutra
+Biografía            Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Lengua               Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Harry Plotter 1
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+
+200 filas seleccionadas.
+
+SQL> select ttema.cnombre, tlibro.ctitulo from tlibro, tlibrotema, ttema where ttema.cnombre is null;
+
+ninguna fila seleccionada
+
+SQL> select ttema.cnombre, tlibro.ctitulo from tlibro, tlibrotema, ttema where ttema.cnombre is not null;
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            El señor de los marranillos
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Kamasutra
+Biografía            Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Lengua               Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Harry Plotter 1
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+
+200 filas seleccionadas.
+
+SQL> select ttema.cnombre, tlibro.ctitulo from tlibro, tlibrotema, ttema where ttema.cnombre is not null;
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            El señor de los marranillos
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Kamasutra
+Biografía            Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Lengua               Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Harry Plotter 1
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+
+200 filas seleccionadas.
+
+SQL> select ttema.cnombre, tlibro.ctitulo from tlibro, tlibrotema, ttema where order by ttema.cnombre;
+select ttema.cnombre, tlibro.ctitulo from tlibro, tlibrotema, ttema where order by ttema.cnombre
+                                                                          *
+ERROR en lÝnea 1:
+ORA-00936: falta una expresi¾n
+
+
+SQL> select ttema.cnombre, tlibro.ctitulo from tlibro, tlibrotema, ttema order by ttema.cnombre;
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Fray Perico y su borrico
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Lo que el viento no se pudo llevar
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               El señor de los marranillos
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Kamasutra
+Física               Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Lengua               Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Harry Plotter 1
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Fray Perico y su borrico
+
+200 filas seleccionadas.
+
+SQL> select ttema.cnombre, tlibro.ctitulo from tlibro, tlibrotema, ttema order by ttema.cnombre;
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Fray Perico y su borrico
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            Fray Perico y su borrico
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            El señor de los marranillos
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Harry Plotter 1
+Biografía            Harry Plotter 1
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Kamasutra
+Biografía            Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Lo que el viento no se pudo llevar
+Biografía            Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Lo que el viento no se pudo llevar
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               Fray Perico y su borrico
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+Física               El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               El señor de los marranillos
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Harry Plotter 1
+Física               Kamasutra
+Física               Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Kamasutra
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Física               Lo que el viento no se pudo llevar
+Física               Lo que el viento no se pudo llevar
+Física               Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+Historia             Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             El señor de los marranillos
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Harry Plotter 1
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Historia             Kamasutra
+Historia             Kamasutra
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Historia             Lo que el viento no se pudo llevar
+Lengua               Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               Fray Perico y su borrico
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               El señor de los marranillos
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+Lengua               Harry Plotter 1
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Harry Plotter 1
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Kamasutra
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Lo que el viento no se pudo llevar
+Lengua               Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          Fray Perico y su borrico
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+Matemáticas          El señor de los marranillos
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Harry Plotter 1
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Kamasutra
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Lo que el viento no se pudo llevar
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Matemáticas          Lo que el viento no se pudo llevar
+Matemáticas          Fray Perico y su borrico
+
+200 filas seleccionadas.
+
+SQL> select ttema.cnombre, tlibro.ctitulo from ttema, tlibrotema, tlibro where ttema.ntemaid = tlibro.ntemaid
+  2  ;
+select ttema.cnombre, tlibro.ctitulo from ttema, tlibrotema, tlibro where ttema.ntemaid = tlibro.ntemaid
+                                                                                          *
+ERROR en lÝnea 1:
+ORA-00904: "TLIBRO"."NTEMAID": identificador no vßlido
+
+
+SQL> select ttema.cnombre, tlibro.ctitulo from ttema, tlibrotema, tlibro where ttema.ntemaid = tlibrotema.ntemaid and tlibro.nlibroid = tlibrotema.nlibroid order by ttema.cnombre;
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Fray Perico y su borrico
+Biografía            Harry Plotter 1
+Historia             Fray Perico y su borrico
+Historia             El señor de los marranillos
+Lengua               Kamasutra
+Lengua               Harry Plotter 1
+Matemáticas          Kamasutra
+Matemáticas          El señor de los marranillos
+
+8 filas seleccionadas.
+
+SQL> select ttema.cnombre, tlibro.ctitulo from ttema, tlibrotema, tlibro where ttema.ntemaid(+) = tlibrotema.ntemaid and tlibro.nlibroid = tlibrotema.nlibroid order by ttema.cnombre;
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Harry Plotter 1
+Biografía            Fray Perico y su borrico
+Historia             El señor de los marranillos
+Historia             Fray Perico y su borrico
+Lengua               Harry Plotter 1
+Lengua               Kamasutra
+Matemáticas          El señor de los marranillos
+Matemáticas          Kamasutra
+
+8 filas seleccionadas.
+
+SQL>
+SQL> select ttema.cnombre, tlibro.ctitulo from ttema, tlibrotema, tlibro where ttema.ntemaid(+) = tlibrotema.ntemaid and tlibro.nlibroid(+) = tlibrotema.nlibroid order by ttema.cnombre;
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Fray Perico y su borrico
+Biografía            Harry Plotter 1
+Historia             Fray Perico y su borrico
+Historia             El señor de los marranillos
+Lengua               Kamasutra
+Lengua               Harry Plotter 1
+Matemáticas          Kamasutra
+Matemáticas          El señor de los marranillos
+
+8 filas seleccionadas.
+
+SQL> select ttema.cnombre, tlibro.ctitulo from ttema, tlibrotema, tlibro where tlibrotema.ntemaid(+) = tlibrotema.ntemaid and tlibro.nlibroid(+) = tlibrotema.nlibroid order by ttema.cnombre;
+select ttema.cnombre, tlibro.ctitulo from ttema, tlibrotema, tlibro where tlibrotema.ntemaid(+) = tlibrotema.ntemaid and tlibro.nlibroid(+) = tlibrotema.nlibroid order by ttema.cnombre
+                                                                                                *
+ERROR en lÝnea 1:
+ORA-01416: dos tablas no pueden estar unidas externamente entre sÝ
+
+
+SQL> select ttema.cnombre, tlibro.ctitulo from ttema, tlibrotema, tlibro where tlibrotema.ntemaid(+) = ttema.ntemaid and tlibro.nlibroid(+) = tlibrotema.nlibroid order by ttema.cnombre;
+
+CNOMBRE              CTITULO
+-------------------- ----------------------------------------
+Biografía            Harry Plotter 1
+Biografía            Fray Perico y su borrico
+Física
+Historia             El señor de los marranillos
+Historia             Fray Perico y su borrico
+Lengua               Harry Plotter 1
+Lengua               Kamasutra
+Matemáticas          El señor de los marranillos
+Matemáticas          Kamasutra
+
+9 filas seleccionadas.
+
+SQL>

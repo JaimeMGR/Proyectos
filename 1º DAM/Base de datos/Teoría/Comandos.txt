@@ -1,0 +1,31 @@
+connect system/molina2002										//Conectarse al usuario
+create user usuario identified by contraseña;							//Crear usuario con contraseña
+grant all privileges to usuario;									//Darle todos los privilegios al usuario
+create table Tpruebas (nombre varchar2(10), apellidos varchar2(30));			//Creación de una tabla o mas
+desc Tpruebas												//Mostrar tablas
+select * from tpruebas;											//Mostrar todo el contenido de una tabla específica
+insert into tpruebas (nombre,apellidos) values ('Jaime','Molina');			//Añadir contenido a tablas
+insert into tpruebas (nombre) values ('Carmelo');						//Añadir contenido a tablas
+delete tPruebas where nombre = 'Jaime';								//Borrar contenido
+rollback;													//Deshacer
+update tpruebas set apellidos='Molina Granados'							//Cambiar valores de la tabla
+commit;													//Guardar
+alter table tpruebas modify (nombre varchar2(20));						//Cambiar capacidad de tablas
+desc tpruebas												//Mostrar tabla
+delete tpruebas;												//Eliminar valores de la tabla
+create table copia											//Crear tabla
+update tpruebas set apellidos='Arrabal Cantón' where nombre like 'Je%';			//Modificar valores con un valor específico
+drop table c##copia											//Borrar tabla
+rename tcopia to ccopia;										//Renombrar tabla
+SELECT: utilizado para recuperar datos de una o varias tablas.
+INSERT: utilizado para insertar nuevos datos en una tabla.
+UPDATE: utilizado para modificar datos existentes en una tabla.
+DELETE: utilizado para eliminar datos de una tabla.
+CREATE: utilizado para crear una tabla, vista, índice, procedimiento almacenado, etc.
+ALTER: utilizado para modificar una tabla, vista, procedimiento almacenado, etc. existente.
+DROP: utilizado para eliminar una tabla, vista, índice, procedimiento almacenado, etc.
+TRUNCATE: utilizado para vaciar los datos de una tabla.
+SET: utilizado para establecer diferentes opciones de configuración en el sistema.
+COMMIT: utilizado para confirmar los cambios realizados en una transacción.
+ROLLBACK: utilizado para deshacer los cambios realizados en una transacción.
+SAVEPOINT: utilizado para establecer puntos de guardado en una transacción.

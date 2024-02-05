@@ -1,0 +1,54 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!DOCTYPE vivero [
+<!ELEMENT vivero (planta*)>
+<!ELEMENT planta (nombre, precio, clase, origen, color_fruto+, adicional?)>
+<!ATTLIST planta siembra CDATA #REQUIRED>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
+<!ATTLIST precio moneda (euro | dolar | yen) #REQUIRED>
+<!ELEMENT clase (#PCDATA)>
+<!ELEMENT origen (#PCDATA)>
+<!ELEMENT color_fruto (#PCDATA)>
+<!ELEMENT adicional (cosecha, riego)>
+<!ELEMENT cosecha (#PCDATA)>
+<!ELEMENT riego (#PCDATA)>
+<!ATTLIST riego tipo (diario | semanal) #REQUIRED>
+
+]>
+
+<vivero>
+    <planta siembra="2021">
+        <nombre>Litchi</nombre>
+        <precio moneda="euro">21</precio>
+        <clase>mauritius</clase>
+        <origen>Florida</origen>
+        <color_fruto>rojo</color_fruto>
+        <adicional>
+            <cosecha>agosto</cosecha>
+            <riego tipo="diario"></riego>
+        </adicional>
+    </planta>
+    <planta siembra="2022">
+        <nombre>Litchi</nombre>
+        <precio moneda="euro">22</precio>
+        <clase>Kway May Pink</clase>
+        <origen>Yakarta</origen>
+        <color_fruto>rojo</color_fruto>
+        <color_fruto>fucsia</color_fruto>
+        <adicional>
+            <cosecha>agosto</cosecha>
+            <riego tipo="diario"></riego>
+        </adicional>
+    </planta>
+    <planta siembra="2023">
+        <nombre>Longan</nombre>
+        <precio moneda="euro">23</precio>
+        <clase>Champoo</clase>
+        <origen>Shanga</origen>
+        <color_fruto>marrón</color_fruto>
+        <adicional>
+            <cosecha>octubre</cosecha>
+            <riego tipo="diario"></riego>
+        </adicional>
+    </planta>
+</vivero>

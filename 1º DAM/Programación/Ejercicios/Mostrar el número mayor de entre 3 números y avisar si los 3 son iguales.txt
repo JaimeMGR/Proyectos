@@ -1,0 +1,23 @@
+a = 4
+b = 8
+c = 9
+
+#Vamos a enseñar que número es mayor
+
+else if a = b and b = c them
+
+print("Todos los valores son iguales")
+
+if a > b and a > c them
+
+print("El número mayor es a")
+
+else if b > a and b > c them
+
+print ("El número mayor es b")
+
+else if c > a and c > b them
+
+print("El número mayor es c")
+
+end if

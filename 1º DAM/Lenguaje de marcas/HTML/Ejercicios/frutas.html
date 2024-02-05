@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <audio controls>
+        <source src="wii.mp3" type="audio/mp3">
+    </audio>
+    <form>
+        <input list="frutas" name="frutas">
+        <datalist id="frutas">
+            <option value="Mango">
+            <option value="Aguacate">
+            <option value="Tamarillo">
+            <option value="Piña">
+            <option value="Litchi">
+            <option value="Rambután">
+            <option value="Maracuyá">
+        </datalist>
+    </form>
+    <canvas id="miLienzo" width="300" height="300" style="border:3px dotted #000000;"></canvas>
+    <script>
+        var x = document.getElementById("miLienzo");
+        var elem = x.getContext("2d");
+        elem.font = "35px Arial";
+        elem.fillText("Editorial Síntesis",15,150);
+    </script>
+</body>
+</html>

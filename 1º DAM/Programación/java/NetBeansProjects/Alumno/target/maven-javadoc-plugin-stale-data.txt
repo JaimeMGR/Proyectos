@@ -1,0 +1,48 @@
+@options
+@packages
+@argfile
+-encoding
+'UTF-8'
+-protected
+-source
+'19'
+-sourcepath
+'C:/Users/damci/Documents/NetBeansProjects/Alumno/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/damci/Documents/NetBeansProjects/Alumno/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Alumno 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'Alumno 1.0-SNAPSHOT API'
+com.mycompany.alumno
+'C:/Users/damci/Documents/NetBeansProjects/Alumno/src/main/java/com/mycompany/alumno/Alumno.java'
+C:\Users\damci\Documents\NetBeansProjects\Alumno\src\main\java = 1670240477072
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\allclasses-index.html = 1670240777013
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\allpackages-index.html = 1670240777015
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\copy.svg = 1670240777058
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\element-list = 1670240776963
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\help-doc.html = 1670240777051
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\index-all.html = 1670240777035
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\index.html = 1670240777039
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\javadoc.bat = 1670240613368
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\jquery-ui.overrides.css = 1670240777074
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\member-search-index.js = 1670240777021
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\module-search-index.js = 1670240777017
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\overview-tree.html = 1670240776999
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\package-search-index.js = 1670240777018
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\script.js = 1670240777056
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\search-page.js = 1670240777064
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\search.html = 1670240777037
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\search.js = 1670240777061
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\stylesheet.css = 1670240777054
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\tag-search-index.js = 1670240777023
+C:\Users\damci\Documents\NetBeansProjects\Alumno\target\site\apidocs\type-search-index.js = 1670240777019

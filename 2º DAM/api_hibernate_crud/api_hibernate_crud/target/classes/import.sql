@@ -1,0 +1,10 @@
+INSERT INTO mangas (title, autor, genero, edicion, url_imagen) VALUES ('One Piece', 'Eiichiro Oda', 'Shonen', 'Tankobon', 'https://i.gr-assets.com/images/manga/3219/1189589.jpg'),
+('Naruto', 'Masashi Kishimoto', 'Shōnen', 'Tankobon', 'https://www.anime-planet.com/images/manga/13/132905.jpg'),
+('Bleach', 'Tite Kubo', 'Shōnen', 'https://www.anime-planet.com/images/manga/13/132906.jpg'),
+('Demon Slayer: Kimetsu no Yaiba', 'Koyoharu Gotouge', 'Shōnen', 'Tankobon', 'https://cdn.myanimelist.net/images/manga/2/206807.jpg'),
+('Jujutsu Kaisen', 'Gege Akutami', 'Shōnen', 'Tankobon', 'https://cdn.myanimelist.net/images/manga/2/226071.jpg'),
+('Attack on Titan', 'Hajime Isayama', 'Shōnen', 'Tankobon', 'https://cdn.myanimelist.net/images/manga/3/201923.jpg'),
+('Dragon Ball', 'Akira Toriyama', 'Shōnen', 'Tankobon', 'https://cdn.myanimelist.net/images/manga/3/132913.jpg'),
+('Fullmetal Alchemist: Brotherhood', 'Hiromu Arakawa', 'Shojo', 'Tankobon', 'https://cdn.myanimelist.net/images/manga/2/202450.jpg'),
+('Death Note', 'Tsugumi Ohba', 'Seinen', 'Tankobon', 'https://cdn.myanimelist.net/images/manga/2/193472.jpg'),
+('Hunter x Hunter', 'Yoshihiro Togashi', 'Shōnen', 'Tankobon', 'https://cdn.myanimelist.net/images/manga/2/204460.jpg')

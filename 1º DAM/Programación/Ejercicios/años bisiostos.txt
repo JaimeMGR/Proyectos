@@ -1,0 +1,7 @@
+funcion años bis (int año):bool
+    bool bis = false
+    si (año % 4 == 0 &)
+    si ( % 100 !=0)||(año%400==0))
+        bis = true
+    si no bis = false
+retorno bis                                                                                                                                                              b  

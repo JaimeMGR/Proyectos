@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementos</title>
+<style>
+    header {
+        background-color: #ffffff50;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        box-shadow:0px, 2px, 7px, rgba(255, 112, 112, 0);
+      }
+    
+    .cuadrado {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        float: left;
+      }
+      body{
+        background-color: rgb(255, 233, 209);
+    }
+  h1{
+    text-align: center;
+  }
+  h2{
+    text-align: center;
+  }
+    /* Estilos para las tablas */
+    button{
+        text-align: left;
+        background-color: rgb(233, 255, 160);
+        }
+    
+    form{
+        text-align: left;
+        }
+
+    footer{
+        text-align:center;
+        }
+
+    script{
+        text-align:center;
+    }
+</style>
+<body>
+    <header><a href="/ExamenJS/index.html">Inicio</a> | <a href=/ExamenJS/frutas.html>Frutas</a> | <a>Elementos</a> | <a href=/ExamenJS/datos.html>Datos</a></header>
+    <h1>BOTONES DE CREAR Y DESTRUIR</h1>
+    <form>
+        <h2>Te presento estos dos botones, uno es para crear cuadrados y el otro es para destruirlos</h2>
+        <button type="button" id="Botóncrear">Crear</button>
+        <button type="button" id="Botóndestruir">Destruir</button>
+        <button type="button" id="Botóncambiar">Cambiar color</button>
+        <button type="button" id="Botónrojo">Volver al rojo</button>
+      </form>
+      <div id="contenedor-cuadrados"></div>
+      <script>
+        // Obtener los elementos del DOM
+const formulario = document.querySelector('form');
+const Botóncrear = document.querySelector('#Botóncrear');
+const Botóndestruir = document.querySelector('#Botóndestruir');
+const Botóncambiar = document.querySelector('#Botóncambiar');
+const Botónrojo = document.querySelector('#Botónrojo');
+const contenedorCuadrados = document.querySelector('#contenedor-cuadrados');
+
+  // Agregar evento al botón de crear
+  Botóncrear.addEventListener('click', () => {
+  // Crear un nuevo cuadrado
+  const cuadrado = document.createElement('div');
+  cuadrado.classList.add('cuadrado');
+  cuadrado.style.backgroundColor = 'red'; // puedes cambiar el color a elección
+  
+  //Crear función para cambiar el color
+  Botóncambiar.addEventListener('click', () => {
+  const Botóncambiar = cuadrado.style.backgroundColor = 'Yellow';
+  })
+
+  //Crear función para volver color al rojo
+  Botónrojo.addEventListener('click', () => {
+        const Botóncambiar = cuadrado.style.backgroundColor = 'red';
+        })
+  // Agregar el cuadrado al contenedor
+  contenedorCuadrados.appendChild(cuadrado);
+});
+
+  // Agregar evento al botón de destruir
+  Botóndestruir.addEventListener('click', () => {
+  // Obtener el último cuadrado agregado al contenedor
+  const ultimoCuadrado = contenedorCuadrados.lastChild;
+  
+  // Verificar si hay cuadrados en el contenedor
+  if (ultimoCuadrado) {
+    // Eliminar el último cuadrado del contenedor
+    contenedorCuadrados.removeChild(ultimoCuadrado);
+  }
+});
+      </script>
+      <br>
+      <footer><a>Ejercicios realizados por Jaime Molina Granados</a> </footer>
+</body>
+</html>

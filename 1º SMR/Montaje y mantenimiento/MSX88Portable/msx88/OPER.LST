@@ -1,0 +1,21 @@
+
+								p gina: 1 
+
+ Listado Fuente: oper.LST
+ Programa Fuente en: oper.asm
+ Fecha: Fri Oct 18 13:19:27 2019
+
+ ÚDir.ÚCodigo maquina	 Linea¿	ÚCodigo en lenguaje ensamble
+
+			      1	ORG 2000H
+			      2	
+ 2000 B8 30 00		      3	MOV AX,30H
+ 2003 BB 10 00		      4	MOV BX,10H
+ 2006 03 C3		      5	ADD AX,BX
+			      6	
+			      7	END
+
+
+ S I M B O L O S:
+
+ Nombre:	Tipo:		Valor:

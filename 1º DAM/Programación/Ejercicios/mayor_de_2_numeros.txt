@@ -1,0 +1,15 @@
+funcion numero_mayor(float 10, float 4):float
+
+    if(10>4)
+        mostrar/retornar 10
+    else
+        mostrar/retornar 4
+
+Fin funcion
+
+Inicio 
+    float 10,4
+    leer(10)
+    leer(b)
+    imprimir("El número mas grande de " +10 +"y de "+4 +"es " 10 )
+final

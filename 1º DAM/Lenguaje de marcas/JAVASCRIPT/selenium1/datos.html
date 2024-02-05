@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos</title>
+    <script>
+        /**
+         * @param String name
+         * @return String
+         */
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+    </script>
+</head>
+<body>
+    <main>
+        <script>
+            var id = getParameterByName("id");
+        </script>
+        <h1>Bienvenido, <script>document.write(id)</script></h1>
+        <p>
+            Estas en la página datos, con fecha <script>document.write(new Date().toLocaleString());</script>
+        </p>
+        <p>
+            <a href="index.html">Volver a inicio</a>
+        </p>
+    </main>
+</body>
+</html>

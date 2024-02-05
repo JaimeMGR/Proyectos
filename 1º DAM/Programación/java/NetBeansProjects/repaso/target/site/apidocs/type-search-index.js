@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.mycompany.repaso","l":"ConIVA"},{"p":"com.mycompany.repaso","l":"Factura"},{"p":"com.mycompany.repaso","l":"Repaso"}];updateSearchResults();

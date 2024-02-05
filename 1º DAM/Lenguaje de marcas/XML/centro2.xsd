@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="Empresa" type="EmpresaType"/>
+
+<xs:complexType name="nifType">
+<xs:simpleContent>
+<xs:extension base="xs:string">
+<xs:attribute name="nacionalidad" type="xs:string" use="optional"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+
+<xs:complexType name="personalType">
+<xs:sequence>
+<xs:element name="nombre" type="xs:string"/>
+<xs:element name="apellidos" type="xs:string"/>
+<xs:element name="nif" type="nifType"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="laboralType">
+<xs:sequence>
+<xs:element name="sueldo" type="xs:short"/>
+<xs:element name="irpf" type="xs:byte"/>
+</xs:sequence>
+<xs:attribute name="dep" type="xs:string" use="optional"/>
+</xs:complexType>
+
+<xs:complexType name="EmpleadoType">
+<xs:sequence>
+<xs:element name="personal" type="personalType"/>
+<xs:element name="laboral" type="laboralType"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EmpresaType">
+<xs:sequence>
+<xs:element name="Empleado" type="EmpleadoType" maxOccurs="unbounded" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+</xs:schema>

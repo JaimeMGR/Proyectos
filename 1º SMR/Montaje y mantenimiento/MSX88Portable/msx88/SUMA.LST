@@ -1,0 +1,19 @@
+
+								p gina: 1 
+
+ Listado Fuente: suma.LST
+ Programa Fuente en: suma.ASM
+ Fecha: Fri Oct 18 11:32:41 2019
+
+ ÚDir.ÚCodigo maquina	 Linea¿	ÚCodigo en lenguaje ensamble
+
+			      1	ORG 2000h
+ 2000 B8 10 00		      2	MOV AX, 10h
+ 2003 BA 30 00		      3	MOV DX, 30h
+ 2006 03 C2		      4	ADD AX, DX
+			      5	END
+
+
+ S I M B O L O S:
+
+ Nombre:	Tipo:		Valor:

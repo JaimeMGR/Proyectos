@@ -1,0 +1,59 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #f33900;
+}
+
+@media (max-width: 1024px)
+{
+    body{
+        background-color: bisque;
+    }
+}
+
+@media (max-width: 768px)
+{
+    body{
+        background-color: rgb(73, 0, 243);
+    }
+}
+
+@media (max-width: 480px)
+{
+    body{
+        background-color: rgb(255, 0, 212);
+    }
+}
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  section {
+    float: left;
+    width: 61%;
+    padding: 2%;
+    margin-right: 5%;
+    background-color: #999999;
+  }
+  aside {
+    float: left;
+    width: 26%;
+    padding: 2%;
+    background-color: #CCCCCC;
+  }
+  .recuperar {
+    clear: both;
+  }
+  article h1 {
+    font: bold 2rem Georgia, sans-serif;
+  }
+  aside h1 {
+    font: bold 1.2rem Georgia, sans-serif;
+  }
+  aside p {
+    font: 1rem Georgia, sans-serif;
+  }
+
+  article img {
+    max-width:100%
+  }

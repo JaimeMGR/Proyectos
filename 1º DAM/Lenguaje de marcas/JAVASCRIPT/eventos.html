@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function cambiarElemento(evento, valor){
+
+        let elemento = evento.target;
+        elemento.innerHTML = "¡Que barbaridad! "
+        + valor;
+      }
+        function inicio() {
+          var lista = 
+            document.querySelectorAll("section > p");
+          for(let i=0;i<lista.length;i++)
+          {
+            let elemento = lista[i];
+
+            elemento.addEventListener("click", 
+                function(evento){
+            cambiarElemento(evento,i)
+          });
+          }
+
+
+          let pie = document.getElementById("pie");
+          pie.addEventListener("mouseover",
+          function(evento){
+            cambiarElemento(evento, 99)
+          })
+
+          
+        }
+        
+        window.addEventListener("load", inicio);
+      </script>
+
+</head>
+<body>
+  <style>
+    p > strong {
+     color: pink;
+    }
+  </style>
+    <section>
+      <h1>Sitio Web</h1>
+      <p>Mensaje <strong>número</strong> 1</p>
+      <p>Mensaje número 2</p>
+      <p>Mensaje número 3</p>
+    </section>
+    <footer>
+      <p id="pie">&copy; 2023 </span><strong> yo</strong></span></p>
+    </footer>
+  </body>
+</html>

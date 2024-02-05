@@ -1,0 +1,11 @@
+Nombre	Apellidos		Dirección			Ciudad	Teléfono
+Raul		Morcillo Jiménez	C/Barranco 6		Albolote	698846658
+Alex		Arrabal Canton	C/Manuel de Falla 4	Albolote	487593156
+Jaime		Molina Granados	C/San Pablo 65		Atarfe	752369823
+Carmelo	Molina Granados	C/San Pablo 65		Atarfe	158763214
+Lidia		Granados Díaz	C/San Pablo 65		Atarfe	123785412
+Maria		Rojas Palma		C/Santa Ana	8		Atarfe	763592648
+Pedro		Ruiz Coca		C/Jiménez Rueda 23	Maracena	972654125
+Juan		Foche López		C/Deltoya 2			Maracena	254862266
+Natalia	Heredia Pérez	C/Pichón 73			Peligros	235841257
+Naira		Pérez Mochón	C/San Francisco 34	Peligros	255874123

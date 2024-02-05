@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function suma(a, b=4)
+        {
+            return a +b;
+        }
+        var n = 9;
+        var cadena = "<strong>negrita todo</strong>";
+        var cadena = 888;
+        console.log("El valor de n es: " + n);
+        document.write("El <span style='color:red' >valor</span> de n es: "
+        + n + cadena + "<br>");
+        document.write("Otra linea<br>");
+        document.write("Sumando... " + suma(5,9));
+
+        var selector = 1;
+
+        if (selector == 1)
+        miFuncion = function(a, b)
+            {
+                return a + b;
+            }
+        else
+        miFuncion = function(a, b)
+            {
+                return a + " ----> " + b;
+            }
+
+        miFuncion("hola", "mundo");
+    </script>
+</body>
+</html>
