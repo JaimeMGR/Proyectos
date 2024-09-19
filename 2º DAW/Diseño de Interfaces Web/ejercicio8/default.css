@@ -1,0 +1,9 @@
+.parrafo1{
+	background: aqua;
+	border-left: 15px solid rebeccapurple;
+	margin: 50px;
+	padding: 50px;
+	height: 50%;
+	width: 250px;
+	border-radius: 15px;
+}
