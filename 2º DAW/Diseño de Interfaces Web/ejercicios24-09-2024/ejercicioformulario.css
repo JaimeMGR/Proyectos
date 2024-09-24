@@ -1,0 +1,73 @@
+body {
+    background-color: #1c1e26;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #252836;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    width: 300px;
+}
+
+.container h1 {
+    font-size: 40px;
+    color: #AFAFFB;
+    text-align: center;
+}
+
+.container a {
+    text-decoration: none;
+    color: #ff2965;
+    margin-right: 10px;
+}
+
+.container a:last-child {
+    color: #fff;
+}
+
+.container form {
+    margin-top: 20px;
+}
+
+.container input[type="text"],
+.container input[type="email"],
+.container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 1px solid #444;
+    background: transparent;
+    color: #fff;
+    outline: none;
+}
+
+.container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #444;
+    border-bottom: 5px solid #28b299;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.container input[type="submit"]:hover {
+    background-color: #444;
+}
+
+/* Rules for icon sizes: */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; } /* Default */
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
