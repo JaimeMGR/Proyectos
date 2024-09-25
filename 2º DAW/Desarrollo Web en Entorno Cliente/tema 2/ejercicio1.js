@@ -4,4 +4,14 @@
 
 "use strict"
 
-let dinero=prompt("¿Introduzca una cantidad de días?")
+function conversióntiempo(){
+    dias = 4;
+    let horas = dias * 24;
+    let minutos = horas * 60;
+    let segundos = minutos * 60;
+    
+    console.log(`${dias} días son lo mismo que ${horas} horas, ${minutos} minutos y ${segundos} segundos.`);
+    
+}
+
+conversióntiempo();
