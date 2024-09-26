@@ -8,50 +8,29 @@
 </head>
 <body>
     <?php
-$numeros=[1,2,3,4,5,6,7,8,9,10];
+$numero=0;
+$i=1;
+$contador=1;
     ?>
+        <?php 
+        while ($numero!=10) {
+            echo "<h1>Tabla de multiplicar del $contador</h1>";
+            echo "<table class='tabla' border=1>";
 
-    <table class="tabla">
-        <tr>
-            <td>1 x <?php echo $numeros[0]?></td>
-            <td><?php echo $numeros[0]?></td>
-        </tr>
-        <tr>
-             <td>1 x <?php echo $numeros[1]?></td>
-            <td><?php echo $numeros[1]?></td>
-        </tr>
-        <tr>
-            <td>1 x <?php echo $numeros[2]?></td>
-            <td><?php echo $numeros[2]?></td>
-        </tr>
-        <tr>
-            <td>1 x <?php echo $numeros[3]?></td>
-            <td><?php echo $numeros[3]?></td>
-        </tr>
-        <tr>
-            <td>1 x <?php echo $numeros[4]?></td>
-            <td><?php echo $numeros[4]?></td>
-        </tr>
-        <tr>
-            <td>1 x <?php echo $numeros[5]?></td>
-            <td><?php echo $numeros[5]?></td>
-        </tr>
-        <tr>
-            <td>1 x <?php echo $numeros[6]?></td>
-            <td><?php echo $numeros[6]?></td>
-        </tr>
-        <tr>
-            <td>1 x <?php echo $numeros[7]?></td>
-            <td><?php echo $numeros[7]?></td>
-        </tr>
-        <tr>
-            <td>1 x <?php echo $numeros[8]?></td>
-            <td><?php echo $numeros[8]?></td>
-        </tr>
-        <tr>
-            <td>1 x <?php echo $numeros[9]?></td>
-            <td><?php echo $numeros[9]?></td>
-        </tr>
-    </table>
+            if($numero<=10){
+                $numero++;
+
+                while ($i <= 10) {
+                    $cuenta=$numero*$i;
+                    echo "<tr><td>$numero x $i</td>";
+                    echo"<td> $cuenta </td></tr>";
+                    $i++; 
+                }
+                $i=0;
+                $contador++;
+    }
+        echo "</table>";
+    }
+        ?>
 </body>
 </html>

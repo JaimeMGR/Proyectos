@@ -28,7 +28,7 @@ $posicion = array(
 );
 ?>
 
-<table>
+<table border=1>
     <tr>
         <th class="Encabezado">POSICIÓN</th>
         <th class="Encabezado">VALOR</th>
