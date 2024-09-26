@@ -38,7 +38,7 @@ $mascotas = array(
 );
 ?>
 
-<table>
+<table border=1>
     <tr>
         <th>Nombre</th>
         <th>Familia</th>

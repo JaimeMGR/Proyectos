@@ -7,6 +7,17 @@
 
     <title>Document</title>
 </head>
+<style>
+.contenido:nth-child(even){
+    background: rgb(255, 172, 186);
+    color: white;
+}
+
+.Encabezado{
+    background: rgb(255, 103, 128);
+    color: white;
+}
+</style>
 <body>
     <?php
 $posicion = array(

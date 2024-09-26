@@ -6,6 +6,16 @@
     <link rel="stylesheet" type="text/css" href="estilos.css" media="screen"/>
     <title></title>
 </head>
+<style>
+    .formato td:nth-child(1){
+    color:white;
+    background-color: purple;
+}
+
+.formato td:nth-child(2){
+    background-color: rgb(132,93,132);
+}
+</style>
 <body>
     <?php
         $X=7;
