@@ -6,6 +6,18 @@
     <link rel="stylesheet" type="text/css" href="estilosej1.css" media="screen"/>
     <title></title>
 </head>
+<style>
+    .tabla tr{
+    background-color: rgb(255, 167, 167);
+    border: 1;
+}
+.tabla tr:nth-child(even){
+    background-color: rgb(253, 101, 101);
+
+}
+
+
+</style>
 <body>
     <?php
 $numero=0;
