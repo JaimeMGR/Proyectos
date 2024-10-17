@@ -1,0 +1,189 @@
+.side-nav{
+    display: none;
+}
+.id-container{
+	width: 100%;
+}
+.icon_csv, .icon_pdf  {
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+}
+.checkboxAll{
+display: inline;
+}
+
+.paginacion {
+	text-align: center;
+	margin-bottom: 30px;
+}
+.paginacion a {
+	color: white;
+	font-weight: 500;
+
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
+
+	background-color: #356D14;
+}
+.utility {
+	display: flex;
+	justify-content: start;
+	align-items:center;
+	margin-bottom: 15px;
+}
+.div_radio{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+}
+.update{
+	margin-left: auto;
+	margin-right: 20px;
+}
+.mainTable, .liste_titre{
+	text-align: center !important;
+}
+
+.notStyle:hover{
+	text-decoration: none;
+}
+.none{
+	display: none;
+}
+.loaderSvg{
+ position: fixed;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ left: 0;
+ z-index: 999999999;
+ width: 100vw;
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-color:#356D14;
+ -webkit-transition: opacity 400ms ease-in;
+ -moz-transition: opacity 400ms ease-in;
+ transition: opacity 400ms ease-in;
+ /*pointer-events: none;*/
+}
+.loaderSvg img{
+	width: 120px;
+}
+
+.modal {
+	width: 40%;
+	padding: 20px;
+	background-color: white;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+	background: #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    padding: 0px;
+    border-radius: 0px 0px 0 0;
+  }
+  
+  .header button {
+	background-color: transparent;
+	cursor: pointer;
+  }
+
+.añadirarchivo {
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #f0f0f0;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font: co
+
+}
+
+.modal {
+    padding: 0;
+}
+
+.header {
+    background: #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 10px 10px 10px; /* Top, Right, Bottom, Left */
+    border-radius: 0px 0px 0 0;
+}
+
+
+.labelInputFile {
+    margin-bottom: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.contenedorarchivos{
+	align-content:center; 
+	text-align:center;
+}
+
+.btnEnviar{
+	padding: 10px 20px; 
+	margin-right: 20px;
+}
+
+.btnCancelar{
+	padding: 10px 20px;
+	margin-right: 5px;
+}
+
+.err{
+	align-content:center; 
+	text-align:center;
+}
+
+.botones{
+	align-items: center;
+	text-align: center;
+	margin-right: 10px;
+	margin-bottom: 7px;
+}
+
+.btncerrar{
+	font:  bold 18px Arial;
+}
+
+.formFilter{
+	margin-top: 15px;
+}
+
+.botongenerar{
+	align:center;
+}
+
+.apartadoboton{
+	align:center;
+}
+
+.butAction{
+background:rgb(53, 109, 20);
+}
+
+.contenedorarchivos{
+	border-bottom: 1px solid rgb(184, 184, 184);
+	margin-bottom: 5px;
+}
