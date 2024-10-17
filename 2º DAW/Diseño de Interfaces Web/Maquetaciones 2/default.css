@@ -1,0 +1,134 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.grid-container div{
+    font-style: Merriweather oblique;
+    height: 500px;
+    align-items: center;
+    align-content: center;
+}
+
+img{
+max-width: 30%;
+    max-height: 30%;
+  height: auto;
+}
+
+#uno{
+    grid-column: 1 / 4;
+    grid-row: 1;
+    background-image: url("manage.png");
+    background-position: center center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#dos{
+    grid-column: 4;
+    grid-row: 1;
+    color:white;
+    background: #1C488F ;
+    text-align: center;
+    font-size: 24px;
+    image-resolution: 100px, 100px;
+    font-style:oblique;
+    font-size: 30px ;
+}
+
+#tres{
+    grid-column: 5;
+    grid-row: 1;
+    background-image: url("persona.jpg");
+    background-position: center center;
+    background-size: 100% 100%;
+}
+
+#cuatro{
+    grid-column: 1;
+    grid-row: 2;
+    background-image: url("teclado.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#cinco{
+    grid-column: 2;
+    grid-row: 2;
+    color:white;
+    text-align:center;
+    background:#3776D2;
+    font-style:oblique;
+    font-size: 30px ;
+}
+
+#seis{
+    grid-column: 3;
+    grid-row: 2;
+    color:white;
+    text-align:center;
+    background: #A1E1E1 ;
+    color: #15191B;
+    font-style:oblique;
+    font-size: 30px ;
+}
+
+#siete{
+    grid-column: 4 / 5;
+    grid-row: 2;
+    background-image: url("allwehaveisnow.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#ocho{
+    grid-column: 5 / 5;
+    grid-row: 2;
+    background:#FFD649 ;
+    color:white;
+    text-align:center;
+    image-resolution: 100px 100px;;
+    font-style:oblique;
+    font-size: 30px ;
+}
+
+#nueve{
+    grid-column: 1 / 3;
+    grid-row: 3;
+    color:white;
+    text-align:center;
+    background-image: url("careers.jpg");
+    font-style:oblique;
+    font-size: 30px ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+#diez{
+    grid-column: 3;
+    grid-row: 3;
+    background:#1C488F ;
+    color:white;
+    text-align:center;
+    background-position: center center;
+    font-style:oblique;
+    font-size: 30px ;
+}
+
+#once{
+    grid-column: 4 / 6;
+    grid-row: 3;
+    color:white;
+    text-align:center;
+    background-image: url("social.jpg");
+    background-position: center center;
+    font-style:oblique;
+    font-size: 30px ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
