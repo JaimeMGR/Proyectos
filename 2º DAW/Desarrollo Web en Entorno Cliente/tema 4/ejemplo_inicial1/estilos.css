@@ -42,7 +42,7 @@ ul {
     text-align: center;
     list-style-type: none;
     font-size: 1.5rem;
-    background-color: cyan;
+    background-color: cyan !important;
     color: black;
     padding: 0.5rem;
     

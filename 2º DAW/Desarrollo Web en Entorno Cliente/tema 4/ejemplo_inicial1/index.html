@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplos DOM</title>
     <link rel="stylesheet" type="text/css" href="estilos.css">
-    <script type="text/javascript" src="app.js"></script>
+    <!-- Recuerda poner el defer -->
+    <script type="text/javascript" defer src="app.js"></script>
 </head>
 <body>
     <div class="container">
         <h1 id="cabecera"> Franquicias de éxito</h1>
         <ul> 
-            <li class="item">The Matrix</li>
-            <li class="item">Star Wars</li>
-            <li class="item">Harry Potter</li>
-            <li class="item">El Señor de los Anillos</li>
-            <li class="item">Marvel</li>
+            <li class="item" data-peli="Matrix">The Matrix</li>
+            <li class="item" data-peli="StarWars">Star Wars</li>
+            <li class="item" data-peli="Harry">Harry Potter</li>
+            <li class="item" data-peli="ESDLA">El Señor de los Anillos</li>
+            <li class="item" data-peli="Marvel">Marvel</li>
         </ul>
     </div>
 </body>

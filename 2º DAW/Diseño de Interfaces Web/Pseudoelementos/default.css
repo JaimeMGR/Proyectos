@@ -1,0 +1,322 @@
+/* Elementos comunes */
+* {
+    margin: 0;
+    /* Elimina el margen por defecto */
+    padding: 0;
+    /* Elimina el padding por defecto */
+    box-sizing: border-box;
+    /* Incluye padding y borde en el tamaño total del elemento */
+}
+
+body {
+    background: #5F8000 url(bg.gif) repeat-y center top;
+    /* Fondo verde con imagen repetida verticalmente */
+    color: #333;
+    /* Color del texto */
+    font: 62.5% "Lucida Sans Unicode", sans-serif;
+    /* Fuente y tamaño de texto */
+}
+
+a {
+    color: #682;
+    /* Color del enlace */
+    text-decoration: none;
+    /* Sin subrayado en los enlaces */
+}
+
+a:hover {
+    color: #9A6;
+    /* Color del enlace al pasar el ratón */
+}
+
+input {
+    color: #555;
+    /* Color del texto en inputs */
+    font: 1.1em "Lucida Sans Unicode", sans-serif;
+    /* Fuente y tamaño de texto para inputs */
+}
+
+p,
+cite,
+code,
+ul {
+    font-size: 1.2em;
+    /* Tamaño de fuente para párrafos, citas, código y listas */
+    padding-bottom: 1.2em;
+    /* Espacio debajo de los elementos */
+}
+
+ul {
+    margin-left: 1.2em;
+    /* Margen izquierdo en listas no ordenadas */
+}
+
+li {
+    list-style-image: url(li.gif);
+    /* Imagen personalizada para elementos de lista */
+}
+
+h1,
+h2,
+h3 {
+    color: #654;
+    /* Color de los encabezados h1, h2, h3 */
+}
+
+h1 {
+    font-size: 1.4em;
+    /* Tamaño de fuente para h1 */
+}
+
+blockquote {
+    background: #FFF;
+    /* Fondo blanco para citas */
+    border: 1px solid #EEE;
+    /* Borde gris claro */
+    color: #333;
+    /* Color del texto */
+    font-size: 0.9em;
+    /* Tamaño de fuente más pequeño para citas */
+    margin-bottom: 1.2em;
+    /* Espacio inferior */
+    padding: 6px 12px;
+    /* Padding interno de la cita */
+}
+
+blockquote p {
+    padding: 3px 0;
+    /* Espacio interno en párrafos dentro de citas */
+}
+
+/* Imágenes */
+.clearer {
+    clear: both;
+    /* Asegura que los elementos flotantes no afecten el flujo */
+}
+
+/* Estructura */
+.container {
+    background: url(bgcontainer.gif) repeat-y;
+    /* Fondo con imagen repetida verticalmente */
+    margin: 0 auto;
+    /* Centra el contenedor */
+    width: 702px;
+    /* Ancho del contenedor */
+}
+
+/* Top */
+.top {
+    background: #567300;
+    /* Fondo verde oscuro */
+    font: 2.4em Verdana, sans-serif;
+    /* Fuente y tamaño de texto para la parte superior */
+    height: 60px;
+    /* Altura de la parte superior */
+    margin: 0 auto;
+    /* Centra la parte superior */
+    width: 630px;
+    /* Ancho de la parte superior */
+}
+
+.top a {
+    color: #FFF;
+    /* Color blanco para enlaces en la parte superior */
+    display: block;
+    /* Hace que el enlace ocupe toda la línea */
+    line-height: 60px;
+    /* Altura de línea igual a la altura del contenedor */
+    padding-left: 24px;
+    /* Espacio a la izquierda en los enlaces */
+}
+
+.top a:hover {
+    background: #688B00;
+    /* Fondo verde más claro al pasar el ratón sobre los enlaces */
+}
+
+/* Header */
+.header {
+    background: url(header.jpg) no-repeat;
+    /* Imagen de fondo para el encabezado */
+    height: 180px;
+    /* Altura del encabezado */
+    margin: 0 auto;
+    /* Centra el encabezado */
+    width: 630px;
+    /* Ancho del encabezado */
+}
+
+/* Item */
+.item {
+    clear: both;
+    /* Asegura que el ítem no se superponga a otros elementos */
+}
+
+.item .date {
+    background: url(bgdate.gif) no-repeat;
+    /* Fondo para la fecha */
+    color: #FDD;
+    /* Color de texto para la fecha */
+    float: left;
+    /* Flota a la izquierda */
+    height: 50px;
+    /* Altura del contenedor de fecha */
+    text-align: center;
+    /* Centra el texto de la fecha */
+    width: 36px;
+    /* Ancho del contenedor de fecha */
+}
+
+.item .date div {
+    padding-top: 4px;
+    /* Espacio superior en el contenedor de fecha */
+}
+
+.item .date span {
+    font: 1.6em serif;
+    /* Tamaño de fuente para el texto de fecha */
+}
+
+.item .content {
+    float: left;
+    /* Flota el contenido a la izquierda */
+    width: 420px;
+    /* Ancho del contenido */
+}
+
+.item h1 {
+    background: #567300;
+    /* Fondo verde oscuro para el título del ítem */
+    color: #FFF;
+    /* Color blanco para el texto del título */
+    line-height: 40px;
+    /* Altura de línea igual a la altura del contenedor */
+    padding-left: 16px;
+    /* Espacio a la izquierda en el título */
+}
+
+/* Main */
+.main {
+    float: left;
+    /* Flota el contenedor principal a la izquierda */
+}
+
+/* Navigation */
+.navigation {
+    float: left;
+    /* Flota la navegación a la izquierda */
+    margin-left: 1px;
+    /* Margen izquierdo de la navegación */
+    width: 208px;
+    /* Ancho de la navegación */
+}
+
+.navigation h1 {
+    background: #81AC00;
+    /* Fondo verde claro para el título de navegación */
+    color: #FFF;
+    /* Color blanco para el texto */
+    font-size: 1.3em;
+    /* Tamaño de fuente para el título de navegación */
+    line-height: 40px;
+    /* Altura de línea igual a la altura del contenedor */
+    padding-left: 12px;
+    /* Espacio a la izquierda en el título de navegación */
+}
+
+.navigation ul {
+    margin: 0;
+    /* Elimina el margen superior e inferior de la lista */
+    padding: 0;
+    /* Elimina el padding de la lista */
+}
+
+.navigation li {
+    border-bottom: 1px solid #D5E8AD;
+    /* Borde inferior en cada elemento de la lista */
+    list-style: none;
+    /* Sin estilo de lista en elementos de navegación */
+}
+
+.navigation li a {
+    background: #E8F6BF url(bgnavigation.gif) repeat-x;
+    /* Fondo para enlaces de navegación */
+    color: #553;
+    /* Color del texto de los enlaces de navegación */
+    display: block;
+    /* Hace que el enlace ocupe toda la línea */
+    padding: 8px 4px 8px 12px;
+    /* Espacio interno en los enlaces de navegación */
+}
+
+.navigation li a:hover {
+    background: #F0FFC6;
+    /* Fondo más claro al pasar el ratón sobre los enlaces de navegación */
+}
+
+/* Footer */
+.footer {
+    background: url(bgfooter.gif) repeat-x;
+    /* Imagen de fondo para el pie de página */
+    color: #FFF;
+    /* Color blanco para el texto del pie de página */
+    font-size: 1.1em;
+    /* Tamaño de fuente para el pie de página */
+    line-height: 40px;
+    /* Altura de línea igual a la altura del contenedor */
+    margin: 0 auto;
+    /* Centra el pie de página */
+    text-align: center;
+    /* Centra el texto en el pie de página */
+    width: 626px;
+    /* Ancho del pie de página */
+}
+
+.footer a {
+    color: #FFF;
+    /* Color blanco para los enlaces en el pie de página */
+}
+
+.footer a:hover {
+    color: #FAFCB0;
+    /* Color más claro al pasar el ratón sobre los enlaces en el pie de página */
+}
+
+
+li:nth-child(3) {
+    color: orange;
+}
+
+a:before {
+    content: "😶‍🌫️ "
+}
+
+.body::first-letter {
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(255, 44, 44);
+}
+
+h1:after {
+    content: ":"
+}
+
+li:nth-child(1) {
+    color: red;
+}
+
+li:nth-child(even) {
+    color: rgb(211, 0, 211);
+    border: 1px solid black;
+}
+
+li:nth-child(odd) {
+    color: rgb(28, 211, 0);
+    border: 3px rgb(60, 177, 255) dashed;
+}
+
+li:nth-child(odd):after{
+    content: "__________________________________  ";
+}
