@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Ejemplo de Selectores CSS con Grid</title>
+</head>
+<body>
+<header>
+    <h1>Jaime Molina Granados</h1>
+    <h2>Desarrollador Full Stack | Técnico Microinformático</h2>
+</header>
+<br><br>
+<main>
+      <!-- Container 1: Combinador de hermanos adyacentes -->
+      <section>
+        <h2 class="item">Título de Sección</h2>
+        <p class="item">Contenido relevante de la sección.</p>
+    </section>
+
+    <!-- Container 2: Combinador general de hermanos -->
+    <div class="container">
+        <h2 class="item">Título H2</h2>
+        <p class="item">Párrafo que sigue directamente a un H2.</p>
+    </div>
+
+    <!-- Container 3: Combinador de hijo directo -->
+    <div class="container">
+        <ul class="item">
+            <li>Primer ítem de la lista</li>
+            <li>Segundo ítem de la lista</li>
+        </ul>
+    </div>
+
+    <!-- Container 4: Combinador de descendientes -->
+    <div class="container">
+        <div class="item">
+            <span>Este span es un descendiente dentro del div.</span>
+        </div>
+    </div>
+
+    <!-- Container 5: Combinador de columna -->
+    <div class="container">
+        <table class="item">
+            <colgroup>
+                <col style="background-color: lightgrey">
+                <col>
+            </colgroup>
+            <tr>
+                <td>Celda 1</td>
+                <td>Celda 2</td>
+                <td>Celda 3</td>
+                <td>Celda 4</td>
+            </tr>
+            <tr>
+                <td>Celda 1</td>
+                <td>Celda 2</td>
+                <td>Celda 1</td>
+                <td>Celda 2</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Container 6: Selectores avanzados -->
+    <div class="container parent">
+        <div class="item child">Hijo directo con la clase .child</div>
+    </div>
+
+    <!-- Container 7: Selector de atributo -->
+    <div class="container">
+        <input class="item" type="text" placeholder="Campo de texto">
+    </div>
+
+    <!-- Container 8: Combinadores de hermanos adyacentes y generales -->
+    <div class="container">
+        <h2 class="item">Otro título H2</h2>
+        <p class="item">Párrafo que sigue directamente a un H2.</p>
+        <p class="item">Párrafo adicional que no está inmediatamente después del H2.</p>
+    </div>
+</main>
+    <footer>
+        <h1>Desarrollo de Aplicaciones Web</h1>
+    </footer>
+</body>
+</html>

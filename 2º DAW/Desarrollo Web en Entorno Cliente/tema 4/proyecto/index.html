@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concesionario de Coches</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h1>Formulario de inscripción</h1>
+    <form action="procesar.php" method="POST">
+
+        <label for="tipo">Tipo de vehículo:</label>
+        <select id="tipo" name="tipo" required>
+            <option value="" hidden>Selecciona una opción</option>
+            <option value="Coche">Coche</option>
+            <option value="Moto">Moto</option>
+            <option value="Patin">Patín</option>
+        </select><br><br>
+
+        <label for="marca">Marca del vehículo:</label>
+        <input type="text" id="marca" name="marca" required><br><br>
+
+        <label for="modelo">Modelo del vehículo:</label>
+        <input type="text" id="modelo" name="modelo" required><br><br>
+
+        <label for="matricula">Matrícula del vehículo:</label>
+        <input type="text" id="matricula" name="matricula" required><br><br>
+
+        <label for="fecha">Fecha de matriculación:</label>
+        <input type="date" id="fecha" name="fecha" required><br><br>
+
+        <label for="comentarios">Comentarios:</label>
+        <textarea id="comentarios" name="comentarios"></textarea><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

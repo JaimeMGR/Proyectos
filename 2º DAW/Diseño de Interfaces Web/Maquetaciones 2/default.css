@@ -1,28 +1,33 @@
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: minmax(100px, auto);
+    grid-template-columns: repeat(5, 150px);
+    grid-auto-rows: minmax(auto, 150px);
 }
 
 .grid-container div{
-    font-style: Merriweather oblique;
-    height: 500px;
     align-items: center;
     align-content: center;
 }
 
+a{
+    font-size: 8px;
+    font-style:italic;
+    font-weight: 500;
+}
+
 img{
-max-width: 30%;
+    max-width: 30%;
     max-height: 30%;
-  height: auto;
+    height: auto;
 }
 
 #uno{
     grid-column: 1 / 4;
     grid-row: 1;
+    width: 100%;
     background-image: url("manage.png");
     background-position: center center;
-    background-size: 100%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 
@@ -31,11 +36,8 @@ max-width: 30%;
     grid-row: 1;
     color:white;
     background: #1C488F ;
-    text-align: center;
-    font-size: 24px;
+    text-align: center;  
     image-resolution: 100px, 100px;
-    font-style:oblique;
-    font-size: 30px ;
 }
 
 #tres{
@@ -44,6 +46,7 @@ max-width: 30%;
     background-image: url("persona.jpg");
     background-position: center center;
     background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 #cuatro{
@@ -61,8 +64,6 @@ max-width: 30%;
     color:white;
     text-align:center;
     background:#3776D2;
-    font-style:oblique;
-    font-size: 30px ;
 }
 
 #seis{
@@ -72,8 +73,6 @@ max-width: 30%;
     text-align:center;
     background: #A1E1E1 ;
     color: #15191B;
-    font-style:oblique;
-    font-size: 30px ;
 }
 
 #siete{
@@ -92,8 +91,6 @@ max-width: 30%;
     color:white;
     text-align:center;
     image-resolution: 100px 100px;;
-    font-style:oblique;
-    font-size: 30px ;
 }
 
 #nueve{
@@ -102,8 +99,6 @@ max-width: 30%;
     color:white;
     text-align:center;
     background-image: url("careers.jpg");
-    font-style:oblique;
-    font-size: 30px ;
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
@@ -116,8 +111,6 @@ max-width: 30%;
     color:white;
     text-align:center;
     background-position: center center;
-    font-style:oblique;
-    font-size: 30px ;
 }
 
 #once{
@@ -127,8 +120,6 @@ max-width: 30%;
     text-align:center;
     background-image: url("social.jpg");
     background-position: center center;
-    font-style:oblique;
-    font-size: 30px ;
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
