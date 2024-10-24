@@ -159,6 +159,7 @@ console.log(Object.fromEntries(segundo_curso));
 
 
 // Ejercicio 5
+console.log("Ejercicio 5:");
 
 // Escribir un programa que, partiendo de una estructura de datos con los precios de las frutas de una
 // tienda, permita realizar las siguientes acciones:

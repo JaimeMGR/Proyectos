@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const reportParts = getReportParts(
+  ".item",
+  "#translateReport tr td:last-child"
+);
+const report = makeReporterFunc(
+  "transform",
+  reportParts.rows,
+  formatTranslateX
+);
+
+function reporter() {
+  reportParts.computed.forEach(report);
+  window.requestAnimationFrame(reporter);
+}
+
+window.requestAnimationFrame(reporter);
+    </script>
+    <div class="element"></div>
+    <div class="note">
+      </div>
+    
+      <div class="section translate">
+        <div class="section-contents">
+          <div class="stacked-items">
+            <div class="item-container">
+              <b>replace (default)</b>
+              <div class="item replace">⛄️</div>
+            </div>
+            <div class="item-container">
+              <b>add</b>
+              <div class="item add">🎅</div>
+            </div>
+            <div class="item-container">
+              <b>accumulate</b>
+              <div class="item accumulate">❄️</div>
+            </div>
+          </div>
+        </div>
+        <div class="report">
+          <table id="translateReport">
+            <tr>
+              <th>Composition</th>
+              <th>translateX</th>
+            </tr>
+            <tr>
+              <td>replace</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>add</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>accumulate</td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+</body>
+</html>
