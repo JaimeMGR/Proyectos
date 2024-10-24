@@ -7,9 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="contenido">
     <header>
         <h1>Reserva tus Entradas de Cine</h1>
     </header>
+    <main>
     <form action="selector.php" method="POST">
 
         <label for="normal">Normal                   9,20€</label>
@@ -19,9 +21,10 @@
             <input type="submit">Reservar</input>
         </section>
     </form>
-
+    </main>
     <footer>
         <p>&copy; 2024 Cine Molina. Todos los derechos reservados.</p>
     </footer>
+    </div>
 </body>
 </html>
