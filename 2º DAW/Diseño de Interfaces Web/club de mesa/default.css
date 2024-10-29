@@ -1,0 +1,274 @@
+/* General */
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+    line-height: 1.6;
+    min-width: 880px;
+}
+
+header, footer {
+    background: #006696;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+}
+
+
+ul {
+    width: auto;
+    margin: 1em auto;
+    padding: auto;
+    list-style-type: none;
+    column-count: 4;
+    text-align: justify;
+}
+
+ul li {
+    margin: 0.5em 0;
+    font-size: 1em;
+}
+
+ul li strong {
+    color: #3e6e9e;
+}
+
+ul li::before {
+    content: "🎲 ";
+    font-size: 0.9em;
+}
+
+header h1 {
+    margin: 0;
+}
+
+
+nav a {
+    color: #fff;
+    margin: 0 1em;
+    text-decoration: none;
+}
+
+h2{
+text-align: center;
+}
+
+.noticia-item{
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: 1vw;
+    background-color: #f2f2f2;
+    border-radius: 2%;
+}
+
+main{
+    padding-left: 5vw;
+    padding-right: 5vw;
+    align-items: center;
+}
+
+form{
+    margin-bottom: 1vw;
+    padding: 1vw;
+    background-color: #f2f2f2;
+    border-radius: 2%;
+}
+
+
+input[type="text"],[type="email"],[type="submit"]{
+    width: 10vw;
+}
+
+/* Testimonios */
+.testimonios {
+    display: grid;
+    gap: 2vw;
+    padding: 2vw;
+}
+
+img{
+    max-width: 20%;
+    height: auto;
+}
+
+.testimonio-item {
+    display: flex;
+    align-items: center;
+    padding: 1.5vw;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonio-item:hover {
+    transform: scale(1.02);
+}
+
+.testimonio-item img {
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
+    margin-right: 1.5vw;
+    object-fit: cover;
+}
+
+.juegos p img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.juegos ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+}
+
+.juegos ul li {
+    flex: 1 1 48%;
+    padding: 0.5rem;
+    background: #ecf0f1;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+}
+
+.juegos p{
+    text-align: left;
+}
+
+.juegos img{
+    max-width: 40%;
+    height: auto;
+}
+
+
+
+.testimonio-texto h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.ocupacion {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0.2em 0;
+}
+
+.testimonio-texto p {
+    margin-top: 0.5em;
+    color: #333;
+}
+
+/* Calendario */
+.calendario {
+    margin: 2vw auto;
+    max-width: 100%;
+    padding: 2vw;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.listado-citas{
+    margin: 2vw auto;
+    max-width: 100%;
+    padding: 2vw;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mes {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1vw;
+    text-align: center;
+    font-weight: bold;
+}
+
+.semana {
+    display: contents;
+}
+
+.dias {
+    display: contents;
+}
+
+.dia, .dia-celda {
+    padding: 1vw;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.dia-celda:hover {
+    background-color: #e2e2e2;
+    cursor: pointer;
+}
+
+.dia-celda.celebracion {
+    background-color: #ffd966;
+}
+
+/* Listado de Citas */
+.listado-citas {
+    padding: 2vw;
+}
+
+.cita-item {
+    padding: 1.5vw;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cita-item h3 {
+    margin: 0;
+}
+
+.cita-item p {
+    margin: 0.5em 0;
+}
+
+/* Servicios */
+
+.ulservicios {
+    width: auto;
+    margin: 1em auto;
+    padding: auto;
+    list-style-type: none;
+    column-count: 1;
+    text-align: justify;
+}
+
+.ulservicios li {
+    margin: 0.5em 0;
+    font-size: 1em;
+}
+
+.ulservicios li strong {
+    color: #3e6e9e;
+}
+
+nav{
+    margin: 1%;
+    text-align: center;
+}
+
+nav a{
+    background: #006696;
+    border-radius: 5%;
+    margin:0%;
+    margin-right:1%;
+    padding: 0.5% 0.5%;
+}
+
+nav a:hover{
+    background: #f5b1b1;
+    color: #fff;
+}

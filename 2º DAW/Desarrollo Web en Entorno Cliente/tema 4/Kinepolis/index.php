@@ -18,7 +18,7 @@
         <input type="number" id="normal" name="normal"><br><br>
         
         <section class="reservation-button">
-            <input type="submit">Reservar</input>
+            <input type="submit"></input>
         </section>
     </form>
     </main>

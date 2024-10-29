@@ -29,6 +29,8 @@
         </div>
     <!-- Contenedor de los asientos -->
     <main>
+    <button id="reserveBtn">Reservar</button>
+
         <div class="row">
             <span class="row-number">17</span>
             <div class="container">
@@ -709,8 +711,6 @@
             </div>
             <span class="row-number">2</span>
         </div>
-        
-        <div class="pantalladibujo">
         <div class="row">
             <span class="row-number">1</span>
             <div class="container">
@@ -753,12 +753,12 @@
             </div>
             <span class="row-number">1</span>
         </div>
-        <div class="seats-screen" data-seats-screen="" ">Pantalla</div>
-        </div>
+        <div class="pantalladibujo"></div>
+        <div class="seats-screen" style="width:100%">Pantalla</div>
+
 
         <!-- Resumen de la selección -->
         <p>Asientos seleccionados: <span id="selectedSeats">Ninguno</span></p>
-        <button id="reserveBtn">Reservar</button>
     </main>
     <footer>
         <p>&copy; 2024 Cine Molina. Todos los derechos reservados.</p>
