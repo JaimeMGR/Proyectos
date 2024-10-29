@@ -53,7 +53,6 @@ reserveBtn.addEventListener('click', () => {
     if (selectedSeatIds.length > 0) {
         const totalPrice = selectedSeatIds.length * seatPrice;
         alert(`Has reservado los siguientes asientos: ${selectedSeatIds.join(', ')}\nEl precio total es: ${totalPrice.toFixed(2)}€`);
-        // Aquí podrías agregar lógica para enviar los asientos seleccionados a un servidor
     } else {
         alert('No has seleccionado ningún asiento.');
     }

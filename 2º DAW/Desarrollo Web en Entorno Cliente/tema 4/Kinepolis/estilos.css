@@ -1,57 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Estilos generales */
 body {
+    max-width: 100%;
+    display: grid;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: white;
     color: #333;
     flex-direction: column;
     align-items: center;
     justify-content: top;
-}
 
-/* Contenedor de la pantalla */
-.screen {
-    width: 70%;
-    height: 30px;
-    background-color: #333;
-    color: white;
-    text-align: center;
-    line-height: 30px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    font-size: 18px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    transform: scaleX(1.2);
-}
-
-/* Contenedor de asientos */
-.seating-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 /* Fila de asientos */
 .row {
     display: flex;
     align-items: center;
-    font-size: 1vw;
+    font-size: 12px;
     justify-content: center;
-    width:auto;
 }
 
 /* Numeración de fila */
 .row-number {
-    font-size: 1vw;
+    font-style: bold;
+    font-size: 20px;
     font-weight: bold;
     margin-right: 15px;
     margin-left: 15px;
 }
+
 /* Contenedor general de asientos (izquierda, medio, derecha) */
 .container {
     display: flex;
     justify-content: center;
-    width:auto;
-    max-height: 60%;
 }
 
 /* Estilo para las secciones izquierda, media y derecha */
@@ -59,21 +45,22 @@ body {
 .container-MID,
 .container-RIGHT {
     display: grid;
-    grid-template-columns: repeat(10, 40px); /* Ajustar según los asientos por fila */
-    grid-gap: 10px;
-    margin: 0 10px; /* Espacio entre las secciones */
+    grid-template-columns: repeat(10, 40px);
+    /* Ajustar según los asientos por fila */
+    grid-gap: 1px;
 }
 
 /* Centrar la sección media (pasillo más ancho) */
 .container-MID {
-    margin: 0 30px;
+    margin: 0 4px;
 }
 
 /* Estilo de los asientos */
 .seat {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
+    background-image: url('seat-available.svg');
     transition: transform 0.2s ease-in-out;
 }
 
@@ -84,90 +71,96 @@ body {
 
 /* Asiento disponible */
 .seat[data-seat-status="available"] {
-    fill: #1b6ca8; /* Color azul como en el ejemplo */
+    fill: #1b6ca8;
+    /* Color azul como en el ejemplo */
 }
 
 /* Asiento reservado */
 .seat[data-seat-status="selected"] {
-    fill: #66bb6a; /* Color verde */
+    fill: #66bb6a;
+    /* Color verde */
 }
 
-.pantalladibujo{
-    font-size: 14px;
-    user-select: none;
-    cursor: default;
+.pantalladibujo {
+    font-size: 20px;
     text-align: center;
     text-transform: uppercase;
-    font-size: 1vw;
-    width:auto;
     color: black;
-    border: solid 5px #2b2b2b;
-    border-color: transparent transparent #2b2b2b transparent;
-    border-radius: 80%/0 0 80px 80px;
-    height: auto;
-    font-family: 'Montserrat', sans-serif;
+    border-bottom: solid 5px #2b2b2b;
+    border-radius: 60%/0 0 80px 80px;
 }
 
 /* Header */
 header {
     background-color: #2c3e50;
     color: white;
-    font-size: 1.5vw;
+    font-size: 20px;
     width: auto;
     text-align: center;
 }
 
 /* Sub Header */
 .subheader {
-        background-color: gray;
-        color: white;
-        font-size: 1.25vw;
-        padding: 0.5%;
-        text-align: center;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 20px;
+    padding: 0.5%;
+    text-align: center;
 }
 
 /* Footer */
 footer {
-    background-color: #2c3e50;
-    color: white;
     width: 100%;
-    padding: 20px;
+    background-color: #2c3e50;
+    color: #ffffff;
     text-align: center;
-    font-size: 0.7vw;
+    padding: 1% 0;
+    position:fixed;
+    bottom: 0;
 }
 
-main{
-    padding-top: 0.5%;
-    background-color: white;
-    font-size: 0.7vw;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: 100%;
-    align-content: center;
+main {
+    align-items: center;
     text-align: center;
+    align-content: center;
+    background-color: #ffffff;
+    padding: 40px 100px  0px 100px;
+    border-radius: 8px;
 }
 
 /* Button */
 button {
+    margin-top: 1%;
     background-color: #e74c3c;
     color: white;
-    font-size: 1.2rem;
-    padding: 10px 20px;
+    padding: 1% 0.5%;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5vw;
     cursor: pointer;
-    font-size: 0.7vw;
-    margin-bottom: 2%;
+    font-size: 20px;
+    margin-bottom: 5%;
 }
 
 button:hover {
     background-color: #c0392b;
 }
 
-.todo{
+.todo {
     display: grid;
-    width: 100%;
-
-    grid-template-rows: 
+    grid-template-rows:
         auto auto auto;
+}
+
+p {
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+.resumen {
+    background: rgb(184, 184, 184);
+    text-align: center;
+    border: 2px solid black;
+    margin-left: 20%;
+    margin-right: 20%;
 }

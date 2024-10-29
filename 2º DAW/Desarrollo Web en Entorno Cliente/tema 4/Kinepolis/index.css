@@ -6,14 +6,14 @@
 }
 
 body {
+    max-width: 100%;
+    display: grid;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: white;
     color: #333;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: top;
-    min-height: 100vh;
 }
 
 /* Header */
@@ -32,11 +32,10 @@ h1 {
 /* Main content */
 main {
     background-color: white;
-    padding: 30px;
+    padding: 300px;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
-
 }
 
 /* Section titles */
