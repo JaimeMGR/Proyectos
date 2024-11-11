@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario Centrado</title>
+    <style>
+      /* Estilos para centrar el formulario */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f0f4f8;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        text-align: center;
+        background-color: #fff;
+        padding: 2em;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      input[type="text"] {
+        width: 80%;
+        padding: 0.5em;
+        margin: 1em 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1em;
+      }
+
+      button {
+        padding: 0.5em 1em;
+        font-size: 1em;
+        color: #fff;
+        background-color: #0b2c58;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #1590d8;
+      }
+
+      #salida {
+        margin-top: 1.5em;
+        padding: 1em;
+        background-color: #e8f5e9;
+        border: 1px solid #2876eb;
+        border-radius: 5px;
+        font-size: 1.2em;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Introduce un texto</h2>
+      <input type="text" id="entrada" placeholder="Escribe algo aquí..." />
+      <button>Mostrar</button>
+      <div id="salida"></div>
+    </div>
+
+    <script>
+      const boton = document.querySelector("button");
+      const inputText = document.getElementById("entrada");
+      const salidaDiv = document.getElementById("salida");
+
+      let expresion_reg=/r/;
+
+      boton.addEventListener("click", () => {
+        let valor = inputText.value;
+        let resultado=expresion_reg.test(valor)
+
+        
+        salidaDiv.innerHTML = `<b>Cadena de entrada:</b>${valor}<br>
+                               <b>Patrón:</b>${expresion_reg}<br>
+                               <b>Cumple el patrón:</b>${resultado}`;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Compleja con Selectores Avanzados</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="header">
+        <div class="logo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJdSI_zvYbkTz7WACTZimo1sTbNzZO3BlHVw&s"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de introducción -->
+    <section id="inicio" class="intro">
+        <h1>Bienvenidos a Mi Sitio Web</h1>
+        <p class="highlight">Tu éxito es nuestro objetivo.</p>
+    </section>
+
+    <!-- Contenido principal con selectores avanzados -->
+    <main class="main-content">
+        <section id="servicios" class="services">
+            <h2>Nuestros Servicios</h2>
+            <div class="service-card" data-service-type="web">
+                <h3>Desarrollo Web</h3>
+                <p>Creación de sitios web responsivos y de alto rendimiento.</p>
+            </div>
+            <div class="service-card" data-service-type="consulting">
+                <h3>Consultoría</h3>
+                <p>Asesoramiento profesional para optimizar su negocio.</p>
+            </div>
+            <div class="service-card" data-service-type="marketing">
+                <h3>Marketing Digital</h3>
+                <p>Estrategias de marketing para mejorar la visibilidad en línea.</p>
+            </div>
+            <p class="note">Los servicios que ofrecemos están orientados al éxito de tu empresa.</p>
+        </section>
+
+        <!-- Barra lateral -->
+        <aside class="sidebar">
+            <h3>Noticias Recientes</h3>
+            <ul>
+                <li class="news-item">Lanzamiento de nuevo producto</li>
+                <li class="news-item">Actualización de nuestras políticas</li>
+                <li class="news-item">Consejos para mejorar tu SEO</li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- Galería de portafolio -->
+    <section id="portafolio" class="portfolio">
+        <h2>Portafolio</h2>
+        <div class="gallery">
+            <div class="gallery-item">Proyecto 1</div>
+            <div class="gallery-item">Proyecto 2</div>
+            <div class="gallery-item">Proyecto 3</div>
+            <div class="gallery-item">Proyecto 4</div>
+        </div>
+    </section>
+
+    <!-- Formulario de contacto -->
+    <section id="contacto" class="contact">
+        <h2>Contacto</h2>
+        <form action="#" method="post">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <p>&copy; 2024 Mi Sitio Web. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

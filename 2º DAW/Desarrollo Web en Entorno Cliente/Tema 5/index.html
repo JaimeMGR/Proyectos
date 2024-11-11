@@ -1,0 +1,364 @@
+<html lang="es"><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Validación de Formularios</title>
+    <style>
+      body {
+        background-color: #2e2e2e;
+        color: #d1d1d1;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2 {
+        color: #ffffff;
+      }
+
+      pre {
+        background-color: #1e1e1e;
+        padding: 15px;
+        border-radius: 4px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        margin-bottom: 20px;
+      }
+
+      code {
+        color: #f8f8f2;
+        font-family: monospace;
+      }
+
+      .keyword {
+        color: #ff79c6;
+      }
+
+      .string {
+        color: #50fa7b;
+      }
+
+      .comment {
+        color: #6272a4;
+      }
+
+      .function {
+        color: #ffb86c;
+      }
+
+      .number {
+        color: #bd93f9;
+      }
+    </style>
+  </head>
+  <body __processed_b254d5e0-296c-4639-a2d9-f3d55e0b902e__="true">
+    <h1>Manual de Validación de Formularios en JavaScript</h1>
+    <p>
+      Este manual proporciona ejemplos de cómo validar diferentes tipos de
+      campos en un formulario utilizando JavaScript. Los mensajes de error se
+      muestran en ventanas emergentes (<code>alert()</code>).
+    </p>
+
+    <!-- Sección 1 -->
+    <div>
+      <h2>1. Código para Validación del Campo de Texto</h2>
+      <pre><code><span class="keyword">const</span> validarTexto = () =&gt; {
+        <span class="keyword">let</span> campoTexto = <span class="function">document</span>.<span class="function">getElementById</span>('miCampoTexto').<span class="function">value</span>;
+        <span class="keyword">if</span> (campoTexto === "") {
+          <span class="function">alert</span>("El campo no puede estar vacío");
+          <span class="keyword">return</span> <span class="keyword">false</span>;
+        }
+        <span class="keyword">return</span> <span class="keyword">true</span>;
+      };
+      
+      <span class="keyword">const</span> formulario = <span class="function">document</span>.<span class="function">getElementById</span>('formulario');
+      formulario.<span class="function">addEventListener</span>('submit', (<span class="keyword">event</span>) =&gt; {
+        <span class="keyword">if</span> (!validarTexto()) {
+          event.<span class="function">preventDefault</span>();
+        }
+      });
+      </code></pre>
+      
+      <p><b>Explicación:</b></p>
+      <ul>
+        <li>
+          <b>1.</b>
+          <code>let campoTexto =
+            document.getElementById('miCampoTexto').value;</code>: Obtiene el valor del campo de texto.
+        </li>
+        <li>
+          <b>2.</b> <code>if (campoTexto === "")</code>: Verifica si el campo
+          está vacío.
+        </li>
+        <li>
+          <b>3.</b> <code>alert("El campo no puede estar vacío");</code>: Si
+          está vacío, muestra una alerta.
+        </li>
+        <li>
+          <b>4.</b> <code>return false;</code>: Si está vacío, retorna
+          <code>false</code> para detener la validación.
+        </li>
+        <li>
+          <b>5.</b> <code>return true;</code>: Si tiene contenido, retorna
+          <code>true</code>.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Sección 2 -->
+    <div>
+      <h2>2. Código para Validación de Checkbox</h2>
+      <pre><code><span class="keyword">const</span> validarCheckbox = () =&gt; {
+  <span class="keyword">let</span> checkbox = <span class="function">document</span>.<span class="function">getElementById</span>('miCheckbox');
+  <span class="keyword">if</span> (!checkbox.<span class="function">checked</span>) {
+    <span class="function">alert</span>("Debe aceptar los términos");
+    <span class="keyword">return</span> <span class="keyword">false</span>;
+  }
+  <span class="keyword">return</span> <span class="keyword">true</span>;
+};</code></pre>
+      <p><b>Explicación:</b></p>
+      <ul>
+        <li>
+          <b>1.</b>
+          <code>let checkbox = document.getElementById('miCheckbox');</code>:
+          Obtiene el estado del checkbox.
+        </li>
+        <li>
+          <b>2.</b> <code>if (!checkbox.checked)</code>: Verifica si el checkbox
+          no está marcado.
+        </li>
+        <li>
+          <b>3.</b> <code>alert("Debe aceptar los términos");</code>: Muestra
+          una alerta si no está marcado.
+        </li>
+        <li>
+          <b>4.</b> <code>return false;</code>: Retorna <code>false</code> si no
+          está marcado.
+        </li>
+        <li>
+          <b>5.</b> <code>return true;</code>: Retorna <code>true</code> si está
+          marcado.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Sección 3 -->
+    <div>
+      <h2>3. Código para Validación de Select (Menú Desplegable)</h2>
+      <pre><code><span class="keyword">const</span> validarSelect = () =&gt; {
+  <span class="keyword">let</span> select = <span class="function">document</span>.<span class="function">getElementById</span>('miSelect');
+  <span class="keyword">if</span> (select.<span class="function">selectedIndex</span> === 0) {
+    <span class="function">alert</span>("Debe seleccionar una opción válida");
+    <span class="keyword">return</span> <span class="keyword">false</span>;
+  }
+  <span class="keyword">return</span> <span class="keyword">true</span>;
+};</code></pre>
+      <p><b>Explicación:</b></p>
+      <ul>
+        <li>
+          <b>1.</b>
+          <code>let select = document.getElementById('miSelect');</code>:
+          Obtiene el menú desplegable con el id <code>miSelect</code>.
+        </li>
+        <li>
+          <b>2.</b> <code>if (select.selectedIndex === 0)</code>: Verifica si no
+          se ha seleccionado una opción válida.
+        </li>
+        <li>
+          <b>3.</b> <code>alert("Debe seleccionar una opción válida");</code>:
+          Muestra una alerta si no se selecciona una opción válida.
+        </li>
+        <li>
+          <b>4.</b> <code>return false;</code>: Retorna <code>false</code> si no
+          se selecciona una opción válida.
+        </li>
+        <li>
+          <b>5.</b> <code>return true;</code>: Retorna <code>true</code> si se
+          selecciona una opción válida.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Sección 4 -->
+    <div>
+      <h2>4. Código para Validación de Número</h2>
+      <pre><code><span class="keyword">const</span> validarNumero = () =&gt; {
+  <span class="keyword">let</span> numberField = <span class="function">document</span>.<span class="function">getElementById</span>('numberField');
+  <span class="keyword">let</span> numberValue = <span class="function">parseInt</span>(numberField.<span class="function">value</span>, 10);
+  <span class="keyword">if</span> (<span class="function">isNaN</span>(numberValue) || numberValue &lt; 1 || numberValue &gt; 100) {
+    <span class="function">alert</span>("El número debe estar entre 1 y 100");
+    <span class="keyword">return</span> <span class="keyword">false</span>;
+  }
+  <span class="keyword">return</span> <span class="keyword">true</span>;
+};</code></pre>
+      <p><b>Explicación:</b></p>
+      <ul>
+        <li>
+          <b>1.</b>
+          <code>let numberField = document.getElementById('numberField');</code>: Obtiene el valor del campo numérico.
+        </li>
+        <li>
+          <b>2.</b>
+          <code>let numberValue = parseInt(numberField.value, 10);</code>:
+          Convierte el valor a número entero.
+        </li>
+        <li>
+          <b>3.</b>
+          <code>if (isNaN(numberValue) || numberValue &lt; 1 || numberValue &gt;
+            100)</code>: Verifica si el número no es válido.
+        </li>
+        <li>
+          <b>4.</b> <code>alert("El número debe estar entre 1 y 100");</code>:
+          Si no es válido, muestra una alerta.
+        </li>
+        <li>
+          <b>5.</b> <code>return false;</code>: Retorna <code>false</code> si el
+          número no es válido.
+        </li>
+        <li>
+          <b>6.</b> <code>return true;</code>: Retorna <code>true</code> si el
+          número es válido.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Sección 5 -->
+    <div>
+      <h2>5. Validación de Archivo (JPEG o PNG)</h2>
+      <pre><code><span class="keyword">const</span> validarArchivo = () =&gt; {
+  <span class="keyword">let</span> fileInput = <span class="function">document</span>.<span class="function">getElementById</span>('fileInput');
+  <span class="keyword">let</span> file = fileInput.files[0];
+  <span class="keyword">if</span> (file) {
+    <span class="keyword">let</span> allowedTypes = ['image/jpeg', 'image/png'];
+    <span class="keyword">if</span> (!allowedTypes.includes(file.type)) {
+      <span class="function">alert</span>("Solo se permiten archivos JPEG o PNG");
+      <span class="keyword">return</span> <span class="keyword">false</span>;
+    }
+    <span class="keyword">if</span> (file.size &gt; 2000000) { <span class="comment">// 2MB</span>
+      <span class="function">alert</span>("El archivo no puede superar los 2MB");
+      <span class="keyword">return</span> <span class="keyword">false</span>;
+    }
+  }
+  <span class="keyword">return</span> <span class="keyword">true</span>;
+};</code></pre>
+      <p><b>Explicación:</b></p>
+      <ul>
+        <li>
+          <b>1.</b>
+          <code>let fileInput = document.getElementById('fileInput');</code>:
+          Obtiene el campo de archivo con el id <code>fileInput</code>.
+        </li>
+        <li>
+          <b>2.</b> <code>let file = fileInput.files[0];</code>: Obtiene el
+          primer archivo seleccionado.
+        </li>
+        <li>
+          <b>3.</b> <code>if (file)</code>: Verifica si se ha seleccionado un
+          archivo.
+        </li>
+        <li>
+          <b>4.</b>
+          <code>let allowedTypes = ['image/jpeg', 'image/png'];</code>: Define
+          los tipos de archivo permitidos (JPEG y PNG).
+        </li>
+        <li>
+          <b>5.</b> <code>if (!allowedTypes.includes(file.type))</code>:
+          Verifica si el tipo de archivo no es válido.
+        </li>
+        <li>
+          <b>6.</b> <code>alert("Solo se permiten archivos JPEG o PNG");</code>:
+          Si el tipo de archivo no es válido, muestra una alerta.
+        </li>
+        <li>
+          <b>7.</b> <code>if (file.size &gt; 2000000)</code>: Verifica si el tamaño
+          del archivo supera los 2MB.
+        </li>
+        <li>
+          <b>8.</b> <code>alert("El archivo no puede superar los 2MB");</code>:
+          Si el archivo es demasiado grande, muestra una alerta.
+        </li>
+        <li>
+          <b>9.</b> <code>return true;</code>: Si el archivo es válido, retorna
+          <code>true</code>.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>1. Validación General</h2>
+      <pre><code><span class="keyword">let</span> formulario = <span class="function">document</span>.<span class="function">getElementById</span>('formulario');
+    
+    formulario.<span class="function">addEventListener</span>('submit', <span class="keyword">event</span> =&gt; {
+      <span class="keyword">if</span> (!validarTexto() || !validarCheckbox() || !validarSelect() || !validarNumero() || !validarArchivo()) {
+        <span class="function">event</span>.<span class="function">preventDefault</span>(); <span class="comment">// Detiene el envío si hay errores</span>
+      }
+    });</code></pre>
+
+      <p><b>Explicación:</b></p>
+      <ul>
+        <li>
+          <b>1.</b>
+          <code>let formulario = document.getElementById('formulario');</code>: Obtiene el formulario con el id <code>formulario</code>.
+        </li>
+        <li>
+          <b>2.</b>
+          <code>formulario.addEventListener('submit', event =&gt; {...});</code>:
+          Asocia un evento de envío (<code>submit</code>) al formulario.
+        </li>
+        <li>
+          <b>3.</b>
+          <code>if (!validarTexto() || !validarCheckbox() || ...)</code>: Llama
+          a varias funciones de validación. Si alguna retorna
+          <code>false</code>, impide que el formulario se envíe.
+        </li>
+        <li>
+          <b>4.</b> <code>event.preventDefault();</code>: Evita el envío del
+          formulario cuando hay errores de validación.
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Validación General Optimizada</h2>
+      <pre><code><span class="keyword">let</span> formulario = <span class="function">document</span>.<span class="function">getElementById</span>('formulario');
+    
+    <span class="keyword">let</span> validaciones = [validarTexto, validarCheckbox, validarSelect, validarNumero, validarArchivo];
+    
+    formulario.<span class="function">addEventListener</span>('submit', <span class="keyword">event</span> =&gt; {
+      <span class="keyword">for</span> (<span class="keyword">let</span> validar of validaciones) {
+        <span class="keyword">if</span> (!validar()) {
+          <span class="function">event</span>.<span class="function">preventDefault</span>(); <span class="comment">// Detiene el envío si hay errores</span>
+          <span class="keyword">break</span>;
+        }
+      }
+    });</code></pre>
+
+      <p><b>Explicación:</b></p>
+      <ul>
+        <li>
+          <b>1.</b>
+          <code>let validaciones = [validarTexto, validarCheckbox, validarSelect,
+            validarNumero, validarArchivo];</code>: Se crea un array con todas las funciones de validación.
+        </li>
+        <li>
+          <b>2.</b> <code>for (let validar of validaciones)</code>: Recorre el
+          array de funciones de validación una por una.
+        </li>
+        <li>
+          <b>3.</b> <code>if (!validar())</code>: Llama a cada función de
+          validación. Si alguna retorna <code>false</code>, detiene el envío del
+          formulario.
+        </li>
+        <li>
+          <b>4.</b> <code>event.preventDefault();</code>: Si alguna función
+          falla, se previene el envío del formulario.
+        </li>
+        <li>
+          <b>5.</b> <code>break;</code>: Sale del bucle en cuanto encuentra la
+          primera validación fallida.
+        </li>
+      </ul>
+    </div>
+  
+
+</body></html>
