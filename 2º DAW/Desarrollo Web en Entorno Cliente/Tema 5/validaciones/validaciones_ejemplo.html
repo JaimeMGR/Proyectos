@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prueba de Expresiones Regulares</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      form {
+        margin-bottom: 20px;
+      }
+      input {
+        margin-right: 10px;
+      }
+
+      span.result {
+        margin-left: 5px;
+        display: inline;
+        font-size: 20px;
+        line-height: 30px;
+        padding-left: 30px;
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: 20px 20px;
+      }
+
+      span.mal {
+        color: red;
+        background-image: url("error.png");
+      }
+
+      span.bien {
+        color: green;
+        background-image: url("ok.png");
+      }
+    </style>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <h1>Pruebas de Expresiones Regulares</h1>
+
+    <!-- Formulario 1 -->
+    <form id="formu1">
+      <label>Comprobar si una cadena contiene alguna "r":</label><br />
+      <input type="text" id="input1" />
+      <button type="submit">Comprobar</button>
+      <span class="result"></span>
+    </form>
+
+    <!-- Formulario 2 -->
+    <form id="formu2">
+      <label>Comprobar si una cadena contiene algún número:</label><br />
+      <input type="text" id="input2" />
+      <button type="submit">Comprobar</button>
+      <span id="result2" class="result"></span>
+    </form>
+
+    <!-- Formulario 3 -->
+    <form id="formu3">
+      <label>Comprobar si una cadena tiene dos números consecutivos:</label
+      ><br />
+      <input type="text" id="input3" />
+      <button type="submit">Comprobar</button>
+      <span id="result3" class="result"></span>
+    </form>
+
+    <!-- Formulario 4 -->
+    <form id="formu4">
+      <label>Comprobar si una cadena empieza por dos números:</label><br />
+      <input type="text" id="input4" />
+      <button type="submit">Comprobar</button>
+      <span id="result4" class="result"></span>
+    </form>
+
+    <!-- Formulario 5 -->
+    <form id="formu5">
+      <label>Comprobar si una cadena termina por "S":</label><br />
+      <input type="text" id="input5" />
+      <button type="submit">Comprobar</button>
+      <span id="result5" class="result"></span>
+    </form>
+
+    <!-- Formulario 6 -->
+    <form id="formu6">
+      <label
+        >Comprobar si una cadena tiene un número seguido de una letra minúscula
+        y otro número:</label
+      ><br />
+      <input type="text" id="input6" />
+      <button type="submit">Comprobar</button>
+      <span id="result6" class="result"></span>
+    </form>
+
+    <!-- Formulario 7 -->
+    <form id="formu7">
+      <label
+        >Comprobar si una cadena tiene un número seguido de una sola letra
+        (mayúscula o minúscula) y otro número:</label
+      ><br />
+      <input type="text" id="input7" />
+      <button type="submit">Comprobar</button>
+      <span id="result7" class="result"></span>
+    </form>
+
+    <!-- Formulario 8 -->
+    <form id="formu8">
+      <label
+        >Comprobar si una cadena tiene un número seguido de dos o más letras
+        minúsculas y luego la letra "A":</label
+      ><br />
+      <input type="text" id="input8" />
+      <button type="submit">Comprobar</button>
+      <span id="result8" class="result"></span>
+    </form>
+
+    <form id="formu9">
+      <label
+        >	El usuario debe permitir solo letras ó números empezando por letra. Longitud: Mínimo 5 caracteres y máximo 20.:</label
+      ><br />
+      <input type="text" id="input9" />
+      <button type="submit">Comprobar</button>
+      <span id="result9" class="result"></span>
+    </form>
+
+    <form id="formu10">
+      <label
+        >Comprobar que el nombre tiene solo letras numeros y al menos una mayuscula:</label
+      ><br />
+      <input type="text" id="input10" />
+      <button type="submit">Comprobar</button>
+      <span id="result10" class="result"></span>
+    </form>
+  </body>
+</html>
