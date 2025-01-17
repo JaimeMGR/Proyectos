@@ -8,19 +8,6 @@ include '../esencial/conexion.php';
  $hora = $_POST['hora'];
  $estado = 1;
 
-//  Comrprobar si la cita ya existe
- $query = "SELECT * FROM cita WHERE codigo_socio =? AND codigo_servicio =? AND fecha =? AND hora =?";
- $stmt = $conexion->prepare($query);
- $stmt->bind_param("ssis", $alumno, $clase, $fecha, $hora);
- $stmt->execute();
-
- // Verificar si la cita ya existe
- if ($stmt->fetch()) {
-   echo "La cita ya existe para el alumno seleccionado";
-   header('Refresh: 2; url=crearcita.php');
-   exit();
- }else{
-
  // Preparar la consulta de inserción con parámetros
  $query = "INSERT INTO cita (codigo_socio, codigo_servicio, fecha, hora, estado) VALUES (?, ?, ?, ?, ?)";
  $stmt = $conexion->prepare($query);
@@ -38,7 +25,6 @@ include '../esencial/conexion.php';
  $stmt->close();
  
  echo "Cita creada correctamente";
-}
  header('Refresh: 0.1; url=clases.php');
 
 

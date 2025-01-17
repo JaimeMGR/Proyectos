@@ -1,6 +1,6 @@
 <footer>
     <div class="info-footer">
-        <div class="row row-cols-3 py-3 my-3 border-top">
+        <div class="d-flex">
             <div class="logocontainer" style="text-align:center; padding-top:10px;">
                 <img src="../../imagenes/logo.png">
             </div>

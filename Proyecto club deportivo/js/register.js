@@ -1,9 +1,6 @@
-"use strict";
+"use strict"
 
-document.querySelector("form").addEventListener("submit", function (event) {
-    const errorContainer = document.getElementById("error-container");
-    errorContainer.innerHTML = ""; // Limpiar errores previos
-
+document.querySelector("form").addEventListener("submit", function(event) {
     // Variables de los campos del formulario
     const nombre = document.getElementById("nombre").value.trim();
     const edad = parseInt(document.getElementById("edad").value.trim());
@@ -12,62 +9,62 @@ document.querySelector("form").addEventListener("submit", function (event) {
     const telefono = document.getElementById("telefono").value.trim();
     const foto = document.getElementById("foto").files[0];
 
-    let hasError = false;
-
     // Validaciones
     // Nombre: solo letras, 4-50 caracteres
     if (!/^[a-zA-Z\s]{4,50}$/.test(nombre)) {
-        errorContainer.innerHTML += "<p>El nombre debe contener solo letras, entre 4 y 50 caracteres.</p>";
-        hasError = true;
+        alert("El nombre debe contener solo letras, entre 4 y 50 caracteres.");
+        event.preventDefault();
+        return;
     }
 
     // Edad: al menos 18 años
     if (isNaN(edad) || edad < 18) {
-        errorContainer.innerHTML += "<p>La edad debe ser un número mayor o igual a 18.</p>";
-        hasError = true;
+        alert("La edad debe ser un número mayor o igual a 18.");
+        event.preventDefault();
+        return;
     }
 
-    // Edad: menos de 101 años
     if (isNaN(edad) || edad > 100) {
-        errorContainer.innerHTML += "<p>La edad no puede ser superior a 100.</p>";
-        hasError = true;
+        alert("Vete a ver Juan y Medio");
+        event.preventDefault();
+        return;
     }
-
     // Contraseña: letras, números, guiones bajos, empieza con letra, 8-16 caracteres
     if (!/^[a-zA-Z][a-zA-Z0-9_]{7,15}$/.test(contrasena)) {
-        errorContainer.innerHTML += "<p>La contraseña debe comenzar con una letra, tener entre 8 y 16 caracteres, y contener solo letras, números o guiones bajos.</p>";
-        hasError = true;
+        alert("La contraseña debe comenzar con una letra, tener entre 8 y 16 caracteres, y contener solo letras, números o guiones bajos.");
+        event.preventDefault();
+        return;
     }
 
     // Usuario: letras, números, empieza con letra, 5-20 caracteres
     if (!/^[a-zA-Z][a-zA-Z0-9]{4,19}$/.test(usuario)) {
-        errorContainer.innerHTML += "<p>El usuario debe comenzar con una letra, tener entre 5 y 20 caracteres, y contener solo letras o números.</p>";
-        hasError = true;
+        alert("El usuario debe comenzar con una letra, tener entre 5 y 20 caracteres, y contener solo letras o números.");
+        event.preventDefault();
+        return;
     }
 
     // Teléfono: formato español (+34 seguido de 9 dígitos)
     if (telefono && !/^\+34\d{9}$/.test(telefono)) {
-        errorContainer.innerHTML += "<p>El teléfono debe tener el formato español (+34 seguido de 9 dígitos).</p>";
-        hasError = true;
+        alert("El teléfono debe tener el formato español (+34 seguido de 9 dígitos).");
+        event.preventDefault();
+        return;
     }
 
     // Foto: formato JPEG y tamaño máximo de 5MB
     if (foto) {
         if (foto.type !== "image/jpeg") {
-            errorContainer.innerHTML += "<p>La foto debe ser un archivo JPEG.</p>";
-            hasError = true;
+            alert("La foto debe ser un archivo JPEG.");
+            event.preventDefault();
+            return;
         }
         if (foto.size > 5 * 1024 * 1024) {
-            errorContainer.innerHTML += "<p>La foto no debe superar los 5MB de tamaño.</p>";
-            hasError = true;
+            alert("La foto no debe superar los 5MB de tamaño.");
+            event.preventDefault();
+            return;
         }
     } else {
-        errorContainer.innerHTML += "<p>Es obligatorio subir una foto en formato JPEG.</p>";
-        hasError = true;
-    }
-
-    // Prevenir el envío del formulario si hay errores
-    if (hasError) {
+        alert("Es obligatorio subir una foto en formato JPEG.");
         event.preventDefault();
+        return;
     }
 });

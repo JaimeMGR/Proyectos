@@ -256,9 +256,6 @@ generarCalendario($anio, $mes, $citasPorFecha);
 
 
 
-
-
-
 <style>
     /* Estilo para el popup */
     .popup {

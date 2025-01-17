@@ -55,7 +55,6 @@ include '../esencial/conexion.php';
 
             <button type="submit">Registrar</button>
         </form>
-        <div id="error-container" style="color: red; font-size: 14px; margin-top: 10px;"></div>
     </main>
     <?php include '../esencial/footer.php' ?>
 

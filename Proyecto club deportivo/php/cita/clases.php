@@ -115,7 +115,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['getCitas'])) {
 
       <input type="submit" class="btn btn-outline-secondary" value="Apuntarse">
     </form>
-    <div id="error-container" style="color: red; font-size: 14px; margin-top: 10px;"></div>
     
     <h2>Calendario</h2>
     <?php include '../esencial/calendario.php'; ?>

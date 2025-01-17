@@ -49,42 +49,42 @@ while ($row = $result->fetch_assoc()) {
       <ul class="navbar-nav ms-auto">
         <li>
           <a href="#">
-            <button style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn"  type="button">Inicio</button>
+            <button class="btn text-light"  type="button">Inicio</button>
           </a>
         </li>
         <li>
           <a href="php/noticia/noticias.php">
-            <button  style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn" type="button">Noticias</button>
+            <button  class="btn text-light" type="button">Noticias</button>
           </a>
         </li>
         <li>
           <a href="php/cita/clases.php">
-            <button  style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn" type="button">Citas</button>
+            <button  class="btn text-light" type="button">Citas</button>
           </a>
         </li>
         <li>
           <a href="php/servicio/servicios.php">
-            <button  style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn" type="button">Servicios</button>
+            <button  class="btn text-light" type="button">Servicios</button>
           </a>
         </li>
         <li>
           <a href="php/entrenadores/entrenadores.php">
-            <button  style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn" type="button">Entrenadores</button>
+            <button  class="btn text-light" type="button">Entrenadores</button>
           </a>
         </li>
         <li>
           <a href="php/socios/socios.php">
-            <button  style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn" type="button">Socios</button>
+            <button  class="btn text-light" type="button">Socios</button>
           </a>
         </li>
         <li>
           <a href="php/testimonios/testimonios.php">
-            <button  style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn" type="button">Testimonios</button>
+            <button  class="btn text-light" type="button">Testimonios</button>
           </a>
         </li>
         <li>
           <a href="php/contacto/contacto.php">
-            <button style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn"  type="button">Contactos</button>
+            <button class="btn text-light"  type="button">Contactos</button>
           </a>
         </li>
       </ul>
@@ -218,42 +218,42 @@ while ($row = $result->fetch_assoc()) {
                 <ul class="navbar-nav">
                     <li>
                         <a href="../../index.php">
-                            <button style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn" type="button">Inicio</button>
+                            <button class="btn text-light" type="button">Inicio</button>
                         </a>
                     </li>
                     <li>
                         <a href="../noticia/noticias.php">
-                            <button style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn" type="button">Noticias</button>
+                            <button class="btn text-light" type="button">Noticias</button>
                         </a>
                     </li>
                     <li>
                         <a href="../cita/clases.php">
-                            <button style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn" type="button">Citas</button>
+                            <button class="btn text-light" type="button">Citas</button>
                         </a>
                     </li>
                     <li>
                         <a href="../servicio/servicios.php">
-                            <button style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn" type="button">Servicios</button>
+                            <button class="btn text-light" type="button">Servicios</button>
                         </a>
                     </li>
                     <li>
                         <a href="../entrenadores/entrenadores.php">
-                            <button style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn" type="button">Entrenadores</button>
+                            <button class="btn text-light" type="button">Entrenadores</button>
                         </a>
                     </li>
                     <li>
                         <a href="../socios/socios.php">
-                            <button style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn" type="button">Socios</button>
+                            <button class="btn text-light" type="button">Socios</button>
                         </a>
                     </li>
                     <li>
                         <a href="../testimonios/testimonios.php">
-                            <button style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn" type="button">Testimonios</button>
+                            <button class="btn text-light" type="button">Testimonios</button>
                         </a>
                     </li>
                     <li>
                         <a href="../contacto/contacto.php">
-                            <button style="font-size:20px; background:white;color:#216e9e;margin:2.5px;"class="btn" type="button">Contactos</button>
+                            <button class="btn text-light" type="button">Contactos</button>
                         </a>
                     </li>
                 </ul>

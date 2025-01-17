@@ -48,21 +48,21 @@ include '../esencial/conexion.php';
                 $contador++;
         ?>
 
-                <div class="accordion" style="width:100%;" id="accordion<?php echo $contador ?>">
+                <div class="accordion" id="accordion<?php echo $contador ?>">
                     <div class="accordion-<?php echo $contador ?>" style="width:100%;">
                         <h2 class="accordion-header" id="heading<?php echo $contador ?>">
-                            <button class="btn btn-danger" style="border-radius:5px;width:100%;" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $contador ?>" aria-expanded="false" aria-controls="collapse<?php echo $contador ?>">
-                                <h2 class='servicio-title'><?php echo $descripcion ?></h2>
+                            <button class="accordion-button collapsed" style="background-color:#e95f5f;border-radius:5px;width:60%;margin-left: 20%;margin-right:20%" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $contador ?>" aria-expanded="false" aria-controls="collapse<?php echo $contador ?>">
+                                <h3 class='servicio-title'><?php echo $descripcion ?></h3>
                             </button>
                         </h2>
-                        <div id="collapse<?php echo $contador ?>" style="background:#dfdfdf; width: 100%;" class="accordion-collapse collapse" aria-labelledby="heading<?php echo $contador ?>" data-bs-parent="#accordionExample">
-                            <div class="accordion-body" style="width:100%;">
-                                <div class='servicio-image' style="width:100%;height:30% "><img src="<?php echo $imagen ?>" alt='<?php $descripcion ?>'></div>
+                        <div id="collapse<?php echo $contador ?>" style="background:#dfdfdf; width: 60%; margin-left: 20%; margin-right: 20%;" class="accordion-collapse collapse" aria-labelledby="heading<?php echo $contador ?>" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" style="width:60%;margin-left: 20%;margin-right:20%">
+                                <div class='servicio-image' style="width:100%;"><img src="<?php echo $imagen ?>" alt='<?php $descripcion ?>'></div>
                                 <div class='servicio-content' style="text-align:center;width:auto">
 
-                                    <p class='servicio-timetable' style="color:black"><strong> Precio mensual: </strong> <?php echo $precio ?> €</p>
-                                    <p style="color:black"><strong>Duración: </strong><?php echo $duracion ?> minutos </p>
-                                    <a style='color:black; width:60%;margin-left:20%;' href='modificarservicio.php?id=<?php echo $codigo_servicio ?>' type='button' class='btn btn-outline-success'>Modificar datos</a>
+                                    <p class='servicio-timetable' style="color:black"> Clases de lunes a viernes a las <?php echo $precio ?></p>
+                                    <p style="color:black"> Duración: <?php echo $duracion ?> minutos </p>
+                                    <a style='color:black; width:60%;margin-left: 20%;margin-right:20%' href='modificarservicio.php?id=<?php echo $codigo_servicio ?>' type='button' class='btn btn-outline-success'>Modificar datos</a>
                                 </div>
                             </div>
                         </div>

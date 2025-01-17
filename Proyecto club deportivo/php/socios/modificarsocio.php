@@ -36,35 +36,35 @@ $stmt->bind_result($telefono, $nombre, $contrasena, $usuario, $edad, $imagen);
 
                 // Procesar los resultados
 
-                echo "<div class='socio-card-modificar'>
-                <div class='socio-foto'><img src='" . "../../imagenes/" . $imagen . "' alt='Imagen de " . $nombre . "'></div>
-                <div class='socio-info'>
-                <h4 class='text-md-center'>" . $nombre . "</h4>
-                <h3 class='text-md-center'> " . $usuario . "</h3>
-                <h3 class='text-md-center'>Edad: " . $edad . "</h3>
-                <h3 class='text-md-center'> " . $telefono . "</h3>
-                <img class='text-md-center'> " . $imagen . "</img>
+                echo "<div class='socio-card-modificar'>";
+                echo "<div class='socio-foto'><img src='" . "../../imagenes/" . $imagen . "' alt='Imagen de " . $nombre . "'></div>";
+                echo "<div class='socio-info'>";
+                echo "<h4 class='text-md-center'>" . $nombre . "</h4>";
+                echo "<h3 class='text-md-center'> " . $usuario . "</h3>";
+                echo "<h3 class='text-md-center'>Edad: " . $edad . "</h3>";
+                echo "<h3 class='text-md-center'> " . $telefono . "</h3>";
+                echo "<img class='text-md-center'> " . $imagen . "</img>";
 
-                <hr>
+                echo "<hr>";
 
-                <form action='modificar_datos_socio.php?id=$id_socio' method='post' enctype='multipart/form-data'>
-                <label  for='nombre'>Nombre</label> 
-                <input type='hidden' id='id_socio' name='id_socio' value='" . $id_socio . "'>
-                <input type='text' id='nombre' name='nombre' placeholder='$nombre'>
-                <label  for='usuario'>Usuario</label> 
-                <input type='text' id='usuario' name='usuario' placeholder='$usuario'>
-                <label for='edad' >Edad</label>
-                <input type='number' id='edad' name='edad' placeholder='$edad'>
-                <label  for='telefono'>Teléfono</label> 
-                <input type='text' id='telefono' name='telefono' placeholder='$telefono'>
-                <label  for='imagen'>imagen</label> 
-                <input type='file' id='imagen' name='imagen'>
-                <hr>
-                <button class='btn btn-warning' type='submit'>Modificar</button>
-                </form>
-                <div id='error-container' style='color: red; font-size: 14px; margin-top: 10px;'></div>
-                </div>
-                </div>";
+                echo "<form action='modificar_datos_socio.php?id=$id_socio' method='post' enctype='multipart/form-data'>";
+                echo "<label  for='nombre'>Nombre</label> ";
+                echo "<input type='hidden' id='id_socio' name='id_socio' value='". $id_socio. "'>";
+                echo "<input type='text' id='nombre' name='nombre' placeholder='$nombre'>";
+                echo "<label  for='usuario'>Usuario</label> ";
+                echo "<input type='text' id='usuario' name='usuario' placeholder='$usuario'>";
+                echo "<label for='edad' >Edad</label>";
+                echo "<input type='number' id='edad' name='edad' placeholder='$edad'>";
+                echo "<label  for='telefono'>Teléfono</label> ";
+                echo "<input type='text' id='telefono' name='telefono' placeholder='$telefono'>";
+                echo "<label  for='imagen'>imagen</label> ";
+                echo "<input type='file' id='imagen' name='imagen'>";
+                echo "<hr>";
+                echo "<button class='btn btn-warning' type='submit'>Modificar</button>";
+                echo "</form>";
+                echo "</div>";
+                echo "</div>";
+                
             } while ($stmt->fetch());
         } else {
             echo "<p>No hay socios registrados.</p>";
