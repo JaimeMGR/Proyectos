@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de la compra</title>
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <!-- styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- javascript -->
+    <script type="text/javascript" src="app.js" defer></script>
+  </head>
+  <body>
+    <section class="section-center">
+      <!-- form -->
+      <form class="lista-form">
+        <p class="alert"></p>
+        <h3>Lista de tareas pendientes</h3>
+        <div class="form-control">
+          <input type="text" id="contenido" placeholder="p ej. tomates" />
+          <button type="submit" class="submit-btn">Añadir</button>
+        </div>
+      </form>
+      <!-- list -->
+      <div class="lista-container show-container">
+        <div class="lista-list"></div>
+        <button class="clear-btn">Limpiar lista</button>
+      </div>
+    </section>
+    <!-- <div id="popup" class="popup">
+      <div class="popup-content">
+        <span id="popup-close" class="popup-close">&times;</span>
+        <p id="popup-text" class="popup-text"></p>
+      </div>
+    </div> -->
+  </body>
+</html>
