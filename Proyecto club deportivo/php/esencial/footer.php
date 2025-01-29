@@ -2,7 +2,7 @@
     <div class="info-footer">
         <div class="d-flex">
             <div class="logocontainer" style="text-align:center; padding-top:10px;">
-                <img src="../../imagenes/logo.png">
+                <img loading='lazy' src="../../imagenes/logo.png">
             </div>
             <div class="footermenu" style="padding-left:10%;text-align:left;">
                 <h4><strong>ENLACES</strong></h4>

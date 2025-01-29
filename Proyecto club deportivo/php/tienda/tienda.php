@@ -1,0 +1,136 @@
+<?php
+include '../esencial/conexion.php';
+
+// Número máximo de productos por página
+$max_productos_por_pagina = 8;
+
+// Número de página actual (por defecto es 1)
+$pagina_actual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+
+// Calcular el desplazamiento para la paginación
+$offset = ($pagina_actual - 1) * $max_productos_por_pagina;
+
+// Consulta para contar el total de productos
+$query_count = "SELECT COUNT(*) FROM productos";
+$result_count = $conexion->query($query_count);
+$total_productos = $result_count->fetch_row()[0];
+
+// Calcular el total de páginas necesarias
+$total_paginas = ceil($total_productos / $max_productos_por_pagina);
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda - Atarfe Fighting</title>
+  <link rel="stylesheet" href="../../css/styles.css">
+  <script src="js/app.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css" />
+  <script type="text/javascript" src="lista_productos.js"></script>
+  <script type="text/javascript" defer src="app.js"></script>
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <!-- styles css -->
+</head>
+
+<body style="background:#f4f4f9">
+  <?php include '../esencial/header.php' ?>
+  <main>
+    <h2 style="font-weight: bold;">Tienda</h2>
+    <!-- cart -->
+    <div class="cart-overlay">
+      <aside class="cart">
+        <button class="cart-close">
+          <i class="fas fa-times"></i>
+        </button>
+        <header>
+          <button class="cart-checkout btn">vaciar carro</button>
+          <h3 class="text-slanted">Añadido hasta ahora</h3>
+        </header>
+        <!-- cart items -->
+        <div class="cart-items"></div>
+        <footer>
+          <button class="cart-checkout btn">Tramitar pedido</button>
+        </footer>
+      </aside>
+    </div>
+    <!-- products -->
+    <section class="products">
+      <!-- filters -->
+      <div class="filters">
+        <div class="toggle-container">
+          <button class="toggle-cart">
+            <i class="fas fa-shopping-cart"></i>
+          </button>
+        </div>
+      </div>
+      <!-- products -->
+      <div class="products-container">
+        <?php
+
+        include '../esencial/conexion.php';
+
+
+        $sql = "SELECT id, nombre, companía, imagen, precio FROM productos";
+        $result = $conexion->query($sql);
+
+        $productos = [];
+
+        if ($result->num_rows > 0) {
+          // Almacenar productos en un array
+          while ($row = $result->fetch_assoc()) {
+        ?>
+            <article class="product">
+              <div class="product-container" data-id="<?php echo $row['id']; ?>">
+                <img src="<?php echo $row['imagen']; ?>" class="product-img img" alt="<?php echo $row['nombre']; ?>">
+                <div class="product-icons">
+                  <button class="product-cart-btn product-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </div>
+              </div>
+              <footer>
+                <p class="product-name"><?php echo $row['nombre']; ?></p>
+                <h4 class="product-price"><?php echo number_format($row['precio'], 2); ?> €</h4>
+                <h4 class="single-product-company"><?php echo $row['companía']; ?></h4>
+              </footer>
+            </article>
+          <?php
+          }
+        }
+
+        while ($row = $result->fetch_assoc()) {
+          ?>
+        <?php
+        }
+        ?>
+      </div>
+      <!--alert-->
+      <div class="alerta">
+
+      </div>
+
+    </section>
+    <!-- modal -->
+    <div class="modal">
+      <button class="close-btn">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="modal-content">
+        <!-- content -->
+        <img src="" class="main-img" alt="" />
+        <h2 class="image-title">title</h2>
+        <h3 class="image-alt">pr</h3>
+      </div>
+    </div>
+  </main>
+  <?php include '../esencial/footer.php' ?>
+</body>
+
+</html>

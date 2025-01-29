@@ -38,7 +38,7 @@ $stmt->bind_result($id_noticia, $titulo, $contenido, $imagen, $fecha_publicacion
         if ($stmt->fetch()) {
             do {
                 echo " <div class='card' style='width: 100%;'>";
-                echo " <img src='../../imagenes/$imagen.' class='card-img-top' alt='$titulo'>";
+                echo " <img loading='lazy' src='../../imagenes/$imagen.' class='card-img-top' alt='$titulo'>";
                 echo " <div class='card-body'>";
                 echo " <h5 class='card-title'>$titulo</h5>";
                 echo " <p class='card-text'>$contenido</p>";

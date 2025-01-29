@@ -62,7 +62,7 @@ include '../esencial/conexion.php';
             if ($stmt->fetch()) {
                 do {
                     echo "<div class='socio-card'>";
-                    echo "<div class='socio-foto'><img src='" . "../../imagenes/" . $foto . "' alt='Foto de " . $nombre . "'></div>";
+                    echo "<div class='socio-foto'><img loading='lazy' src='" . "../../imagenes/" . $foto . "' alt='Foto de " . $nombre . "'></div>";
                     echo "<div class='socio-info'>";
                     echo "<h3>" . $nombre . "</h3>";
                     echo "<p><strong>Usuario:</strong> " . $usuario . "</p>";

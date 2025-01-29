@@ -40,7 +40,7 @@ while ($row = $result->fetch_assoc()) {
 <header class="text-white">
   <nav class="navbar navbar-expand-lg navbar-dark container">
     <a class="navbar-brand" href="#">
-      <img class="logo" src="imagenes/Logo.png" alt="Logo Atarfe Fighting">
+      <img loading="lazy" class="logo" src="imagenes/Logo.png" alt="Logo Atarfe Fighting">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
       <span class="navbar-toggler-icon"></span>
@@ -70,6 +70,10 @@ while ($row = $result->fetch_assoc()) {
         <li>
           <a href="php/entrenadores/entrenadores.php">
             <button  class="btn text-light" type="button">Entrenadores</button>
+          </a>
+        </li>
+        <a href="php/dietas/dietas.php">
+            <button  class="btn text-light" type="button">Dietas</button>
           </a>
         </li>
         <li>
@@ -128,7 +132,7 @@ while ($row = $result->fetch_assoc()) {
       $index = 0;
       while ($stmt->fetch()) {
         echo "<div class='carousel-item " . ($index === 0 ? "active" : "") . "'>";
-        echo "  <img src='" . "imagenes/" . $imagen . "' class='d-block w-100' alt='" . htmlspecialchars($titulo) . "'>";
+        echo "  <img loading='lazy' src='" . "imagenes/" . $imagen . "' class='d-block w-100' alt='" . htmlspecialchars($titulo) . "'>";
         echo "  <div style:background:'#ff00ff' class='carousel-caption d-none d-  md-block'>";
         echo "  </div>";
 
@@ -197,9 +201,9 @@ while ($row = $result->fetch_assoc()) {
   <section>
   <h2>Galería</h2>
     <div class="gallery">
-      <img src="https://virtualboxingym.com/wp-content/uploads/2023/09/Sin-titulo-8-1.png" alt="Entrenamiento en el club">
-      <img src="https://muaythaigranada.es/wp-content/uploads/2022/01/MuaythaiClasesTodosNiveles-1.jpg" alt="Competencia de kickboxing">
-      <img src="https://i.blogs.es/bed467/boxeo-entrenamiento/840_560.jpg" alt="Miembros entrenando">
+      <img loading="lazy" src="https://virtualboxingym.com/wp-content/uploads/2023/09/Sin-titulo-8-1.png" alt="Entrenamiento en el club">
+      <img loading="lazy" src="https://muaythaigranada.es/wp-content/uploads/2022/01/MuaythaiClasesTodosNiveles-1.jpg" alt="Competencia de kickboxing">
+      <img loading="lazy" src="https://i.blogs.es/bed467/boxeo-entrenamiento/840_560.jpg" alt="Miembros entrenando">
     </div>
   </section>
   <br>
@@ -211,7 +215,7 @@ while ($row = $result->fetch_assoc()) {
     <div class="info-footer">
         <div class="d-flex">
             <div class="logocontainer" style="text-align:center; padding-top:10px;">
-                <img src="imagenes/logo.png">
+                <img loading="lazy" src="imagenes/logo.png">
             </div>
             <div class="footermenu" style="padding-left:10%;text-align:left;">
                 <h4><strong>ENLACES</strong></h4>

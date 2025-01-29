@@ -51,7 +51,7 @@ $stmt->bind_result($id_noticia, $titulo, $contenido, $imagen, $fecha_publicacion
             if ($stmt->fetch()) {
                 do {
                     echo "<div class='noticia-item'>";
-                    echo "<div class='noticia-image' ><img src='" . '../../imagenes/' . $imagen . "' alt='" . $titulo . "'></div>";
+                    echo "<div class='noticia-image' ><img loading='lazy' src='" . '../../imagenes/' . $imagen . "' alt='" . $titulo . "'></div>";
                     echo "<div class='btn btn-danger' style='width:50%'>";
                     echo "<h3 class='noticia-title'>" . $titulo . "</h3>";
                     // Limitar el contenido de la noticia a 30 caracteres

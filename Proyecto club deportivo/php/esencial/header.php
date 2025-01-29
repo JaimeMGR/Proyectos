@@ -1,7 +1,7 @@
 <header class="text-white">
   <nav class="navbar navbar-expand-lg navbar-dark container">
     <a class="navbar-brand" href="../../index.php">
-      <img class="logo" src="../../imagenes/Logo.png" alt="Logo Atarfe Fighting">
+      <img loading='lazy' class="logo" src="../../imagenes/Logo.png" alt="Logo Atarfe Fighting">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
       <span class="navbar-toggler-icon"></span>
@@ -31,6 +31,11 @@
         <li>
           <a href="../entrenadores/entrenadores.php">
             <button  class="btn text-light" type="button">Entrenadores</button>
+          </a>
+        </li>
+        <li>
+          <a href="../dietas/dietas.php">
+            <button  class="btn text-light" type="button">Dietas</button>
           </a>
         </li>
         <li>

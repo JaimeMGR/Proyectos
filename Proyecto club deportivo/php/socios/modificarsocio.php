@@ -37,13 +37,13 @@ $stmt->bind_result($telefono, $nombre, $contrasena, $usuario, $edad, $imagen);
                 // Procesar los resultados
 
                 echo "<div class='socio-card-modificar'>";
-                echo "<div class='socio-foto'><img src='" . "../../imagenes/" . $imagen . "' alt='Imagen de " . $nombre . "'></div>";
+                echo "<div class='socio-foto'><img loading='lazy' src='" . "../../imagenes/" . $imagen . "' alt='Imagen de " . $nombre . "'></div>";
                 echo "<div class='socio-info'>";
                 echo "<h4 class='text-md-center'>" . $nombre . "</h4>";
                 echo "<h3 class='text-md-center'> " . $usuario . "</h3>";
                 echo "<h3 class='text-md-center'>Edad: " . $edad . "</h3>";
                 echo "<h3 class='text-md-center'> " . $telefono . "</h3>";
-                echo "<img class='text-md-center'> " . $imagen . "</img>";
+                echo "<img loading='lazy' class='text-md-center'> " . $imagen . "</img>";
 
                 echo "<hr>";
 

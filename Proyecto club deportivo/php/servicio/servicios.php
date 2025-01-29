@@ -57,7 +57,7 @@ include '../esencial/conexion.php';
                         </h2>
                         <div id="collapse<?php echo $contador ?>" style="background:#dfdfdf; width: 60%; margin-left: 20%; margin-right: 20%;" class="accordion-collapse collapse" aria-labelledby="heading<?php echo $contador ?>" data-bs-parent="#accordionExample">
                             <div class="accordion-body" style="width:60%;margin-left: 20%;margin-right:20%">
-                                <div class='servicio-image' style="width:100%;"><img src="<?php echo $imagen ?>" alt='<?php $descripcion ?>'></div>
+                                <div class='servicio-image' style="width:100%;"><img loading='lazy' src="<?php echo $imagen ?>" alt='<?php $descripcion ?>'></div>
                                 <div class='servicio-content' style="text-align:center;width:auto">
 
                                     <p class='servicio-timetable' style="color:black"> Clases de lunes a viernes a las <?php echo $precio ?></p>

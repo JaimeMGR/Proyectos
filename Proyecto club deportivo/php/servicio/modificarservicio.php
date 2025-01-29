@@ -38,7 +38,7 @@ $stmt->bind_result($codigo_servicio, $descripcion, $precio, $duracion, $imagen);
 
                 echo "<div class='socio-card-modificar'>
                 <br>
-                <div class='socio-foto'><img src='"  . $imagen . "' alt='Imagen de " . $descripcion . "'></div>
+                <div class='socio-foto'><img loading='lazy' src='"  . $imagen . "' alt='Imagen de " . $descripcion . "'></div>
                 <div class='socio-info'>
                 <h4 class='text-md-center'>" . $descripcion . "</h4>
                 <h3 class='text-md-center'>Precio: " . $precio . "€</h3>

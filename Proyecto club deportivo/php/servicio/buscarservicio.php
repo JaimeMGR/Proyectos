@@ -45,7 +45,7 @@ $stmt->bind_result($codigo_servicio, $descripcion, $precio, $duracion, $imagen);
 
                 while ($stmt->fetch()) {
                     echo "<div class='servicio-item'>
-                    <div class='servicio-image'><img src='" . $imagen . "' alt='" . $descripcion . "'></div>
+                    <div class='servicio-image'><img loading='lazy' src='" . $imagen . "' alt='" . $descripcion . "'></div>
                     
                     <div class='btn btn-danger' style='width:60%;>
                     
