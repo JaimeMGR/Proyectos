@@ -18,7 +18,7 @@ $total_productos = $result_count->fetch_row()[0];
 // Calcular el total de páginas necesarias
 $total_paginas = ceil($total_productos / $max_productos_por_pagina);
 
-
+$lista = [];
 ?>
 
 <!DOCTYPE html>
@@ -42,34 +42,42 @@ $total_paginas = ceil($total_productos / $max_productos_por_pagina);
 <body style="background:#f4f4f9">
   <?php include '../esencial/header.php' ?>
   <main>
-    <h2 style="font-weight: bold;">Tienda</h2>
-    <!-- cart -->
-    <div class="cart-overlay">
-      <aside class="cart">
-        <button class="cart-close">
-          <i class="fas fa-times"></i>
-        </button>
-        <header>
-          <button class="cart-checkout btn">vaciar carro</button>
-          <h3 class="text-slanted">Añadido hasta ahora</h3>
-        </header>
-        <!-- cart items -->
-        <div class="cart-items"></div>
-        <footer>
-          <button class="cart-checkout btn">Tramitar pedido</button>
-        </footer>
-      </aside>
-    </div>
     <!-- products -->
     <section class="products">
       <!-- filters -->
-      <div class="filters">
+      <div class="filters ">
         <div class="toggle-container">
-          <button class="toggle-cart">
-            <i class="fas fa-shopping-cart"></i>
+          <button class="toggle-cart btn">
+            <i class="fas fa-shopping-cart ">Cesta</i>
           </button>
         </div>
       </div>
+      <h2 style="font-weight: bold;">Tienda</h2>
+      <section style="text-align:center;">
+        <a class="btn btn-warning" href="añadirproducto.php" class="btn">Añadir producto</a>
+      </section>
+      <!-- cart -->
+      <div class="cart-overlay">
+        <aside class="cart">
+          <button class="cart-close">
+            <i class="fas fa-times"></i>
+          </button>
+          <header>
+            <button class="cart-checkout btn">vaciar carro</button>
+            <h3 class="text-slanted">Añadido hasta ahora</h3>
+          </header>
+          <!-- cart items -->
+          <div class="cart-items"></div>
+          <footer>
+            <!-- muestra el precio total -->
+            <h3 class="cart-total">Total: <span class="total-price">
+
+              </span></h3>
+            <button class="cart-checkout btn">Tramitar pedido</button>
+          </footer>
+        </aside>
+      </div>
+
       <!-- products -->
       <div class="products-container">
         <?php
@@ -80,7 +88,7 @@ $total_paginas = ceil($total_productos / $max_productos_por_pagina);
         $sql = "SELECT id, nombre, companía, imagen, precio FROM productos";
         $result = $conexion->query($sql);
 
-        $productos = [];
+        $lista = [];
 
         if ($result->num_rows > 0) {
           // Almacenar productos en un array
@@ -102,6 +110,14 @@ $total_paginas = ceil($total_productos / $max_productos_por_pagina);
               </footer>
             </article>
           <?php
+            $lista[] = [
+              'id' => $row['id'],
+              'nombre' => $row['nombre'],
+              'companía' => $row['companía'],
+              'precio' => $row['precio'],
+              'image' => $row['imagen']
+
+            ];
           }
         }
 
@@ -117,6 +133,72 @@ $total_paginas = ceil($total_productos / $max_productos_por_pagina);
       </div>
 
     </section>
+
+    <!-- Paginación -->
+    <nav>
+      <ul class="pagination justify-content-center">
+        <?php
+        // Botón "Anterior"
+        if ($pagina_actual > 1): ?>
+          <li class="page-item">
+            <a class="btn btn-warning" href="?pagina=<?= $pagina_actual - 1 ?>">Anterior</a>
+          </li>
+        <?php endif; ?>
+
+        <?php
+        // Mostrar siempre la primera página
+        if ($pagina_actual > 3): ?>
+          <li class="page-item">
+            <a class="btn btn-warning" href="?pagina=1">1</a>
+          </li>
+          <li class="page-item disabled">
+            <span class="btn btn-warning">...</span>
+          </li>
+        <?php endif; ?>
+
+        <?php
+        // Mostrar la página anterior al actual, si existe
+        if ($pagina_actual > 1): ?>
+          <li class="page-item">
+            <a class="btn btn-warning" href="?pagina=<?= $pagina_actual - 1 ?>"><?= $pagina_actual - 1 ?></a>
+          </li>
+        <?php endif; ?>
+
+        <?php
+        // Mostrar la página actual
+        ?>
+        <li class="page-item active">
+          <span class="btn btn-danger"><?= $pagina_actual ?></span>
+        </li>
+
+        <?php
+        // Mostrar la página posterior al actual, si existe
+        if ($pagina_actual < $total_paginas): ?>
+          <li class="page-item">
+            <a class="btn btn-warning" href="?pagina=<?= $pagina_actual + 1 ?>"><?= $pagina_actual + 1 ?></a>
+          </li>
+        <?php endif; ?>
+
+        <?php
+        // Mostrar siempre la última página con puntos suspensivos
+        if ($pagina_actual < $total_paginas - 2): ?>
+          <li class="page-item disabled">
+            <span class="btn btn-warning">...</span>
+          </li>
+          <li class="page-item">
+            <a class="btn btn-warning" href="?pagina=<?= $total_paginas ?>"><?= $total_paginas ?></a>
+          </li>
+        <?php endif; ?>
+
+        <?php
+        // Botón "Siguiente"
+        if ($pagina_actual < $total_paginas): ?>
+          <li class="page-item">
+            <a class="btn btn-warning" href="?pagina=<?= $pagina_actual + 1 ?>">Siguiente</a>
+          </li>
+        <?php endif; ?>
+      </ul>
+    </nav>
     <!-- modal -->
     <div class="modal">
       <button class="close-btn">

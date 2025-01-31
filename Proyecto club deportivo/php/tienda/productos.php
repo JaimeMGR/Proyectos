@@ -21,7 +21,7 @@ $productos = [];
 if ($result->num_rows > 0) {
     // Almacenar productos en un array
     while($row = $result->fetch_assoc()) {
-        $productos[] = [
+        $lista[] = [
             'id' => $row['id'],
             'nombre' => $row['nombre'],
             'companía' => $row['companía'],
@@ -45,5 +45,5 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 // Devolver los productos en formato JSON
-echo json_encode($productos);
+echo json_encode($lista);
 ?>

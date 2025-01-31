@@ -43,7 +43,8 @@ $stmt->bind_result($id_noticia, $titulo, $contenido, $imagen, $fecha_publicacion
     <main>
         <h2 style="font-weight: bold;">Noticias</h2>
         <section style="text-align:center;">
-        <a class="btn btn-warning" href="añadirnoticia.php" class="btn">Redactar noticia</a>        </section>
+            <a class="btn btn-warning" href="añadirnoticia.php" class="btn">Redactar noticia</a>
+        </section>
         <br>
 
         <div class="noticias-container">

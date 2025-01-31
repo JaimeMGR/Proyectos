@@ -22,20 +22,17 @@ include '../esencial/conexion.php';
         <h2 style="font-weight: bold;">Añadir Nuevo Producto</h2>
 
         <form action="crearproducto.php" method="post" enctype="multipart/form-data">
-            <label for="id">ID del Producto:</label>
-            <input type="text" name="id" id="id" placeholder="Introduce un ID único para el producto">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Introduce el nombre del producto">
 
-            <label for="title">Título:</label>
-            <input type="text" name="title" id="title" placeholder="Introduce el nombre del producto">
+            <label for="compania">Compañía:</label>
+            <input type="text" name="compania" id="compania" placeholder="Introduce la compañía del producto">
 
-            <label for="company">Compañía:</label>
-            <input type="text" name="company" id="company" placeholder="Introduce la compañía del producto">
+            <label for="precio">Precio (€):</label>
+            <input type="number" step="0.01" name="precio" id="precio" placeholder="Introduce el precio">
 
-            <label for="price">Precio (€):</label>
-            <input type="number" step="0.01" name="price" id="price" placeholder="Introduce el precio">
-
-            <label for="image">Imagen:</label>
-            <input type="file" name="image" id="image" accept="image/*">
+            <label for="imagen">Imagen:</label>
+            <input type="file" name="imagen" id="imagen" accept="imagen/*">
 
             <button type="submit">Registrar Producto</button>
         </form>

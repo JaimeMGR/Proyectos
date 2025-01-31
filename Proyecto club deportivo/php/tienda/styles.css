@@ -369,11 +369,13 @@ product
 .product-name {
   margin-bottom: 0.25rem;
   text-transform: capitalize;
+  color:white;
   letter-spacing: var(--spacing);
 }
 .product-price {
   margin-bottom: 0;
   color: var(--clr-grey-3);
+  color:White;
   font-weight: 700;
 }
 
