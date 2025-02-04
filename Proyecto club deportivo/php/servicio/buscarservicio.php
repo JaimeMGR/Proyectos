@@ -30,9 +30,15 @@ $stmt->bind_result($codigo_servicio, $descripcion, $precio, $duracion, $imagen);
     <?php include '../esencial/header.php' ?>
     <main>
         <h2 style="font-weight: bold;">Servicios</h2>
-        <section style="text-align:center">
-            <a class="btn btn-warning" href="register.php">Añadir servicio</a>
-        </section>
+        <?php
+        if (isset($_SESSION["nombre"]) && $pagina_actual == "servicios.php" && $_SESSION["tipo"] == "admin") {
+        ?>
+            <section style="text-align:center">
+                <a class="btn btn-warning" href="añadirservicio.php">Añadir servicios</a>
+            </section>
+        <?php
+        }
+        ?>
 
         <form method="post" action="buscarservicio.php">
             <label for="busqueda">Buscar servicio:</label>
@@ -43,8 +49,8 @@ $stmt->bind_result($codigo_servicio, $descripcion, $precio, $duracion, $imagen);
         <div class="socio-container">
             <?php
 
-                while ($stmt->fetch()) {
-                    echo "<div class='servicio-item'>
+            while ($stmt->fetch()) {
+                echo "<div class='servicio-item'>
                     <div class='servicio-image'><img loading='lazy' src='" . $imagen . "' alt='" . $descripcion . "'></div>
                     
                     <div class='btn btn-danger' style='width:60%;>
@@ -55,7 +61,7 @@ $stmt->bind_result($codigo_servicio, $descripcion, $precio, $duracion, $imagen);
                     <a href='modificarservicio.php?id=$codigo_servicio' type='button' class='btn btn-success'>Modificar datos</a>
                     </div>
                     </div>";
-                }
+            }
 
             $stmt->close();
             $conexion->close();

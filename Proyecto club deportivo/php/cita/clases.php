@@ -41,86 +41,159 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['getCitas'])) {
   <?php include '../esencial/header.php' ?>
   <main>
 
-    <!-- Haz un formulario para apuntarse a las clases -->
-    <h2 style="font-weight: bold;">Apúntate a una clase</h2>
-    <form action="crearcita.php" method="post">
-      <label for="alumno">Alumno:</label>
-      <select name="alumno" id="alumno" class="form-select" required>
-        <option value="" hidden>Seleccione un alumno</option>
-        <?php
-        // Preparar la consulta con una declaración preparada
-        $querysocios = "SELECT id_socio, nombre  FROM socio";
-        $stmt = $conexion->prepare($querysocios);
+    <?php
+    if (isset($_SESSION["nombre"]) && $pagina_actual == "clases.php" && $_SESSION["tipo"] == "admin") {
+    ?>
 
-        // Ejecutar la consulta
-        $stmt->execute();
+      <h2 style="font-weight: bold;">Apúntate a una clase</h2>
+      <form action="crearcita.php" method="post">
+        <label for="alumno">Alumno:</label>
+        <select name="alumno" id="alumno" class="form-select" required>
+          <option value="" hidden>Seleccione un alumno</option>
+          <?php
+          // Preparar la consulta con una declaración preparada
+          $querysocios = "SELECT id_socio, nombre  FROM socio";
+          $stmt = $conexion->prepare($querysocios);
 
-        // Enlazar las variables para recibir los resultados
-        $stmt->bind_result($id_socio, $nombre);
+          // Ejecutar la consulta
+          $stmt->execute();
 
-        $contador = 0;
+          // Enlazar las variables para recibir los resultados
+          $stmt->bind_result($id_socio, $nombre);
 
-        // Procesar los resultados
-        if ($stmt->fetch()) {
-          do {
-            $contador++;
+          $contador = 0;
+
+          // Procesar los resultados
+          if ($stmt->fetch()) {
+            do {
+              $contador++;
+              echo "<option value='$id_socio'> $nombre </option>";
+            } while ($stmt->fetch());
+          }
+          // Cerrar la declaración y la conexión
+          $stmt->close();
+          ?>
+        </select>
+        <label for="clase">Clase:</label>
+        <select name="clase" id="clase" class="form-select" required>
+          <option value="" hidden>Seleccione una clase</option>
+          <?php
+          // Preparar la consulta con una declaración preparada
+          $queryservicio = "SELECT codigo_servicio, descripcion FROM servicio";
+          $stmt = $conexion->prepare($queryservicio);
+
+          // Ejecutar la consulta
+          $stmt->execute();
+
+          // Enlazar las variables para recibir los resultados
+          $stmt->bind_result($codigo_servicio, $descripcion);
+
+          $contador = 0;
+
+          // Procesar los resultados
+          if ($stmt->fetch()) {
+            do {
+              $contador++;
+              echo "<option value='$codigo_servicio'> $descripcion </option>";
+            } while ($stmt->fetch());
+          }
+          // Cerrar la declaración y la conexión
+          $stmt->close();
+          $conexion->close();
+          ?>
+        </select>
+        <label for="fecha">Fecha:</label>
+        <input type="date" class="form-control" name="fecha" id="fecha" required>
+        <label for="horario">Horario:</label>
+        <select name="hora" class="form-control" id="hora" required>
+          <option value="" hidden>Seleccione un horario</option>
+          <option name="hora" value="9:30">9:30</option>
+          <option name="hora" value="10:30">10:30</option>
+          <option name="hora" value="12:00">12:00</option>
+          <option name="hora" value="17:00">17:00</option>
+          <option name="hora" value="18:00">18:00</option>
+          <option name="hora" value="19:00">19:00</option>
+          <option name="hora" value="20:00">20:00</option>
+        </select>
+
+        <input type="submit" class="btn btn-outline-secondary" value="Apuntarse">
+      </form>
+    <?php
+    } else if (isset($_SESSION["nombre"]) && $pagina_actual == "clases.php" && $_SESSION["tipo"] == "socio") {
+    ?>
+      <h2 style="font-weight: bold;">Apúntate a una clase</h2>
+      <form action="crearcita.php" method="post">
+        <label for="alumno">Alumno:</label>
+        <select name="alumno" id="alumno" class="form-select" required>
+          <option value="" hidden>Seleccione un alumno</option>
+          <?php
+          // Obtener el ID del usuario actual desde la sesión
+          $id_usuario_actual = $_SESSION["id_socio"]; // Asegúrate de que el ID del usuario esté almacenado en la sesión
+
+          // Preparar la consulta con una declaración preparada para obtener solo el usuario actual
+          $querysocios = "SELECT id_socio, nombre FROM socio WHERE id_socio = ?";
+          $stmt = $conexion->prepare($querysocios);
+
+          // Vincular el parámetro (ID del usuario actual)
+          $stmt->bind_param("i", $id_usuario_actual);
+
+          // Ejecutar la consulta
+          $stmt->execute();
+
+          // Enlazar las variables para recibir los resultados
+          $stmt->bind_result($id_socio, $nombre);
+
+          // Procesar los resultados
+          if ($stmt->fetch()) {
             echo "<option value='$id_socio'> $nombre </option>";
-          } while ($stmt->fetch());
-        }
-        // Cerrar la declaración y la conexión
-        $stmt->close();
-        ?>
-      </select>
-      <label for="clase">Clase:</label>
-      <select name="clase" id="clase" class="form-select" required>
-        <option value="" hidden>Seleccione una clase</option>
-        <?php
-        // Preparar la consulta con una declaración preparada
-        $queryservicio = "SELECT codigo_servicio, descripcion FROM servicio";
-        $stmt = $conexion->prepare($queryservicio);
+          }
 
-        // Ejecutar la consulta
-        $stmt->execute();
+          // Cerrar la declaración
+          $stmt->close();
+          ?>
+        </select>
+        <label for="clase">Clase:</label>
+        <select name="clase" id="clase" class="form-select" required>
+          <option value="" hidden>Seleccione una clase</option>
+          <?php
+          // Preparar la consulta con una declaración preparada
+          $queryservicio = "SELECT codigo_servicio, descripcion FROM servicio";
+          $stmt = $conexion->prepare($queryservicio);
 
-        // Enlazar las variables para recibir los resultados
-        $stmt->bind_result($codigo_servicio, $descripcion);
+          // Ejecutar la consulta
+          $stmt->execute();
 
-        $contador = 0;
+          // Enlazar las variables para recibir los resultados
+          $stmt->bind_result($codigo_servicio, $descripcion);
 
-        // Procesar los resultados
-        if ($stmt->fetch()) {
-          do {
-            $contador++;
-            echo "<option value='$codigo_servicio'> $descripcion </option>";
-          } while ($stmt->fetch());
-        }
-        // Cerrar la declaración y la conexión
-        $stmt->close();
-        $conexion->close();
-        ?>
-      </select>
-      <label for="fecha">Fecha:</label>
-      <input type="date" class="form-control" name="fecha" id="fecha" required>
-      <label for="horario">Horario:</label>
-      <select name="hora" class="form-control" id="hora" required>
-        <option value="" hidden>Seleccione un horario</option>
-        <option name="hora" value="9:30">9:30</option>
-        <option name="hora" value="10:30">10:30</option>
-        <option name="hora" value="12:00">12:00</option>
-        <option name="hora" value="17:00">17:00</option>
-        <option name="hora" value="18:00">18:00</option>
-        <option name="hora" value="19:00">19:00</option>
-        <option name="hora" value="20:00">20:00</option>
-      </select>
+          $contador = 0;
 
-      <input type="submit" class="btn btn-outline-secondary" value="Apuntarse">
-    </form>
-    
+          // Procesar los resultados
+          if ($stmt->fetch()) {
+            do {
+              $contador++;
+              echo "<option value='$codigo_servicio'> $descripcion </option>";
+            } while ($stmt->fetch());
+          }
+          // Cerrar la declaración y la conexión
+          $stmt->close();
+          $conexion->close();
+          ?>
+        </select>
+        <button type="submit">Apuntarse</button>
+      </form>
+    <?php
+    }
+    ?>
+
+
     <h2>Calendario</h2>
     <?php include '../esencial/calendario.php'; ?>
     <br>
     <form class="formbuscar" method="post" action="buscarcita.php">
-      <label for="busqueda"><h2 style="font-weight: bold;">Buscar clase</h2></label>
+      <label for="busqueda">
+        <h2 style="font-weight: bold;">Buscar clase</h2>
+      </label>
       <input class="form-control" type="text" id="busqueda" name="busqueda" placeholder="Buscar por nombre...">
       <button class="btn btn-warning" type="button|submit">Buscar</button>
     </form>

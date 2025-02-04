@@ -522,9 +522,13 @@ section {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    text-align: center;
     overflow: hidden;
     transition: transform 0.3s ease;
+}
+
+.socio-card-modificar .socio-foto{
+    margin-top: 5px;
+    text-align:center;
 }
 
 .socio-card:hover {
@@ -640,4 +644,22 @@ td {
 
 nav .flex-column {
     color: white;
+}
+
+.login-form{
+    margin-top: 20px;
+    text-align: center;
+    background: #333;
+    padding: 10px;
+    border-radius: 7%;
+}
+
+.login-form label{
+    color:white;
+}
+
+.login-form button{
+    background: rgb(255, 255, 255);
+    padding: 3px;
+    border-radius: 3%;
 }

@@ -1,5 +1,6 @@
 <?php
 include 'php\esencial\conexion.php';
+require_once "utilidades.php";
 
 
 $query = "SELECT c.fecha, c.hora, s.nombre as alumno, v.descripcion as clase 
@@ -38,69 +39,116 @@ while ($row = $result->fetch_assoc()) {
 </head>
 
 <body style="background:#f4f4f9">
+  <?php
+  if (isset($_GET["error"])) {
+    $error = $_GET['error'];
+  } else {
+    $error = 0;
+  }
+  ?>
+
   <header class="text-white">
     <nav class="navbar navbar-expand-lg navbar-dark container">
       <a class="navbar-brand" href="#">
-        <img loading="lazy" class="logo" src="imagenes/Logo.png" alt="Logo Atarfe Fighting">
+        <img loading='lazy' class="logo" src="imagenes/Logo.png" alt="Logo Atarfe Fighting">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="menu">
-        <ul class="navbar-nav ms-auto">
-          <li>
-            <a href="#">
-              <button class="btn text-light" type="button">Inicio</button>
-            </a>
-          </li>
-          <li>
-            <a href="php/noticia/noticias.php">
-              <button class="btn text-light" type="button">Noticias</button>
-            </a>
-          </li>
-          <li>
-            <a href="php/cita/clases.php">
-              <button class="btn text-light" type="button">Citas</button>
-            </a>
-          </li>
-          <li>
-            <a href="php/tienda/tienda.php">
-              <button class="btn text-light" type="button">Tienda</button>
-            </a>
-          </li>
-          <li>
-            <a href="php/servicio/servicios.php">
-              <button class="btn text-light" type="button">Servicios</button>
-            </a>
-          </li>
-          <li>
-            <a href="php/entrenadores/entrenadores.php">
-              <button class="btn text-light" type="button">Entrenadores</button>
-            </a>
-          </li>
-          <a href="php/dietas/dietas.php">
-            <button class="btn text-light" type="button">Dietas</button>
-          </a>
-          </li>
-          <li>
-            <a href="php/socios/socios.php">
-              <button class="btn text-light" type="button">Socios</button>
-            </a>
-          </li>
-          <li>
-            <a href="php/testimonios/testimonios.php">
-              <button class="btn text-light" type="button">Testimonios</button>
-            </a>
-          </li>
-          <li>
-            <a href="php/contacto/contacto.php">
-              <button class="btn text-light" type="button">Contactos</button>
-            </a>
-          </li>
-        </ul>
+
+      </div>
+
+
+      <?php
+      if (isset($_GET["error"])) {
+        $error = $_GET['error'];
+      } else {
+        $error = 0;
+      }
+      ?>
+      <div class="header-content">
+        <?php
+
+        session_start();
+        require_once "utilidades.php";
+        $pagina_actual = basename($_SERVER['PHP_SELF']);
+
+
+        if (isset($_SESSION["nombre"])) {
+          echo formulario_sesion_iniciada($_SESSION["nombre"]);
+        } else {
+          echo formulario_para_iniciar_sesion($pagina_actual, $error);
+        }
+
+        ?>
+      </div>
       </div>
     </nav>
   </header>
+  <nav id="enlaces">
+    <ul>
+      <li>
+        <a href="#">
+          <button class="btn text-light" type="button">Inicio</button>
+        </a>
+      </li>
+      <li>
+        <a href="php/noticia/noticias.php">
+          <button class="btn text-light" type="button">Noticias</button>
+        </a>
+      </li>
+      <li>
+        <a href="php/cita/clases.php">
+          <button class="btn text-light" type="button">Citas</button>
+        </a>
+      </li>
+      <li>
+        <a href="php/tienda/tienda.php">
+          <button class="btn text-light" type="button">Tienda</button>
+        </a>
+      </li>
+      <li>
+        <a href="php/servicio/servicios.php">
+          <button class="btn text-light" type="button">Servicios</button>
+        </a>
+      </li>
+      <li>
+        <a href="php/entrenadores/entrenadores.php">
+          <button class="btn text-light" type="button">Entrenadores</button>
+        </a>
+      </li>
+      <li>
+        <a href="php/dietas/dietas.php">
+          <button class="btn text-light" type="button">Dietas</button>
+        </a>
+      </li>
+      <li>
+        <a href="php/socios/socios.php">
+          <button class="btn text-light" type="button">Socios</button>
+        </a>
+      </li>
+      <li>
+        <a href="php/testimonios/testimonios.php">
+          <button class="btn text-light" type="button">Testimonios</button>
+        </a>
+      </li>
+      <li>
+        <a href="php/contacto/contacto.php">
+          <button class="btn text-light" type="button">Contactos</button>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <?php
+  if (isset($_GET["error"])) {
+    $error = $_GET['error'];
+  } else {
+    $error = 0;
+  }
+  ?>
+
   <main>
 
 

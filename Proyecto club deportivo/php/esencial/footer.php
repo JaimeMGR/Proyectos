@@ -57,7 +57,7 @@
                     </li>
                     <br>
                     <li>
-                        <h7><strong>Teléfono:</strong> +34 000000000</h7>
+                        <h7><strong>Teléfono:</strong> +34 668533704    </h7>
                     </li>
 
                     <br>

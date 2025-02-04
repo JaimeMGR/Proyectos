@@ -21,10 +21,15 @@ include '../esencial/conexion.php';
     <?php include '../esencial/header.php' ?>
     <main>
         <h2>Servicios</h2>
-        <section style="text-align:center">
-            <a class="btn btn-warning" href="añadirservicio.php">Añadir servicios</a>
-        </section>
-        </section>
+        <?php
+        if (isset($_SESSION["nombre"]) && $pagina_actual == "servicios.php" && $_SESSION["tipo"] == "admin") {
+        ?>
+            <section style="text-align:center">
+                <a class="btn btn-warning" href="añadirservicio.php">Añadir servicios</a>
+            </section>
+        <?php
+        }
+        ?>
         <form class="formbuscar" method="post" action="buscarservicio.php">
             <label for="busqueda">Buscar servicio:</label>
             <input class="form-control" type="text" id="busqueda" name="busqueda" placeholder="Buscar por nombre...">

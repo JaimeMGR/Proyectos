@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-11-2024 a las 11:58:18
+-- Tiempo de generación: 04-02-2025 a las 10:56:15
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,14 +41,8 @@ CREATE TABLE `cita` (
 --
 
 INSERT INTO `cita` (`id_cita`, `codigo_socio`, `codigo_servicio`, `fecha`, `hora`, `estado`) VALUES
-(1, 1, 1, '2024-01-20', '10:00:00', 0),
-(4, 1, 4, '2024-04-05', '12:00:00', 0),
-(10, 4, 1, '2024-11-20', '17:00:00', 0),
 (43, 8, 4, '2024-11-07', '18:00:00', 1),
-(44, 8, 4, '2024-11-07', '18:00:00', 1),
-(49, 4, 2, '2024-11-23', '17:00:00', 1),
-(51, 4, 1, '2024-11-30', '17:00:00', 0),
-(53, 4, 4, '2024-11-30', '10:30:00', 1);
+(44, 8, 4, '2024-11-07', '18:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -114,6 +108,28 @@ INSERT INTO `noticia` (`id_noticia`, `titulo`, `contenido`, `imagen`, `fecha_pub
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `productos`
+--
+
+CREATE TABLE `productos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `companía` varchar(100) NOT NULL,
+  `imagen` varchar(500) DEFAULT NULL,
+  `precio` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id`, `nombre`, `companía`, `imagen`, `precio`) VALUES
+(41, 'Pd513 Protector bucal, Unisex Adulto', 'LEONE 1947', 'productos/producto-1738229364_6148uEuF+pL._AC_SX425_.jpg', 15.00),
+(42, 'Pantalón de entrenamiento Leone 1947 \"Iconic\" Color rojo AB232', 'LEONE 1947', 'productos/producto-1738229497_imagen_2025-01-30_103127374.png', 35.00);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `servicio`
 --
 
@@ -148,22 +164,20 @@ CREATE TABLE `socio` (
   `contrasena` varchar(255) NOT NULL,
   `usuario` varchar(50) NOT NULL,
   `telefono` varchar(15) DEFAULT NULL,
-  `foto` varchar(255) DEFAULT NULL
+  `foto` varchar(255) DEFAULT NULL,
+  `tipo` enum('socio','admin') NOT NULL DEFAULT 'socio'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `socio`
 --
 
-INSERT INTO `socio` (`id_socio`, `nombre`, `edad`, `contrasena`, `usuario`, `telefono`, `foto`) VALUES
-(1, 'Juan Pérez', 28, 'password123', 'juanperez', '123456789', 'siemprenoya.jpeg'),
-(3, 'Carlos López', 24, 'mypassword', 'Estik', '555555555', 'stik.jpeg'),
-(4, 'Jaime Molina Granados', 21, '$2y$10$ePhyUebSnXYXJM660QB5D.9s7Sd2668Y/VN8BZ8k.3fqATNnvTOF6', 'JaimeMGR', '668533704', 'WIN_20241105_09_19_41_Pro.jpg'),
-(7, 'Jose Pablo Gómez Gómez', 21, '$2y$10$jMxYt6I2emiKMtqDa/bwG.hQH7WCYraQPYiGvpuPMA7AE4EOv32VW', 'Josepa', '856452478', 'muere-eduardo-gomez-actor-de-aqui-no-hay-quien-viva-o-la-que-se-avecina.jpg'),
-(8, 'Rubén García Lorenzo', 23, '$2y$10$pruX8ojwa4U2cfJrWxs3P.LDd8Lkg0bSN115Cli5hQHI2c5m6lN7y', 'RubencioTolete', '636988355', '1700768015260.jpg'),
-(9, 'Perindola', 45, 'password1', 'LaPerindola', '+34949487324', 'mqdefault.jpg'),
-(10, 'Pedro Sánchez', 30, 'password2', 'PerroSanche', '612345678', 'perrosanchez.jpeg'),
-(29, 'Wolfi', 22, '$2y$10$jgNme6GG6K5Cm6CRQsyMeOPGLrvUR.fgbkTNY2cIJzTMV7eVaJr6.', 'Wolfiwapo', '+34856473285', 'images.jpg');
+INSERT INTO `socio` (`id_socio`, `nombre`, `edad`, `contrasena`, `usuario`, `telefono`, `foto`, `tipo`) VALUES
+(7, 'Jose Pablo Gómez Gómez', 21, '$2y$10$jMxYt6I2emiKMtqDa/bwG.hQH7WCYraQPYiGvpuPMA7AE4EOv32VW', 'Josepa', '856452478', 'muere-eduardo-gomez-actor-de-aqui-no-hay-quien-viva-o-la-que-se-avecina.jpg', 'socio'),
+(8, 'Rubén García Lorenzo', 23, '$2y$10$pruX8ojwa4U2cfJrWxs3P.LDd8Lkg0bSN115Cli5hQHI2c5m6lN7y', 'RubencioTolete', '636988355', '1738572546_', 'socio'),
+(29, 'Wolfi', 22, '$2y$10$jgNme6GG6K5Cm6CRQsyMeOPGLrvUR.fgbkTNY2cIJzTMV7eVaJr6.', 'Wolfiwapo', '+34856473285', 'images.jpg', 'socio'),
+(33, 'Jaime jaime', 22, '$2y$10$o04RlHXd3wFSGceTY.2gEOAc3z4zSkxVQFGd4cZTt6dMjqwl7Wal6', 'Jaime222', '+34123456789', '1738569207_jaime.jpg', 'socio'),
+(34, 'Jaime Molina Granados', 22, '$2y$10$ARmorzzYJD1t3NMdqGBm1.IEtSHnZ6NFnNDcL2H2UEg8G9QrG1la2', 'JaimeMGR', '+34668533704', '453348409_695213336114147_1710011270050425164_n.jpeg', 'socio');
 
 -- --------------------------------------------------------
 
@@ -183,20 +197,7 @@ CREATE TABLE `testimonio` (
 --
 
 INSERT INTO `testimonio` (`id_testimonio`, `autor`, `contenido`, `fecha`) VALUES
-(1, 4, 'Las clases de boxeo son intensas y muy efectivas.', '2024-01-15'),
-(3, 3, 'El Judo es exactamente lo que estaba buscando.', '2024-03-05'),
-(24, 1, 'Excelente servicio, muy satisfecho con el trato recibido.', '2024-01-15'),
-(26, 1, 'Excelente servicio, muy satisfecho con el trato recibido.', '2024-01-15'),
-(27, 3, 'La experiencia fue buena, aunque podría mejorar.', '2024-01-17'),
-(28, 4, 'Un servicio excepcional, repetiré sin duda.', '2024-01-18'),
-(30, 1, 'Excelente servicio, muy satisfecho con el trato recibido.', '2024-01-15'),
-(31, 3, 'La experiencia fue buena, aunque podría mejorar.', '2024-01-17'),
-(32, 4, 'Un servicio excepcional, repetiré sin duda.', '2024-01-18'),
-(34, 1, 'Excelente servicio, muy satisfecho con el trato recibido.', '2024-01-15'),
-(35, 3, 'La experiencia fue buena, aunque podría mejorar.', '2024-01-17'),
 (36, 7, 'La calidad del servicio es inmejorable.', '2024-01-21'),
-(38, 1, 'Excelente servicio, muy satisfecho con el trato recibido.', '2024-01-15'),
-(39, 3, 'La experiencia fue buena, aunque podría mejorar.', '2024-01-17'),
 (40, 7, 'La calidad del servicio es inmejorable.', '2024-01-21');
 
 --
@@ -228,6 +229,12 @@ ALTER TABLE `mensajes_contacto`
 --
 ALTER TABLE `noticia`
   ADD PRIMARY KEY (`id_noticia`);
+
+--
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `servicio`
@@ -279,6 +286,12 @@ ALTER TABLE `noticia`
   MODIFY `id_noticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
 -- AUTO_INCREMENT de la tabla `servicio`
 --
 ALTER TABLE `servicio`
@@ -288,7 +301,7 @@ ALTER TABLE `servicio`
 -- AUTO_INCREMENT de la tabla `socio`
 --
 ALTER TABLE `socio`
-  MODIFY `id_socio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_socio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `testimonio`

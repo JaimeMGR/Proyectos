@@ -42,9 +42,11 @@ $stmt->bind_result($id_noticia, $titulo, $contenido, $imagen, $fecha_publicacion
     <?php include '../esencial/header.php' ?>
     <main>
         <h2 style="font-weight: bold;">Noticias</h2>
-        <section style="text-align:center;">
-            <a class="btn btn-warning" href="añadirnoticia.php" class="btn">Redactar noticia</a>
-        </section>
+        <?php if (isset($_SESSION["nombre"]) && $pagina_actual == "socios.php" && $_SESSION["tipo"] == "admin") { ?>
+            <section style="text-align:center;">
+                <a class="btn btn-warning" href="añadirnoticia.php" class="btn">Redactar noticia</a>
+            </section>
+        <?php } ?>
         <br>
 
         <div class="noticias-container">

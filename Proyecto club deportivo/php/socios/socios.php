@@ -19,6 +19,69 @@ include '../esencial/conexion.php';
     <main>
         <h2 style="font-weight: bold;">Socios</h2>
         <section style="text-align:center">
+            <?php
+            if (isset($_SESSION["nombre"]) && $pagina_actual == "socios.php" && $_SESSION["tipo"] == "socio") {
+            ?>
+                <div class="socio-container">
+                    <?php
+                    $nombre_usuario = $_SESSION["nombre"];
+                    // Número máximo de resultados por página
+                    $resultados_por_pagina = 6;
+
+                    // Determinar la página actual
+                    $pagina_actual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+                    if ($pagina_actual < 1) $pagina_actual = 1;
+
+                    // Calcular el OFFSET para la consulta
+                    $offset = ($pagina_actual - 1) * $resultados_por_pagina;
+
+                    // Obtener el número total de socios
+                    $query_total = "SELECT COUNT(*) FROM socio";
+                    $stmt_total = $conexion->prepare($query_total);
+                    $stmt_total->execute();
+                    $stmt_total->bind_result($total_socios);
+                    $stmt_total->fetch();
+                    $stmt_total->close();
+
+                    // Calcular el número total de páginas
+                    $total_paginas = ceil($total_socios / $resultados_por_pagina);
+
+                    // Preparar la consulta con LIMIT y OFFSET
+                    $query = "SELECT id_socio, usuario, nombre, edad, telefono, foto FROM socio where usuario = ?";
+                    $stmt = $conexion->prepare($query);
+                    $stmt->bind_param("s", $nombre_usuario);
+
+                    // Ejecutar la consulta
+                    $stmt->execute();
+                    $stmt->bind_result($id_socio, $usuario, $nombre, $edad, $telefono, $foto);
+
+                    // Procesar los resultados
+                    if ($stmt->fetch()) {
+                        do {
+                            echo "<div class='socio-card'>";
+                            echo "<div class='socio-foto'><img loading='lazy' src='" . "../../imagenes/" . $foto . "' alt='Foto de " . $nombre . "'></div>";
+                            echo "<div class='socio-info'>";
+                            echo "<h3>" . $nombre . "</h3>";
+                            echo "<p><strong>Usuario:</strong> " . $usuario . "</p>";
+                            echo "<p><strong>Edad:</strong> " . $edad . "</p>";
+                            echo "<p><strong>teléfono:</strong> " . $telefono . "</p>";
+                            echo "<a href='modificarsocio.php?id=$id_socio' type='button' class='btn btn-outline-success'>Modificar datos</a>";
+                            echo "</div>";
+                            echo "</div>";
+                        } while ($stmt->fetch());
+                    } else {
+                        echo "<p>No hay socios registrados.</p>";
+                    }
+
+                    // Cerrar la declaración
+                    $stmt->close();
+                    $conexion->close();
+                    ?>
+                </div>
+                <br>
+            <?php
+            } else if (isset($_SESSION["nombre"]) && $pagina_actual == "socios.php" && $_SESSION["tipo"] == "admin") {
+            ?>
             <a class="btn btn-warning" href="register.php">Añadir socio</a>
         </section>
         <form class="formbuscar" method="post" action="buscasocio.php">
@@ -148,7 +211,11 @@ include '../esencial/conexion.php';
                 <?php endif; ?>
             </ul>
         </nav>
-
+            <?php
+            } else{
+                echo "<p>Debes tener una cuenta para acceder a esta página.</p>";
+            }
+            ?>
     </main>
     <?php include '../esencial/footer.php' ?>
 </body>

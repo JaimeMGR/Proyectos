@@ -43,7 +43,6 @@ $stmt->bind_result($telefono, $nombre, $contrasena, $usuario, $edad, $imagen);
                 echo "<h3 class='text-md-center'> " . $usuario . "</h3>";
                 echo "<h3 class='text-md-center'>Edad: " . $edad . "</h3>";
                 echo "<h3 class='text-md-center'> " . $telefono . "</h3>";
-                echo "<img loading='lazy' class='text-md-center'> " . $imagen . "</img>";
 
                 echo "<hr>";
 
@@ -57,6 +56,8 @@ $stmt->bind_result($telefono, $nombre, $contrasena, $usuario, $edad, $imagen);
                 echo "<input type='number' id='edad' name='edad' placeholder='$edad'>";
                 echo "<label  for='telefono'>Teléfono</label> ";
                 echo "<input type='text' id='telefono' name='telefono' placeholder='$telefono'>";
+                echo "<label  for='imagen'>Contraseña</label> ";
+                echo "<input type='password' id='telefono' name='telefono' placeholder='$contrasena'>";
                 echo "<label  for='imagen'>imagen</label> ";
                 echo "<input type='file' id='imagen' name='imagen'>";
                 echo "<hr>";

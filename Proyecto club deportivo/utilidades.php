@@ -3,7 +3,7 @@ function formulario_para_iniciar_sesion($pagina_actual, $error)
 {
 
     echo "<div class='login-container'>
-                            <form class='login-form' action='../../iniciar_sesion.php' method='POST'>
+                            <form class='login-form' action='iniciar_sesion.php' method='POST'>
                                 <label for='username'>Usuario:</label>
                                 <input type='text' id='username' name='username'  placeholder='Introduce tu usuario'>
                                 <label for='password'>Contraseña:</label>
@@ -12,7 +12,7 @@ function formulario_para_iniciar_sesion($pagina_actual, $error)
                                 <a href='registro.php'>¿No tienes cuenta?</a>";
                                 if ($error == 1) {
                                     echo "<p class='error' style='background:white; color:red'>Usuario o contraseña erróneos</p>
-                                    <button style='border-radius:5%'type='submit'>Iniciar sesión</button>";
+                                    <button type='submit'>Iniciar sesión</button>";
                                 }else{
                                 echo "<button type='submit'>Iniciar sesión</button>";
                                 }
@@ -25,7 +25,7 @@ function formulario_para_iniciar_sesion2($pagina_actual)
 {
     if ($error = 1) {
         echo "<div class='login-container'>
-                            <form class='login-form' action='../../iniciar_sesion.php' method='POST'>
+                            <form class='login-form' action='iniciar_sesion.php' method='POST'>
                                 <label for='username'>Usuario:</label>
                                 <input type='text' id='username' name='username'  placeholder='Introduce tu usuario'>
                                 <label for='password'>Contraseña:</label>
@@ -38,7 +38,7 @@ function formulario_para_iniciar_sesion2($pagina_actual)
                             </div>";
     } else {
         echo "<div class='login-container'>
-                            <form class='login-form' action='../../iniciar_sesion.php' method='POST'>
+                            <form class='login-form' action='iniciar_sesion.php' method='POST'>
                                 <label for='username'>Usuario:</label>
                                 <input type='text' id='username' name='username'  placeholder='Introduce tu usuario'>
                                 <label for='password'>Contraseña:</label>
@@ -54,9 +54,9 @@ function formulario_para_iniciar_sesion2($pagina_actual)
 function formulario_sesion_iniciada($nombre_usuario)
 {
     return "<div class='login-container'>
-                            <form class='login-form' action='../../cerrar_sesion.php' method='POST'>
+                            <form class='login-form' action='cerrar_sesion.php' method='POST'>
                                  <label  for=>Usuario logueado: $nombre_usuario</label>
-                                <button type='submit' class='btn btn-warning'>Cerrar sesión</button>
+                                <button type='submit'>Cerrar sesión</button>
                             </form>
                           </div>";
 }

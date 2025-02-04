@@ -54,7 +54,14 @@ $lista = [];
       </div>
       <h2 style="font-weight: bold;">Tienda</h2>
       <section style="text-align:center;">
-        <a class="btn btn-warning" href="añadirproducto.php" class="btn">Añadir producto</a>
+        <?php
+        if (isset($_SESSION["nombre"]) && $pagina_actual == "tienda.php" && $_SESSION["tipo"] == "admin") {
+        ?>
+          <a class="btn btn-warning" href="añadirproducto.php" class="btn">Añadir producto</a>
+
+        <?php
+        }
+        ?>
       </section>
       <!-- cart -->
       <div class="cart-overlay">
