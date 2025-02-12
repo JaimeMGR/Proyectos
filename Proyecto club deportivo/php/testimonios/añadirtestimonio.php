@@ -29,15 +29,26 @@ include '../esencial/conexion.php';
             <select name="socio" id="socio" class="form-select" required>
                 <option value="" hidden>Seleccione un socio</option>
                 <?php
-                // Preparar la consulta con una declaración preparada
-                $querysocios = "SELECT id_socio, nombre  FROM socio";
+                if (isset($_SESSION["nombre"]) && $pagina_actual == "añadirtestimonio.php" && $_SESSION["tipo"] == "admin") {
+                    // Preparar la consulta con una declaración preparada
+                    $querysocios = "SELECT id_socio, nombre, usuario  FROM socio";
+
+                    $stmt->bind_result($id_socio, $nombre);
+                } elseif (isset($_SESSION["nombre"]) && $pagina_actual == "añadirtestimonio.php" && $_SESSION["tipo"] == "socio") {
+                    $nombreactual = $_SESSION['nombre'];
+                    $querysocios = "SELECT id_socio, nombre, usuario  FROM socio WHERE usuario = '$nombreactual'";
+                } else {
+                    header("Location:../login/login.php");
+                    exit();
+                }
+
                 $stmt = $conexion->prepare($querysocios);
 
                 // Ejecutar la consulta
                 $stmt->execute();
 
                 // Enlazar las variables para recibir los resultados
-                $stmt->bind_result($id_socio, $nombre);
+                $stmt->bind_result($id_socio, $nombre, $usuario);
 
                 $contador = 0;
 
@@ -45,11 +56,12 @@ include '../esencial/conexion.php';
                 if ($stmt->fetch()) {
                     do {
                         $contador++;
-                        echo "<option value='$id_socio'> $nombre </option>";
+                        echo "<option value='$id_socio'> $usuario </option>";
                     } while ($stmt->fetch());
                 }
                 // Cerrar la declaración y la conexión
                 $stmt->close();
+
                 ?>
             </select>
 

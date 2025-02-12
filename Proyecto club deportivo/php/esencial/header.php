@@ -1,8 +1,8 @@
 <?php
 if (isset($_GET["error"])) {
-    $error = $_GET['error'];
-}else{
-    $error = 0;
+  $error = $_GET['error'];
+} else {
+  $error = 0;
 }
 ?>
 
@@ -11,12 +11,7 @@ if (isset($_GET["error"])) {
     <a class="navbar-brand" href="../../index.php">
       <img loading='lazy' class="logo" src="../../imagenes/Logo.png" alt="Logo Atarfe Fighting">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="menu">
 
-    </div>
 
 
     <?php
@@ -50,6 +45,12 @@ if (isset($_GET["error"])) {
     </div>
   </nav>
 </header>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+
+    </div>
 <nav id="enlaces">
   <ul>
     <li>
@@ -83,8 +84,8 @@ if (isset($_GET["error"])) {
       </a>
     </li>
     <li>
-      <a href="../dietas/dietas.php">
-        <button class="btn text-light" type="button">Dietas</button>
+      <a href="../recetas/recetas.php">
+        <button class="btn text-light" type="button">Recetas</button>
       </a>
     </li>
     <li>

@@ -6,6 +6,7 @@ $titulo = $_POST['nombre'];
 $company = $_POST['compania'];
 $precio = $_POST['precio'];
 $imagen = $_FILES['imagen']['name'];
+$categoria = $_POST['categoria'];
 
 // Definir carpeta de destino
 $directorio_destino = "productos/";
@@ -27,11 +28,11 @@ if (move_uploaded_file($_FILES['imagen']['tmp_name'], $imagen_ruta)) {
 }
 
 // Preparar la consulta de inserción con parámetros
-$query = "INSERT INTO `productos`(`nombre`, `companía`, `precio`, `imagen`) VALUES (?, ?, ?, ?)";
+$query = "INSERT INTO `productos`(`nombre`, `companía`, `precio`, `imagen`, `Categoría`) VALUES (?, ?, ?, ?, ?)";
 $stmt = $conexion->prepare($query);
 
 // Enlazar los parámetros (s: string, d: double)
-$stmt->bind_param("ssds", $titulo, $company, $precio, $imagen_ruta);
+$stmt->bind_param("ssdss", $titulo, $company, $precio, $imagen_ruta, $categoria);
 
 // Ejecutar la consulta
 if ($stmt->execute()) {
@@ -72,7 +73,8 @@ $json_actual[$producto_id] = [
     "title" => $titulo,
     "company" => $company,
     "image" => $imagen_ruta,
-    "price" => floatval($precio)
+    "price" => floatval($precio),
+    "category" => $categoria
 ];
 
 // Convertir de nuevo a JSON

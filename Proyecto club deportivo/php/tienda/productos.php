@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Consulta para obtener los productos
-$sql = "SELECT id, nombre, companía, precio, imagen FROM productos"; // Ajusta esta consulta según tu base de datos
+$sql = "SELECT id, nombre, companía, precio, imagen, Categoría FROM productos"; // Ajusta esta consulta según tu base de datos
 $result = $conn->query($sql);
 
 $productos = [];
@@ -26,7 +26,8 @@ if ($result->num_rows > 0) {
             'nombre' => $row['nombre'],
             'companía' => $row['companía'],
             'precio' => $row['precio'],
-            'image' => $row['imagen']
+            'image' => $row['imagen'],
+            'categoria' => $row['Categoría']
             
         ];
         var_dump($row['id']);

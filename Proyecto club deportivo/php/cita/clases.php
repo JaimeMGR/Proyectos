@@ -191,11 +191,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['getCitas'])) {
     <?php include '../esencial/calendario.php'; ?>
     <br>
     <form class="formbuscar" method="post" action="buscarcita.php">
+      
       <label for="busqueda">
         <h2 style="font-weight: bold;">Buscar clase</h2>
       </label>
-      <input class="form-control" type="text" id="busqueda" name="busqueda" placeholder="Buscar por nombre...">
-      <button class="btn btn-warning" type="button|submit">Buscar</button>
+      <div class="input-group">
+                    <input class="form-control" type="text" id="busqueda" name="busqueda" placeholder="Buscar por nombre..." required>
+                    <button class="btn btn-warning" type="button|submit">Buscar</button>
+                </div>
     </form>
   </main>
   <?php include '../esencial/footer.php' ?>

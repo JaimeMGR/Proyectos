@@ -17,7 +17,7 @@ include '../esencial/conexion.php';
 
 <body style="background:#f4f4f9">
     <?php include '../esencial/header.php'; ?>
-    
+
     <main>
         <h2 style="font-weight: bold;">Añadir Nuevo Producto</h2>
 
@@ -33,6 +33,18 @@ include '../esencial/conexion.php';
 
             <label for="imagen">Imagen:</label>
             <input type="file" name="imagen" id="imagen" accept="imagen/*">
+
+            <label for="categoria">Categoria:</label>
+            <select name="categoria" id="categoria">
+                <option value="Todos">Todos</option>
+                <option value="Guantes">Guantes</option>
+                <option value="Pantalones">Pantalones</option>
+                <option value="Rodilleras">Rodilleras</option>
+                <option value="Zapatillas">Zapatillas</option>
+                <option value="Tobilleras">Tobilleras</option>
+                <option value="Bucales">Bucales</option>
+                <option value="Suplementos">Suplementos</option>
+            </select>
 
             <button type="submit">Registrar Producto</button>
         </form>

@@ -1,6 +1,9 @@
 <?php
 include '../esencial/conexion.php';
 
+// Extrae el valor del formulario usado para los filtros
+$categorias = isset($_GET['filtro']) ? $_GET['filtro'] : "";
+
 // Número máximo de productos por página
 $max_productos_por_pagina = 8;
 
@@ -42,103 +45,170 @@ $lista = [];
 <body style="background:#f4f4f9">
   <?php include '../esencial/header.php' ?>
   <main>
+    <!-- filters -->
+    <div class="filters ">
+      <div class="filter-container">
+        <h2 style="font-weight: bold;">Tienda</h2>
+        <section style="text-align:center;">
+          <?php
+          if (isset($_SESSION["nombre"]) && $pagina_actual == "tienda.php" && $_SESSION["tipo"] == "admin") {
+          ?>
+            <a class="btn btn-warning" href="añadirproducto.php" class="btn">Añadir producto</a>
+
+          <?php
+          }
+          ?>
+        </section>
+        <!-- filtros -->
+        <form id="filter-form" method="GET" action="tienda.php">
+
+          <label for="exampleFormControlSelect1">Categoría</label>
+          <div class="input-group">
+            <select class="form-control" id="filtro" name="filtro">
+              <option value="" hidden>Todos</option>
+              <option value="Guantes">Guantes</option>
+              <option value="Pantalones">Pantalones</option>
+              <option value="Rodilleras">Rodilleras</option>
+              <option value="Zapatillas">Zapatillas</option>
+              <option value="Tobilleras">Tobilleras</option>
+              <option value="Bucales">Bucales</option>
+              <option value="Suplementos">Suplementos</option>
+            </select>
+            <button type="submit" class="btn btn-warning">Filtrar</button>
+          </div>
+
+
+        </form>
+      </div>
+      </form>
+      <div class="toggle-container">
+        <button class="toggle-cart btn">
+          <i class="fas fa-shopping-cart ">Cesta</i>
+        </button>
+      </div>
+    </div>
+
+
+    <!-- cart -->
+    <div class="cart-overlay">
+      <aside class="cart">
+        <button class="cart-close">
+          <i class="fas fa-times"></i>
+        </button>
+        <header>
+          <button class="cart-checkout btn">vaciar carro</button>
+          <h3 class="text-slanted">Añadido hasta ahora</h3>
+        </header>
+        <!-- cart items -->
+        <div class="cart-items"></div>
+        <footer>
+          <!-- muestra el precio total -->
+          <h3 class="cart-total">Total: <span class="total-price">
+
+            </span></h3>
+          <button class="cart-checkout btn">Tramitar pedido</button>
+        </footer>
+      </aside>
+    </div>
+
     <!-- products -->
     <section class="products">
-      <!-- filters -->
-      <div class="filters ">
-        <div class="toggle-container">
-          <button class="toggle-cart btn">
-            <i class="fas fa-shopping-cart ">Cesta</i>
-          </button>
-        </div>
-      </div>
-      <h2 style="font-weight: bold;">Tienda</h2>
-      <section style="text-align:center;">
-        <?php
-        if (isset($_SESSION["nombre"]) && $pagina_actual == "tienda.php" && $_SESSION["tipo"] == "admin") {
-        ?>
-          <a class="btn btn-warning" href="añadirproducto.php" class="btn">Añadir producto</a>
-
-        <?php
-        }
-        ?>
-      </section>
-      <!-- cart -->
-      <div class="cart-overlay">
-        <aside class="cart">
-          <button class="cart-close">
-            <i class="fas fa-times"></i>
-          </button>
-          <header>
-            <button class="cart-checkout btn">vaciar carro</button>
-            <h3 class="text-slanted">Añadido hasta ahora</h3>
-          </header>
-          <!-- cart items -->
-          <div class="cart-items"></div>
-          <footer>
-            <!-- muestra el precio total -->
-            <h3 class="cart-total">Total: <span class="total-price">
-
-              </span></h3>
-            <button class="cart-checkout btn">Tramitar pedido</button>
-          </footer>
-        </aside>
-      </div>
-
-      <!-- products -->
       <div class="products-container">
         <?php
 
-        include '../esencial/conexion.php';
+        // Consulta para obtener las categorías, si la categoría es "Todos" no se hará ningún filtro, se debe de actualizar cada vez que marcan una categoria
+        if ($categorias != null) {
+          $sql = "SELECT id, nombre, companía, imagen, precio, Categoría FROM productos WHERE Categoría = '$categorias'";
+          $result = $conexion->query($sql);
 
+          $lista = [];
 
-        $sql = "SELECT id, nombre, companía, imagen, precio FROM productos";
-        $result = $conexion->query($sql);
-
-        $lista = [];
-
-        if ($result->num_rows > 0) {
-          // Almacenar productos en un array
-          while ($row = $result->fetch_assoc()) {
+          if ($result->num_rows > 0) {
+            // Almacenar productos en un array
+            while ($row = $result->fetch_assoc()) {
         ?>
-            <article class="product">
-              <div class="product-container" data-id="<?php echo $row['id']; ?>">
-                <img src="<?php echo $row['imagen']; ?>" class="product-img img" alt="<?php echo $row['nombre']; ?>">
-                <div class="product-icons">
-                  <button class="product-cart-btn product-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                  </button>
+              <article class="product">
+                <div class="product-container" data-id="<?php echo $row['id']; ?>">
+                  <img src="<?php echo $row['imagen']; ?>" class="product-img img" alt="<?php echo $row['nombre']; ?>">
+                  <div class="product-icons">
+                    <button class="product-cart-btn product-icon">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <footer>
-                <p class="product-name"><?php echo $row['nombre']; ?></p>
-                <h4 class="product-price"><?php echo number_format($row['precio'], 2); ?> €</h4>
-                <h4 class="single-product-company"><?php echo $row['companía']; ?></h4>
-              </footer>
-            </article>
-          <?php
-            $lista[] = [
-              'id' => $row['id'],
-              'nombre' => $row['nombre'],
-              'companía' => $row['companía'],
-              'precio' => $row['precio'],
-              'image' => $row['imagen']
+                <footer>
+                  <p class="product-name"><?php echo $row['nombre']; ?></p>
+                  <h4 class="product-price"><?php echo number_format($row['precio'], 2); ?> €</h4>
+                  <h4 class="single-product-company"><?php echo $row['companía']; ?></h4>
+                </footer>
+              </article>
+            <?php
+              $lista[] = [
+                'id' => $row['id'],
+                'nombre' => $row['nombre'],
+                'companía' => $row['companía'],
+                'precio' => $row['precio'],
+                'image' => $row['imagen']
 
-            ];
+              ];
+            }
+          }
+
+          while ($row = $result->fetch_assoc()) {
+            ?>
+            <?php
+          }
+        } else {
+          $sql = "SELECT id, nombre, companía, imagen, precio, Categoría FROM productos";
+          $result = $conexion->query($sql);
+
+          $lista = [];
+
+          if ($result->num_rows > 0) {
+            // Almacenar productos en un array
+            while ($row = $result->fetch_assoc()) {
+            ?>
+              <article class="product">
+                <div class="product-container" data-id="<?php echo $row['id']; ?>">
+                  <img src="<?php echo $row['imagen']; ?>" class="product-img img" alt="<?php echo $row['nombre']; ?>">
+                  <div class="product-icons">
+                    <button class="product-cart-btn product-icon">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button>
+                  </div>
+                </div>
+                <footer>
+                  <p class="product-name"><?php echo $row['nombre']; ?></p>
+                  <h4 class="product-price"><?php echo number_format($row['precio'], 2); ?> €</h4>
+                  <h4 class="single-product-company"><?php echo $row['companía']; ?></h4>
+                </footer>
+              </article>
+            <?php
+              $lista[] = [
+                'id' => $row['id'],
+                'nombre' => $row['nombre'],
+                'companía' => $row['companía'],
+                'precio' => $row['precio'],
+                'image' => $row['imagen']
+
+              ];
+            }
+          }
+
+          while ($row = $result->fetch_assoc()) {
+            ?>
+        <?php
           }
         }
 
-        while ($row = $result->fetch_assoc()) {
-          ?>
-        <?php
-        }
+
+
         ?>
       </div>
       <!--alert-->
       <div class="alerta">
 
       </div>
-
     </section>
 
     <!-- Paginación -->

@@ -24,7 +24,7 @@ include '../esencial/conexion.php';
         <br>
         <div class="testimonio-container">
             <?php
-            $query = "SELECT testimonio.contenido, testimonio.fecha AS fecha, socio.nombre AS autor FROM testimonio JOIN socio ON testimonio.autor = socio.id_socio ORDER BY fecha DESC";
+            $query = "SELECT testimonio.contenido, testimonio.fecha AS fecha, socio.usuario AS autor FROM testimonio JOIN socio ON testimonio.autor = socio.id_socio ORDER BY fecha DESC";
             $result = $conexion->query($query);
 
             if ($result->num_rows > 0) {

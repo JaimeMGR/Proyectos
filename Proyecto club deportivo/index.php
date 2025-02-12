@@ -119,8 +119,8 @@ while ($row = $result->fetch_assoc()) {
         </a>
       </li>
       <li>
-        <a href="php/dietas/dietas.php">
-          <button class="btn text-light" type="button">Dietas</button>
+        <a href="php/recetas/recetas.php">
+          <button class="btn text-light" type="button">Recetas</button>
         </a>
       </li>
       <li>

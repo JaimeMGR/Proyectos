@@ -20,9 +20,6 @@ header {
     align-items: center;
 }
 
-#enlaces {
-    background: #333;
-}
 #enlaces ul {
     list-style: none;
     margin: 0;
