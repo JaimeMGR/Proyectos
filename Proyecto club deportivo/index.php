@@ -31,6 +31,7 @@ while ($row = $result->fetch_assoc()) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atarfe Fighting</title>
+  <script src="../../js/header.js" defer></script>
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/app.js" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -46,16 +47,12 @@ while ($row = $result->fetch_assoc()) {
     $error = 0;
   }
   ?>
-
   <header class="text-white">
     <nav class="navbar navbar-expand-lg navbar-dark container">
       <a class="navbar-brand" href="#">
         <img loading='lazy' class="logo" src="imagenes/Logo.png" alt="Logo Atarfe Fighting">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="menu">
+      <div id="menu">
 
       </div>
 
@@ -75,84 +72,84 @@ while ($row = $result->fetch_assoc()) {
         $pagina_actual = basename($_SERVER['PHP_SELF']);
 
 
-        if (isset($_SESSION["nombre"])) {
-          echo formulario_sesion_iniciada($_SESSION["nombre"]);
-        } else {
-          echo formulario_para_iniciar_sesion($pagina_actual, $error);
-        }
+
 
         ?>
       </div>
       </div>
     </nav>
+
+
+
+    <?php
+
+    if (isset($_SESSION["nombre"])) {
+      echo formulario_sesion_iniciada($_SESSION["nombre"]);
+    } else {
+      echo formulario_para_iniciar_sesion($pagina_actual, $error);
+    }
+
+
+
+    if (isset($_GET["error"])) {
+      $error = $_GET['error'];
+    } else {
+      $error = 0;
+    }
+    ?>
+    <br>
+
   </header>
-  <nav id="enlaces">
-    <ul>
-      <li>
-        <a href="#">
-          <button class="btn" type="button">Inicio</button>
-        </a>
-      </li>
-      <li>
-        <a href="php/noticia/noticias.php">
-          <button class="btn" type="button">Noticias</button>
-        </a>
-      </li>
-      <?php if (isset($_SESSION["nombre"])) {
-        echo "<li>
-        <a href='php/cita/clases.php'>
-          <button class='btn' type='button'>Citas</button>
-        </a>
-      </li>";
-      } ?>
-      <li>
-        <a href="php/tienda/tienda.php">
-          <button class="btn" type="button">Tienda</button>
-        </a>
-      </li>
-      <li>
-        <a href="php/servicio/servicios.php">
-          <button class="btn" type="button">Servicios</button>
-        </a>
-      </li>
-      <li>
-        <a href="php/entrenadores/entrenadores.php">
-          <button class="btn" type="button">Entrenadores</button>
-        </a>
-      </li>
-      <li>
-        <a href="php/recetas/recetas.php">
-          <button class="btn" type="button">Recetas</button>
-        </a>
-      </li>
-      <?php if (isset($_SESSION["nombre"])) {
-        echo "<li>
-        <a href='php/socios/socios.php'>
-          <button class='btn' type='button'>Socios</button>
-        </a>
-      </li>";
-      }
-      ?>
-      <li>
-        <a href="php/testimonios/testimonios.php">
-          <button class="btn" type="button">Testimonios</button>
-        </a>
-      </li>
-      <li>
-        <a href="php/contacto/contacto.php">
-          <button class="btn" type="button">Contactos</button>
-        </a>
-      </li>
-    </ul>
+
+  <nav id="enlaces" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid" style="justify-content: center;">
+      <button class="navbar-toggler" id="abrirmenu" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav" aria-controls="menuNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuNav">
+        <!-- Haz unbotón para cerrar el menú -->
+        <button class="btn btn-danger navbar-toggler" id="Cerrarmenu" type="button">Cerrar menú</button>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a href="php/noticia/noticias.php" class="nav-link">Noticias</a>
+          </li>
+          <?php if (isset($_SESSION["nombre"])) { ?>
+            <li class="nav-item">
+              <a href="php/cita/clases.php" class="nav-link">Citas</a>
+            </li>
+          <?php } ?>
+          <li class="nav-item">
+            <a href="php/tienda/tienda.php" class="nav-link">Tienda</a>
+          </li>
+          <li class="nav-item">
+            <a href="php/servicio/servicios.php" class="nav-link">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a href="php/entrenadores/entrenadores.php" class="nav-link">Entrenadores</a>
+          </li>
+          <li class="nav-item">
+            <a href="php/recetas/recetas.php" class="nav-link">Recetas</a>
+          </li>
+          <?php if (isset($_SESSION["nombre"])) { ?>
+            <li class="nav-item">
+              <a href="php/socios/socios.php" class="nav-link">Socios</a>
+            </li>
+          <?php } ?>
+          <li class="nav-item">
+            <a href="php/testimonios/testimonios.php" class="nav-link">Testimonios</a>
+          </li>
+          <li class="nav-item">
+            <a href="php/contacto/contacto.php" class="nav-link">Contactos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
-  <?php
-  if (isset($_GET["error"])) {
-    $error = $_GET['error'];
-  } else {
-    $error = 0;
-  }
-  ?>
 
   <main>
 
@@ -237,7 +234,7 @@ while ($row = $result->fetch_assoc()) {
 
       <div class="testimonio-container">
         <?php
-        $query = "SELECT testimonio.contenido, testimonio.fecha, socio.nombre AS autor FROM testimonio JOIN socio ON testimonio.autor = socio.id_socio ORDER BY RAND() LIMIT 1";
+        $query = "SELECT testimonio.contenido, testimonio.fecha, socio.nombre AS autor FROM testimonio JOIN socio ON testimonio.autor = socio.id_socio ORDER BY testimonio.fecha DESC LIMIT 3";
         $result = $conexion->query($query);
 
         if ($result->num_rows > 0) {
@@ -251,9 +248,48 @@ while ($row = $result->fetch_assoc()) {
         } else {
           echo "<p>No hay socios registrados.</p>";
         }
-
-        $conexion->close();
         ?>
+        <form action="php/testimonios/creartestimonio.php" method="post" enctype="multipart/form-data">
+          <label for="contenido">Contenido:</label>
+          <input type="text" name="contenido" id="contenido" placeholder="Escriba aquí">
+
+          <label for="socio">Socio:</label>
+          <select name="socio" id="socio" class="form-select" required>
+            <option value="" hidden>Seleccione un socio</option>
+
+            <?php
+            if (isset($_SESSION["nombre"]) && $pagina_actual == "index.php" && $_SESSION["tipo"] == "socio") {
+              $nombreactual = $_SESSION['nombre'];
+              $querysocios = "SELECT id_socio, nombre, usuario  FROM socio WHERE usuario = '$nombreactual'";
+            } else {
+              header("Location:../login/login.php");
+              exit();
+            }
+            $stmt = $conexion->prepare($querysocios);
+
+            // Ejecutar la consulta
+            $stmt->execute();
+
+            // Enlazar las variables para recibir los resultados
+            $stmt->bind_result($id_socio, $nombre, $usuario);
+
+            $contador = 0;
+
+            // Procesar los resultados
+            if ($stmt->fetch()) {
+              do {
+                $contador++;
+                echo "<option value='$id_socio'> $usuario </option>";
+              } while ($stmt->fetch());
+            }
+            // Cerrar la declaración y la conexión
+            $stmt->close();
+            ?>
+          </select>
+
+          <button class="btn btn-warning" type="submit">Añadir testimonio</button>
+        </form>
+
     </section>
 
     <!-- Galería de Imágenes -->

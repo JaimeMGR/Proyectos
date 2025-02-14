@@ -33,7 +33,7 @@ $stmt->bind_result($id_noticia, $titulo, $contenido, $imagen, $fecha_publicacion
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noticias - Atarfe Fighting</title>
     <link rel="stylesheet" href="../../css/styles.css">
-    <script src="js/app.js" defer></script>
+    <script src="../../js/header.js" defer></script>
     <link rel="stylesheet" href="https://tailwindui.com/plus-assets/build/assets/app-V9ulzFuj.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

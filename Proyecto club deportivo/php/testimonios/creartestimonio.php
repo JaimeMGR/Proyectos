@@ -30,5 +30,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conexion->close();
 }
 
-header("Refresh: 0.1; url=testimonios.php");
+header("Refresh: 0.1; url=../../index.php");
 ?>

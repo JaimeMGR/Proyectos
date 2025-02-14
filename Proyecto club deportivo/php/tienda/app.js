@@ -64,6 +64,8 @@ function crearItemCarrito(datos_item) {
   let boton_eliminar = nuevo_item.querySelector(".cart-item-remove-btn");
   boton_eliminar.addEventListener("click",
     () => {
+      preciototal = preciototal - datos_item.price;
+      mostrarPrecioTotal(preciototal);
       let posicion = lista_carrito.findIndex(item => item["id"] === datos_item["id"]);
       lista_carrito.splice(posicion, 1);
 

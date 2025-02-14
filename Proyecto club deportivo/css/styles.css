@@ -20,10 +20,21 @@ header {
     align-items: center;
 }
 
+#menuNav {
+    justify-content: center;
+    text-align: center;
+}
+
+.container-fluid {
+    justify-content: center;
+    text-align: center;
+}
+
 #enlaces {
     display: grid;
     gap: 1rem;
-    background:#333;
+    background: #333;
+    justify-content: center;
 }
 
 #enlaces ul {
@@ -33,15 +44,18 @@ header {
     display: flex;
     justify-content: center;
 }
+
 #enlaces ul li {
     margin: 0 1rem;
 }
-#enlaces ul li a button{
+
+#enlaces ul li a button {
     color: white;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
+
 #enlaces ul li a button:hover {
     color: #216e9e;
 }
@@ -115,8 +129,8 @@ footer p {
 
 header img,
 footer img {
-    width: 10vw;
-    height: 10vw;
+    width: 200px;
+    height: 200px;
     margin: auto;
 }
 
@@ -125,7 +139,11 @@ footer img {
     color: white;
     background: #FFA500;
     padding: 5px 10px;
-    border-radius: 5px
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 
 .btn-light {
@@ -366,8 +384,8 @@ table {
 
     header img,
     footer img {
-        width: 10vw;
-        height: 10vw;
+        width: 20vw;
+        height: 20vw;
     }
 }
 
@@ -529,9 +547,9 @@ section {
     transition: transform 0.3s ease;
 }
 
-.socio-card-modificar .socio-foto{
+.socio-card-modificar .socio-foto {
     margin-top: 5px;
-    text-align:center;
+    text-align: center;
 }
 
 .socio-card:hover {
@@ -649,20 +667,20 @@ nav .flex-column {
     color: white;
 }
 
-.login-form{
+.login-form {
     margin-top: 20px;
     text-align: center;
     background: #333;
     padding: 10px;
     border-radius: 7%;
-    width:200px;
+    width: 200px;
 }
 
-.login-form label{
-    color:white;
+.login-form label {
+    color: white;
 }
 
-.login-form button{
+.login-form button {
     background: rgb(255, 255, 255);
     padding: 3px;
     border-radius: 3%;

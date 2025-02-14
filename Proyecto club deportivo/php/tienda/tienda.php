@@ -32,6 +32,7 @@ $lista = [];
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda - Atarfe Fighting</title>
   <link rel="stylesheet" href="../../css/styles.css">
+  <script src="../../js/header.js" defer></script>
   <script src="js/app.js" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css" />
@@ -96,7 +97,6 @@ $lista = [];
           <i class="fas fa-times"></i>
         </button>
         <header>
-          <button class="cart-checkout btn">vaciar carro</button>
           <h3 class="text-slanted">Añadido hasta ahora</h3>
         </header>
         <!-- cart items -->
@@ -106,7 +106,8 @@ $lista = [];
           <h3 class="cart-total">Total: <span class="total-price">
 
             </span></h3>
-          <button class="cart-checkout btn">Tramitar pedido</button>
+          <button class="cart-checkout btn btn-danger">vaciar carro</button>
+          <button class="cart-checkout btn btn-light">Tramitar pedido</button>
         </footer>
       </aside>
     </div>

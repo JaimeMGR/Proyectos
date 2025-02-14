@@ -1,33 +1,5 @@
 <?php
 include '../esencial/conexion.php';
-
-// codigo para haceer funcionar el formulario de búsqueda de usuario sin utilizar bind_param
-
-
-$busqueda = $_POST['busqueda'];
-
-// Buscar una cita. El usuario debe poder buscar una cita por: Nombre del socio, 
-// nombre de servicio o fecha de cita
-
-$query = "SELECT c.id_cita, s.nombre, s.telefono, ss.descripcion, c.fecha, c.hora 
-FROM cita c 
-INNER JOIN socio s ON c.codigo_socio = s.id_socio 
-INNER JOIN servicio ss ON c.codigo_servicio = ss.codigo_servicio 
-WHERE s.nombre LIKE '%$busqueda%' OR ss.descripcion LIKE '%$busqueda%' OR c.fecha LIKE '%$busqueda%' ORDER BY `c`.`id_cita` ASC";
-
-
-$stmt = $conexion->prepare($query);
-
-$stmt->execute();
-
-$stmt->bind_result($codigo_cita, $nombre, $telefono, $descripcion, $fecha, $hora);
-
-// Cerrar la conexión
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -38,6 +10,7 @@ $stmt->bind_result($codigo_cita, $nombre, $telefono, $descripcion, $fecha, $hora
     <title>Citas - Atarfe Fighting</title>
     <link rel="stylesheet" href="../../css/styles.css">
     <script src="js/app.js" defer></script>
+    <script src="../../js/header.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -45,14 +18,43 @@ $stmt->bind_result($codigo_cita, $nombre, $telefono, $descripcion, $fecha, $hora
 
 <body style="background:#f4f4f9">
     <?php include '../esencial/header.php' ?>
+    <?php
+    $nombre = $_SESSION["nombre"];
+    // nombre de servicio o fecha de cita
+    if (isset($_SESSION["nombre"]) && $pagina_actual == "buscarcita.php.php" && $_SESSION["tipo"] == "admin") {
+        $busqueda = $_POST['busqueda'];
+        $query = "SELECT c.id_cita, s.nombre, s.telefono, ss.descripcion, c.fecha, c.hora 
+FROM cita c 
+INNER JOIN socio s ON c.codigo_socio = s.id_socio 
+INNER JOIN servicio ss ON c.codigo_servicio = ss.codigo_servicio 
+WHERE s.nombre LIKE '%$busqueda%' OR ss.descripcion LIKE '%$busqueda%' OR c.fecha LIKE '%$busqueda%' ORDER BY `c`.`id_cita` ASC";
+    } else {
+        $query = "SELECT c.id_cita, s.nombre, s.telefono, ss.descripcion, c.fecha, c.hora
+    FROM cita c
+    INNER JOIN socio s ON c.codigo_socio = s.id_socio
+    INNER JOIN servicio ss ON c.codigo_servicio = ss.codigo_servicio
+    WHERE s.usuario = '$nombre' ORDER BY `c`.`id_cita` ASC";
+    };
+
+    $stmt = $conexion->prepare($query);
+
+    $stmt->execute();
+
+    $stmt->bind_result($codigo_cita, $nombre, $telefono, $descripcion, $fecha, $hora);
+
+    // Cerrar la conexión
+    ?>
     <main>
         <h2 style="font-weight: bold;">Citas</h2>
-
-        <form method="post" action="buscarcita.php">
-            <label for="busqueda">Buscar cita:</label>
-            <input type="text" id="busqueda" name="busqueda" placeholder="Buscar por nombre...">
-            <button class="btn btn-warning" type="button|submit">Buscar</button>
-        </form>
+        <?php if (isset($_SESSION["nombre"]) && $pagina_actual == "buscarcita.php.php" && $_SESSION["tipo"] == "admin") {
+        ?>
+            <form method="post" action="buscarcita.php">
+                <label for="busqueda">Buscar cita:</label>
+                <input type="text" id="busqueda" name="busqueda" placeholder="Buscar por nombre...">
+                <button class="btn btn-warning" type="button|submit">Buscar</button>
+            </form>
+        <?php
+        } ?>
 
         <div class="socio-container">
             <?php
@@ -91,11 +93,11 @@ $stmt->bind_result($codigo_cita, $nombre, $telefono, $descripcion, $fecha, $hora
         border-radius: 5px;
         padding: 1rem;
         margin-bottom: 1rem;
-        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     }
 
-    .cita-item:hover{
-        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    .cita-item:hover {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     }
 
     .cita-title {

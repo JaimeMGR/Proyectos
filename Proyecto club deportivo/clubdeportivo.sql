@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-02-2025 a las 10:56:15
+-- Tiempo de generación: 14-02-2025 a las 14:30:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -42,7 +42,9 @@ CREATE TABLE `cita` (
 
 INSERT INTO `cita` (`id_cita`, `codigo_socio`, `codigo_servicio`, `fecha`, `hora`, `estado`) VALUES
 (43, 8, 4, '2024-11-07', '18:00:00', 1),
-(44, 8, 4, '2024-11-07', '18:00:00', 1);
+(44, 8, 4, '2024-11-07', '18:00:00', 1),
+(54, 33, 1, NULL, NULL, 1),
+(55, 33, 4, '2025-02-15', '12:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -116,16 +118,17 @@ CREATE TABLE `productos` (
   `nombre` varchar(255) NOT NULL,
   `companía` varchar(100) NOT NULL,
   `imagen` varchar(500) DEFAULT NULL,
-  `precio` decimal(10,2) NOT NULL
+  `precio` decimal(10,2) NOT NULL,
+  `Categoría` enum('Guantes','Pantalones','Rodilleras','Tobilleras','Bucales','Suplementos') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `nombre`, `companía`, `imagen`, `precio`) VALUES
-(41, 'Pd513 Protector bucal, Unisex Adulto', 'LEONE 1947', 'productos/producto-1738229364_6148uEuF+pL._AC_SX425_.jpg', 15.00),
-(42, 'Pantalón de entrenamiento Leone 1947 \"Iconic\" Color rojo AB232', 'LEONE 1947', 'productos/producto-1738229497_imagen_2025-01-30_103127374.png', 35.00);
+INSERT INTO `productos` (`id`, `nombre`, `companía`, `imagen`, `precio`, `Categoría`) VALUES
+(41, 'Pd513 Protector bucal, Unisex Adulto', 'LEONE 1947', 'productos/producto-1738229364_6148uEuF+pL._AC_SX425_.jpg', 15.00, 'Bucales'),
+(42, 'Pantalón de entrenamiento Leone 1947 \"Iconic\" Color rojo AB232', 'LEONE 1947', 'productos/producto-1738229497_imagen_2025-01-30_103127374.png', 35.00, 'Pantalones');
 
 -- --------------------------------------------------------
 
@@ -174,10 +177,10 @@ CREATE TABLE `socio` (
 
 INSERT INTO `socio` (`id_socio`, `nombre`, `edad`, `contrasena`, `usuario`, `telefono`, `foto`, `tipo`) VALUES
 (7, 'Jose Pablo Gómez Gómez', 21, '$2y$10$jMxYt6I2emiKMtqDa/bwG.hQH7WCYraQPYiGvpuPMA7AE4EOv32VW', 'Josepa', '856452478', 'muere-eduardo-gomez-actor-de-aqui-no-hay-quien-viva-o-la-que-se-avecina.jpg', 'socio'),
-(8, 'Rubén García Lorenzo', 23, '$2y$10$pruX8ojwa4U2cfJrWxs3P.LDd8Lkg0bSN115Cli5hQHI2c5m6lN7y', 'RubencioTolete', '636988355', '1738572546_', 'socio'),
+(8, 'Rubén García Lorenzo', 23, '$2y$10$pruX8ojwa4U2cfJrWxs3P.LDd8Lkg0bSN115Cli5hQHI2c5m6lN7y', 'RubencioTolete', '636988355', '1910-PEPSI-LATA-330.jpg', 'socio'),
 (29, 'Wolfi', 22, '$2y$10$jgNme6GG6K5Cm6CRQsyMeOPGLrvUR.fgbkTNY2cIJzTMV7eVaJr6.', 'Wolfiwapo', '+34856473285', 'images.jpg', 'socio'),
-(33, 'Jaime jaime', 22, '$2y$10$o04RlHXd3wFSGceTY.2gEOAc3z4zSkxVQFGd4cZTt6dMjqwl7Wal6', 'Jaime222', '+34123456789', '1738569207_jaime.jpg', 'socio'),
-(34, 'Jaime Molina Granados', 22, '$2y$10$ARmorzzYJD1t3NMdqGBm1.IEtSHnZ6NFnNDcL2H2UEg8G9QrG1la2', 'JaimeMGR', '+34668533704', '453348409_695213336114147_1710011270050425164_n.jpeg', 'socio');
+(33, 'Jaimesegundo', 22, '$2y$10$o04RlHXd3wFSGceTY.2gEOAc3z4zSkxVQFGd4cZTt6dMjqwl7Wal6', 'Jaime2', '+34182736450', 'jaime.jpg', 'socio'),
+(34, 'Jaime Molina Granados', 22, '$2y$10$ARmorzzYJD1t3NMdqGBm1.IEtSHnZ6NFnNDcL2H2UEg8G9QrG1la2', 'JaimeMGR', '+34668533704', '453348409_695213336114147_1710011270050425164_n.jpeg', 'admin');
 
 -- --------------------------------------------------------
 
@@ -198,7 +201,9 @@ CREATE TABLE `testimonio` (
 
 INSERT INTO `testimonio` (`id_testimonio`, `autor`, `contenido`, `fecha`) VALUES
 (36, 7, 'La calidad del servicio es inmejorable.', '2024-01-21'),
-(40, 7, 'La calidad del servicio es inmejorable.', '2024-01-21');
+(40, 7, 'La calidad del servicio es inmejorable.', '2024-01-21'),
+(45, 33, 'Que chulo', '2025-02-14'),
+(46, 33, 'No veah', '2025-02-14');
 
 --
 -- Índices para tablas volcadas
@@ -265,7 +270,7 @@ ALTER TABLE `testimonio`
 -- AUTO_INCREMENT de la tabla `cita`
 --
 ALTER TABLE `cita`
-  MODIFY `id_cita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id_cita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `entrenadores`
@@ -307,7 +312,7 @@ ALTER TABLE `socio`
 -- AUTO_INCREMENT de la tabla `testimonio`
 --
 ALTER TABLE `testimonio`
-  MODIFY `id_testimonio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_testimonio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- Restricciones para tablas volcadas

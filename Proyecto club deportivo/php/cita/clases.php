@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['getCitas'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atarfe Fighting</title>
   <link rel="stylesheet" href="../../css/styles.css">
+  <script src="../../js/header.js" defer></script>
   <script src="../../js/crearcita.js" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -51,27 +52,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['getCitas'])) {
         <select name="alumno" id="alumno" class="form-select" required>
           <option value="" hidden>Seleccione un alumno</option>
           <?php
-          // Preparar la consulta con una declaración preparada
-          $querysocios = "SELECT id_socio, nombre  FROM socio";
-          $stmt = $conexion->prepare($querysocios);
 
-          // Ejecutar la consulta
-          $stmt->execute();
+          if (isset($_SESSION["nombre"]) && $pagina_actual == "clases.php" && $_SESSION["tipo"] == "admin") {
+            // Preparar la consulta con una declaración preparada
+            $querysocios = "SELECT id_socio, nombre  FROM socio";
+            $stmt = $conexion->prepare($querysocios);
 
-          // Enlazar las variables para recibir los resultados
-          $stmt->bind_result($id_socio, $nombre);
+            // Ejecutar la consulta
+            $stmt->execute();
 
-          $contador = 0;
+            // Enlazar las variables para recibir los resultados
+            $stmt->bind_result($id_socio, $nombre);
 
-          // Procesar los resultados
-          if ($stmt->fetch()) {
-            do {
-              $contador++;
-              echo "<option value='$id_socio'> $nombre </option>";
-            } while ($stmt->fetch());
+            $contador = 0;
+
+            // Procesar los resultados
+            if ($stmt->fetch()) {
+              do {
+                $contador++;
+                echo "<option value='$id_socio'> $nombre </option>";
+              } while ($stmt->fetch());
+            }
+            // Cerrar la declaración y la conexión
+            $stmt->close();
           }
-          // Cerrar la declaración y la conexión
-          $stmt->close();
           ?>
         </select>
         <label for="clase">Clase:</label>
@@ -127,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['getCitas'])) {
           <h2 style="font-weight: bold;">Buscar clase</h2>
         </label>
         <div class="input-group">
-          <input class="form-control" type="text" id="busqueda" name="busqueda" placeholder="Buscar por nombre..." required>
+          <input class="form-control" type="text" id="busqueda" name="busqueda" placeholder="Buscar por nombre, clase, fecha o descripcion..." required>
           <button class="btn btn-warning" type="button|submit">Buscar</button>
         </div>
       </form>
@@ -142,20 +146,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['getCitas'])) {
           <option value="" hidden>Seleccione un alumno</option>
           <?php
           // Obtener el ID del usuario actual desde la sesión
-          $id_usuario_actual = $_SESSION["id_socio"]; // Asegúrate de que el ID del usuario esté almacenado en la sesión
+          $usuario_actual = $_SESSION["nombre"]; // Asegúrate de que el ID del usuario esté almacenado en la sesión
 
           // Preparar la consulta con una declaración preparada para obtener solo el usuario actual
-          $querysocios = "SELECT id_socio, nombre FROM socio WHERE id_socio = ?";
+          $querysocios = "SELECT id_socio, nombre, usuario FROM socio WHERE usuario = ?";
           $stmt = $conexion->prepare($querysocios);
 
           // Vincular el parámetro (ID del usuario actual)
-          $stmt->bind_param("i", $id_usuario_actual);
+          $stmt->bind_param("s", $usuario_actual);
 
           // Ejecutar la consulta
           $stmt->execute();
 
           // Enlazar las variables para recibir los resultados
-          $stmt->bind_result($id_socio, $nombre);
+          $stmt->bind_result($id_socio, $nombre, $usuario);
 
           // Procesar los resultados
           if ($stmt->fetch()) {
@@ -194,7 +198,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['getCitas'])) {
           $conexion->close();
           ?>
         </select>
-        <button type="submit">Apuntarse</button>
+        <label for="fecha">Fecha:</label>
+        <input type="date" class="form-control" name="fecha" id="fecha" required>
+        <label for="horario">Horario:</label>
+        <select name="hora" class="form-control" id="hora" required>
+          <option value="" hidden>Seleccione un horario</option>
+          <option name="hora" value="9:30">9:30</option>
+          <option name="hora" value="10:30">10:30</option>
+          <option name="hora" value="12:00">12:00</option>
+          <option name="hora" value="17:00">17:00</option>
+          <option name="hora" value="18:00">18:00</option>
+          <option name="hora" value="19:00">19:00</option>
+          <option name="hora" value="20:00">20:00</option>
+        </select>
+
+        <input type="submit" class="btn btn-outline-secondary" value="Apuntarse">
       </form>
       <h2>Calendario</h2>
       <?php include '../esencial/calendario.php'; ?>
@@ -202,18 +220,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['getCitas'])) {
       <form class="formbuscar" method="post" action="buscarcita.php">
 
         <label for="busqueda">
-          <h2 style="font-weight: bold;">Buscar clase</h2>
+          <h2 style="font-weight: bold;">Consultar tus clases</h2>
         </label>
-        <div class="input-group">
-          <input class="form-control" type="text" id="busqueda" name="busqueda" placeholder="Buscar por nombre..." required>
-          <button class="btn btn-warning" type="button|submit">Buscar</button>
-        </div>
+
+        <button class="btn btn-warning" type="button|submit">Consultar</button>
+
       </form>
     <?php
-    }else {
+    } else {
       echo "<h2>No tienes una cuenta para acceder a esta página.</h2>";
       // redirige a index.php después de 3 segundos
-      header("Refresh: 3; url=../../index.php" );
+      header("Refresh: 3; url=../../index.php");
     }
     ?>
 

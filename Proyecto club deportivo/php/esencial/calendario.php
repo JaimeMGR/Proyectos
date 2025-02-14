@@ -68,7 +68,8 @@ if ($mes < 1) {
 
 
 // Consultar las citas con información adicional (con JOIN para obtener datos completos)
-$query = "
+if (isset($_SESSION["nombre"]) && $pagina_actual == "clases.php" && $_SESSION["tipo"] == "admin") {
+    $query = "
     SELECT 
         c.id_cita,
         c.fecha, 
@@ -84,6 +85,28 @@ $query = "
     INNER JOIN socio s ON c.codigo_socio = s.id_socio
     INNER JOIN servicio srv ON c.codigo_servicio = srv.codigo_servicio
 ";
+} else if (isset($_SESSION["nombre"]) && $pagina_actual == "clases.php" && $_SESSION["tipo"] == "socio") {
+    $nombre = $_SESSION['nombre'];
+    $query = "
+    SELECT 
+        c.id_cita,
+        c.fecha, 
+        c.hora, 
+        c.estado,
+        s.nombre AS socio, 
+        s.usuario,
+        s.telefono, 
+        srv.descripcion AS servicio_desc, 
+        srv.duracion AS servicio_duracion, 
+        srv.imagen AS servicio_imagen
+    FROM 
+        cita c
+    INNER JOIN socio s ON c.codigo_socio = s.id_socio
+    INNER JOIN servicio srv ON c.codigo_servicio = srv.codigo_servicio
+    WHERE s.usuario = '$nombre'
+";
+} else {
+};
 $resultado = $conexion->query($query);
 
 // Manejo de errores de la consulta
@@ -138,7 +161,7 @@ function generarCalendario($anio, $mes, $citasPorFecha)
         // Verificar si hay citas para este día
         if (isset($citasPorFecha[$fechaActual])) {
             echo "<button onclick='mostrarPopup(\"$fechaActual\")' style='background: #e8f4ff; border: none; padding: 5px; cursor: pointer;'>Ver Citas</button>";
-            
+
             echo "<div id='popup-$fechaActual' class='popup' style='display:none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; border: 2px solid #ccc; padding: 20px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); z-index: 10; max-width: 300px;'>";
             $contador = 0;
             foreach ($citasPorFecha[$fechaActual] as $cita) {
@@ -160,7 +183,7 @@ function generarCalendario($anio, $mes, $citasPorFecha)
                 echo "<div class='detalle'><strong>Servicio:</strong> {$cita['servicio_desc']}</div>";
                 echo "<div class='detalle'><strong>Estado: </strong> {$estado}</div>";
                 echo "<br>";
-                
+
 
                 // Verificar si la cita es futura, de lo contrario no mostrar el botón de eliminar
 

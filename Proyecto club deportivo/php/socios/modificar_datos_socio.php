@@ -21,6 +21,7 @@ $nombre = !empty($_POST['nombre']) ? $_POST['nombre'] : $nombre_actual;
 $usuario = !empty($_POST['usuario']) ? $_POST['usuario'] : $usuario_actual;
 $edad = !empty($_POST['edad']) ? $_POST['edad'] : $edad_actual;
 $telefono = !empty($_POST['telefono']) ? $_POST['telefono'] : $telefono_actual;
+$telefono = !empty($_POST['telefono']) ? $_POST['telefono'] : $foto_actual;
 
 // Procesar y guardar la imagen
 if ($_FILES['imagen']['error'] == UPLOAD_ERR_OK) {
