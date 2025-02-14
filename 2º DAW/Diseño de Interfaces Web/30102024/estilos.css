@@ -1,0 +1,273 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #222;
+    line-height: 1.6;
+    background-color: #6d6d6d;
+}
+
+/* Encabezado */
+.header {
+    background-color: #111; /* Un negro más oscuro */
+    color: #ffffff; /* Blanco casi puro */
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width:100px;
+    height:100px;
+    font-weight: bold;
+    color: #9febe4;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #24d4c6;
+
+}
+
+/* Introducción */
+.intro {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-image: url('jaime.png'); /* URL de fondo de ejemplo */
+    background-size: cover;
+    color: #FFFFFF;
+    background-position: center;
+}
+
+.intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color:#ffffff;
+}
+
+.intro-text::first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.highlight::after {
+    content: " ¡Visítanos!";
+    font-style: italic;
+    color: #FFD700;
+}
+
+/* Contenido principal */
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.services {
+    flex: 2;
+}
+
+.service-card {
+    background: #ffa53e;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-card p {
+    color: #333;
+}
+
+/* Selectores avanzados */
+.service-card:first-child {
+    border: 2px solid #c4ffc6;
+}
+
+.service-card:nth-child(2) {
+    background-color: #c9f9ff;
+}
+
+.note {
+    font-style: italic;
+    color: #ffffff;
+    margin-top: 1rem;
+}
+
+/* Barra lateral */
+.sidebar {
+    flex: 1;
+    background: #d2fffb;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
+.sidebar .news-item {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.news-item:last-child {
+    font-weight: bold;
+}
+
+/* Galería de portafolio */
+.portfolio {
+    padding: 2rem;
+    text-align: center;
+    background: #96ffff;
+}
+
+.portfolio h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.gallery-item:hover {
+    background-color: #bbb;
+    cursor: pointer;
+}
+
+/* Formulario de contacto */
+.contact {
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact form {
+    display: grid;
+    gap: 1rem;
+}
+
+.contact label {
+    font-weight: bold;
+    color: #333;
+}
+
+.contact input[type="text"],
+.contact input[type="email"],
+.contact textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.contact button {
+    background: #000000;
+    color: #fff;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact button:hover {
+    background: #7efbff;
+}
+
+/* Pie de página */
+.footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Pseudoelementos y combinadores */
+h2 + p {
+    color: red;
+}
+
+.intro p ~ .highlight {
+    color: rgb(103, 255, 235);
+}
+
+.main-content > .services > .service-card {
+    border-radius: 5px;
+}
+
+.contact input[type="text"],
+.contact input[type="email"] {
+    border: 1px solid #ccc;
+}
+
+.contact button:hover {
+    background: #388E3C;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}

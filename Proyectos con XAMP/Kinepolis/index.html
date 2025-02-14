@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contenido">
+        <header>
+            <h1>Seleccione cantidad de entradas</h1>
+        </header>
+        <main>
+            <form id="ticketForm">
+
+                <label for="normal">Normal 9,20€</label>
+                <input type="number" id="normal" name="normal" min="1" required><br><br>
+
+                <section class="reservation-button">
+                    <input type="submit" value="Reservar">
+                </section>
+            </form>
+        </main>
+        <footer>
+            <p>&copy; 2024 Cine Molina. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById("ticketForm").addEventListener("submit", function(event) {
+            event.preventDefault();  // Evita el envío automático del formulario
+            
+            const cantidadTickets = document.getElementById("normal").value;
+
+            // Guarda el valor en el LocalStorage
+            localStorage.setItem("maxSeatsAllowed", cantidadTickets);
+
+            // Redirige a selector.html
+            window.location.href = "selector.html";
+        });
+    </script>
+</body>
+</html>

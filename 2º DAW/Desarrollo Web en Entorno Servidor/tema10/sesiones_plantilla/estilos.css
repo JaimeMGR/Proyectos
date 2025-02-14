@@ -1,0 +1,125 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    background: #4CAF50;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Contenido del header */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Título */
+header h1 {
+    margin: 0;
+    flex-grow: 1; /* Esto asegura que el título ocupe todo el espacio disponible */
+    text-align: center;
+}
+
+/* Contenedor del formulario de login */
+.login-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Formulario de login */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: rgba(237, 208, 208, 0.9);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 250px; /* Controlamos el tamaño del formulario */
+}
+
+.login-form label {
+    margin-top: 0.25rem;
+    font-weight: bold;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 0.25rem;
+    margin-top: 0.25rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 0.5rem;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.login-form button:hover {
+    background: #45a049;
+}
+
+/* Navegación */
+nav {
+    background: #333;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+nav ul li {
+    margin: 0 1rem;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+nav ul li a:hover {
+    color: #4CAF50;
+}
+
+/* Secciones */
+main{
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+main section h2 {
+    color: #4CAF50;
+}
+
+/* Pie de página */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}

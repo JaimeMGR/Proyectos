@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Jaime Molina Granados</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            margin: 0;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('imagenes/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #ff6f61;
+            border: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff4a3a;
+            transform: scale(1.05);
+        }
+
+        .section-title {
+            margin-bottom: 40px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6f61;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            background-color: #ff6f61;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .bg-light {
+            background-color: #f9f9f9 !important;
+        }
+
+        .bg-dark {
+            background-color: #343a40 !important;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Jaime Molina Granados</h1>
+        <p>Programador Full Stack y Técnico Microinformático</p>
+        <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJlFCjZlxQRHtnLjhWGBCdTzZndXmqZsljhhGgdPSgLzBGZbFSRBrjHZtVqlVcBVNwzZmBV" class="btn btn-primary btn-lg">Contáctame</a>
+    </header>
+
+    <!-- About Section -->
+    <section class="container py-5" id="about">
+        <h2 class="section-title text-center">Sobre Mí</h2>
+        <div class="about-grid">
+            <div>
+                <p>Hola, soy Jaime Molina, un apasionado de la tecnología y la programación. Cuento con experiencia en
+                    desarrollo web, diseño gráfico y soporte técnico. Actualmente estoy completando mis estudios de
+                    Grado Superior en Desarrollo de Aplicaciones Web (DAW) y Desarrollo de Aplicaciones Multiplataforma
+                    (DAM), con conocimientos avanzados en tecnologías como HTML, CSS, JavaScript, PHP, SQL, y frameworks
+                    modernos como Bootstrap y Firebase.</p>
+                <p>Además, he trabajado en proyectos como la creación de módulos de PHP en Dolibarr, diseño gráfico, y
+                    mantenimiento de sistemas informáticos. Puedes consultar algunos de mis proyectos destacados más
+                    abajo.</p>
+            </div>
+            <div class="text-center">
+                <img src="imagenes/jaime.jpg" alt="Jaime Molina" class="rounded-circle img-fluid">
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="container py-5" id="experience">
+        <h2 class="section-title text-center">Experiencia Laboral</h2>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <strong>Desarrollador Full Stack</strong> - OYR Solutions SL (03/2024 – 06/2024)<br>
+                Creación de módulos de PHP en Dolibarr e instalaciones de red a domicilio.
+            </li>
+            <li class="list-group-item">
+                <strong>Director de IT</strong> - Love2Learn (06/2021 – 08/2021)<br>
+                Preparación de equipos y administración del departamento de IT.
+            </li>
+            <li class="list-group-item">
+                <strong>Diseñador Gráfico</strong> - Property Partners Phelan Herterich (06/2021 – 08/2021)<br>
+                Diseño de anuncios y edición de video.
+            </li>
+            <li class="list-group-item">
+                <strong>Técnico Microinformático</strong> - TecnoSecond (03/2021 – 06/2021)<br>
+                Reparación y mantenimiento de equipos informáticos y optimización de equipos.
+            </li>
+        </ul>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="bg-light py-5" id="skills">
+        <div class="container">
+            <h2 class="section-title text-center">Habilidades</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul>
+                        <li><strong>Tecnologías web:</strong> HTML5, CSS3, JavaScript, PHP, Docker</li>
+                        <li><strong>Desarrollo multiplataforma:</strong> Java, Python, C#, Kotlin, Android Studio</li>
+                        <li><strong>Bases de datos:</strong> MySQL, NoSQL, SQL, MongoDB, Oracle, Firebase, XPATH, XQuery
+                        </li>
+                        <li><strong>Diseño:</strong> GIMP, Adobe Photoshop, Canva</li>
+                        <li><strong>Video y sonido:</strong> OBS, Shotcut, Streamlabs, FL Studio</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li><strong>Herramientas:</strong> Git, Github, XAMP, Unity, Blender</li>
+                        <li><strong>CMS:</strong> WordPress, Joomla, Moodle</li>
+                        <li><strong>Microsoft Office:</strong> Word, Excel, Access, PowerPoint</li>
+                        <li><strong>Sistemas operativos:</strong> Windows, Linux</li>
+                        <li><strong>Otros:</strong> Permiso B de conducción, Montaje y mantenimiento de ordenadores,
+                            Optimización de equipos, Instalación de redes, Arduino</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="container py-5" id="languages">
+        <h2 class="section-title text-center">Idiomas</h2>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Español:</strong> Nativo</li>
+            <li class="list-group-item"><strong>Inglés:</strong> Nivel B1 (Cambridge)</li>
+        </ul>
+    </section>
+
+    <!-- Education Section -->
+    <section class="bg-light py-5" id="education">
+        <div class="container">
+            <h2 class="section-title text-center">Formación</h2>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Grado Superior en Desarrollo de Aplicaciones Web (DAW):</strong><br Atlántida CIDEP (2022 -
+                        2025) </li>
+                <li class="list-group-item">
+                    <strong>Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM):</strong><br>
+                    Atlántida CIDEP (2022 - 2024)
+                </li>
+                <li class="list-group-item">
+                    <strong>Grado Medio en Sistemas Microinformáticos y Redes (SMR):</strong><br>
+                    I.E.S. Aricel (2019 - 2021)
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="container py-5" id="contact-info">
+        <h2 class="section-title text-center">Información de Contacto</h2>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Correo Electrónico:</strong> <a
+                    href="mailto:jaimemg1312@gmail.com">jaimemg1312@gmail.com</a></li>
+            <li class="list-group-item"><strong>Teléfono:</strong> (+34) 668 533 704</li>
+            <li class="list-group-item"><strong>Ubicación:</strong> Maracena, España</li>
+            <li class="list-group-item"><strong>LinkedIn:</strong> <a
+                    href="https://www.linkedin.com/in/jaime-molina-granados-a27794138/" target="_blank">Jaime Molina
+                    Granados</a></li>
+        </ul>
+    </section>
+
+    <!-- Additional Information Section -->
+    <section class="container py-5" id="additional-info">
+        <h2 class="section-title text-center">Información Adicional</h2>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Carnet de Conducir:</strong> Tipo B</li>
+            <li class="list-group-item"><strong>Coche Propio:</strong> Sí</li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Jaime Molina Granados. Todos los derechos reservados.</p>
+        <p>Sígueme en <a href="https://www.linkedin.com/in/jaime-molina-granados-a27794138/"
+                target="_blank">LinkedIn</a></p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
