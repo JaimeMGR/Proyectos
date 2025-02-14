@@ -1,39 +1,47 @@
-<?php
-if (isset($_GET["error"])) {
-  $error = $_GET['error'];
-} else {
-  $error = 0;
-}
-?>
+<body style="background:#f4f4f9">
+  <?php
+  if (isset($_GET["error"])) {
+    $error = $_GET['error'];
+  } else {
+    $error = 0;
+  }
+  ?>
 
-<header class="text-white">
-  <nav class="navbar navbar-expand-lg navbar-dark container">
-    <a class="navbar-brand" href="../../index.php">
-      <img loading='lazy' class="logo" src="../../imagenes/Logo.png" alt="Logo Atarfe Fighting">
-    </a>
+  <header class="text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark container">
+      <a class="navbar-brand" href="#">
+        <img loading='lazy' class="logo" src="../../imagenes/Logo.png" alt="Logo Atarfe Fighting">
+      </a>
+      <div id="menu">
+
+      </div>
+
+
+      <?php
+      if (isset($_GET["error"])) {
+        $error = $_GET['error'];
+      } else {
+        $error = 0;
+      }
+      ?>
+      <div class="header-content">
+        <?php
+
+        session_start();
+        require_once "utilidades.php";
+        $pagina_actual = basename($_SERVER['PHP_SELF']);
+
+
+
+
+        ?>
+      </div>
+      </div>
+    </nav>
 
 
 
     <?php
-
-    session_start();
-    require_once "utilidades.php";
-    $pagina_actual = basename($_SERVER['PHP_SELF']);
-    $privilegios = true;
-    echo "<div>";
-    if (!isset($_SESSION["nombre"]) && $pagina_actual == "index.php") {
-      echo "</div>";
-      $privilegios = false;
-    } else if (isset($_SESSION["nombre"]) && $pagina_actual == "servicios.php" && $_SESSION["tipo"] == "normal") {
-      echo "<h2>Tienes que ser admin para estar aquí</h2>
-              </div>";
-      $privilegios = false;
-    } else if (!isset($_SESSION["nombre"]) && $pagina_actual == "registro.php") {
-      echo "</div>";
-      $privilegios = true;
-    } else {
-      echo "</div>";
-    }
 
     if (isset($_SESSION["nombre"])) {
       echo formulario_sesion_iniciada($_SESSION["nombre"]);
@@ -41,76 +49,64 @@ if (isset($_GET["error"])) {
       echo formulario_para_iniciar_sesion($pagina_actual, $error);
     }
 
+
+
+    if (isset($_GET["error"])) {
+      $error = $_GET['error'];
+    } else {
+      $error = 0;
+    }
     ?>
+    <br>
+
+  </header>
+
+  <nav id="enlaces" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" style="justify:center" data-bs-toggle="collapse" data-bs-target="#menuNav" aria-controls="menuNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a href="php/noticia/noticias.php" class="nav-link">Noticias</a>
+          </li>
+          <?php if (isset($_SESSION["nombre"])) { ?>
+            <li class="nav-item">
+              <a href="php/cita/clases.php" class="nav-link">Citas</a>
+            </li>
+          <?php } ?>
+          <li class="nav-item">
+            <a href="php/tienda/tienda.php" class="nav-link">Tienda</a>
+          </li>
+          <li class="nav-item">
+            <a href="php/servicio/servicios.php" class="nav-link">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a href="php/entrenadores/entrenadores.php" class="nav-link">Entrenadores</a>
+          </li>
+          <li class="nav-item">
+            <a href="php/recetas/recetas.php" class="nav-link">Recetas</a>
+          </li>
+          <?php if (isset($_SESSION["nombre"])) { ?>
+            <li class="nav-item">
+              <a href="php/socios/socios.php" class="nav-link">Socios</a>
+            </li>
+          <?php } ?>
+          <li class="nav-item">
+            <a href="php/testimonios/testimonios.php" class="nav-link">Testimonios</a>
+          </li>
+          <li class="nav-item">
+            <a href="php/contacto/contacto.php" class="nav-link">Contactos</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
-</header>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="menu">
 
-    </div>
-<nav id="enlaces">
-  <ul>
-    <li>
-      <a href="../../index.php">
-        <button class="btn text-light" type="button">Inicio</button>
-      </a>
-    </li>
-    <li>
-      <a href="../noticia/noticias.php">
-        <button class="btn text-light" type="button">Noticias</button>
-      </a>
-    </li>
-    <li>
-      <a href="../cita/clases.php">
-        <button class="btn text-light" type="button">Citas</button>
-      </a>
-    </li>
-    <li>
-      <a href="../tienda/tienda.php">
-        <button class="btn text-light" type="button">Tienda</button>
-      </a>
-    </li>
-    <li>
-      <a href="../servicio/servicios.php">
-        <button class="btn text-light" type="button">Servicios</button>
-      </a>
-    </li>
-    <li>
-      <a href="../entrenadores/entrenadores.php">
-        <button class="btn text-light" type="button">Entrenadores</button>
-      </a>
-    </li>
-    <li>
-      <a href="../recetas/recetas.php">
-        <button class="btn text-light" type="button">Recetas</button>
-      </a>
-    </li>
-    <li>
-      <a href="../socios/socios.php">
-        <button class="btn text-light" type="button">Socios</button>
-      </a>
-    </li>
-    <li>
-      <a href="../testimonios/testimonios.php">
-        <button class="btn text-light" type="button">Testimonios</button>
-      </a>
-    </li>
-    <li>
-      <a href="../contacto/contacto.php">
-        <button class="btn text-light" type="button">Contactos</button>
-      </a>
-    </li>
-  </ul>
-</nav>
-
-<?php
-if (isset($_GET["error"])) {
-  $error = $_GET['error'];
-} else {
-  $error = 0;
-}
-?>
-</header>
+  <!-- Bootstrap JS (asegúrate de incluirlo en tu proyecto) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

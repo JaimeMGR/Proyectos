@@ -96,6 +96,8 @@ function buscarRecetas($nombreReceta)
     }
 
     $url = "https://www.themealdb.com/api/json/v1/1/search.php?s=" . urlencode($nombreReceta);
+    // limita los resultados a 10
+    $url.= "&limit=10";
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -191,9 +193,8 @@ function buscarRecetas($nombreReceta)
 <body style="background:#f4f4f9">
     <?php include '../esencial/header.php' ?>
     <main>
-        <h1 style="font-weight: bold; text-align: center">Recetas</h1>
+        <h1 style="font-weight: bold; text-align: center">Bienvenido al buscador de recetas</h1>
         <div class="container mt-5">
-            <h2 class="text-center text-primary">Bienvenido al buscador de recetas</h2>
 
             <!-- Formulario de búsqueda -->
             <form method="GET" class="mt-4">

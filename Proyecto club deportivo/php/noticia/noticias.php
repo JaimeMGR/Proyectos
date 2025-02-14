@@ -34,6 +34,7 @@ $stmt->bind_result($id_noticia, $titulo, $contenido, $imagen, $fecha_publicacion
     <title>Noticias - Atarfe Fighting</title>
     <link rel="stylesheet" href="../../css/styles.css">
     <script src="js/app.js" defer></script>
+    <link rel="stylesheet" href="https://tailwindui.com/plus-assets/build/assets/app-V9ulzFuj.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -42,7 +43,9 @@ $stmt->bind_result($id_noticia, $titulo, $contenido, $imagen, $fecha_publicacion
     <?php include '../esencial/header.php' ?>
     <main>
         <h2 style="font-weight: bold;">Noticias</h2>
-        <?php if (isset($_SESSION["nombre"]) && $pagina_actual == "socios.php" && $_SESSION["tipo"] == "admin") { ?>
+        <?php
+        if (isset($_SESSION["nombre"]) && $pagina_actual == "noticias.php" && $_SESSION["tipo"] == "admin") {
+        ?>
             <section style="text-align:center;">
                 <a class="btn btn-warning" href="añadirnoticia.php" class="btn">Redactar noticia</a>
             </section>

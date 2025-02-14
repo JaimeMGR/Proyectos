@@ -90,52 +90,57 @@ while ($row = $result->fetch_assoc()) {
     <ul>
       <li>
         <a href="#">
-          <button class="btn text-light" type="button">Inicio</button>
+          <button class="btn" type="button">Inicio</button>
         </a>
       </li>
       <li>
         <a href="php/noticia/noticias.php">
-          <button class="btn text-light" type="button">Noticias</button>
+          <button class="btn" type="button">Noticias</button>
         </a>
       </li>
-      <li>
-        <a href="php/cita/clases.php">
-          <button class="btn text-light" type="button">Citas</button>
+      <?php if (isset($_SESSION["nombre"])) {
+        echo "<li>
+        <a href='php/cita/clases.php'>
+          <button class='btn' type='button'>Citas</button>
         </a>
-      </li>
+      </li>";
+      } ?>
       <li>
         <a href="php/tienda/tienda.php">
-          <button class="btn text-light" type="button">Tienda</button>
+          <button class="btn" type="button">Tienda</button>
         </a>
       </li>
       <li>
         <a href="php/servicio/servicios.php">
-          <button class="btn text-light" type="button">Servicios</button>
+          <button class="btn" type="button">Servicios</button>
         </a>
       </li>
       <li>
         <a href="php/entrenadores/entrenadores.php">
-          <button class="btn text-light" type="button">Entrenadores</button>
+          <button class="btn" type="button">Entrenadores</button>
         </a>
       </li>
       <li>
         <a href="php/recetas/recetas.php">
-          <button class="btn text-light" type="button">Recetas</button>
+          <button class="btn" type="button">Recetas</button>
         </a>
       </li>
-      <li>
-        <a href="php/socios/socios.php">
-          <button class="btn text-light" type="button">Socios</button>
+      <?php if (isset($_SESSION["nombre"])) {
+        echo "<li>
+        <a href='php/socios/socios.php'>
+          <button class='btn' type='button'>Socios</button>
         </a>
-      </li>
+      </li>";
+      }
+      ?>
       <li>
         <a href="php/testimonios/testimonios.php">
-          <button class="btn text-light" type="button">Testimonios</button>
+          <button class="btn" type="button">Testimonios</button>
         </a>
       </li>
       <li>
         <a href="php/contacto/contacto.php">
-          <button class="btn text-light" type="button">Contactos</button>
+          <button class="btn" type="button">Contactos</button>
         </a>
       </li>
     </ul>
@@ -265,76 +270,94 @@ while ($row = $result->fetch_assoc()) {
       <a class="btn btn-warning" href="php/socios/register.php">¡Inscríbete ya!</a>
     </section>
   </main>
-  <footer>
-    <div class="info-footer">
-      <div class="d-flex">
-        <div class="logocontainer" style="text-align:center; padding-top:10px;">
-          <img loading="lazy" src="imagenes/logo.png">
+  <footer class="bg text-white text-center text-lg-start">
+    <!-- Grid container -->
+    <div class="container p-3">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <div class="logocontainer" style="text-align:center;">
+            <img loading='lazy' src="imagenes/logo.png">
+          </div>
         </div>
-        <div class="footermenu" style="padding-left:10%;text-align:left;">
-          <h4><strong>ENLACES</strong></h4>
-          <ul class="navbar-nav">
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Enlaces</h5>
+
+          <ul class="list-unstyled mb-0">
             <li>
-              <a href="../../index.php">
+              <a href="#">
                 <button class="btn text-light" type="button">Inicio</button>
               </a>
             </li>
             <li>
-              <a href="../noticia/noticias.php">
+              <a href="php/noticia/noticias.php">
                 <button class="btn text-light" type="button">Noticias</button>
               </a>
             </li>
             <li>
-              <a href="../cita/clases.php">
+              <a href="php/cita/clases.php">
                 <button class="btn text-light" type="button">Citas</button>
               </a>
             </li>
             <li>
-              <a href="../servicio/servicios.php">
+              <a href="php/servicio/servicios.php">
                 <button class="btn text-light" type="button">Servicios</button>
               </a>
             </li>
             <li>
-              <a href="../entrenadores/entrenadores.php">
+              <a href="php/entrenadores/entrenadores.php">
                 <button class="btn text-light" type="button">Entrenadores</button>
               </a>
             </li>
             <li>
-              <a href="../socios/socios.php">
+              <a href="php/socios/socios.php">
                 <button class="btn text-light" type="button">Socios</button>
               </a>
             </li>
             <li>
-              <a href="../testimonios/testimonios.php">
+              <a href="php/testimonios/testimonios.php">
                 <button class="btn text-light" type="button">Testimonios</button>
               </a>
             </li>
             <li>
-              <a href="../contacto/contacto.php">
+              <a href="php/contacto/contacto.php">
                 <button class="btn text-light" type="button">Contactos</button>
               </a>
             </li>
           </ul>
         </div>
-        <div class="contacto-footer">
-          <h4><strong>CONTACTO</strong></h4>
-          <ul class="navbar-nav ms-auto">
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-0">Contacto</h5>
+
+          <ul class="list-unstyled">
             <li>
               <h7><strong>Dirección:</strong> Calle Don Óscar 48,<br>Maracena, España</h7>
             </li>
             <br>
             <li>
-              <h7><strong>Teléfono:</strong> +34 000000000</h7>
+              <h7><strong>Teléfono:</strong> +34 668533704 </h7>
             </li>
-
-            <br>
           </ul>
         </div>
+        <!--Grid column-->
       </div>
+      <!--Grid row-->
     </div>
-    <div class="textos-legales">
+    <!-- Grid container -->
 
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2025 Copyright:
+      <a class="text-white">Atarfe Fighting</a>
     </div>
+    <!-- Copyright -->
   </footer>
 </body>
 

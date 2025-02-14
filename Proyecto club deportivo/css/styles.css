@@ -20,6 +20,12 @@ header {
     align-items: center;
 }
 
+#enlaces {
+    display: grid;
+    gap: 1rem;
+    background:#333;
+}
+
 #enlaces ul {
     list-style: none;
     margin: 0;
@@ -30,13 +36,13 @@ header {
 #enlaces ul li {
     margin: 0 1rem;
 }
-#enlaces ul li a {
+#enlaces ul li a button{
     color: white;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
-#enlaces ul li a:hover {
+#enlaces ul li a button:hover {
     color: #216e9e;
 }
 
@@ -649,6 +655,7 @@ nav .flex-column {
     background: #333;
     padding: 10px;
     border-radius: 7%;
+    width:200px;
 }
 
 .login-form label{

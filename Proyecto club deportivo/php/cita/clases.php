@@ -118,7 +118,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['getCitas'])) {
 
         <input type="submit" class="btn btn-outline-secondary" value="Apuntarse">
       </form>
+      <h2>Calendario</h2>
+      <?php include '../esencial/calendario.php'; ?>
+      <br>
+      <form class="formbuscar" method="post" action="buscarcita.php">
+
+        <label for="busqueda">
+          <h2 style="font-weight: bold;">Buscar clase</h2>
+        </label>
+        <div class="input-group">
+          <input class="form-control" type="text" id="busqueda" name="busqueda" placeholder="Buscar por nombre..." required>
+          <button class="btn btn-warning" type="button|submit">Buscar</button>
+        </div>
+      </form>
     <?php
+
     } else if (isset($_SESSION["nombre"]) && $pagina_actual == "clases.php" && $_SESSION["tipo"] == "socio") {
     ?>
       <h2 style="font-weight: bold;">Apúntate a una clase</h2>
@@ -182,24 +196,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['getCitas'])) {
         </select>
         <button type="submit">Apuntarse</button>
       </form>
+      <h2>Calendario</h2>
+      <?php include '../esencial/calendario.php'; ?>
+      <br>
+      <form class="formbuscar" method="post" action="buscarcita.php">
+
+        <label for="busqueda">
+          <h2 style="font-weight: bold;">Buscar clase</h2>
+        </label>
+        <div class="input-group">
+          <input class="form-control" type="text" id="busqueda" name="busqueda" placeholder="Buscar por nombre..." required>
+          <button class="btn btn-warning" type="button|submit">Buscar</button>
+        </div>
+      </form>
     <?php
+    }else {
+      echo "<h2>No tienes una cuenta para acceder a esta página.</h2>";
+      // redirige a index.php después de 3 segundos
+      header("Refresh: 3; url=../../index.php" );
     }
     ?>
 
 
-    <h2>Calendario</h2>
-    <?php include '../esencial/calendario.php'; ?>
-    <br>
-    <form class="formbuscar" method="post" action="buscarcita.php">
-      
-      <label for="busqueda">
-        <h2 style="font-weight: bold;">Buscar clase</h2>
-      </label>
-      <div class="input-group">
-                    <input class="form-control" type="text" id="busqueda" name="busqueda" placeholder="Buscar por nombre..." required>
-                    <button class="btn btn-warning" type="button|submit">Buscar</button>
-                </div>
-    </form>
+
   </main>
   <?php include '../esencial/footer.php' ?>
 </body>

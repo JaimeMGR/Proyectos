@@ -32,8 +32,8 @@ if ($_FILES['imagen']['error'] == UPLOAD_ERR_OK) {
 }
 
 // Si ya existe una foto con ese nombre, cambiar el nombre
-if (file_exists("../../imagenes/$imagen")) {
-    $imagen = time() . "_" . $imagen;
+if ($foto_actual == $imagen) {
+    $imagen = time() . "_" . $foto_actual;
 }
 
 // Preparar la consulta de inserción con parámetros usando una consulta preparada

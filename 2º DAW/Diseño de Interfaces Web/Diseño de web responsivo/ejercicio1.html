@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejercicio 1 - Diseño Responsivo</title>
+    <style>
+        .cuadrado {
+            display: inline-block;
+            margin: 10px;
+        }
+        .azul-200 {
+            width: 200px; height: 200px; background-color: blue; position: relative;
+        }
+        .azul-400 {
+            width: 400px; height: 400px; background-color: blue; position: relative;
+        }
+        .verde-200 {
+            width: 200px; height: 200px; background-color: green; position: relative;
+        }
+        .verde-400 {
+            width: 400px; height: 400px; background-color: green; position: relative;
+        }
+        .rojo-porcentaje {
+            width: 20%; height: 20%; background-color: red; position: absolute;
+        }
+        .rojo-vw {
+            width: 20vw; height: 20vw; background-color: red; position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 1</h1>
+    <div class="cuadrado azul-200"><div class="rojo-porcentaje"></div></div>
+    <div class="cuadrado verde-200"><div class="rojo-vw"></div></div>
+    <div class="cuadrado azul-400"><div class="rojo-porcentaje"></div></div>
+    <div class="cuadrado verde-400"><div class="rojo-vw"></div></div>
+</body>
+</html>
