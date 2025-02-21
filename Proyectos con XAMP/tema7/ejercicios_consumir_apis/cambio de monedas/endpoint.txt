@@ -1,0 +1,3 @@
+https://open.er-api.com/v6/latest/[moneda]
+
+moneda: EUR GBP USD ...

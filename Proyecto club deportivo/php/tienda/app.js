@@ -79,11 +79,11 @@ function crearItemCarrito(datos_item) {
   return nuevo_item;
 
 
-  
+
 }
 
 
-vaciarcarrobtn.addEventListener("click",() => {
+vaciarcarrobtn.addEventListener("click", () => {
   lista_carrito = [];
   // Ahora se vacía el contenido del carrito_productos
   carrito_productos.innerHTML = "";
@@ -117,6 +117,8 @@ for (let carrito_boton of añadir_carrito) {
 }
 
 function mostrarPrecioTotal($preciototal) {
+  // la variable preciototal solo puede llegar a tener 2 decimales
+  $preciototal = parseFloat($preciototal.toFixed(2));
   precioapagar.innerHTML = `<h3>${$preciototal + " €"}</h3>`;
 }
 
@@ -130,3 +132,17 @@ function mostrarMensaje(texto, clase) {
     alerta.classList.remove(clase);
   }, 1000);
 }
+
+// Si se cierra sesión se debe de eliminar el localstorage
+
+window.addEventListener("beforeunload", () => {
+  localStorage.clear()
+});
+
+// var slider = document.getElementById("precio");
+// var output = document.getElementById("demo");
+// output.innerHTML = slider.value;
+
+// slider.oninput = function () {
+//   output.innerHTML = this.value;
+// }

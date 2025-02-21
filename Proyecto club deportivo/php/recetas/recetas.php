@@ -196,7 +196,7 @@ function buscarRecetas($nombreReceta)
     <main>
         <h1 style="font-weight: bold; text-align: center">Bienvenido al buscador de recetas</h1>
         <div class="container mt-5">
-
+         <p>Esta sección contiene recetas para que aprendas a comer bien, y también te acompañamos con la traducción de los textos clave para que puedas verlos en tu idioma preferido.</p>
             <!-- Formulario de búsqueda -->
             <form method="GET" class="mt-4">
                 <div class="input-group">

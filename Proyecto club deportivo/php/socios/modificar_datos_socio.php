@@ -21,7 +21,8 @@ $nombre = !empty($_POST['nombre']) ? $_POST['nombre'] : $nombre_actual;
 $usuario = !empty($_POST['usuario']) ? $_POST['usuario'] : $usuario_actual;
 $edad = !empty($_POST['edad']) ? $_POST['edad'] : $edad_actual;
 $telefono = !empty($_POST['telefono']) ? $_POST['telefono'] : $telefono_actual;
-$telefono = !empty($_POST['telefono']) ? $_POST['telefono'] : $foto_actual;
+$contrasena = !empty($_POST['contraseña']) ? $_POST['contraseña'] : $contrasena_actual;
+$imagen = !empty($_POST['imagen']) ? $_POST['imagen'] : $foto_actual;
 
 // Procesar y guardar la imagen
 if ($_FILES['imagen']['error'] == UPLOAD_ERR_OK) {
@@ -32,32 +33,21 @@ if ($_FILES['imagen']['error'] == UPLOAD_ERR_OK) {
     $imagen = $foto_actual; // Usar la imagen actual si no se sube ninguna nueva
 }
 
-// Si ya existe una foto con ese nombre, cambiar el nombre
-if ($foto_actual == $imagen) {
-    $imagen = time() . "_" . $foto_actual;
-}
-
 // Preparar la consulta de inserción con parámetros usando una consulta preparada
 
-$query2 = "UPDATE socio SET nombre = ?, edad = ?, usuario = ?, telefono = ?, foto = ? WHERE id_socio = ?";
+$query2 = "UPDATE socio SET nombre = ?, edad = ?, usuario = ?, telefono = ?, contrasena = ?, foto = ? WHERE id_socio = ?";
 $stmt2 = $conexion->prepare($query2);
-echo ("$nombre, $usuario, $edad, $telefono, $imagen<br>");
 // Enlazar los parámetros (s: string, i: integer)
-var_dump($query2);
-$stmt2 = $conexion->prepare($query2);
-
-// Enlazar los parámetros (s: string, i: integer)
-$stmt2->bind_param("sisssi", $nombre, $edad, $usuario, $telefono, $imagen, $id_socio);
-
+$stmt2->bind_param("sissssi", $nombre, $edad, $usuario, $telefono, $contrasena, $imagen, $id_socio);
+var_dump($nombre, $edad, $usuario, $telefono, $contrasena, $imagen, $id_socio);
 // Ejecutar la consulta e informar del resultado
 if ($stmt2->execute()) {
     echo "Socio modificado con éxito";
     header("Location:socios.php");
     exit(); // Salir del script para evitar que se siga ejecutando el código después de la actualización
-    exit(); // Salir del script para evitar que se siga ejecutando el código después de la actualización
 } else {
     echo "Error: " . $stmt2->error;
+    header("Location:socios.php");
 }
-
 // Cerrar la declaración y la conexión
 $stmt2->close();

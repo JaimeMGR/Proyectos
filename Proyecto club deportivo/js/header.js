@@ -1,6 +1,7 @@
 const abrirmenu = document.getElementById("abrirmenu");
 const cerrarmenu = document.getElementById("Cerrarmenu");
 const menuNav = document.getElementById("menuNav");
+const cerrar_sesion = document.getElementById("login-form");
 
 //Abrir menu
 abrirmenu.addEventListener("click", function () {

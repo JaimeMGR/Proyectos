@@ -18,7 +18,10 @@ include '../esencial/conexion.php';
 </head>
 
 <body style="background:#f4f4f9">
-    <?php include '../esencial/header.php' ?>
+
+<?php include '../esencial/header.php';?>
+<?php
+    if (isset($_SESSION["nombre"]) && $pagina_actual == "noticias.php" &&  $_SESSION["tipo"] == "admin") {?>
     <main>
         <h2 style="font-weight: bold;">Nuevo Servicio</h2>
 
@@ -35,6 +38,9 @@ include '../esencial/conexion.php';
             <button type="submit">Registrar</button>
         </form>
     </main>
+    <?php }else{
+        header("Location:../../index.php");
+    }; ?>
 <?php include '../esencial/footer.php' ?>
 </body>
 

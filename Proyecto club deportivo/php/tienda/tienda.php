@@ -33,7 +33,7 @@ $lista = [];
   <title>Tienda - Atarfe Fighting</title>
   <link rel="stylesheet" href="../../css/styles.css">
   <script src="../../js/header.js" defer></script>
-  <script src="js/app.js" defer></script>
+  <!-- <script src="app.js" defer></script> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css" />
   <script type="text/javascript" src="lista_productos.js"></script>
@@ -127,6 +127,7 @@ $lista = [];
           if ($result->num_rows > 0) {
             // Almacenar productos en un array
             while ($row = $result->fetch_assoc()) {
+              echo "Aqui<br>";
         ?>
               <article class="product">
                 <div class="product-container" data-id="<?php echo $row['id']; ?>">
@@ -141,6 +142,16 @@ $lista = [];
                   <p class="product-name"><?php echo $row['nombre']; ?></p>
                   <h4 class="product-price"><?php echo number_format($row['precio'], 2); ?> €</h4>
                   <h4 class="single-product-company"><?php echo $row['companía']; ?></h4>
+                  <?php
+                  if (isset($_SESSION["nombre"]) && $pagina_actual == "tienda.php" && $_SESSION["tipo"] == "admin") {
+                  ?>
+                    <!-- Botón para eliminar producto -->
+                    <a href='eliminarproducto.php?id=" <?php echo $row['id']; ?>"' class="btn btn-danger edit-product">Eliminar</a>
+                    <!-- Botón para editar producto -->
+                    <a href='editarproducto.php?id=" <?php echo $row['id']; ?>"' class="btn btn-warning edit-product">Editar</a>
+                  <?php
+                  }
+                  ?>
                 </footer>
               </article>
             <?php
@@ -153,11 +164,6 @@ $lista = [];
 
               ];
             }
-          }
-
-          while ($row = $result->fetch_assoc()) {
-            ?>
-            <?php
           }
         } else {
           $sql = "SELECT id, nombre, companía, imagen, precio, Categoría FROM productos";
@@ -182,9 +188,19 @@ $lista = [];
                   <p class="product-name"><?php echo $row['nombre']; ?></p>
                   <h4 class="product-price"><?php echo number_format($row['precio'], 2); ?> €</h4>
                   <h4 class="single-product-company"><?php echo $row['companía']; ?></h4>
+                  <?php
+                  if (isset($_SESSION["nombre"]) && $pagina_actual == "tienda.php" && $_SESSION["tipo"] == "admin") {
+                  ?>
+                    <!-- Botón para eliminar producto -->
+                    <a href='eliminarproducto.php?id=" <?php echo $row['id']; ?>"' class="btn btn-danger edit-product">Eliminar</a>
+                    <!-- Botón para editar producto -->
+                    <a href='editarproducto.php?id=" <?php echo $row['id']; ?>"' class="btn btn-warning edit-product">Editar</a>
+                  <?php
+                  }
+                  ?>
                 </footer>
               </article>
-            <?php
+        <?php
               $lista[] = [
                 'id' => $row['id'],
                 'nombre' => $row['nombre'],
@@ -194,11 +210,6 @@ $lista = [];
 
               ];
             }
-          }
-
-          while ($row = $result->fetch_assoc()) {
-            ?>
-        <?php
           }
         }
 

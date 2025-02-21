@@ -362,10 +362,10 @@ product
 .product-container:hover .product-icons {
   opacity: 1;
 }
-.product footer {
-  padding: 0.75rem 0;
+/* .product footer {
+  padding: 0.75rem, 0;
   text-align: center;
-}
+} */
 .product-name {
   margin-bottom: 0.25rem;
   text-transform: capitalize;

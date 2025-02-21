@@ -114,13 +114,13 @@ include '../esencial/conexion.php';
             $total_paginas = ceil($total_socios / $resultados_por_pagina);
 
             // Preparar la consulta con LIMIT y OFFSET
-            $query = "SELECT id_socio, usuario, nombre, edad, telefono, foto FROM socio LIMIT ? OFFSET ?";
+            $query = "SELECT id_socio, usuario, nombre, edad, telefono, foto, tipo FROM socio WHERE tipo = 'socio' LIMIT ? OFFSET ?";
             $stmt = $conexion->prepare($query);
             $stmt->bind_param("ii", $resultados_por_pagina, $offset);
 
             // Ejecutar la consulta
             $stmt->execute();
-            $stmt->bind_result($id_socio, $usuario, $nombre, $edad, $telefono, $foto);
+            $stmt->bind_result($id_socio, $usuario, $nombre, $edad, $telefono, $foto, $tipo);
 
             // Procesar los resultados
             if ($stmt->fetch()) {

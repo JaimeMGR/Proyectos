@@ -21,7 +21,7 @@ include '../esencial/conexion.php';
     <?php
     $nombre = $_SESSION["nombre"];
     // nombre de servicio o fecha de cita
-    if (isset($_SESSION["nombre"]) && $pagina_actual == "buscarcita.php.php" && $_SESSION["tipo"] == "admin") {
+    if (isset($_SESSION["nombre"]) && $pagina_actual == "buscarcita.php" && $_SESSION["tipo"] == "admin") {
         $busqueda = $_POST['busqueda'];
         $query = "SELECT c.id_cita, s.nombre, s.telefono, ss.descripcion, c.fecha, c.hora 
 FROM cita c 
@@ -46,7 +46,7 @@ WHERE s.nombre LIKE '%$busqueda%' OR ss.descripcion LIKE '%$busqueda%' OR c.fech
     ?>
     <main>
         <h2 style="font-weight: bold;">Citas</h2>
-        <?php if (isset($_SESSION["nombre"]) && $pagina_actual == "buscarcita.php.php" && $_SESSION["tipo"] == "admin") {
+        <?php if (isset($_SESSION["nombre"]) && $pagina_actual == "buscarcita.php" && $_SESSION["tipo"] == "admin") {
         ?>
             <form method="post" action="buscarcita.php">
                 <label for="busqueda">Buscar cita:</label>

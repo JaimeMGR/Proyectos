@@ -31,7 +31,7 @@ while ($row = $result->fetch_assoc()) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atarfe Fighting</title>
-  <script src="../../js/header.js" defer></script>
+  <script src="js/header.js" defer></script>
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/app.js" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -101,50 +101,55 @@ while ($row = $result->fetch_assoc()) {
 
   </header>
 
-  <nav id="enlaces" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav id="enlaces" class="navbar navbar-expand-lg navbar-dark bg-dark" style="justify-content:center">
     <div class="container-fluid" style="justify-content: center;">
       <button class="navbar-toggler" id="abrirmenu" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav" aria-controls="menuNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="menuNav">
+      <div class="collapse navbar-collapse" id="menuNav" style="text-align:center">
         <!-- Haz unbotón para cerrar el menú -->
         <button class="btn btn-danger navbar-toggler" id="Cerrarmenu" type="button">Cerrar menú</button>
         <ul class="navbar-nav">
           <li class="nav-item">
             <a href="#" class="nav-link">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a href="php/noticia/noticias.php" class="nav-link">Noticias</a>
-          </li>
+          <?php if (isset($_SESSION["nombre"])) { ?>
+            <li class="nav-item">
+              <a href="php/noticia/noticias.php" class="nav-link">Noticias</a>
+            </li>
+          <?php } ?>
           <?php if (isset($_SESSION["nombre"])) { ?>
             <li class="nav-item">
               <a href="php/cita/clases.php" class="nav-link">Citas</a>
             </li>
           <?php } ?>
-          <li class="nav-item">
-            <a href="php/tienda/tienda.php" class="nav-link">Tienda</a>
-          </li>
+          <?php if (isset($_SESSION["nombre"])) { ?>
+            <li class="nav-item">
+              <a href="php/tienda/tienda.php" class="nav-link">Tienda</a>
+            </li>
+          <?php } ?>
           <li class="nav-item">
             <a href="php/servicio/servicios.php" class="nav-link">Servicios</a>
           </li>
           <li class="nav-item">
             <a href="php/entrenadores/entrenadores.php" class="nav-link">Entrenadores</a>
           </li>
-          <li class="nav-item">
-            <a href="php/recetas/recetas.php" class="nav-link">Recetas</a>
-          </li>
+          <?php if (isset($_SESSION["nombre"])) { ?>
+            <li class="nav-item">
+              <a href="php/recetas/recetas.php" class="nav-link">Recetas</a>
+            </li>
+          <?php } ?>
           <?php if (isset($_SESSION["nombre"])) { ?>
             <li class="nav-item">
               <a href="php/socios/socios.php" class="nav-link">Socios</a>
             </li>
           <?php } ?>
-          <li class="nav-item">
-            <a href="php/testimonios/testimonios.php" class="nav-link">Testimonios</a>
-          </li>
-          <li class="nav-item">
-            <a href="php/contacto/contacto.php" class="nav-link">Contactos</a>
-          </li>
+          <?php if (isset($_SESSION["nombre"])) { ?>
+            <li class="nav-item">
+              <a href="php/contacto/contacto.php" class="nav-link">Contactos</a>
+            </li>
+          <?php } ?>
         </ul>
       </div>
     </div>
@@ -196,7 +201,9 @@ while ($row = $result->fetch_assoc()) {
           echo "    <h5>" . htmlspecialchars($titulo) . "</h5>";
           $contenido = substr($contenido, 0, 100) . '...';
           echo "    <p style='color:white'>" . htmlspecialchars($contenido) . "</p>";
+          if (isset($_SESSION["nombre"])) {
           echo "<a style='color:white;' href='php/noticia/noticiaentera.php?id=$id_noticia'>Leer más...</a>";
+          }
           echo " </br>";
           echo "    <small>Publicado el: " . htmlspecialchars($fecha_publicacion) . "</small>";
           echo "</div>";
@@ -248,47 +255,85 @@ while ($row = $result->fetch_assoc()) {
         } else {
           echo "<p>No hay socios registrados.</p>";
         }
+        if (isset($_SESSION["nombre"]) && $pagina_actual == "index.php" && $_SESSION["tipo"] == "socio") {
         ?>
-        <form action="php/testimonios/creartestimonio.php" method="post" enctype="multipart/form-data">
-          <label for="contenido">Contenido:</label>
-          <input type="text" name="contenido" id="contenido" placeholder="Escriba aquí">
+          <form action="php/testimonios/creartestimonio.php" method="post" enctype="multipart/form-data">
+            <label for="contenido">Contenido:</label>
+            <input type="text" name="contenido" id="contenido" placeholder="Escriba aquí">
 
-          <label for="socio">Socio:</label>
-          <select name="socio" id="socio" class="form-select" required>
-            <option value="" hidden>Seleccione un socio</option>
+            <label for="socio">Socio:</label>
+            <select name="socio" id="socio" class="form-select" required>
+              <option value="" hidden>Seleccione un socio</option>
 
-            <?php
-            if (isset($_SESSION["nombre"]) && $pagina_actual == "index.php" && $_SESSION["tipo"] == "socio") {
+              <?php
+
               $nombreactual = $_SESSION['nombre'];
-              $querysocios = "SELECT id_socio, nombre, usuario  FROM socio WHERE usuario = '$nombreactual'";
-            } else {
-              header("Location:../login/login.php");
-              exit();
-            }
-            $stmt = $conexion->prepare($querysocios);
+              $query = "SELECT id_socio, nombre, usuario  FROM socio WHERE usuario = '$nombreactual'";
+              $stmt = $conexion->prepare($query);
 
-            // Ejecutar la consulta
-            $stmt->execute();
+              // Ejecutar la consulta
+              $stmt->execute();
 
-            // Enlazar las variables para recibir los resultados
-            $stmt->bind_result($id_socio, $nombre, $usuario);
+              // Enlazar las variables para recibir los resultados
+              $stmt->bind_result($id_socio, $nombre, $usuario);
 
-            $contador = 0;
+              $contador = 0;
 
-            // Procesar los resultados
-            if ($stmt->fetch()) {
-              do {
-                $contador++;
-                echo "<option value='$id_socio'> $usuario </option>";
-              } while ($stmt->fetch());
-            }
+              // Procesar los resultados
+              if ($stmt->fetch()) {
+                do {
+                  $contador++;
+                  echo "<option value='$id_socio'> $usuario </option>";
+                } while ($stmt->fetch());
+              }
+              ?>
+            </select>
+
+            <button class="btn btn-warning" type="submit">Añadir testimonio</button>
+          <?php
+          // Cerrar la declaración y la conexión
+          $stmt->close();
+        } else if (isset($_SESSION["nombre"]) && $pagina_actual == "index.php" && $_SESSION["tipo"] == "admin") { ?>
+            <form action="php/testimonios/creartestimonio.php" method="post" enctype="multipart/form-data">
+              <label for="contenido">Contenido:</label>
+              <input type="text" name="contenido" id="contenido" placeholder="Escriba aquí">
+
+              <label for="socio">Socio:</label>
+              <select name="socio" id="socio" class="form-select" required>
+                <option value="" hidden>Seleccione un socio</option>
+
+                <?php
+
+                $query = "SELECT id_socio, nombre, usuario  FROM socio";
+                $stmt = $conexion->prepare($query);
+
+                // Ejecutar la consulta
+                $stmt->execute();
+
+                // Enlazar las variables para recibir los resultados
+                $stmt->bind_result($id_socio, $nombre, $usuario);
+
+                $contador = 0;
+
+                // Procesar los resultados
+                if ($stmt->fetch()) {
+                  do {
+                    $contador++;
+                    echo "<option value='$id_socio'> $usuario </option>";
+                  } while ($stmt->fetch());
+                }
+                ?>
+              </select>
+
+              <button class="btn btn-warning" type="submit">Añadir testimonio</button>
+            <?php
             // Cerrar la declaración y la conexión
-            $stmt->close();
-            ?>
-          </select>
+          } else {
+          }
 
-          <button class="btn btn-warning" type="submit">Añadir testimonio</button>
-        </form>
+            ?>
+
+            </form>
 
     </section>
 
@@ -324,46 +369,45 @@ while ($row = $result->fetch_assoc()) {
           <h5 class="text-uppercase">Enlaces</h5>
 
           <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#">
-                <button class="btn text-light" type="button">Inicio</button>
-              </a>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Inicio</a>
             </li>
-            <li>
-              <a href="php/noticia/noticias.php">
-                <button class="btn text-light" type="button">Noticias</button>
-              </a>
+            <?php if (isset($_SESSION["nombre"])) { ?>
+              <li class="nav-item">
+                <a href="php/noticia/noticias.php" class="nav-link">Noticias</a>
+              </li>
+            <?php } ?>
+            <?php if (isset($_SESSION["nombre"])) { ?>
+              <li class="nav-item">
+                <a href="php/cita/clases.php" class="nav-link">Citas</a>
+              </li>
+            <?php } ?>
+            <?php if (isset($_SESSION["nombre"])) { ?>
+              <li class="nav-item">
+                <a href="php/tienda/tienda.php" class="nav-link">Tienda</a>
+              </li>
+            <?php } ?>
+            <li class="nav-item">
+              <a href="php/servicio/servicios.php" class="nav-link">Servicios</a>
             </li>
-            <li>
-              <a href="php/cita/clases.php">
-                <button class="btn text-light" type="button">Citas</button>
-              </a>
+            <li class="nav-item">
+              <a href="php/entrenadores/entrenadores.php" class="nav-link">Entrenadores</a>
             </li>
-            <li>
-              <a href="php/servicio/servicios.php">
-                <button class="btn text-light" type="button">Servicios</button>
-              </a>
-            </li>
-            <li>
-              <a href="php/entrenadores/entrenadores.php">
-                <button class="btn text-light" type="button">Entrenadores</button>
-              </a>
-            </li>
-            <li>
-              <a href="php/socios/socios.php">
-                <button class="btn text-light" type="button">Socios</button>
-              </a>
-            </li>
-            <li>
-              <a href="php/testimonios/testimonios.php">
-                <button class="btn text-light" type="button">Testimonios</button>
-              </a>
-            </li>
-            <li>
-              <a href="php/contacto/contacto.php">
-                <button class="btn text-light" type="button">Contactos</button>
-              </a>
-            </li>
+            <?php if (isset($_SESSION["nombre"])) { ?>
+              <li class="nav-item">
+                <a href="php/recetas/recetas.php" class="nav-link">Recetas</a>
+              </li>
+            <?php } ?>
+            <?php if (isset($_SESSION["nombre"])) { ?>
+              <li class="nav-item">
+                <a href="php/socios/socios.php" class="nav-link">Socios</a>
+              </li>
+            <?php } ?>
+            <?php if (isset($_SESSION["nombre"])) { ?>
+              <li class="nav-item">
+                <a href="php/contacto/contacto.php" class="nav-link">Contactos</a>
+              </li>
+            <?php } ?>
           </ul>
         </div>
         <!--Grid column-->

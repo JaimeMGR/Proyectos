@@ -40,7 +40,9 @@ $stmt->bind_result($id_noticia, $titulo, $contenido, $imagen, $fecha_publicacion
 </head>
 
 <body style="background:#f4f4f9">
-    <?php include '../esencial/header.php' ?>
+    <?php include '../esencial/header.php';
+    if (isset($_SESSION["nombre"]) && $pagina_actual == "noticias.php" && $_SESSION["tipo"] == "admin" || $_SESSION["tipo"] == "socio") {
+        ?>
     <main>
         <h2 style="font-weight: bold;">Noticias</h2>
         <?php
@@ -135,7 +137,12 @@ $stmt->bind_result($id_noticia, $titulo, $contenido, $imagen, $fecha_publicacion
             </ul>
         </nav>
     </main>
-    <?php include '../esencial/footer.php' ?>
+    <?php
+} else {
+    header("Refresh: 0,1; url=../../../../index.php");
+};
+     include '../esencial/footer.php' ?>
 </body>
 
 </html>
+<?php
