@@ -18,13 +18,27 @@ include '../esencial/conexion.php';
 
 <body style="background:#f4f4f9">
     <?php include '../esencial/header.php'; ?>
-
     <main>
-        <h2 style="font-weight: bold;">Añadir Nuevo Producto</h2>
 
-        <form action="crearproducto.php" method="post" enctype="multipart/form-data">
-            <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Introduce el nombre del producto">
+        <h1>Añadir Nuevo Producto</h1>
+
+        <?php if (isset($mensaje)) {
+            echo "<p style='color: green;'>" . $mensaje;
+            "</p>";
+            header("Refresh: 3; url=index.php");
+        }
+        ?>
+
+        <?php if (isset($error)) {
+            echo "<p style='color: red;'>" . $error;
+            "</p>";
+        }
+        ?>
+
+
+        <form action="api/agregar.php" method="POST" enctype="multipart/form-data">
+            <label for="nombre_producto">Nombre:</label>
+            <input type="text" name="nombre_producto" id="nombre_producto" placeholder="Introduce el nombre del producto">
 
             <label for="compania">Compañía:</label>
             <input type="text" name="compania" id="compania" placeholder="Introduce la compañía del producto">
@@ -47,8 +61,11 @@ include '../esencial/conexion.php';
                 <option value="Suplementos">Suplementos</option>
             </select>
 
-            <button type="submit">Registrar Producto</button>
+            <button type="submit" class="add">Añadir producto</button>
         </form>
+
+        <a style="color:darkgreen" href="tienda.php">Volver al listado</a>
+
     </main>
 
     <?php include '../esencial/footer.php'; ?>

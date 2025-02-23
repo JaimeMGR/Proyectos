@@ -47,26 +47,26 @@ function crearItemCarrito(datos_item) {
   const nuevo_item = document.createElement("article");
 
   nuevo_item.classList.add("cart-item");
-  nuevo_item.setAttribute("data-id", datos_item.id);
-  preciototal = preciototal + datos_item.price;
+  nuevo_item.setAttribute("id_producto", datos_item.id_producto);
+  preciototal = preciototal + datos_item.precio;
   nuevo_item.innerHTML = `
-  <img src="${datos_item.image}"
+  <img src="${datos_item.imagen}"
             class="cart-item-img"
-            alt="${datos_item.title}"
+            alt="${datos_item.nombre_producto}"
           />  
           <div>
-            <h4 class="cart-item-name">${datos_item.title}</h4>
-            <p class="cart-item-price">${datos_item.price + " €"}</p>
-            <button class="cart-item-remove-btn" data-id="${datos_item.id}">Eliminar <i class="fas fa-times"></i></button>
+            <h4 class="cart-item-name">${datos_item.nombre_producto}</h4>
+            <p class="cart-item-price">${datos_item.precio + " €"}</p>
+            <button class="cart-item-remove-btn" data-id_producto="${datos_item.id_producto}">Eliminar <i class="fas fa-times"></i></button>
           </div>`;
   mostrarPrecioTotal(preciototal);
   //BOTON DE ELIMINAR 
   let boton_eliminar = nuevo_item.querySelector(".cart-item-remove-btn");
   boton_eliminar.addEventListener("click",
     () => {
-      preciototal = preciototal - datos_item.price;
+      preciototal = preciototal - datos_item.precio;
       mostrarPrecioTotal(preciototal);
-      let posicion = lista_carrito.findIndex(item => item["id"] === datos_item["id"]);
+      let posicion = lista_carrito.findIndex(item => item["id_producto"] === datos_item["id_producto"]);
       lista_carrito.splice(posicion, 1);
 
       localStorage.setItem(carrito_local, JSON.stringify(lista_carrito));
