@@ -55,21 +55,22 @@ include '../esencial/conexion.php';
         ?>
 
                 <div class="accordion" id="accordion<?php echo $contador ?>">
-                    <div class="accordion-<?php echo $contador ?>" style="width:100%;">
-                        <h2 class="accordion-header" id="heading<?php echo $contador ?>">
-                            <button class="accordion-button collapsed" style="background-color:#e95f5f;border-radius:5px;width:60%;margin-left: 20%;margin-right:20%" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $contador ?>" aria-expanded="false" aria-controls="collapse<?php echo $contador ?>">
-                                <h3 class='servicio-title'><?php echo $descripcion ?></h3>
-                            </button>
-                        </h2>
-                        <div id="collapse<?php echo $contador ?>" style="background:#dfdfdf; width: 60%; margin-left: 20%; margin-right: 20%;" class="accordion-collapse collapse" aria-labelledby="heading<?php echo $contador ?>" data-bs-parent="#accordionExample">
-                            <div class="accordion-body" style="width:60%;margin-left: 20%;margin-right:20%">
-                                <div class='servicio-image' style="width:100%;"><img loading='lazy' src="<?php echo $imagen ?>" alt='<?php $descripcion ?>'></div>
-                                <div class='servicio-content' style="text-align:center;width:auto">
+                    <header class="header" style="margin-left:10%;width:80%">
+                        <h2 class='servicio-title' style="text-transform:uppercase;font"><?php echo $descripcion ?></h2>
 
-                                    <p class='servicio-timetable' style="color:black"> Clases de lunes a viernes a las <?php echo $precio ?></p>
-                                    <p style="color:black"> Duración: <?php echo $duracion ?> minutos </p>
+                    </header>
+                    <div style="background:#dfdfdf; margin-left:10%;width:80%" class="accordion-collapse" aria-labelledby="heading<?php echo $contador ?>" data-bs-parent="#accordionExample">
+                        <div class="accordion-body" style="width:80%;margin-left: 10%;">
+                            <div class='servicio-image' style="width:100%;"><img loading='lazy' src="<?php echo $imagen ?>" alt='<?php $descripcion ?>'></div>
+                            <div class='servicio-content' style="text-align:center;width:auto">
+
+                                <p class='servicio-timetable' style="color:black"> Clases de lunes a viernes a las <?php echo $precio ?></p>
+                                <p style="color:black"> Duración: <?php echo $duracion ?> minutos </p>
+                                <?php if (isset($_SESSION["nombre"]) && $pagina_actual == "servicios.php" && $_SESSION["tipo"] == "admin") { ?>
                                     <a style='color:black; width:60%;margin-left: 20%;margin-right:20%' href='modificarservicio.php?id=<?php echo $codigo_servicio ?>' type='button' class='btn btn-outline-success'>Modificar datos</a>
-                                </div>
+                                <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>

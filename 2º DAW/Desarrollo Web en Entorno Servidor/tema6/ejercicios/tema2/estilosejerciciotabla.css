@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /* 
 .contenido:nth-child(even){
     background: rgb(255, 172, 186);
@@ -8,3 +9,15 @@
     background: rgb(255, 103, 128);
     color: white;
 } */
+=======
+/* 
+.contenido:nth-child(even){
+    background: rgb(255, 172, 186);
+    color: white;
+}
+
+.Encabezado{
+    background: rgb(255, 103, 128);
+    color: white;
+} */
+>>>>>>> Stashed changes

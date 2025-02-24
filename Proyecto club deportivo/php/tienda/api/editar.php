@@ -47,7 +47,7 @@ if (
     );
     http_response_code($resultado["http"]);
     echo json_encode($resultado["respuesta"]);
-    // header("Location: ../tienda.php");
+    header("Location: ../tienda.php");
     } else {
         echo '<p>Producto no encontrado.</p>';
     }

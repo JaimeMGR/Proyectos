@@ -161,7 +161,6 @@ while ($row = $result->fetch_assoc()) {
 
     <!-- Sobre Nosotros -->
     <section>
-      <h2 style="font-weight: bold;">Sobre Nosotros</h2>
       <p>Atarfe Fighting es un club dedicado al arte del combate, con un enfoque en disciplina, fuerza y técnica. Nos especializamos en entrenamientos de boxeo, Muay Thai, y otras disciplinas de combate. Únete a nosotros para mejorar tus habilidades, entrenar con profesionales y competir en torneos.</p>
     </section>
     <div id="carouselExampleCaptions" class="carousel slide">
@@ -202,7 +201,7 @@ while ($row = $result->fetch_assoc()) {
           $contenido = substr($contenido, 0, 100) . '...';
           echo "    <p style='color:white'>" . htmlspecialchars($contenido) . "</p>";
           if (isset($_SESSION["nombre"])) {
-          echo "<a style='color:white;' href='php/noticia/noticiaentera.php?id=$id_noticia'>Leer más...</a>";
+            echo "<a style='color:white;' href='php/noticia/noticiaentera.php?id=$id_noticia'>Leer más...</a>";
           }
           echo " </br>";
           echo "    <small>Publicado el: " . htmlspecialchars($fecha_publicacion) . "</small>";
@@ -226,7 +225,7 @@ while ($row = $result->fetch_assoc()) {
 
     <!-- Beneficios de Unirse -->
     <section>
-      <h2 style="font-weight: bold;">Beneficios de Unirse</h2>
+      <h1>Beneficios de Unirse</h1>
       <ul>
         <li>Acceso a entrenadores certificados y con experiencia</li>
         <li>Programas de entrenamiento personalizados</li>
@@ -237,7 +236,7 @@ while ($row = $result->fetch_assoc()) {
     <br>
     <!-- Testimonios de Miembros -->
     <section>
-      <h2 style="font-weight: bold;">Testimonios</h2>
+      <h1>Testimonios</h1>
 
       <div class="testimonio-container">
         <?php
@@ -246,17 +245,18 @@ while ($row = $result->fetch_assoc()) {
 
         if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
-            echo "<div class='testimonio-card'>";
-            echo "<div class='testimonio-info'>";
-            echo "<blockquote class='testimonio-content' style='background:white';>" . '"' . $row['contenido'] . '"' . ' | ' . $row['autor'] . " | " . $row['fecha'] . "</blockquote>";
-            echo "</div>";
-            echo "</div>";
+            echo "<div class='testimonio-card'>
+            <div class='testimonio-info'>
+            <blockquote class='testimonio-content' style='background:white';>" . '"' . $row['contenido'] . '"' . ' | ' . $row['autor'] . " | " . $row['fecha'] . "</blockquote>
+            </div>
+            </div>";
           }
         } else {
           echo "<p>No hay socios registrados.</p>";
         }
         if (isset($_SESSION["nombre"]) && $pagina_actual == "index.php" && $_SESSION["tipo"] == "socio") {
         ?>
+          <h2>Añadir un testimonio</h2>
           <form action="php/testimonios/creartestimonio.php" method="post" enctype="multipart/form-data">
             <label for="contenido">Contenido:</label>
             <input type="text" name="contenido" id="contenido" placeholder="Escriba aquí">
@@ -294,11 +294,8 @@ while ($row = $result->fetch_assoc()) {
           // Cerrar la declaración y la conexión
           $stmt->close();
         } else if (isset($_SESSION["nombre"]) && $pagina_actual == "index.php" && $_SESSION["tipo"] == "admin") { ?>
+            <h2>Añadir un testimonio</h2>
             <form action="php/testimonios/creartestimonio.php" method="post" enctype="multipart/form-data">
-              <label for="contenido">Contenido:</label>
-              <input type="text" name="contenido" id="contenido" placeholder="Escriba aquí">
-
-              <label for="socio">Socio:</label>
               <select name="socio" id="socio" class="form-select" required>
                 <option value="" hidden>Seleccione un socio</option>
 
@@ -324,8 +321,13 @@ while ($row = $result->fetch_assoc()) {
                 }
                 ?>
               </select>
+              <label for="contenido">Contenido:</label>
+              <div class="input-group">
+                <input type="text" name="contenido" id="contenido" placeholder="Escriba aquí">
 
-              <button class="btn btn-warning" type="submit">Añadir testimonio</button>
+
+                <button class="btn btn-warning" type="submit">Añadir testimonio</button>
+              </div>
             <?php
             // Cerrar la declaración y la conexión
           } else {
@@ -339,7 +341,7 @@ while ($row = $result->fetch_assoc()) {
 
     <!-- Galería de Imágenes -->
     <section>
-      <h2>Galería</h2>
+      <h1>Galería</h1>
       <div class="gallery">
         <img loading="lazy" src="https://virtualboxingym.com/wp-content/uploads/2023/09/Sin-titulo-8-1.png" alt="Entrenamiento en el club">
         <img loading="lazy" src="https://muaythaigranada.es/wp-content/uploads/2022/01/MuaythaiClasesTodosNiveles-1.jpg" alt="Competencia de kickboxing">

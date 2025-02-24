@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .borde_rojo{
     border:2px solid red;
     color:brown;
@@ -22,4 +23,30 @@
 
 .large{
     width:25%;
+=======
+.borde_rojo{
+    border:2px solid red;
+    color:brown;
+
+}
+
+.borde_verde{
+    border:2px solid green;
+}
+
+.fondo_cyan{
+    background-color: cyan;
+}
+
+.small{
+    width:25%;
+}
+
+.medium{
+    width:25%;
+}
+
+.large{
+    width:25%;
+>>>>>>> Stashed changes
 }

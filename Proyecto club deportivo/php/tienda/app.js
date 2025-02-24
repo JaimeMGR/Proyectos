@@ -69,6 +69,7 @@ function crearItemCarrito(datos_item) {
       let posicion = lista_carrito.findIndex(item => item["id_producto"] === datos_item["id_producto"]);
       lista_carrito.splice(posicion, 1);
 
+      // Guarda en el localstorage
       localStorage.setItem(carrito_local, JSON.stringify(lista_carrito));
 
       nuevo_item.remove();

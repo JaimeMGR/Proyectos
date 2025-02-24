@@ -1,6 +1,8 @@
 <?php
 include '../esencial/conexion.php';
 
+if (isset($_SESSION["nombre"]) && $pagina_actual == "modificarservicio.php" && $_SESSION["tipo"] == "admin") {
+
 $id_socio = $_GET['id'];
 
 // Preparar la consulta con una declaración preparada
@@ -84,3 +86,7 @@ $stmt->bind_result($codigo_servicio, $descripcion, $precio, $duracion, $imagen);
 </body>
 
 </html>
+<?php
+}else{
+    header("Location:servicios.php");
+}

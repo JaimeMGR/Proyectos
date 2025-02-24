@@ -98,7 +98,16 @@ const menu = [
 
 const tienda = [
   {
-    "titulo": "Recopilatorio do fadoss",
+    "titulo": "Still got the blues",
+    "artista": "Gary Moore",
+    "pais": "UK",
+    "precio": 13.20,
+    "publicacion": 1990,
+    "copias": 120, //miles de copias
+    "caratula": "https://images-na.ssl-images-amazon.com/images/I/71o6gIerHwL._SY355_.jpg"
+  },
+  {
+    "titulo": "Recopilatorio de fados",
     "artista": "Varius artist",
     "pais": "PT",
     "precio": 20,
@@ -181,3 +190,5 @@ const tienda = [
 
 
 ];
+
+

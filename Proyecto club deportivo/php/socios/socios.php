@@ -214,8 +214,7 @@ include '../esencial/conexion.php';
         </nav>
             <?php
             } else{
-                echo "<h2>Debes tener una cuenta para acceder a esta página.</h2>";
-                header("Refresh: 3; url=../../index.php" );
+                header("Location:../../index.php" );
             }
             ?>
     </main>

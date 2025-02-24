@@ -33,17 +33,17 @@ switch ($metodo) {
 
         if (isset($_GET['id'])) {
             // Obtener una producto por ID
-            $resultado = obtenerProducto($conn, $_GET["id"]);
+            $resultado = obtenerProductoporId($conn, $_GET["id"]);
             http_response_code($resultado["http"]);
             echo json_encode($resultado["respuesta"]);
         } else if (isset($_GET['categoria'])) {
             // Obtener productos por categoría
-            $resultado = obtenerProductoporCategoria($conn, $_GET["categoria"],$page, $limit);
+            $resultado = obtenerProductoporCategoria($conn, $_GET["categoria"], $page, $limit);
             http_response_code($resultado["http"]);
             echo json_encode($resultado["respuesta"]);
         } else if (isset($_GET['nombre_producto'])) {
             // Obtener productos por categoría
-            $resultado = obtenerProductoporNombre($conn, $_GET["nombre_producto"],$page, $limit);
+            $resultado = obtenerProductoporNombre($conn, $_GET["nombre_producto"], $page, $limit);
             http_response_code($resultado["http"]);
             echo json_encode($resultado["respuesta"]);
         } else if (isset($_GET['precio'])) {
@@ -51,9 +51,12 @@ switch ($metodo) {
             $resultado = obtenerProductoporPrecio($conn, $_GET["precio"], $page, $limit);
             http_response_code($resultado["http"]);
             echo json_encode($resultado["respuesta"]);
-        } else {
-
-
+        } else if (!isset($_GET["id"])) {
+            // Obtener una producto por ID
+            $resultado = obtenerProductos($conn);
+            http_response_code($resultado["http"]);
+            echo json_encode($resultado["respuesta"]);
+        }else{
             if ($page < 1 || $limit < 1) {
                 http_response_code(400); // Bad Request
                 echo json_encode([

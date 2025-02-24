@@ -5,7 +5,7 @@ $id_producto = $_GET['id'];
 // URL del backend (API) con parámetros de paginación
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 $limit = isset($_GET['limit']) && is_numeric($_GET['limit']) ? (int)$_GET['limit'] : 10;
-$apiUrl = "http://localhost/Atarfe_Fighting/php/tienda/api_crud/api.php?id_producto=$id_producto"; // Cambia esta URL al endpoint correcto
+$apiUrl = "http://localhost/Atarfe_Fighting/php/tienda/api_crud/api.php?id=$id_producto"; // Cambia esta URL al endpoint correcto
 // echo $apiUrl;
 
 // Si el formulario ha sido enviado, actualizamos la asignatura

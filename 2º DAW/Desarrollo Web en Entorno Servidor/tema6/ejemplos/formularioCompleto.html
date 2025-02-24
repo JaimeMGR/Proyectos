@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -61,3 +62,68 @@
     </form>
   </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body leftmargin="50">
+    <form name="contacto" method="post" action="formularioCompleto.php">
+      <table cellpadding="15">
+        <tr>
+          <td>Nombre</td>
+          <td><input name="nombre" type="text" /></td>
+        </tr>
+        <tr>
+          <td>Apellidos</td>
+          <td><input name="apellidos" type="text" /></td>
+        </tr>
+        <tr>
+          <td>Fecha de nacimiento</td>
+          <td><input name="fnac" type="date" /></td>
+        </tr>
+        <tr>
+          <td>Correo electrónico</td>
+          <td><input name="email" type="text" /></td>
+        </tr>
+        <tr>
+          <td>¿Qué apartado te ha gustado más?</td>
+          <td>
+            <select name="seccion">
+              <option value="0" selected>--- Elige seccion ---</option>
+              <option value="presentacion">Presentación</option>
+              <option value="intro">Introducción</option>
+              <option value="texto">Formato de texto</option>
+              <option value="enlaces">Hiperenlaces</option>
+              <option value="imagenes">Imagenes</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>¿Desea suscribirse a nuestro servicio de noticias?</td>
+          <td>
+            Si <input name="suscripcion" type="radio" value="si" checked /> No
+            <input name="suscripcion" type="radio" value="no" />
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">Escriba aquí su consulta</td>
+          <td>
+            <textarea name="consulta" rows="10" cols="30">Consulta...</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input name="enviar" type="submit" />
+            <input name="cancelar" type="reset" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
+>>>>>>> Stashed changes

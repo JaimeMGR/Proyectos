@@ -108,7 +108,7 @@ header {
 }
 
 .servicio-title {
-    font-size: 20px;
+    font-size: 30px;
     color: white;
     width: 100%;
     text-align: center;
@@ -497,10 +497,7 @@ table {
     transform: scale(1.1);
 }
 
-.testimonio-container {
-    width: 100%;
-    justify-items: center;
-}
+
 
 blockquote {
     text-align: left;

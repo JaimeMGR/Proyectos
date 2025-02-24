@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 a{
     text-decoration: overline;
     padding:10px;
@@ -10,4 +11,18 @@ a{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border:2px solid brown;
     border-radius:50px;
+=======
+a{
+    text-decoration: overline;
+    padding:10px;
+    margin-bottom: 5px;
+    text-align:center;
+    color:black;
+    display:inline-block;
+    width: 100px;
+    background-color: chartreuse;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border:2px solid brown;
+    border-radius:50px;
+>>>>>>> Stashed changes
 }

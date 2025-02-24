@@ -33,11 +33,11 @@ let lista = {
     },
     "101": {
         "id_producto": 101,
-        "nombre_producto": "Guantes Leone 1947 New Maori negro",
-        "compania": "Leone",
-        "imagen": "productos\/a6196ed975617cc0e16c16b29af21e01.jpg",
-        "precio": 50,
-        "categoria": "Todos"
+        "nombre_producto": "Zapatos",
+        "compania": "Adidas",
+        "imagen": "productos\/4f078b17442e79b17e400eb1edd61986.jpg",
+        "precio": 40,
+        "categoria": "Zapatillas"
     },
     "102": {
         "id_producto": 102,
@@ -94,5 +94,13 @@ let lista = {
         "imagen": "productos\/producto-1738229068_6148uEuF+pL._AC_SX425_.jpg",
         "precio": 50,
         "categoria": "Bucales"
+    },
+    "109": {
+        "id_producto": 109,
+        "nombre_producto": "Guante muay thai",
+        "compania": "Fight factory",
+        "imagen": "productos\/imagenes\/guante.jpg",
+        "precio": 50,
+        "categoria": "Guantes"
     }
 };

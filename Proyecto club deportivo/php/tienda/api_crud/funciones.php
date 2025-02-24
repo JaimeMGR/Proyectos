@@ -9,13 +9,35 @@ function conectar($host, $usuario, $password, $base_datos)
 }
 
 
-function obtenerProducto($conexion, $id_producto)
+function obtenerProductoporId($conexion, $id_producto)
 {
 	global $tabla_productos;
 
 	$consulta = "SELECT * FROM $tabla_productos WHERE id_producto=?";
 	$sentencia = $conexion->prepare($consulta);
 	$sentencia->bind_param("i", $id_producto);
+	$sentencia->execute();
+	$resultado = $sentencia->get_result();
+	if ($resultado->num_rows == 1) {
+		$producto = $resultado->fetch_assoc();
+		$salida["http"] = 200;
+		$salida["respuesta"] = ["datos" => $producto];
+	} else {
+		$salida["http"] = 404;
+		$salida["respuesta"] = ["error" => "No se encuentra el producto"];
+	}
+
+	$sentencia->close();
+
+	return $salida;
+}
+
+function obtenerProductos($conexion)
+{
+	global $tabla_productos;
+
+	$consulta = "SELECT * FROM $tabla_productos";
+	$sentencia = $conexion->prepare($consulta);
 	$sentencia->execute();
 	$resultado = $sentencia->get_result();
 	if ($resultado->num_rows == 1) {
@@ -112,9 +134,9 @@ function obtenerProductoporNombre($conexion, $nombre_producto, $pagina, $limite)
 			];
 		}
 
-		$consulta = "SELECT count(*) FROM $tabla_productos WHERE categoria=?";
+		$consulta = "SELECT count(*) FROM $tabla_productos WHERE nombre_producto=?";
 		$sentencia = $conexion->prepare($consulta);
-		$sentencia->bind_param("s", $categoria);
+		$sentencia->bind_param("s", $nombre_producto);
 		$sentencia->execute();
 		$resultado = $sentencia->get_result();
 		$fila = $resultado->fetch_row();

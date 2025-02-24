@@ -1,6 +1,8 @@
 <?php
 include '../esencial/conexion.php';
 
+if (isset($_SESSION["nombre"]) && $pagina_actual == "modificar_datos_servicio.php" && $_SESSION["tipo"] == "admin") {
+
 $id_servicio = $_GET['id'];
 
 // Verificar que se ha recibido un ID válido
@@ -72,3 +74,6 @@ if ($stmt2->execute()) {
 // Cerrar la declaración y la conexión
 $stmt2->close();
 $conexion->close();
+} else {
+    header("Location:servicios.php");
+}

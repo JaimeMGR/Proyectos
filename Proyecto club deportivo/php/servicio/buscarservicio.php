@@ -3,13 +3,15 @@ include '../esencial/conexion.php';
 
 // codigo para haceer funcionar el formulario de búsqueda de usuario sin utilizar bind_param
 
-
-$busqueda = $_POST['busqueda'];
-$query = "SELECT codigo_servicio, descripcion, precio, duracion, imagen FROM servicio WHERE descripcion LIKE '%$busqueda%'";
-$stmt = $conexion->prepare($query);
-$stmt->execute();
-$stmt->bind_result($codigo_servicio, $descripcion, $precio, $duracion, $imagen);
-
+if (isset($_POST['busqueda'])) {
+    $busqueda = $_POST['busqueda'];
+    $query = "SELECT codigo_servicio, descripcion, precio, duracion, imagen FROM servicio WHERE descripcion LIKE '%$busqueda%'";
+    $stmt = $conexion->prepare($query);
+    $stmt->execute();
+    $stmt->bind_result($codigo_servicio, $descripcion, $precio, $duracion, $imagen);
+} else {
+    header("Location:servicios.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -32,7 +34,7 @@ $stmt->bind_result($codigo_servicio, $descripcion, $precio, $duracion, $imagen);
     <main>
         <h2 style="font-weight: bold;">Servicios</h2>
         <?php
-        if (isset($_SESSION["nombre"]) && $pagina_actual == "servicios.php" && $_SESSION["tipo"] == "admin") {
+        if (isset($_SESSION["nombre"]) && $pagina_actual == "buscarservicio.php" && $_SESSION["tipo"] == "admin") {
         ?>
             <section style="text-align:center">
                 <a class="btn btn-warning" href="añadirservicio.php">Añadir servicios</a>
@@ -54,13 +56,17 @@ $stmt->bind_result($codigo_servicio, $descripcion, $precio, $duracion, $imagen);
                 echo "<div class='servicio-item'>
                     <div class='servicio-image'><img loading='lazy' src='" . $imagen . "' alt='" . $descripcion . "'></div>
                     
-                    <div class='btn btn-danger' style='width:60%;>
+                    <div class='btn btn-danger' style='width:60%;'>
                     
                     <h3 class='servicio-title'><br><br>" . $descripcion . "</h3>
                     <p style='color:white'> Precio: " . $precio . "€</p>
-                    <p style='color:white'> Duración: " . $duracion . " minutos</p>
+                    <p style='color:white'> Duración: " . $duracion . " minutos</p>";
+                if (isset($_SESSION["nombre"]) && $pagina_actual == "index.php" && $_SESSION["tipo"] == "admin") { ?>
                     <a href='modificarservicio.php?id=$codigo_servicio' type='button' class='btn btn-success'>Modificar datos</a>
-                    </div>
+            <?php
+                }
+
+                echo "</div>
                     </div>";
             }
 
