@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "de6a3598-c154-4caa-93f5-62c39385cc4e",
+		"name": "Tienda Atarfe Fighting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32295771"
+	},
+	"item": [
+		{
+			"name": "Mostrar productos",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por categoria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/Atarfe_Fighting/php/tienda/api_crud/api.php?$page=1&limit=10&categoria=Guantes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Atarfe_Fighting",
+						"php",
+						"tienda",
+						"api_crud",
+						"api.php"
+					],
+					"query": [
+						{
+							"key": "$page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "categoria",
+							"value": "Guantes"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por nombre",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por precio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/Atarfe_Fighting/php/tienda/api_crud/api.php?precio>=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Atarfe_Fighting",
+						"php",
+						"tienda",
+						"api_crud",
+						"api.php"
+					],
+					"query": [
+						{
+							"key": "precio>",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar producto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/academia/api.php?id=13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"academia",
+						"api.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar producto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"nombre_producto\": \"Zapatos\",\r\n    \"compania\": \"Adidas\",\r\n    \"imagen\": \"imagenes/zapato.jpg\",\r\n    \"precio\": 40,\r\n    \"categoria\": \"Zapatillas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/productos/api.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"productos",
+						"api.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear producto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre_producto\": \"Guante muay thai\",\r\n    \"compania\": \"Fight factory\",\r\n    \"imagen\": \"imagenes/guante.jpg\",\r\n    \"precio\": 50,\r\n    \"categoria\": \"Guantes\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/productos/api.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"productos",
+						"api.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
