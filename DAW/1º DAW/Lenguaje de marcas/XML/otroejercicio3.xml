@@ -1,0 +1,64 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<!DOCTYPE centro [
+<!ELEMENT centro (calificaciones+)>
+<!ELEMENT calificaciones (alumnos+)>
+<!ELEMENT alumnos (datos, Materia)>
+<!ELEMENT datos (nombre, Apellido)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT Apellido (#PCDATA)>
+<!ELEMENT Materia (OANCE, EEE, GIMNASIA)>
+<!ELEMENT OANCE (Concesionario, Tareas)>
+<!ELEMENT EEE (Concesionario, Tareas)>
+<!ELEMENT GIMNASIA (Concesionario, Tareas)>
+<!ELEMENT Concesionario (#PCDATA)>
+<!ELEMENT Tareas (#PCDATA)>  
+
+    ]>
+
+<centro>
+    <calificaciones>
+        <alumnos>
+            <datos>
+                <nombre>Felipe</nombre>
+                <Apellido>Pascual</Apellido>
+            </datos>
+            <Materia>
+                <OANCE>
+                    <Concesionario>4</Concesionario>
+                    <Tareas>8</Tareas>
+                </OANCE>
+                <EEE>
+                    <Concesionario>7</Concesionario>
+                    <Tareas>6</Tareas>
+                </EEE>
+                <GIMNASIA>
+                    <Concesionario>10</Concesionario>
+                    <Tareas>3</Tareas>
+                </GIMNASIA>
+            </Materia>
+        </alumnos>
+    </calificaciones>
+    <calificaciones>
+        <alumnos>
+            <datos>
+                <nombre>María</nombre>
+                <Apellido>García</Apellido>
+            </datos>
+            <Materia>
+                <OANCE>
+                    <Concesionario>9</Concesionario>
+                    <Tareas>2</Tareas>
+                </OANCE>
+                <EEE>
+                    <Concesionario>9</Concesionario>
+                    <Tareas>6</Tareas>
+                </EEE>
+                <GIMNASIA>
+                    <Concesionario>5</Concesionario>
+                    <Tareas>3</Tareas>
+                </GIMNASIA>
+            </Materia>
+        </alumnos>
+    </calificaciones>
+</centro>

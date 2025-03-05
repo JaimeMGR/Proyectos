@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <script>
+            var miObjeto = {
+                nombre: "Luis",
+                apellidos: "Pérez",
+                edad: 23
+            };
+
+            document.write("El nombre es " + miObjeto.nombre + ". <br>");
+            document.write("El apellido es " + miObjeto.apellidos + ". <br>");
+            document.write("Tiene " + miObjeto.edad + " años" + ". <br>");
+
+            calcularArea()
+            {
+                return 344;
+            }
+
+            calcularArea(centro, radio)
+            {
+                return 944;
+            }
+
+            class Forma {
+                tipo = "geométrica";
+                color = "verde";
+
+                constructor(tipo, color)
+                {
+                    this.tipo = tipo;
+                    this.color = color;
+                }
+            }
+            Forma.prototype.toString=function() {
+                return `<span style color: ${this.color}' > ${this.tipo}</span>`;
+            }
+
+            var elemento = document.getElementById("salida");
+
+            forma1 = new Forma("cuadrado", "#fff000");
+            Forma2 = new Forma("pentagono", "cyan");
+            document.write("El nombre es " + miObjeto.nombre + ". <br>");
+            document.write("<span style='color:" + forma1.color
+                + "'> " + forma1.tipo +  "</span>");
+            document.write("<br>");
+            document.write(`<span style:'color: ${forma1.color}'> ${forma1.tipo}</span>`);
+            document.write("<br>");
+            document.write(Forma2.toString());
+            document.write(calcularArea(3,5));
+
+
+        </script>
+    </main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!DOCTYPE bdusuarios [
+    <!ELEMENT bdusuarios (usuario)+>
+    <!ELEMENT usuario (nombre,email,fechaNac+,permisos)>
+    <!ATTLIST usuario
+    clave CDATA #REQUIRED
+    dni CDATA #REQUIRED
+    tipo (usuario|administrador) #IMPLIED>
+    
+    <!ATTLIST permisos
+r   (true|false) #REQUIRED
+w   (true|false) #REQUIRED
+x   (true|false) #REQUIRED>
+
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT email (#PCDATA)>
+    <!ELEMENT fechaNac (#PCDATA)>
+    <!ELEMENT permisos EMPTY>
+    
+    <!ENTITY web "http://www.atlantida.es">
+    <!ENTITY cliente "Se informa de que el usuario es maricón">
+    ]>
+<bdusuarios>
+    <usuario clave="**" dni="********" tipo="usuario">
+        <nombre>Ataulfo G. Pascual</nombre>
+        <email>user1@librolm.com</email>
+        <fechaNac>16/02/90</fechaNac>
+        <permisos r="true" x ="true" w="false"></permisos>
+        <suceso>&cliente; contenido de &web; para consultar el libro X</suceso>
+    </usuario>
+    <usuario clave="****" dni="********" tipo="administrador">
+        <nombre>Francisco J. García</nombre>
+        <email>user2@librolm.com</email>
+        <fechaNac></fechaNac>
+        <permisos r="true" w="true" x="true"></permisos>
+    </usuario>
+</bdusuarios>

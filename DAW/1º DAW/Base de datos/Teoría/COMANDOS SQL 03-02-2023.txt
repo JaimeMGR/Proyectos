@@ -1,0 +1,683 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Vie Feb 3 11:45:21 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Introduzca el nombre de usuario: system
+Introduzca la contrase±a:
+Hora de ┌ltima Conexi¾n Correcta: Lun Ene 30 2023 08:15:02 +01:00
+
+Conectado a:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> select * from ttema;
+
+   NTEMAID CNOMBRE
+---------- --------------------
+         1 libros chulísimos
+         2 Chorradas
+         3 Efemérides
+
+SQL> select * from tlibro;
+
+  NLIBROID CTITULO                        NANY NEDITORIALID
+---------- ------------------------------ ---- ------------
+         1 Pinocho                        1937            1
+
+SQL> insert into tlibro (nlibroid,ctitulo,nanyopublicacion,neditorialid) values (2,'Aloha',2000',2);
+ERROR:
+ORA-01756: la cadena entrecomillada no estß terminada correctamente
+
+
+SQL> insert into tlibro (nlibroid,ctitulo,nanyopublicacion,neditorialid) values (2,'Aloha','2000',2);
+insert into tlibro (nlibroid,ctitulo,nanyopublicacion,neditorialid) values (2,'Aloha','2000',2)
+*
+ERROR en lÝnea 1:
+ORA-02291: restricci¾n de integridad (SYSTEM.SYS_C008334) violada - clave
+principal no encontrada
+
+
+SQL> insert into tlibro (nlibroid,ctitulo,nanyopublicacion,neditorialid) values (2,'Aloha','2000',1);
+
+1 fila creada.
+
+SQL> select * from tlibro;
+
+  NLIBROID CTITULO                        NANY NEDITORIALID
+---------- ------------------------------ ---- ------------
+         2 Aloha                          2000            1
+         1 Pinocho                        1937            1
+
+SQL> select * from tlibrotema full join tlibrotema on tlibro.nlibroid = tlibrotema = nlibroid;
+select * from tlibrotema full join tlibrotema on tlibro.nlibroid = tlibrotema = nlibroid
+                                                                              *
+ERROR en lÝnea 1:
+ORA-00933: comando SQL no terminado correctamente
+
+
+SQL> select * from tlibrotema full join tlibrotema on tlibro.nlibroid = tlibrotema.nlibroid;
+select * from tlibrotema full join tlibrotema on tlibro.nlibroid = tlibrotema.nlibroid
+                                                 *
+ERROR en lÝnea 1:
+ORA-00904: "TLIBRO"."NLIBROID": identificador no vßlido
+
+
+SQL> select * from tlibrotema full join tlibrotema on tlibro.nlibroid = tlibrotema.nlibroid full jointtema on ttema.ntemaid = tlibrote
+  2  ;
+select * from tlibrotema full join tlibrotema on tlibro.nlibroid = tlibrotema.nlibroid full join ttema on ttema.ntemaid = tlibrote
+                                                 *
+ERROR en lÝnea 1:
+ORA-00904: "TLIBRO"."NLIBROID": identificador no vßlido
+
+
+SQL> select * from tlibrotema full join tlibro on tlibro.nlibroid = tlibrotema.nlibroid full join ttema on ttema.ntemaid = tlibrotema.ntemaid;
+
+  NLIBROID    NTEMAID   NLIBROID CTITULO                        NANY
+---------- ---------- ---------- ------------------------------ ----
+NEDITORIALID    NTEMAID CNOMBRE
+------------ ---------- --------------------
+         1          1          1 Pinocho                        1937
+           1          1 libros chulísimos
+
+
+                      2 Chorradas
+
+
+                      3 Efemérides
+
+
+  NLIBROID    NTEMAID   NLIBROID CTITULO                        NANY
+---------- ---------- ---------- ------------------------------ ----
+NEDITORIALID    NTEMAID CNOMBRE
+------------ ---------- --------------------
+                               2 Aloha                          2000
+           1
+
+
+SQL> desc tlibro
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBROID                                  NOT NULL NUMBER(7)
+ CTITULO                                   NOT NULL VARCHAR2(30)
+ NANYOPUBLICACION                                   CHAR(4)
+ NEDITORIALID                              NOT NULL NUMBER(2)
+
+SQL> drop tlibro
+  2  ;
+drop tlibro
+     *
+ERROR en lÝnea 1:
+ORA-00950: opci¾n DROP no vßlida
+
+
+SQL> drop tlibro;
+drop tlibro
+     *
+ERROR en lÝnea 1:
+ORA-00950: opci¾n DROP no vßlida
+
+
+SQL> create user c##Definitivo
+  2  ;
+
+Usuario creado.
+
+SQL> create user c##Definitivo identified by 1234;
+create user c##Definitivo identified by 1234
+            *
+ERROR en lÝnea 1:
+ORA-01920: conflicto entre el nombre de usuario 'C##DEFINITIVO' y otro nombre
+de usuario o rol
+
+
+SQL> drop user C##Definitivo
+  2  ;
+
+Usuario borrado.
+
+SQL> create user c##Definitivo identified by 1234;
+
+Usuario creado.
+
+SQL> connect system/molina2002;
+Conectado.
+SQL> drop user C##pruebas cascade;
+
+Usuario borrado.
+
+SQL> create user c##pruebas identified by 1234;
+
+Usuario creado.
+
+SQL> grant all privileges to c##pruebas;
+
+Concesi¾n terminada correctamente.
+
+SQL> connect c##pruebas/1234;
+Conectado.
+SQL> create table tlibro (nlibroID numeric(5) primary key, ctitulo varchar2(40), nAnyoPublicacion numeric(4), neditorialID numeric(5));
+
+Tabla creada.
+
+SQL> create table TEditorial (nEditorialID numeric(5) primary key, cnombre varchar2(40), nPaisIDn numeric(4));
+
+Tabla creada.
+
+SQL> commit;
+
+Confirmaci¾n terminada.
+
+SQL> create table TPais (npaisid numeric(4) primary key, cnombre varchar2(30));
+
+Tabla creada.
+
+SQL> commit;
+
+Confirmaci¾n terminada.
+
+SQL> insert into teditorial values (1,'Alfaguara','');
+
+1 fila creada.
+
+SQL> commit;
+
+Confirmaci¾n terminada.
+
+SQL> insert into teditorial values (2,'Edelvives','');
+
+1 fila creada.
+
+SQL> insert into teditorial values (3,'Planeta','');
+
+1 fila creada.
+
+SQL> insert into teditorial values (4,'Santillana','');
+
+1 fila creada.
+
+SQL> insert into teditorial values (4,'El barco de Alejandro','');
+insert into teditorial values (4,'El barco de Alejandro','')
+*
+ERROR en lÝnea 1:
+ORA-00001: restricci¾n ·nica (C##PRUEBAS.SYS_C008358) violada
+
+
+SQL> insert into teditorial values (4,'El barco de Alex','');
+insert into teditorial values (4,'El barco de Alex','')
+*
+ERROR en lÝnea 1:
+ORA-00001: restricci¾n ·nica (C##PRUEBAS.SYS_C008358) violada
+
+
+SQL> insert into teditorial values (5,'El barco de Alejandro','');
+
+1 fila creada.
+
+SQL> commit;
+
+Confirmaci¾n terminada.
+
+SQL> insert into tlibro values (1','Fray Perico y su burrico','');
+ERROR:
+ORA-01756: la cadena entrecomillada no estß terminada correctamente
+
+
+SQL> insert into tlibro values (1,'Fray Perico y su burrico','1940',1);
+
+1 fila creada.
+
+SQL> insert into tlibro values (2,'El señor de los marranillos','1965',2);
+
+1 fila creada.
+
+SQL> insert into tlibro values (3,'Harry Pajoter 1','1980',3);
+
+1 fila creada.
+
+SQL> insert into tlibro values (4,'Kamasutra','1351',4);
+
+1 fila creada.
+
+SQL> insert into tlibro values (5,'Lo que el viento no se pudo llevar','1923',5);
+
+1 fila creada.
+
+SQL> select ctitulo from tlibro a, tlibro b group by nim(nanyopublicacion);
+select ctitulo from tlibro a, tlibro b group by nim(nanyopublicacion)
+                                                *
+ERROR en lÝnea 1:
+ORA-00904: "NIM": identificador no vßlido
+
+
+SQL> edit
+Escrito file afiedt.buf
+
+  1* select ctitulo, min(b.nanyopublicacion) from tlibro a, tlibro b group by min (b.nanyopublicacion) having min(b.nanyopublicacion) > a.nanyopublicacion
+SQL> edit
+Escrito file afiedt.buf
+
+  1* select ctitulo, min(b.nanyopublicacion) from tlibro a, tlibro b group by min (b.nanyopublicacion) having min(b.nanyopublicacion) > a.nanyopublicacion;
+SQL> edit
+Escrito file afiedt.buf
+
+  1* select ctitulo, min(b.nanyopublicacion) from tlibro a, tlibro b group by min (b.nanyopublicacion) having min(b.nanyopublicacion) > a.nanyopublicacion;
+SQL> select ctitulo, min(b.nanyopublicacion) from tlibro a, tlibro b group by min (b.nanyopublicacion) having min(b.nanyopublicacion) > a.nanyopublicacion;
+select ctitulo, min(b.nanyopublicacion) from tlibro a, tlibro b group by min (b.nanyopublicacion) having min(b.nanyopublicacion) > a.nanyopublicacion
+                                                                         *
+ERROR en lÝnea 1:
+ORA-00934: funci¾n de grupo no permitida aquÝ
+
+
+SQL> select ctitulo, min(b.nanyopublicacion) from tlibro a, tlibro b group by min (b.nanyopublicacion) having min(b.nanyopublicacion) > a.nanyopublicacion and b.neditorialID = 1;
+select ctitulo, min(b.nanyopublicacion) from tlibro a, tlibro b group by min (b.nanyopublicacion) having min(b.nanyopublicacion) > a.nanyopublicacion and b.neditorialID = 1
+                                                                         *
+ERROR en lÝnea 1:
+ORA-00934: funci¾n de grupo no permitida aquÝ
+
+
+SQL> select ctitulo, min(b.nanyopublicacion) from tlibro a, tlibro b group by min(b.nanyopublicacion)having min(b.nanyopublicacion) > a.nanyopublicacion and b.neditorialID = 1;
+select ctitulo, min(b.nanyopublicacion) from tlibro a, tlibro b group by min(b.nanyopublicacion) having min(b.nanyopublicacion) > a.nanyopublicacion and b.neditorialID = 1
+                                                                         *
+ERROR en lÝnea 1:
+ORA-00934: funci¾n de grupo no permitida aquÝ
+
+
+SQL> select ctitulo, min(b.nanyopublicacion) from tlibro a, tlibro b group by min(b.nanyopublicacion)having min(b.nanyopublicacion) > a.nanyopublicacion and b.neditorialID = 1;
+select ctitulo, min(b.nanyopublicacion) from tlibro a, tlibro b group by min(b.nanyopublicacion) having min(b.nanyopublicacion) > a.nanyopublicacion and b.neditorialID = 1
+                                                                         *
+ERROR en lÝnea 1:
+ORA-00934: funci¾n de grupo no permitida aquÝ
+
+
+SQL> select ctitulo, min(b.nanyopublicacion) from tlibro a, tlibro b group by min(b.nanyopublicacion)having min(b.nanyopublicacion) > a.nanyopublicacion and b.neditorialID = 1;
+select ctitulo, min(b.nanyopublicacion) from tlibro a, tlibro b group by min(b.nanyopublicacion) having min(b.nanyopublicacion) > a.nanyopublicacion and b.neditorialID = 1
+                                                                         *
+ERROR en lÝnea 1:
+ORA-00934: funci¾n de grupo no permitida aquÝ
+
+
+SQL> desc tlibro;
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBROID                                  NOT NULL NUMBER(5)
+ CTITULO                                            VARCHAR2(40)
+ NANYOPUBLICACION                                   NUMBER(4)
+ NEDITORIALID                                       NUMBER(5)
+
+SQL> select ctitulo from tlibro where nlibroid in (1,2,3);
+
+CTITULO
+----------------------------------------
+Fray Perico y su burrico
+El señor de los marranillos
+Harry Pajoter 1
+
+SQL> select ctitulo from tlibro where nlibroid in (select neditorialID from teditorial where cnombrelike '%es';
+select ctitulo from tlibro where nlibroid in (select neditorialID from teditorial where cnombrelike '%es'
+                                                                                                    *
+ERROR en lÝnea 1:
+ORA-00920: operador relacional no vßlido
+
+
+SQL> select ctitulo from tlibro where nlibroid in (select neditorialID from teditorial where cnombrelike '%es%';
+select ctitulo from tlibro where nlibroid in (select neditorialID from teditorial where cnombrelike '%es%'
+                                                                                                    *
+ERROR en lÝnea 1:
+ORA-00920: operador relacional no vßlido
+
+
+SQL> select ctitulo from tlibro where nlibroid in (select neditorialID from teditorial where cnombre like '%es%';
+select ctitulo from tlibro where nlibroid in (select neditorialID from teditorial where cnombre like '%es%'
+    *
+ERROR en lÝnea 1:
+ORA-00907: falta el parÚntesis derecho
+
+
+SQL> select ctitulo from tlibro where nlibroid in (select neditorialID from teditorial where cnombre like '%es%');
+
+CTITULO
+----------------------------------------
+El señor de los marranillos
+
+SQL> select * from teditorial;
+
+NEDITORIALID CNOMBRE                                    NPAISIDN
+------------ ---------------------------------------- ----------
+           1 Alfaguara
+           2 Edelvives
+           3 Planeta
+           4 Santillana
+           5 El barco de Alejandro
+
+SQL> select ctitulo from tlibro where nlibroid in (select neditorialID from teditorial where cnombre like '%a%');
+
+CTITULO
+----------------------------------------
+Fray Perico y su burrico
+Harry Pajoter 1
+Kamasutra
+Lo que el viento no se pudo llevar
+
+SQL> select ctitulo from, teditorial where tlibro.neditorialid = teditorial.neditoralID teditorial.cnombre like '%a%');
+select ctitulo from, teditorial where tlibro.neditorialid = teditorial.neditoralID teditorial.cnombrelike '%a%')
+                   *
+ERROR en lÝnea 1:
+ORA-00903: nombre de tabla no vßlido
+
+
+SQL> select ctitulo from tlibro, teditorial where tlibro.neditorialid = teditorial.neditoriaID and teditorial.cnombre like '%a%';
+select ctitulo from tlibro, teditorial where tlibro.neditorialid = teditorial.neditoriaID and teditorial.cnombre like '%a%'
+                                                                   *
+ERROR en lÝnea 1:
+ORA-00904: "TEDITORIAL"."NEDITORIAID": identificador no vßlido
+
+
+SQL> select ctitulo from tlibro, teditorial where tlibro.neditorialid = teditorial.neditoriaID and teditorial.cnombre like '%a%';
+select ctitulo from tlibro, teditorial where tlibro.neditorialid = teditorial.neditoriaID and teditorial.cnombre like '%a%'
+                                                                   *
+ERROR en lÝnea 1:
+ORA-00904: "TEDITORIAL"."NEDITORIAID": identificador no vßlido
+
+
+SQL> select position(ctitulo,'Perico') from tlibro;
+select position(ctitulo,'Perico') from tlibro
+       *
+ERROR en lÝnea 1:
+ORA-00904: "POSITION": identificador no vßlido
+
+
+SQL> select instr(ctitulo,'Perico',6) from tlibro
+  2  ;
+
+INSTR(CTITULO,'PERICO',6)
+-------------------------
+                        6
+                        0
+                        0
+                        0
+                        0
+
+SQL> select tlibro * from tlibro;
+select tlibro * from tlibro
+                *
+ERROR en lÝnea 1:
+ORA-00936: falta una expresi¾n
+
+
+SQL> select tlibro * from tlibro;
+select tlibro * from tlibro
+                *
+ERROR en lÝnea 1:
+ORA-00936: falta una expresi¾n
+
+
+SQL> create table temp as select * from tlibro;
+
+Tabla creada.
+
+SQL> select * from tlibro;
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION
+---------- ---------------------------------------- ----------------
+NEDITORIALID
+------------
+         1 Fray Perico y su burrico                             1940
+           1
+
+         2 El señor de los marranillos                          1965
+           2
+
+         3 Harry Pajoter 1                                      1980
+           3
+
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION
+---------- ---------------------------------------- ----------------
+NEDITORIALID
+------------
+         4 Kamasutra                                            1351
+           4
+
+         5 Lo que el viento no se pudo llevar                   1923
+           5
+
+
+SQL> select * from temp:
+  2
+SQL>
+SQL> select * from temp;
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION
+---------- ---------------------------------------- ----------------
+NEDITORIALID
+------------
+         1 Fray Perico y su burrico                             1940
+           1
+
+         2 El señor de los marranillos                          1965
+           2
+
+         3 Harry Pajoter 1                                      1980
+           3
+
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION
+---------- ---------------------------------------- ----------------
+NEDITORIALID
+------------
+         4 Kamasutra                                            1351
+           4
+
+         5 Lo que el viento no se pudo llevar                   1923
+           5
+
+
+SQL> desc temp;
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBROID                                           NUMBER(5)
+ CTITULO                                            VARCHAR2(40)
+ NANYOPUBLICACION                                   NUMBER(4)
+ NEDITORIALID                                       NUMBER(5)
+
+SQL> select * from temp;
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION
+---------- ---------------------------------------- ----------------
+NEDITORIALID
+------------
+         1 Fray Perico y su burrico                             1940
+           1
+
+         2 El señor de los marranillos                          1965
+           2
+
+         3 Harry Pajoter 1                                      1980
+           3
+
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION
+---------- ---------------------------------------- ----------------
+NEDITORIALID
+------------
+         4 Kamasutra                                            1351
+           4
+
+         5 Lo que el viento no se pudo llevar                   1923
+           5
+
+
+SQL> desc temp;
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBROID                                           NUMBER(5)
+ CTITULO                                            VARCHAR2(40)
+ NANYOPUBLICACION                                   NUMBER(4)
+ NEDITORIALID                                       NUMBER(5)
+
+SQL> insert into temp (select 11,'11',11,11 from tlibro);
+
+5 filas creadas.
+
+SQL> desc temp;
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBROID                                           NUMBER(5)
+ CTITULO                                            VARCHAR2(40)
+ NANYOPUBLICACION                                   NUMBER(4)
+ NEDITORIALID                                       NUMBER(5)
+
+SQL> select * from temp;
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION
+---------- ---------------------------------------- ----------------
+NEDITORIALID
+------------
+         1 Fray Perico y su burrico                             1940
+           1
+
+         2 El señor de los marranillos                          1965
+           2
+
+         3 Harry Pajoter 1                                      1980
+           3
+
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION
+---------- ---------------------------------------- ----------------
+NEDITORIALID
+------------
+         4 Kamasutra                                            1351
+           4
+
+         5 Lo que el viento no se pudo llevar                   1923
+           5
+
+        11 11                                                     11
+          11
+
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION
+---------- ---------------------------------------- ----------------
+NEDITORIALID
+------------
+        11 11                                                     11
+          11
+
+        11 11                                                     11
+          11
+
+        11 11                                                     11
+          11
+
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION
+---------- ---------------------------------------- ----------------
+NEDITORIALID
+------------
+        11 11                                                     11
+          11
+
+
+10 filas seleccionadas.
+
+SQL> commit;
+
+Confirmaci¾n terminada.
+
+SQL> select * from temp;
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION
+---------- ---------------------------------------- ----------------
+NEDITORIALID
+------------
+         1 Fray Perico y su burrico                             1940
+           1
+
+         2 El señor de los marranillos                          1965
+           2
+
+         3 Harry Pajoter 1                                      1980
+           3
+
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION
+---------- ---------------------------------------- ----------------
+NEDITORIALID
+------------
+         4 Kamasutra                                            1351
+           4
+
+         5 Lo que el viento no se pudo llevar                   1923
+           5
+
+        11 11                                                     11
+          11
+
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION
+---------- ---------------------------------------- ----------------
+NEDITORIALID
+------------
+        11 11                                                     11
+          11
+
+        11 11                                                     11
+          11
+
+        11 11                                                     11
+          11
+
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION
+---------- ---------------------------------------- ----------------
+NEDITORIALID
+------------
+        11 11                                                     11
+          11
+
+
+10 filas seleccionadas.
+
+SQL> set linesize 100;
+SQL> select * from temp;
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION NEDITORIALID
+---------- ---------------------------------------- ---------------- ------------
+         1 Fray Perico y su burrico                             1940            1
+         2 El señor de los marranillos                          1965            2
+         3 Harry Pajoter 1                                      1980            3
+         4 Kamasutra                                            1351            4
+         5 Lo que el viento no se pudo llevar                   1923            5
+        11 11                                                     11           11
+        11 11                                                     11           11
+        11 11                                                     11           11
+        11 11                                                     11           11
+        11 11                                                     11           11
+
+10 filas seleccionadas.
+
+SQL> select * from temp;
+
+  NLIBROID CTITULO                                  NANYOPUBLICACION NEDITORIALID
+---------- ---------------------------------------- ---------------- ------------
+         1 Fray Perico y su burrico                             1940            1
+         2 El señor de los marranillos                          1965            2
+         3 Harry Pajoter 1                                      1980            3
+         4 Kamasutra                                            1351            4
+         5 Lo que el viento no se pudo llevar                   1923            5
+        11 11                                                     11           11
+        11 11                                                     11           11
+        11 11                                                     11           11
+        11 11                                                     11           11
+        11 11                                                     11           11
+
+10 filas seleccionadas.
+
+SQL> commit;
+
+Confirmaci¾n terminada.
+
+SQL>

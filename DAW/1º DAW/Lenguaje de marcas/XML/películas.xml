@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <cine>
+    <!-- Primera película-->
+    <película>
+       <director>señor</director>
+       <duración>60</duración>
+       <título> Las aventuras de los SGML</título>
+       <stock>4</stock>
+       <disponible />
+    </película>
+    <!-- Segunda película-->
+    <película>
+       <director nacionalidad="USA">Peter Jackson</director>
+       <duración>150</duración>
+       <título> El Señor de los Anillos</título>
+       <stock>4</stock>
+       <disponible />
+    </película>
+</cine>

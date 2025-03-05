@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="fauna" type="faunaType"/>
+  <xs:complexType name="mamíferosType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="animal1"/>
+      <xs:element type="xs:string" name="animal2"/>
+      <xs:element type="xs:string" name="animal3"/>
+      <xs:element type="xs:string" name="animal4"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="animalesType">
+    <xs:sequence>
+      <xs:element type="mamíferosType" name="mamíferos"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="faunaType">
+    <xs:sequence>
+      <xs:element type="animalesType" name="animales"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

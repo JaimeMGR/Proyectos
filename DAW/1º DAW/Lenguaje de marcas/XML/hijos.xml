@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<padre>
+    <hijo>
+        <nombre>alumno 1</nombre>
+        <apellidos>apl ap2</apellidos>
+    </hijo>
+    <hijo>
+        <nombres>alumno 2</nombres>
+        <apellidos>apll ap21</apellidos>
+    </hijo>
+</padre>

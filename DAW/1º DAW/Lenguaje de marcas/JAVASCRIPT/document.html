@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        function iniciar() {
+            var elemento = document.getElementById("Texto");
+            elemento.style.color="#ff0000";
+
+            document.getElementById("Texto").style.color="red";
+
+            var Elememtos =
+                document.getElementsByClassName(".parrafo");
+
+                for(let i=0; i<Elememtos.length;i++)
+                Elememtos[i].style.color="yellow";
+
+                var elemento2 = document.querySelector("p:last-of-type")
+                elemento2.style.color="pink";
+        }
+    </script>
+  </head>
+  <body onload="iniciar()">
+    <main>
+      <p class="parrafo">
+        <span id="Texto">lorem ipsum</span> Lorem ipsum dolor sit amet
+        consectetur, adipisicing elit. Magnam, facilis minus illum sapiente
+        placeat aliquam rem laborum repellendus laudantium est sint. Cum culpa
+        voluptatibus incidunt nostrum nesciunt iste vitae aut.
+      </p>
+      <p class="parrafo">
+        <span id="Texto">lorem ipsum</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+        aspernatur minima unde excepturi. Dolorem hic aliquid modi corrupti
+        incidunt exercitationem quo? Eveniet dolore ad ipsa earum veritatis
+        totam enim est.
+      </p>
+      <p>
+        <span id="Texto">lorem ipsum</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+        voluptates maxime voluptate tempora asperiores ullam distinctio, fugiat
+        officiis harum voluptatum. Corporis vel veritatis doloremque tempora
+        maxime perspiciatis eius voluptas delectus.
+      </p>
+    </main>
+  </body>
+</html>

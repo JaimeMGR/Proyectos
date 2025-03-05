@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <script>
+            /**
+            * Calcular el factorial de valor
+            *
+            * Retorna el factorial, y -1 si el valor es negativo
+            * o inválido
+            */
+            function factorial(valor=1)
+            {
+                //Si no es un valor número o es negativo retorna -1
+                if (isNaN(valor) || valor < 0)
+                return -1;
+
+
+                resultado = 1;
+                for (i=valor; i>=1;i--)
+                    resultado = resultado * i;
+
+
+                return resultado;
+            }
+            document.write("Resultado: " + factorial(5));
+
+
+            document.write("<br>");
+
+            var global = 4;
+            var global2 = 22;
+            function ambitos()
+            {
+                var global2 = 33;
+                document.write("Dentro de función " + global + "<br>");
+                document.write("Dentro de función " + global2);
+                global = 11;
+                global3 = 43;
+            }
+
+            ambitos();
+            document.write("<br>");
+            document.write("Fuera de función: " + global + "<br>");
+            document.write("Fuera de función: " + global2 + "<br>");
+            document.write("Fuera de función: " + global3 + "<br>");
+            
+            //Uso de let
+            var i = 28;
+            for (let i=0; i<10;i++)
+                document.write(i);
+
+
+            document.write("<br>");
+            document.write("Valor de i :" + i + "<br>");
+
+
+            var frutas = ["pera", "manzana", "piña", 
+            "plátano", "kiwi"];
+     
+            frutas.push("coco");
+     
+            for(let i=0;i<frutas.length;i++)
+            {
+                document.write(frutas[i]);
+                if (i < frutas.length-2) 
+                document.write(", ");
+                else if (i < frutas.length-1) 
+                    document.write(" y ");
+                else document.write(".");
+                
+     
+            }
+            
+
+            var fruticas = ["Piña", "Pera", "Kiwi"];
+        </script>
+        <h2>Generando la lista</h2>
+        <ul>
+            <script>
+                for(let i=0;i<frutas.length;i++){
+                    document.write("<li>" + frutas[i]);
+                }
+            </script>
+        </ul>
+        <h2>Otra listica al revés</h2>
+
+            <script>
+           
+                let reverso = frutas.reverse();
+                  for(let i=0;i<frutas.length;i++){
+                    let posicion = i+1;
+                    document.write(posicion +". " + reverso[i] + "<br>");
+                    //document.write(`<li>${fruticas[i]}</li>`);
+                }
+            </script>
+
+    </main>
+</body>
+</html>

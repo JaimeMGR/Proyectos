@@ -1,0 +1,53 @@
+@options
+@packages
+@argfile
+-encoding
+'UTF-8'
+-protected
+-source
+'19'
+-sourcepath
+'C:/Users/damci/Documents/NetBeansProjects/Figura/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/damci/Documents/NetBeansProjects/Figura/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Figura 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'Figura 1.0-SNAPSHOT API'
+com.mycompany.figura
+'C:/Users/damci/Documents/NetBeansProjects/Figura/src/main/java/com/mycompany/figura/Circulo.java'
+'C:/Users/damci/Documents/NetBeansProjects/Figura/src/main/java/com/mycompany/figura/Cuadrado.java'
+'C:/Users/damci/Documents/NetBeansProjects/Figura/src/main/java/com/mycompany/figura/Figura.java'
+'C:/Users/damci/Documents/NetBeansProjects/Figura/src/main/java/com/mycompany/figura/ILados.java'
+'C:/Users/damci/Documents/NetBeansProjects/Figura/src/main/java/com/mycompany/figura/Main.java'
+'C:/Users/damci/Documents/NetBeansProjects/Figura/src/main/java/com/mycompany/figura/Triangulo.java'
+C:\Users\damci\Documents\NetBeansProjects\Figura\src\main\java = 1679476625029
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\allclasses-index.html = 1679479731221
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\allpackages-index.html = 1679479731224
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\constant-values.html = 1679479731161
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\copy.svg = 1679479731265
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\element-list = 1679479731135
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\help-doc.html = 1679479731257
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\index-all.html = 1679479731247
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\index.html = 1679479731253
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\jquery-ui.overrides.css = 1679479731283
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\member-search-index.js = 1679479731229
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\module-search-index.js = 1679479731225
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\overview-tree.html = 1679479731203
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\package-search-index.js = 1679479731226
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\script.js = 1679479731263
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\search-page.js = 1679479731274
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\search.html = 1679479731250
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\search.js = 1679479731272
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\stylesheet.css = 1679479731261
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\tag-search-index.js = 1679479731230
+C:\Users\damci\Documents\NetBeansProjects\Figura\target\site\apidocs\type-search-index.js = 1679479731228

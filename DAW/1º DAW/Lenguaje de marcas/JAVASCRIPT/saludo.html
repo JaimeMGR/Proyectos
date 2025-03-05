@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saludo</title>
+    <script>
+        function inicio() {
+            const b1 = document.getElementById("b1");
+            b1.addEventListener("click", 
+                  function(){
+                      const nombre = document.getElementById("nombre").value;
+                      const apellidos = document.getElementById("apellidos").value;
+                      const edad = document.getElementById("edad");
+  
+                      document.getElementById("salida").innerHTML=
+                      `Hola ${nombre} ${apellidos}, tienes ${edad.value} años`;
+  
+            });
+  
+            const edad = document.getElementById("edad");
+            edad.addEventListener("change", 
+                  function(){
+                      const edad = document.getElementById("edad");
+                      if (edad.value>=18) 
+                      {
+                          edad.setAttribute("style", "background-color:red");
+                      }
+                      else edad.removeAttribute("style");
+  
+            });
+    
+
+    }
+        window.addEventListener("load", inicio);
+
+
+
+    
+        </script>
+        <style>
+
+        </style>
+</head>
+<body>
+    <h1>Saludo</h1>
+    <label for="nombre">Nombre</label><input id="nombre" type="text" value="Carlos"/><br>
+    <label for="apellidos">Apellidos</label><input id="apellidos" type="text" value="Pérez"/><br>
+    <label for="edad">Edad</label><input id="edad" type="number" /><br>
+    <button id="b1" type="button">Saludo</button>  
+    <br>
+    <p id="salida">
+</body>
+</html>

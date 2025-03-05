@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio</title>
+
+    <script>
+    function inicio ()
+    {
+        const elemento = document.getElementByid("salida");
+        elemento.innerHTML="Bienvenido a mi página<br>";
+        elemento.addEventListener("click", crearNuevoElemento);
+
+        const boton = document.getElementbyId
+    }
+
+
+        function cambiarColor(){
+            const elemento = document.getelementbyId("salida");
+            if (elemento.style.background=="lightgreen")
+                elemento.style.background="lightgrey";
+            else elemento.style.background="lightgreen";
+        }
+
+    </script>
+</head>
+<body>
+    <main>
+        <h1> Probando objetos con JS</h1>
+        
+
+            <p id="salida" style="background: white">
+
+            </p>
+            <form>
+                <button id="boton" type="button">Haz click aquí</button>
+        </form>
+    </main>   
+</body>
+</html>

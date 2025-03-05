@@ -1,0 +1,38 @@
+//hacer una función que retorne la división de n1 y n2. Si n2 es 0 retornamos -1, si alguno de los números es negativo se retorna -1, pedir n1 y n2
+//"El resultado de la operación de 4 y 8 es 0,5"
+funcion dividir(float n1, n2):float
+
+n1 = pedir("Escribe el primer número")
+imprimir (n1)
+n2 = pedir("Escribe el siguiente número")
+imprimir (n2)
+
+si n2 = 0 entonces:
+    retornar -1
+sino si n1 < 0 o n2 < 0 entonces:
+    retornar -1
+sino
+    retornar n1/n2
+Fin
+
+
+Inicio
+
+funcion dividir(float n1, n2):float
+si (n2==0 || n1<0 || n2 <0)
+    retorna -1
+sino
+    retorna n1/n2
+Fin
+
+
+
+
+Inicio
+float n1 , n2
+imprimir ("Introduzca N1")
+leer (n1)
+imprimir("introduzca N2")
+leer (n2)
+imprimir ("El resultado de dividir" + n1 + "con" n2 + "es " + dividir (n1/n2))
+Fin

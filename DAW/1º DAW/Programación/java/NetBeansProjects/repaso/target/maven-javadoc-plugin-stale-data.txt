@@ -1,0 +1,50 @@
+@options
+@packages
+@argfile
+-encoding
+'UTF-8'
+-protected
+-source
+'19'
+-sourcepath
+'C:/Users/damci/Documents/NetBeansProjects/repaso/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/damci/Documents/NetBeansProjects/repaso/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'repaso 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'repaso 1.0-SNAPSHOT API'
+com.mycompany.repaso
+'C:/Users/damci/Documents/NetBeansProjects/repaso/src/main/java/com/mycompany/repaso/ConIVA.java'
+'C:/Users/damci/Documents/NetBeansProjects/repaso/src/main/java/com/mycompany/repaso/Factura.java'
+'C:/Users/damci/Documents/NetBeansProjects/repaso/src/main/java/com/mycompany/repaso/Repaso.java'
+C:\Users\damci\Documents\NetBeansProjects\repaso\src\main\java = 1669633157959
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\allclasses-index.html = 1669639228253
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\allpackages-index.html = 1669639228255
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\copy.svg = 1669639228282
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\element-list = 1669639228195
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\help-doc.html = 1669639228276
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\index-all.html = 1669639228268
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\index.html = 1669639228271
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\javadoc.bat = 1669639139774
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\jquery-ui.overrides.css = 1669639228296
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\member-search-index.js = 1669639228259
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\module-search-index.js = 1669639228256
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\overview-tree.html = 1669639228238
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\package-search-index.js = 1669639228257
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\script.js = 1669639228281
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\search-page.js = 1669639228286
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\search.html = 1669639228270
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\search.js = 1669639228284
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\stylesheet.css = 1669639228279
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\tag-search-index.js = 1669639228260
+C:\Users\damci\Documents\NetBeansProjects\repaso\target\site\apidocs\type-search-index.js = 1669639228258

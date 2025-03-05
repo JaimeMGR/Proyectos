@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos</title>
+</head>
+<style>
+    header {
+        background-color: #ffffff50;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+      }
+    body{
+        background-color: rgb(255, 233, 209);
+    }
+  h1{
+    text-align: center;
+  }
+    /* Estilos para las tablas */
+    button{
+        text-align: left;
+        background-color: rgb(233, 255, 160);
+        }
+    
+    form{
+        text-align: left;
+        }
+        footer{
+            text-align:right;
+            }
+</style>
+<body>
+    <header><a href="/ExamenJS/index.html">Inicio</a> | <a href=/ExamenJS/frutas.html>Frutas</a> | <a href=/ExamenJS/elementos.html>Elementos</a> | <a>Datos</a></header>
+    <h1>DATOS PERSONALES</h1>
+<form>
+    <label>Introduce el NIF:</label>
+    <input type="text" id="nif">
+    <button type="button" id="btn-buscar">Buscar</button>
+  </form>
+  <div id="datos-persona"></div>
+  <script>
+    // Definir la clase Persona
+class Persona {
+  constructor(nombre, nif) {
+    this.nombre = nombre;
+    this.nif = nif;
+  }
+}
+
+// Crear el array de personas
+const personas = [
+  new Persona('Carmen López', '11111A'),
+  new Persona('Pedro Ruíz', '22222B'),
+  new Persona('Luisa Pérez', '33333C'),
+  new Persona('Pablo Sánchez', '44444D'),
+  new Persona('Jaime Molina', '78108311N')
+];
+
+// Obtener los elementos del DOM
+const formulario = document.querySelector('form');
+const inputNif = document.querySelector('#nif');
+const Botónbuscar = document.querySelector('#btn-buscar');
+const datosPersona = document.querySelector('#datos-persona');
+
+// Agregar evento al botón de buscar
+Botónbuscar.addEventListener('click', () => {
+  // Obtener el valor del input
+  const nif = inputNif.value.trim();
+  
+  // Buscar la persona correspondiente al NIF
+  const persona = personas.find((p) => p.nif === nif);
+  
+  // Verificar si se encontró la persona
+  if (persona) {
+    // Mostrar los datos de la persona
+    datosPersona.innerHTML = `<p>Nombre: ${persona.nombre}</p><p>NIF: ${persona.nif}</p>`;
+  } else {
+    // Mostrar mensaje de error
+    datosPersona.innerHTML = '<p>No se encontró la persona correspondiente al NIF proporcionado.</p>';
+  }
+  
+  // Limpiar el input
+  inputNif.value = '';
+});
+  </script>
+  <br>
+  <footer><a>Ejercicios realizados por Jaime Molina Granados</a> </footer>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <h3>COLECCION DE RAQUETAS</h3>
+        <table border="1">
+            <tr bgcolor="#CCFFFF">
+                <th style="text-align: left ">MARCA</th><th style="text-align: left ">MODELO</th><th style="text-align: left ">A&Ntilde;O</th><th style="text-align: left ">PRECIO</th>
+            </tr>
+            <tr>
+                <td> BABOLAT </td><td> PURE DRIVE </td><td> 2012 </td><td bgcolor="#ffff66">170</td>
+            </tr>
+            <tr>
+                <td> BABOLAT </td><td> PURE STORM</td><td> 2013 </td><td bgcolor="#ffff66">190</td>
+            </tr>
+            <tr>
+                <td> YONEX </td><td> MPTOUR 5 </td><td> 1997 </td><td bgcolor="#99899">150</td>
+            </tr>
+            <tr>
+                <td> WILSON </td><td> HAMMER </td><td> 2000 </td><td bgcolor="#99899">95</td>
+            </tr>
+            <tr>
+                <td> WILSON </td><td> PRO STAFF </td><td> 1997 </td><td bgcolor="#ffff66">215</td>
+            </tr>
+        </table>
+    </body>
+</html>

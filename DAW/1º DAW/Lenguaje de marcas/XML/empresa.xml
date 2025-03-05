@@ -1,0 +1,54 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!DOCTYPE Empresa [
+        <!ELEMENT Empresa (Empleado)*>
+        <!ATTLIST Empresa
+                xmlns:xsi CDATA #REQUIRED
+                xsi:noNamespaceSchemaLocation CDATA #REQUIRED>
+        <!ELEMENT Empleado (personal|laboral)*>
+        <!ELEMENT personal (nombre|apellidos|nif)*>
+        <!ELEMENT nombre (#PCDATA)>
+        <!ELEMENT apellidos (#PCDATA)>
+        <!ELEMENT nif (#PCDATA)>
+        <!ATTLIST nif
+                nacionalidad CDATA #REQUIRED>
+        <!ELEMENT laboral (sueldo|irpf)*>
+        <!ATTLIST laboral
+                dep CDATA #REQUIRED>
+        <!ELEMENT sueldo (#PCDATA)>
+        <!ELEMENT irpf (#PCDATA)>
+        ]>
+<Empresa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="centro2.xsd">
+    <Empleado>
+        <personal>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+            <nif nacionalidad="española">1234X</nif>
+        </personal>
+        <laboral dep="ADM">
+            <sueldo>1200</sueldo>
+            <irpf>5</irpf>
+        </laboral>
+    </Empleado>
+    <Empleado>
+        <personal>
+            <nombre>Ana</nombre>
+            <apellidos>López</apellidos>
+            <nif nacionalidad="italiana">8888</nif>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1500</sueldo>
+            <irpf>4</irpf>
+        </laboral>
+    </Empleado>
+    <Empleado>
+        <personal>
+            <nombre>Carmen</nombre>
+            <apellidos>Ruiz</apellidos>
+            <nif nacionalidad="española">3456G</nif>
+        </personal>
+        <laboral dep="IT">
+            <sueldo>1400</sueldo>
+            <irpf>2</irpf>
+        </laboral>
+    </Empleado>
+</Empresa>

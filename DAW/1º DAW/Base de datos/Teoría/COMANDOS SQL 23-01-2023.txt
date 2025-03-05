@@ -1,0 +1,301 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Lun Ene 23 10:07:02 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Introduzca el nombre de usuario: system
+Introduzca la contrase±a:
+Hora de ┌ltima Conexi¾n Correcta: Lun Ene 23 2023 09:37:33 +01:00
+
+Conectado a:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> select cnombre from ttema where cnombre;
+select cnombre from ttema where cnombre
+                                      *
+ERROR en lÝnea 1:
+ORA-00920: operador relacional no vßlido
+
+
+SQL> select cnombre from ttema where cnombre = 'Efem_ridees';
+
+ninguna fila seleccionada
+
+SQL> select cnombre from ttema;
+
+CNOMBRE
+--------------------
+libros chulísimos
+Chorradas
+Efemérides
+
+SQL> select cnombre from ttema where cnombre = 'Efem%ridees';
+
+ninguna fila seleccionada
+
+SQL> select cnombre from ttema where cnombre LIKE  'Efem%ridees';
+
+ninguna fila seleccionada
+
+SQL> select cnombre from ttema where cnombre = 'Efemérides';
+
+CNOMBRE
+--------------------
+Efemérides
+
+SQL> select cnombre from ttema where cnombre = 'Efem_rides';
+
+ninguna fila seleccionada
+
+SQL> select cnombre from ttema where cnombre = 'Efem%rides';
+
+ninguna fila seleccionada
+
+SQL> select cnombre from ttema where cnombre like = 'Efem_rides';
+select cnombre from ttema where cnombre like = 'Efem_rides'
+                                             *
+ERROR en lÝnea 1:
+ORA-00936: falta una expresi¾n
+
+
+SQL> select cnombre from ttema where cnombre like 'Efem_rides';
+
+CNOMBRE
+--------------------
+Efemérides
+
+SQL> select cnombre from ttema where cnombre like 'Efem%rides';
+
+CNOMBRE
+--------------------
+Efemérides
+
+SQL>
+SQL>  select * from tsocio;
+
+ninguna fila seleccionada
+
+SQL> dir tsocio;
+SP2-0042: comando desconocido "dir tsocio" - resto de la lÝnea ignorado.
+SQL> des tsocio;
+SP2-0042: comando desconocido "des tsocio" - resto de la lÝnea ignorado.
+SQL> desc tsocio;
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ CNIF                                      NOT NULL VARCHAR2(9)
+ CNOMBRE                                            VARCHAR2(15)
+ CAPELLIDOS                                         VARCHAR2(30)
+ CDIRECCION                                         VARCHAR2(40)
+ CTELEFONO                                          VARCHAR2(12)
+ DNACIMIENTO                                        DATE
+ DALTA                                              DATE
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Arrabal Gutierrez','C/Perico 17','+34968138956',12-13-2002,10-28-2022);
+insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Arrabal Gutierrez','C/Perico 17','+34968138956',12-13-2002,10-28-2022)
+
+                                                                  *
+ERROR en lÝnea 1:
+ORA-00932: tipos de dato inconsistentes: se esperaba DATE se ha obtenido NUMBER
+
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Arrabal Gutierrez','C/Perico 17','+34968138956',12/13/2002,10/28/2022);
+insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Arrabal Gutierrez','C/Perico 17','+34968138956',12/13/2002,10/28/2022)
+
+                                                                  *
+ERROR en lÝnea 1:
+ORA-00932: tipos de dato inconsistentes: se esperaba DATE se ha obtenido NUMBER
+
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Arrabal Gutierrez','C/Perico 17','+34968138956',2002-12-13,2022-10-28);
+insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Arrabal Gutierrez','C/Perico 17','+34968138956',2002-12-13,2022-10-28)
+
+                                                                    *
+ERROR en lÝnea 1:
+ORA-00932: tipos de dato inconsistentes: se esperaba DATE se ha obtenido NUMBER
+
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Arrabal Gutierrez','C/Perico 17','+34968138956','2002-12-13','2022-10-28');
+insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Arrabal Gutierrez','C/Perico 17','+34968138956','2002-12-13','2022-10-28')
+
+                                                             *
+ERROR en lÝnea 1:
+ORA-01861: el literal no coincide con la cadena de formato
+
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Arrabal Gutierrez','C/Perico 17','+34968138956','13-12-2002','-28-10-2022');
+insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Arrabal Gutierrez','C/Perico 17','+34968138956','13-12-2002','-28-10-2022')
+
+                                                                          *
+ERROR en lÝnea 1:
+ORA-01847: el dÝa del mes debe estar entre 1 y el ·ltimo dÝa del mes
+
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Arrabal Gutierrez','C/Perico 17','+34968138956','13-12-2002','28-10-2022');
+
+1 fila creada.
+
+SQL> select cnombre from tsocio where cnombre like 'Jacinto';
+
+CNOMBRE
+---------------
+Jacinto
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Carmelo','Molina Díaz','C/San Pedro 97','+34721968534','25-07-2001','14-05-2022');
+insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Carmelo','Molina Díaz','C/San Pedro 97','+34721968534','25-07-2001','14-05-2022')
+*
+ERROR en lÝnea 1:
+ORA-00001: restricci¾n ·nica (SYSTEM.SYS_C008354) violada
+
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Carmelo','Molina Diaz','C/San Pedro 97','+34721968534','25-07-2001','14-05-2022');
+insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Carmelo','Molina Diaz','C/San Pedro 97','+34721968534','25-07-2001','14-05-2022')
+*
+ERROR en lÝnea 1:
+ORA-00001: restricci¾n ·nica (SYSTEM.SYS_C008354) violada
+
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Carmelo','Molina','C/San Pedro 97','+34721968534','25-07-2001','14-05-2022');
+insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Carmelo','Molina','C/San Pedro 97','+34721968534','25-07-2001','14-05-2022')
+*
+ERROR en lÝnea 1:
+ORA-00001: restricci¾n ·nica (SYSTEM.SYS_C008354) violada
+
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('86235917N','Carmelo','Molina','C/San Pedro 97','+34721968534','25-07-2001','14-05-2022');
+
+1 fila creada.
+
+SQL> select cnombre from tsocio where cnombre like 'Carmelo';
+
+CNOMBRE
+---------------
+Carmelo
+
+SQL> select cnombre from tsocio where cnombre like 'Jacinto';
+
+CNOMBRE
+---------------
+Jacinto
+
+SQL> select * from tlibros;
+select * from tlibros
+              *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> select * from tlibro;
+
+ninguna fila seleccionada
+
+SQL> desc tlibro
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBROID                                  NOT NULL NUMBER(7)
+ CTITULO                                   NOT NULL VARCHAR2(30)
+ NANYOPUBLICACION                                   CHAR(4)
+ NEDITORIALID                              NOT NULL NUMBER(2)
+
+SQL> insert into tlibro (nlibroid,ctitulo,nanyopublicacion,neditorialid) values ('0000001','Pinocho','1937',1);
+
+1 fila creada.
+
+SQL> select * from tlibro;
+
+  NLIBROID CTITULO                        NANY NEDITORIALID
+---------- ------------------------------ ---- ------------
+         1 Pinocho                        1937            1
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Manzano Ruiz','C/Mariguano 47','+34724916738','20-04-1965','18-05-2020');
+insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Manzano Ruiz','C/Mariguano 47','+34724916738','20-04-1965','18-05-2020')
+*
+ERROR en lÝnea 1:
+ORA-00001: restricci¾n ·nica (SYSTEM.SYS_C008354) violada
+
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Manzano Ruiz','C/Mariguano 47','+34695309265','20-04-1965','18-05-2020');
+insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('74128653B','Jacinto','Manzano Ruiz','C/Mariguano 47','+34695309265','20-04-1965','18-05-2020')
+*
+ERROR en lÝnea 1:
+ORA-00001: restricci¾n ·nica (SYSTEM.SYS_C008354) violada
+
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('31649758Y','Jacinto','Manzano Ruiz','C/Mariguano 47','+34695309265','20-04-1965','18-05-2020');
+
+1 fila creada.
+
+SQL> select cnombre from tsocio where cnombre like 'Jacinto' AND dnacimiento like < 01-01-1970;
+select cnombre from tsocio where cnombre like 'Jacinto' AND dnacimiento like < 01-01-1970
+                                                                             *
+ERROR en lÝnea 1:
+ORA-00936: falta una expresi¾n
+
+
+SQL> select cnombre from tsocio where dnacimiento < "1970-01-01";
+select cnombre from tsocio where dnacimiento < "1970-01-01"
+                                               *
+ERROR en lÝnea 1:
+ORA-00904: "1970-01-01": identificador no vßlido
+
+
+SQL> select cnombre from tsocio where dnacimiento < '1970-01-01';
+select cnombre from tsocio where dnacimiento < '1970-01-01'
+                                               *
+ERROR en lÝnea 1:
+ORA-01861: el literal no coincide con la cadena de formato
+
+
+SQL> select cnombre from tsocio where dnacimiento < '01-01-1970';
+
+CNOMBRE
+---------------
+Jacinto
+
+SQL> select cnombre from tsocio where (dnacimiento < '01-01-1970' AND cnombre = 'Jacinto');
+
+CNOMBRE
+---------------
+Jacinto
+
+SQL> commit
+  2  ;
+
+Confirmaci¾n terminada.
+
+SQL> select cnombre from tsocio where cnombre = 'Jacinto' AND dnacimiento < '01-01-1970' AND dalta between '01-01-1990' AND '31-12-1999');
+select cnombre from tsocio where cnombre = 'Jacinto' AND dnacimiento < '01-01-1970' AND dalta between'01-01-1990' AND '31-12-1999')
+
+                             *
+ERROR en lÝnea 1:
+ORA-00933: comando SQL no terminado correctamente
+
+
+SQL> select cnombre from tsocio where cnombre = 'Jacinto' AND dnacimiento < '01-01-1970' AND dalta between '01-01-1990' AND '31-12-1999';
+
+ninguna fila seleccionada
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('31641688Y','Jacinto','Manzano Ruiz','C/Mariguano 47','+34695309265','20-04-1965',25-07-1993');
+ERROR:
+ORA-01756: la cadena entrecomillada no estß terminada correctamente
+
+
+SQL> insert into tsocio (cnif,cnombre,capellidos,cdireccion,ctelefono,dnacimiento,dalta) values ('31641688Y','Jacinto','Manzano Ruiz','C/Mariguano 47','+34695309265','20-04-1965','25-07-1993');
+
+1 fila creada.
+
+SQL> select cnombre from tsocio where cnombre = 'Jacinto' AND dnacimiento < '01-01-1970' AND dalta between '01-01-1990' AND '31-12-1999';
+
+CNOMBRE
+---------------
+Jacinto
+
+SQL> select from tlibro where neditorialid <> 15 AND neditorial <> 32 OR nanyopublicacion < 2000;
+select from tlibro where neditorialid <> 15 AND neditorial <> 32 OR nanyopublicacion < 2000
+       *
+ERROR en lÝnea 1:
+ORA-00936: falta una expresi¾n
+
+
+SQL>

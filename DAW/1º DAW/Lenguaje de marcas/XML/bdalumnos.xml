@@ -1,0 +1,43 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<Centro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ej_195_3.xsd">
+    <calificaciones>
+        <datos>
+            <nombre>Felipe</nombre>
+            <apellidos>Pascual</apellidos>
+        </datos>
+        <materia>
+            <OACE>
+                <cuestionario>4</cuestionario>
+                <tareas>8</tareas>
+            </OACE>
+            <EEE>
+                <cuestionario>7</cuestionario>
+                <tareas>6</tareas>
+            </EEE>
+            <BD>
+                <cuestionario>2</cuestionario>
+                <tareas>1</tareas>
+            </BD>
+        </materia>
+    </calificaciones>
+    <calificaciones>
+        <datos>
+            <nombre>María</nombre>
+            <apellidos>García</apellidos>
+        </datos>
+        <materia>
+            <OACE>
+                <cuestionario>9</cuestionario>
+                <tareas>2</tareas>
+            </OACE>
+            <EEE>
+                <cuestionario>9</cuestionario>
+                <tareas>6</tareas>
+            </EEE>
+            <BD>
+                <cuestionario>5</cuestionario>
+                <tareas>0.1</tareas>
+            </BD>
+        </materia>
+    </calificaciones>
+</Centro>

@@ -1,0 +1,6 @@
+Nombre:15 Carácteres
+Apellidos:20 Carácteres
+Dirección:20 Carácteres
+Ciudad:15 Carácteres
+Teléfono:9 Carácteres
+He elegido esas capacidades porque creo que es lo óptimo

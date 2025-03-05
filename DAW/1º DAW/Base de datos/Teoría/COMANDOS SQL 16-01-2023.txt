@@ -1,0 +1,669 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Lun Ene 16 08:17:43 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Introduzca el nombre de usuario: system
+Introduzca la contrase±a:
+Hora de ┌ltima Conexi¾n Correcta: Vie Ene 13 2023 12:15:13 +01:00
+
+Conectado a:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> select * from TLibro
+  2  ;
+
+ninguna fila seleccionada
+
+SQL> select * from TLibros;
+select * from TLibros
+              *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> select * from TLibro;
+
+ninguna fila seleccionada
+
+SQL> create table ttema (ntemaid numeric(3) not null primary key, cnombre varchar2(20));
+create table ttema (ntemaid numeric(3) not null primary key, cnombre varchar2(20))
+             *
+ERROR en lÝnea 1:
+ORA-00955: este nombre ya lo estß utilizando otro objeto existente
+
+
+SQL> drop ttema
+  2  ;
+drop ttema
+     *
+ERROR en lÝnea 1:
+ORA-00950: opci¾n DROP no vßlida
+
+
+SQL> drop table ttema;
+
+Tabla borrada.
+
+SQL> create table ttema (ntemaid numeric(3) not null primary key, cnombre varchar2(20));
+
+Tabla creada.
+
+SQL> drop table tlibro;
+
+Tabla borrada.
+
+SQL> drop table tlibrotema;
+
+Tabla borrada.
+
+SQL> drop table teditor;
+drop table teditor
+           *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> drop table teditorial;
+
+Tabla borrada.
+
+SQL> drop table tpais;
+drop table tpais
+           *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> create table tlibrotema (nlibroid numeric(3) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid));
+create table tlibrotema (nlibroid numeric(3) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid))
+
+                *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> create table tlibro (nlibro numeric(7) not null primary key, ctitulo varchar2(30) not null, nanyopublicacion char(4), neditorialid numeric(2) not null, foreign key (neditorialid) references teditorial (neditorialid));
+create table tlibro (nlibro numeric(7) not null primary key, ctitulo varchar2(30) not null, nanyopublicacion char(4), neditorialid numeric(2) not null, foreign key (neditorialid) references teditorial (neditorialid))
+
+                                                                                        *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) notnull npaisid numeric(3), foreign key npaisid references tpais (npaisid));
+create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) notnull npaisid numeric(3), foreign key npaisid references tpais (npaisid))
+                                                                                   *
+ERROR en lÝnea 1:
+ORA-00907: falta el parÚntesis derecho
+
+
+SQL> create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) not null npaisid numeric(3), foreign key npaisid references tpais (npaisid));
+create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) not null npaisid numeric(3), foreign key npaisid references tpais (npaisid))
+                                                                                            *
+ERROR en lÝnea 1:
+ORA-00907: falta el parÚntesis derecho
+
+
+SQL> create table tpais (npaisid numeric(3) not null primary key, cnombre varchar2(20));
+
+Tabla creada.
+
+SQL> create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) not null npaisid numeric(3), foreign key npaisid references tpais (npaisid));
+create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) not null npaisid numeric(3), foreign key npaisid references tpais (npaisid))
+                                                                                            *
+ERROR en lÝnea 1:
+ORA-00907: falta el parÚntesis derecho
+
+
+SQL> create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) not null, npaisid numeric(3), foreign key npaisid references tpais (npaisid));
+create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) not null, npaisid numeric(3), foreign key npaisid references tpais (npaisid))
+
+                       *
+ERROR en lÝnea 1:
+ORA-00906: falta el parÚntesis izquierdo
+
+
+SQL> create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) not null, npaisid numeric(3), foreign key, npaisid references tpais (npaisid));
+create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) not null, npaisid numeric(3), foreign key, npaisid references tpais (npaisid))
+
+                      *
+ERROR en lÝnea 1:
+ORA-00906: falta el parÚntesis izquierdo
+
+
+SQL> create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) not null, npaisid numeric(3), foreign key, npaisid references tpais (npaisid));
+create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) not null, npaisid numeric(3), foreign key, npaisid references tpais (npaisid))
+
+                      *
+ERROR en lÝnea 1:
+ORA-00906: falta el parÚntesis izquierdo
+
+
+SQL> create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) not null, npaisid numeric(3), foreign key npaisid references tpais (npaisid));
+create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) not null, npaisid numeric(3), foreign key npaisid references tpais (npaisid))
+
+                       *
+ERROR en lÝnea 1:
+ORA-00906: falta el parÚntesis izquierdo
+
+
+SQL> create table teditorial (neditorialid numeric(2) primary key, cnombre varchar2(30) not null, npaisid numeric(3), foreign key (npaisid) references tpais (npaisid));
+
+Tabla creada.
+
+SQL> create table tlibro (nlibro numeric(7) not null primary key, ctitulo varchar2(30) not null, nanyopublicacion char(4), neditorialid numeric(2) not null, foreign key (neditorialid) references teditorial (neditorialid));
+
+Tabla creada.
+
+SQL> create table tlibrotema (nlibroid numeric(3) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid));
+create table tlibrotema (nlibroid numeric(3) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid))
+
+                        *
+ERROR en lÝnea 1:
+ORA-00904: "NLIBROID": identificador no vßlido
+
+
+SQL> create table tlibro (nlibro numeric(7) not null primary key, ctitulo varchar2(30) not null, nanyopublicacion char(4), neditorialid numeric(2) not null, foreign key (neditorialid) references teditorial (neditorialid));
+create table tlibro (nlibro numeric(7) not null primary key, ctitulo varchar2(30) not null, nanyopublicacion char(4), neditorialid numeric(2) not null, foreign key (neditorialid) references teditorial (neditorialid))
+             *
+ERROR en lÝnea 1:
+ORA-00955: este nombre ya lo estß utilizando otro objeto existente
+
+
+SQL> desc tlibro
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBRO                                    NOT NULL NUMBER(7)
+ CTITULO                                   NOT NULL VARCHAR2(30)
+ NANYOPUBLICACION                                   CHAR(4)
+ NEDITORIALID                              NOT NULL NUMBER(2)
+
+SQL> create table tlibrotema (nlibroid numeric(3) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid));
+create table tlibrotema (nlibroid numeric(3) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid))
+
+                        *
+ERROR en lÝnea 1:
+ORA-00904: "NLIBROID": identificador no vßlido
+     create table tlibrotema (nlibroid numeric(3) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid));
+create table tlibrotema (nlibroid numeric(3) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid))
+                        *ro (nlibroid), foreign key (ntemaid) references ttema (ntemaid));
+ERROR en lÝnea 1:
+ORA-00904: "NLIBROID": identificador no vßlido
+
+
+SQL> create table tlibrotema (nlibroid numeric(3) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid));
+create table tlibrotema (nlibroid numeric(3) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid))
+                        *
+ERROR en lÝnea 1:
+ORA-00904: "NLIBROID": identificador no vßlido
+
+
+SQL> create table tlibrotema (nlibroid numeric(7) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid));
+create table tlibrotema (nlibroid numeric(7) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid))
+                        *
+ERROR en lÝnea 1:
+ORA-00904: "NLIBROID": identificador no vßlido
+
+
+SQL> create table tlibrotema (nlibroid numeric(7) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid));
+create table tlibrotema (nlibroid numeric(7) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid))
+                        *
+ERROR en lÝnea 1:
+ORA-00904: "NLIBROID": identificador no vßlido
+
+
+SQL> drop table tlibro
+  2  ;
+
+Tabla borrada.
+
+SQL> create table tlibro (nlibroid numeric(7) not null primary key, ctitulo varchar2(30) not null, nanyopublicacion char(4), neditorialid numeric(2) not null, foreign key (neditorialid) references teditorial (neditorialid));
+
+Tabla creada.
+
+SQL> create table tlibrotema (nlibroid numeric(7) not null, ntemaid numeric(3) not null, foreign key (nlibroid) references tlibro (nlibroid), foreign key (ntemaid) references ttema (ntemaid));
+
+Tabla creada.
+
+SQL> commit
+  2  ;
+
+Confirmaci¾n terminada.
+
+SQL> drop table tlibrotema
+  2  ;
+
+Tabla borrada.
+
+SQL> create table tlibrotema (nlibroid numeric(7) not null, ntemaid numeric(3) not null,constraint nlibroid foreign key (nlibroid) references tlibro (nlibroid),constraint ntemaid foreign key (ntemaid) references ttema (ntemaid) on delete cascade);
+
+Tabla creada.
+
+SQL> desc tlibro
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBROID                                  NOT NULL NUMBER(7)
+ CTITULO                                   NOT NULL VARCHAR2(30)
+ NANYOPUBLICACION                                   CHAR(4)
+ NEDITORIALID                              NOT NULL NUMBER(2)
+
+SQL> desc tlibros
+ERROR:
+ORA-04043: el objeto tlibros no existe
+
+
+SQL> desc tlibro
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBROID                                  NOT NULL NUMBER(7)
+ CTITULO                                   NOT NULL VARCHAR2(30)
+ NANYOPUBLICACION                                   CHAR(4)
+ NEDITORIALID                              NOT NULL NUMBER(2)
+
+SQL> insert into tlibro values (0000001,'El señor de los marranillos', 1745, '');
+insert into tlibro values (0000001,'El señor de los marranillos', 1745, '')
+                                                                         *
+ERROR en lÝnea 1:
+ORA-01400: no se puede realizar una inserci¾n NULL en
+("SYSTEM"."TLIBRO"."NEDITORIALID")
+
+
+SQL> insert into tlibro values (0000001,'El señor de los marranillos', 1745, '');
+insert into tlibro values (0000001,'El señor de los marranillos', 1745, '')
+                                                                         *
+ERROR en lÝnea 1:
+ORA-01400: no se puede realizar una inserci¾n NULL en
+("SYSTEM"."TLIBRO"."NEDITORIALID")
+
+
+SQL> desc teditorial
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NEDITORIALID                              NOT NULL NUMBER(2)
+ CNOMBRE                                   NOT NULL VARCHAR2(30)
+ NPAISID                                            NUMBER(3)
+
+SQL> insert into teditorial values (1,'Imprimimos de todo','');
+
+1 fila creada.
+
+SQL> create table tlibrotema (nlibroid numeric(7) not null, ntemaid numeric(3) not null,constraint nlibroid foreign key (nlibroid) references tlibro (nlibroid),constraint ntemaid foreign key (ntemaid) references ttema (ntemaid) on delete cascade);
+create table tlibrotema (nlibroid numeric(7) not null, ntemaid numeric(3) not null,constraint nlibroid foreign key (nlibroid) references tlibro (nlibroid),constraint ntemaid foreign key (ntemaid) references ttema (ntemaid) on delete cascade)
+             *
+ERROR en lÝnea 1:
+ORA-00955: este nombre ya lo estß utilizando otro objeto existente
+
+
+SQL> insert into tlibro values (0000001,'El señor de los marranillos', 1745, 1);
+1 fila creada.
+
+SQL> insert into ttema values (1,'Libros chulísimos');
+
+1 fila creada.
+
+SQL> desc tlibrotema
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBROID                                  NOT NULL NUMBER(7)
+ NTEMAID                                   NOT NULL NUMBER(3)
+
+SQL> insert into tlibrotema values (1,1))
+  2  ;
+insert into tlibrotema values (1,1))
+                                   *
+ERROR en lÝnea 1:
+ORA-00933: comando SQL no terminado correctamente
+
+
+SQL> insert into tlibrotema values (1,1);
+
+1 fila creada.
+
+SQL> commit
+  2  ;
+
+Confirmaci¾n terminada.
+
+SQL> delete ttema;
+
+1 fila suprimida.
+
+SQL> select * from ttema;
+
+ninguna fila seleccionada
+
+SQL> commit;
+
+Confirmaci¾n terminada.
+
+SQL> select * from tlibrotema;
+
+ninguna fila seleccionada
+
+SQL>
+
+SQL> drop table tlibrotema
+  2  ;
+
+Tabla borrada.
+
+SQL> create table tlibrotema (nlibroid numeric(7) not null, ntemaid numeric(3) not null,constraint nlibroid foreign key (nlibroid) references tlibro (nlibroid) on delete cascade,constraint ntemaid foreign key (ntemaid) references ttema (ntemaid) on delete cascade);
+
+Tabla creada.
+
+SQL> delete tlibro
+  2  ;
+
+1 fila suprimida.
+
+SQL> commit
+  2  ;
+
+Confirmaci¾n terminada.
+
+SQL> select * from tlibrotema
+  2  ;
+
+ninguna fila seleccionada
+
+SQL> select * from tlibro;
+
+ninguna fila seleccionada
+
+SQL> select * from ttema;
+
+ninguna fila seleccionada
+
+SQL> create table tautor (nautorid numeric(3) primary key, cnombre varchar2(15), capellidos varchar2(30) not null);
+create table tautor (nautorid numeric(3) primary key, cnombre varchar2(15), capellidos varchar2(30) not null)
+             *
+ERROR en lÝnea 1:
+ORA-00955: este nombre ya lo estß utilizando otro objeto existente
+
+
+SQL> drop table tautor
+  2  ;
+
+Tabla borrada.
+
+SQL> create table tautor (nautorid numeric(3) primary key, cnombre varchar2(15), capellidos varchar2(30) not null);
+
+Tabla creada.
+
+SQL> insert into tautor (nautorid,capellidos) values (1,'Pérez Reverté');
+
+1 fila creada.
+
+SQL> commit
+  2  ;
+
+Confirmaci¾n terminada.
+
+SQL> alter table tautor add (dnacimiento date, dfallecimiento date);
+
+Tabla modificada.
+
+SQL> desc tautor
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NAUTORID                                  NOT NULL NUMBER(3)
+ CNOMBRE                                            VARCHAR2(15)
+ CAPELLIDOS                                NOT NULL VARCHAR2(30)
+ DNACIMIENTO                                        DATE
+ DFALLECIMIENTO                                     DATE
+
+SQL> update tautor set dnacimiento='30/04/1990' WHERE NAUTORID=1;
+
+1 fila actualizada.
+
+SQL> SELECT * FROM TAUTOR
+  2  ;
+
+  NAUTORID CNOMBRE         CAPELLIDOS                     DNACIMIE DFALLECI
+---------- --------------- ------------------------------ -------- --------
+         1                 Pérez Reverté                  30/04/90
+
+SQL> SELECT * FROM TAUTOR WHERE DNACIMIENTO='30/04/1990';
+
+  NAUTORID CNOMBRE         CAPELLIDOS                     DNACIMIE DFALLECI
+---------- --------------- ------------------------------ -------- --------
+         1                 Pérez Reverté                  30/04/90
+
+SQL> create index itema_nombre on ttema (cnombre desc);
+
+═ndice creado.
+
+SQL> select * from ttema
+  2  ;
+
+ninguna fila seleccionada
+
+SQL> insert into ttema values (1,'libros chulísimos');
+
+1 fila creada.
+
+SQL> insert into ttema values (2,'Chorradas');
+
+1 fila creada.
+
+SQL> insert into ttema values (3,'Efemérides');
+
+1 fila creada.
+
+SQL> select * from ttema;
+
+   NTEMAID CNOMBRE
+---------- --------------------
+         1 libros chulísimos
+         2 Chorradas
+         3 Efemérides
+
+SQL> select * from ttema;
+
+   NTEMAID CNOMBRE
+---------- --------------------
+         1 libros chulísimos
+         2 Chorradas
+         3 Efemérides
+
+SQL> commit;
+
+Confirmaci¾n terminada.
+
+SQL> select * from ttema order by ntemaid;
+
+   NTEMAID CNOMBRE
+---------- --------------------
+         1 libros chulísimos
+         2 Chorradas
+         3 Efemérides
+
+SQL> select * from ttema order by cnombre;
+
+   NTEMAID CNOMBRE
+---------- --------------------
+         2 Chorradas
+         3 Efemérides
+         1 libros chulísimos
+
+SQL> select * from ttema order by ntemaid;
+
+   NTEMAID CNOMBRE
+---------- --------------------
+         1 libros chulísimos
+         2 Chorradas
+         3 Efemérides
+
+SQL> select * from ttema order by ntemaid desc;
+
+   NTEMAID CNOMBRE
+---------- --------------------
+         3 Efemérides
+         2 Chorradas
+         1 libros chulísimos
+
+SQL> desc tlibrotema;
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBROID                                  NOT NULL NUMBER(7)
+ NTEMAID                                   NOT NULL NUMBER(3)
+
+SQL> create index ilibrotema_LT on tlibrotema (nlibroid,ntemaid);
+
+═ndice creado.
+
+SQL> create index ilibrotema_TL on tlibrotema (ntemaid,nlibroid);
+
+═ndice creado.
+
+SQL> drop table TEjemplar;
+
+Tabla borrada.
+
+SQL> create table tlibroautor (nlibroid numeric(7) not null, nautorid numeric(3) not null);
+create table tlibroautor (nlibroid numeric(7) not null, nautorid numeric(3) not null)
+             *
+ERROR en lÝnea 1:
+ORA-00955: este nombre ya lo estß utilizando otro objeto existente
+
+
+SQL>
+SQL> desc tlibroautor
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBROID                                           NUMBER(10)
+ NAUTORID                                           NUMBER(10)
+
+SQL> drop table tlibroautor
+  2  ;
+
+Tabla borrada.
+
+SQL> create table tlibroautor (nlibroid numeric(7) not null, nautorid numeric(3) not null);
+
+Tabla creada.
+
+SQL> drop table TEjemplar;
+drop table TEjemplar
+           *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> desc tlibroautor;
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ NLIBROID                                  NOT NULL NUMBER(7)
+ NAUTORID                                  NOT NULL NUMBER(3)
+
+SQL> create table tejemplar (cSignatura varchar2(15) primary key, nlibroid numeric(7) not null,);
+create table tejemplar (cSignatura varchar2(15) primary key, nlibroid numeric(7) not null,)
+                                                                                          *
+ERROR en lÝnea 1:
+ORA-00904: : identificador no vßlido
+
+
+SQL> create table tejemplar (cSignatura varchar2(15) primary key, nlibroid numeric(7) not null);
+
+Tabla creada.
+
+SQL> desc tejemplar
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ CSIGNATURA                                NOT NULL VARCHAR2(15)
+ NLIBROID                                  NOT NULL NUMBER(7)
+
+SQL> create table tprestamo (cSignatura varchar(15), cnif varchar2(9), dprestamo date, foreign key (cSignatura) references tejemplar (csignatura), foreign key (cnif) references tsocio (cNIF);
+create table tprestamo (cSignatura varchar(15), cnif varchar2(9), dprestamo date, foreign key (cSignatura) references tejemplar (csignatura), foreign key (cnif) references tsocio (cNIF)
+
+                                                                                  *
+ERROR en lÝnea 1:
+ORA-00907: falta el parÚntesis derecho
+
+
+SQL> create table tprestamo (cNIF varchar(9) primary key, cnombre varchar2(15), capellidos varchar2(30
+), cDireccion varchar2(40), ctelefono varchar2(12), dnacimiento date, dalta date);
+
+Tabla creada.
+
+SQL> create table tprestamo (cSignatura varchar(15), cnif varchar2(9), dprestamo date, foreign key (cSignatura) references tejemplar (csignatura), foreign key (cnif) references tsocio (cNIF));
+create table tprestamo (cSignatura varchar(15), cnif varchar2(9), dprestamo date, foreign key (cSignatura) references tejemplar (csignatura), foreign key (cnif) references tsocio (cNIF))
+             *
+ERROR en lÝnea 1:
+ORA-00955: este nombre ya lo estß utilizando otro objeto existente
+
+
+SQL> desc tpresatmo
+ERROR:
+ORA-04043: el objeto tpresatmo no existe
+
+
+SQL> desc tprestamo
+ Nombre                                    ┐Nulo?   Tipo
+ ----------------------------------------- -------- ----------------------------
+ CNIF                                      NOT NULL VARCHAR2(9)
+ CNOMBRE                                            VARCHAR2(15)
+ CAPELLIDOS                                         VARCHAR2(30)
+ CDIRECCION                                         VARCHAR2(40)
+ CTELEFONO                                          VARCHAR2(12)
+ DNACIMIENTO                                        DATE
+ DALTA                                              DATE
+
+SQL> drop table tprestamo
+  2  ;
+
+Tabla borrada.
+
+SQL> create table tprestamo (cSignatura varchar(15), cnif varchar2(9), dprestamo date, foreign key (cSignatura) references tejemplar (csignatura), foreign key (cnif) references tsocio (cNIF));
+create table tprestamo (cSignatura varchar(15), cnif varchar2(9), dprestamo date, foreign key (cSignatura) references tejemplar (csignatura), foreign key (cnif) references tsocio (cNIF))
+
+                                                                              *
+ERROR en lÝnea 1:
+ORA-00904: "CNIF": identificador no vßlido
+
+
+SQL> create table tprestamo (cSignatura varchar(15), cnif varchar2(9), dprestamo date, foreign key (cSignatura) references tejemplar (csignatura), foreign key (cnif) references tsocio (cnif));
+create table tprestamo (cSignatura varchar(15), cnif varchar2(9), dprestamo date, foreign key (cSignatura) references tejemplar (csignatura), foreign key (cnif) references tsocio (cnif))
+
+                                                                              *
+ERROR en lÝnea 1:
+ORA-00904: "CNIF": identificador no vßlido
+
+
+SQL> desc tprestamo
+ERROR:
+ORA-04043: el objeto tprestamo no existe
+
+
+SQL> create table tsocio (cNIF varchar(9) primary key, cnombre varchar2(15), capellidos varchar2(30),cDireccion varchar2(40), ctelefono varchar2(12), dnacimiento date, dalta date);
+create table tsocio (cNIF varchar(9) primary key, cnombre varchar2(15), capellidos varchar2(30), cDireccion varchar2(40), ctelefono varchar2(12), dnacimiento date, dalta date)
+             *
+ERROR en lÝnea 1:
+ORA-00955: este nombre ya lo estß utilizando otro objeto existente
+
+
+SQL> drop table tsocio
+  2  ;
+
+Tabla borrada.
+
+SQL> create table tsocio (cNIF varchar(9) primary key, cnombre varchar2(15), capellidos varchar2(30),cDireccion varchar2(40), ctelefono varchar2(12), dnacimiento date, dalta date);
+
+Tabla creada.
+
+SQL> drop table tprestamo
+  2  ;
+drop table tprestamo
+           *
+ERROR en lÝnea 1:
+ORA-00942: la tabla o vista no existe
+
+
+SQL> create table tprestamo (cSignatura varchar(15), cnif varchar2(9), dprestamo date, foreign key (cSignatura) references tejemplar (csignatura), foreign key (cnif) references tsocio (cnif));
+
+Tabla creada.
+
+SQL>

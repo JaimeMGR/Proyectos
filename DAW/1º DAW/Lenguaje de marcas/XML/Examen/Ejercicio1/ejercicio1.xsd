@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+ <!-- Definición del tipo de dato para el género -->
+  <xs:simpleType name="GeneroType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Femenino"/>
+      <xs:enumeration value="Masculino"/>
+      <xs:enumeration value="No contesta"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- Definición del tipo de dato para el ID -->
+  <xs:simpleType name="IDType">
+    <xs:restriction base="xs:string">
+      <xs:length value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- Definición del tipo de dato para el nombre y apellidos -->
+  <xs:simpleType name="NombreApellidosType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Segundo Pascual"/>
+      <xs:enumeration value="Obdulia Toledo"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- Definición del tipo de dato para el teléfono -->
+  <xs:simpleType name="TelefonoType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{9}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- Definición del tipo de dato para el email -->
+  <xs:simpleType name="EmailType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- Definición del tipo de dato para el socio -->
+  <xs:simpleType name="SocioType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sí"/>
+      <xs:enumeration value="No"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+
+  <!-- Definición del tipo de dato para el Miembro -->
+<xs:complexType name="MiembroType">
+  <xs:sequence>
+<xs:element name="Persona" type="PersonaType"/>
+<xs:element name="nombreapellidos" type="NombreApellidosType"/>
+<xs:element name="Telefono" type="TelefonoType" maxOccurs="unbounded" minOccurs="0"/>
+<xs:element name="Email" type="EmailType" maxOccurs="unbounded" minOccurs="0"/>
+<xs:element name="Socio" type="SocioType"/>
+</xs:sequence>
+</xs:complexType>
+
+</xs:schema>

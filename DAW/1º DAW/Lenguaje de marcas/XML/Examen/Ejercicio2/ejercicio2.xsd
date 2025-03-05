@@ -1,0 +1,52 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="vivero" type="ViveroType"/>
+
+  <xs:complexType name="ViveroType">
+    <xs:sequence>
+      <xs:element name="planta" type="PlantaType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PlantaType">
+    <xs:sequence>
+      <xs:element name="nombre" type="xs:string"/>
+      <xs:element name="precio">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute name="moneda" type="MonedaType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="clase" type="xs:string"/>
+      <xs:element name="origen" type="xs:string"/>
+      <xs:element name="color_fruto" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="adicional" type="AdicionalType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="siembra" type="xs:gYear" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="MonedaType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="euro"/>
+      <xs:enumeration value="dolar"/>
+      <xs:enumeration value="yen"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="AdicionalType">
+    <xs:sequence>
+      <xs:element name="cosecha" type="xs:string"/>
+      <xs:element name="riego">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="diario"/>
+            <xs:enumeration value="semanal"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

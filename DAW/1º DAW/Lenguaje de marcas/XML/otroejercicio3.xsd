@@ -1,0 +1,58 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="centro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="calificaciones" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="alumnos">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="datos">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="nombre" type="xs:string"/>
+                          <xs:element name="Apellido" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Materia">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="OANCE">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Concesionario" type="xs:int"/>
+                                <xs:element name="Tareas" type="xs:int"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="EEE">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Concesionario" type="xs:int"/>
+                                <xs:element name="Tareas" type="xs:int"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="GIMNASIA">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Concesionario" type="xs:int"/>
+                                <xs:element name="Tareas" type="xs:int"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

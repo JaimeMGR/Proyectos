@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<style>
+        input[type=text], 
+        input[type=email] 
+        input[type=number]{
+        width: 30%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border-radius: 4px;
+      }
+
+
+      input[type=text]:focus,
+      input[type=email]:focus,
+      input[type=number]:focus{
+        background-color: lightblue;
+        cursor:grab;
+      }
+</style>
+<body style="background-color: rgb(245, 245, 255)">
+    
+    <form method="get">
+        <label for="Nombre">Nombre:</label>
+        <input type="text" name="nombre" placeholder="Introduzca nombre (20 caracteres)" size="45" maxlength="20" />
+        <br>
+        <br>
+        <label for="Apellidos">Apellidos:</label>
+        <input type="text" name="Apellidos" placeholder="Introduzca apellidos (30 caracteres)" size="45" maxlength="30" />
+        <br>
+        <br>
+        <label for="Email">Email:</label>
+        <input type="email" name="email" placeholder="Introduzca email (40 caracteres)" size="45" maxlength="40" />
+        <br>
+        <br>
+        <label for="Edad">Edad:</label>
+        <input type="number" name="número" placeholder="Introduzca número (9 caracteres)" size="50" maxlength="9" />
+        <label for="poblacion">Poblaciones</label>
+        <select name="poblacion" id="poblacion">
+            <option>Monachil</option>
+            <option>Maracena</option>
+            <option>Atarfe</option>
+            <option>Dúrcal</option>
+        </select>
+        <br>
+        <fieldset>
+            <legend>Horario</legend>
+        <input type="radio" value="Mañana" id="mañana"/>
+        <label for="mañana">Mañana</label><br>
+        <input type="radio" value="Tarde" id="tarde"/>
+        <label for="tarde">Tarde</label><br>
+        <input type="radio" value="Noche" id="noche"/>
+        <label for="noche">Noche</label><br>
+        </fieldset>
+        <fieldset>
+            <legend>Deportes</legend>
+        <input type="checkbox" value="" id="Fútbol" name="Fútbol"/>
+        <label for="Fútbol">Fútbol</label><br>
+        <input type="checkbox" value="" id="Baloncesto" name="Balocesto"/>
+        <label for="Baloncesto">Baloncesto</label><br><br>
+        <button style="background-color: yellow">Enviar</button>
+        </fieldset>
+    </form>
+</body>
+</html>

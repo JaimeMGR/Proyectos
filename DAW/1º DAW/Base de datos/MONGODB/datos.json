@@ -1,0 +1,23 @@
+[   
+    {   
+        "_id":  "001",
+        "nombre":"Que vamos a aser",
+        "tema": "Apocalipsis",    
+        "type": "O detenemos esto o encrementamos la pandemia",    
+        "final": "Que te caies tu putah"
+    },
+    {   
+        "_id":  "002",
+        "nombre":"Que vamos a aser",
+        "tema": "Apocalipsis2",    
+        "type": "O detenemos esto o encrementamos la pandemia",    
+        "final": "Que te caies tu putah"
+    },
+    {   
+        "_id":  "003",
+        "nombre":"Que vamos a aser",
+        "tema": "Apocalipsis3",    
+        "type": "O detenemos esto o encrementamos la pandemia",    
+        "final": "Que te caies tu putah"
+    }
+]

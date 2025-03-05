@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            }
+
+            table, th, td, thead, tbody, tfoot {
+            border: 1px solid
+            }
+            table{
+                border-collapse: collapse;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            td { 
+                text-align: left;
+                padding: 7px;
+            }
+            th {
+                text-align: left;
+                padding: 7px;
+            }
+            thead {
+                text-align: left;
+                padding: 7px;
+            }
+            tbody {
+                text-align: left;
+                padding: 7px;   
+            }
+            tfoot {
+                background-color:rgba(135, 207, 235, 0.562);
+                text-align: left;
+                padding: 7px;
+            }
+    </style>
+</head>
+<body>
+    <main>
+        <table>
+            <caption>Horas trabajadas</caption>
+            <colgroup span="6"></colgroup>
+            <colgroup style="background-color:tomato"></colgroup>
+            <thead>
+            <tr>
+                <th>Semana</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+                <th>Semanal</a></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>30</td>
+                <td>8</td>
+                <td>9</td>
+                <td>8</td>
+                <td>8</td>
+                <td>5</td>
+                <td>36</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>7</td>
+                <td>9</td>
+                <td>8</td>
+                <td>10</td>
+                <td>5</td>
+                <td>42</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>8</td>
+                <td colspan="4">Vacaciones 😎🤟🍕🍦🎮🖥️🛌😴</td>   
+                <td>8</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td>Total</td>
+                <td>15</td>
+                <td>18</td>
+                <td>16</td>
+                <td>18</td>
+                <td>10</td>
+                <td>178</td>
+            </tr>
+        </tfoot>
+        </table>
+    </main>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="raquetas.xsl" type="text/xsl"?>
+<TIENDA>
+    <RAQUETA>
+        <MARCA> BABOLAT </MARCA>
+        <MODELO> PURE DRIVE </MODELO>
+        <ANIO> 2012 </ANIO>
+        <PRECIO>170</PRECIO>
+    </RAQUETA>
+    <RAQUETA>
+        <MARCA> BABOLAT </MARCA>
+        <MODELO> PURE STORM</MODELO>
+        <ANIO> 2013 </ANIO>
+        <PRECIO>190</PRECIO>
+    </RAQUETA>
+    <RAQUETA>
+        <MARCA> YONEX </MARCA>
+        <MODELO> MPTOUR 5 </MODELO>
+        <ANIO> 1997 </ANIO>
+        <PRECIO>150</PRECIO>
+    </RAQUETA>
+    <RAQUETA>
+        <MARCA> WILSON </MARCA>
+        <MODELO> HAMMER </MODELO>
+        <ANIO> 2000 </ANIO>
+        <PRECIO>95</PRECIO>
+    </RAQUETA>
+    <RAQUETA>
+        <MARCA> WILSON </MARCA>
+        <MODELO> PRO STAFF </MODELO>
+        <ANIO> 1997 </ANIO>
+        <PRECIO>215</PRECIO>
+    </RAQUETA>
+</TIENDA>

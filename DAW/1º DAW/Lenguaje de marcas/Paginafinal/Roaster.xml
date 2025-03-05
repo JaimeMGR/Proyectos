@@ -1,0 +1,267 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<tekken7>
+  <personaje>
+    <nombre>Kazuya Mishima</nombre>
+    <apodo>The King of Iron Fist</apodo>
+    <estadisticas>
+      <edad>49</edad>
+      <altura>181</altura>
+      <peso>75</peso>
+      <nivel>10</nivel>
+    </estadisticas>
+    <habilidad_especial>Devil's Power</habilidad_especial>
+    <estilo_lucha>Mishima-ryu Karate</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Heihachi Mishima</nombre>
+    <apodo>The King of Iron Fist</apodo>
+    <estadisticas>
+      <edad>75</edad>
+      <altura>184</altura>
+      <peso>82</peso>
+      <nivel>8</nivel>
+    </estadisticas>
+    <habilidad_especial>Iron Fist</habilidad_especial>
+    <estilo_lucha>Mishima-ryu Karate</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Jin Kazama</nombre>
+    <apodo>The Future King of Iron Fist</apodo>
+    <estadisticas>
+      <edad>21</edad>
+      <altura>179</altura>
+      <peso>75</peso>
+      <nivel>9</nivel>
+    </estadisticas>
+    <habilidad_especial>Devil Gene</habilidad_especial>
+    <estilo_lucha>Mishima-ryu Karate</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Lars Alexandersson</nombre>
+    <apodo>The Rebellious Heir</apodo>
+    <estadisticas>
+      <edad>30</edad>
+      <altura>185</altura>
+      <peso>80</peso>
+      <nivel>7</nivel>
+    </estadisticas>
+    <habilidad_especial>Electricity Manipulation</habilidad_especial>
+    <estilo_lucha>Unknown</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Asuka Kazama</nombre>
+    <apodo>The Stubborn Law Enforcer</apodo>
+    <estadisticas>
+      <edad>17</edad>
+      <altura>163</altura>
+      <peso>52</peso>
+      <nivel>6</nivel>
+    </estadisticas>
+    <habilidad_especial>Kazama-style Traditional Martial Arts</habilidad_especial>
+    <estilo_lucha>Kazama-ryu Fighting Style</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Hwoarang</nombre>
+    <apodo>The Blood Talon</apodo>
+    <estadisticas>
+      <edad>25</edad>
+      <altura>181</altura>
+      <peso>71</peso>
+      <nivel>8</nivel>
+    </estadisticas>
+    <habilidad_especial>Tae Kwon Do</habilidad_especial>
+    <estilo_lucha>Tae Kwon Do</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Feng Wei</nombre>
+    <apodo>The God Fist's Successor</apodo>
+    <estadisticas>
+      <edad>38</edad>
+      <altura>182</altura>
+      <peso>75</peso>
+      <nivel>8</nivel>
+    </estadisticas>
+    <habilidad_especial>God Fist</habilidad_especial>
+    <estilo_lucha>Gouken-ryu</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Steve Fox</nombre>
+    <apodo>The British Boxing Sensation</apodo>
+    <estadisticas>
+      <edad>26</edad>
+      <altura>177</altura>
+      <peso>72</peso>
+      <nivel>8</nivel>
+    </estadisticas>
+    <habilidad_especial>Boxing</habilidad_especial>
+    <estilo_lucha>Boxing</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Bryan Fury</nombre>
+    <apodo>The Berserker</apodo>
+    <estadisticas>
+      <edad>38</edad>
+      <altura>192</altura>
+      <peso>110</peso>
+      <nivel>9</nivel>
+    </estadisticas>
+    <habilidad_especial>Cyborg Enhancements</habilidad_especial>
+    <estilo_lucha>Kickboxing</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Lei Wulong</nombre>
+    <apodo>The Master of Many Styles</apodo>
+    <estadisticas>
+      <edad>49</edad>
+      <altura>175</altura>
+      <peso>70</peso>
+      <nivel>7</nivel>
+    </estadisticas>
+    <habilidad_especial>Five Form Kung Fu</habilidad_especial>
+    <estilo_lucha>Martial Arts (various styles)</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Law</nombre>
+    <apodo>The Marshall Law</apodo>
+    <estadisticas>
+      <edad>49</edad>
+      <altura>178</altura>
+      <peso>70</peso>
+      <nivel>7</nivel>
+    </estadisticas>
+    <habilidad_especial>Dragon Sign Stance</habilidad_especial>
+    <estilo_lucha>Martial Arts (various styles)</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Paul Phoenix</nombre>
+    <apodo>The Original Tough Guy</apodo>
+    <estadisticas>
+      <edad>48</edad>
+      <altura>185</altura>
+      <peso>92</peso>
+      <nivel>7</nivel>
+    </estadisticas>
+    <habilidad_especial>Phoenix Smasher</habilidad_especial>
+    <estilo_lucha>Judo and Street Fighting</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Nina Williams</nombre>
+    <apodo>The Silent Assassin</apodo>
+    <estadisticas>
+      <edad>43</edad>
+      <altura>168</altura>
+      <peso>57</peso>
+      <nivel>8</nivel>
+    </estadisticas>
+    <habilidad_especial>Assassination Techniques</habilidad_especial>
+    <estilo_lucha>Ninjutsu and Aikido</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Anna Williams</nombre>
+    <apodo>The Seducing Assassin</apodo>
+    <estadisticas>
+      <edad>42</edad>
+      <altura>166</altura>
+      <peso>57</peso>
+      <nivel>7</nivel>
+    </estadisticas>
+    <habilidad_especial>Assassination Techniques</habilidad_especial>
+    <estilo_lucha>Koppo-ken and Aikido</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>King</nombre>
+    <apodo>The Jaguar Masked Wrestler</apodo>
+    <estadisticas>
+      <edad>28</edad>
+      <altura>185</altura>
+      <peso>82</peso>
+      <nivel>7</nivel>
+    </estadisticas>
+    <habilidad_especial>Lucha Libre Wrestling</habilidad_especial>
+    <estilo_lucha>Lucha Libre Wrestling</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Marduk</nombre>
+    <apodo>The Raging Mercenary</apodo>
+    <estadisticas>
+      <edad>30</edad>
+      <altura>198</altura>
+      <peso>112</peso>
+      <nivel>8</nivel>
+    </estadisticas>
+    <habilidad_especial>Vale Tudo and Pro Wrestling</habilidad_especial>
+    <estilo_lucha>Vale Tudo and Pro Wrestling</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Yoshimitsu</nombre>
+    <apodo>The Manji Clan's Master</apodo>
+    <estadisticas>
+      <edad>45</edad>
+      <altura>167</altura>
+      <peso>61</peso>
+      <nivel>9</nivel>
+    </estadisticas>
+    <habilidad_especial>Manji Ninjutsu</habilidad_especial>
+    <estilo_lucha>Manji Ninjutsu</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Raven</nombre>
+    <apodo>The Mysterious Ninja</apodo>
+    <estadisticas>
+      <edad>48</edad>
+      <altura>175</altura>
+      <peso>72</peso>
+      <nivel>7</nivel>
+    </estadisticas>
+    <habilidad_especial>Ninjutsu and Special Operations</habilidad_especial>
+    <estilo_lucha>Ninjutsu and Special Operations</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Master Raven</nombre>
+    <apodo>The Deadly Secret Agent</apodo>
+    <estadisticas>
+      <edad>28</edad>
+      <altura>180</altura>
+      <peso>71</peso>
+      <nivel>8</nivel>
+    </estadisticas>
+    <habilidad_especial>Ninjutsu and Special Operations</habilidad_especial>
+    <estilo_lucha>Ninjutsu and Special Operations</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Gigas</nombre>
+    <apodo>The Abandoned Experiment</apodo>
+    <estadisticas>
+      <edad>Unknown</edad>
+      <altura>212</altura>
+      <peso>Unknown</peso>
+      <nivel>7</nivel>
+    </estadisticas>
+    <habilidad_especial>Unyielding Power</habilidad_especial>
+    <estilo_lucha>Unorthodox Fighting Style</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Josie Rizal</nombre>
+    <apodo>The Filipina Sensation</apodo>
+    <estadisticas>
+      <edad>21</edad>
+      <altura>160</altura>
+      <peso>48</peso>
+      <nivel>6</nivel>
+    </estadisticas>
+    <habilidad_especial>Eskrima and Kickboxing</habilidad_especial>
+    <estilo_lucha>Eskrima and Kickboxing</estilo_lucha>
+  </personaje>
+  <personaje>
+    <nombre>Shaheen</nombre>
+    <apodo>The Saudi Arabian Hero</apodo>
+    <estadisticas>
+      <edad>30</edad>
+      <altura>182</altura>
+      <peso>79</peso>
+      <nivel>7</nivel>
+    </estadisticas>
+    <habilidad_especial>Free Style Karate</habilidad_especial>
+    <estilo_lucha>Free Style Karate</estilo_lucha>
+  </personaje>
+</tekken7>

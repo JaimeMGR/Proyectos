@@ -1,0 +1,55 @@
+<<?xml version="1.0" encoding="utf-8"?>
+ <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="Centro">
+<xs:complexType>
+    <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="calificaciones"></xs:element>
+    </xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="calificaciones">
+    <xs:complexType>
+    <xs:sequence>
+        <xs:element ref="datos"></xs:element>
+        <xs:element ref="materia"></xs:element>
+    </xs:sequence>
+    </xs:complexType>
+</xs:element>
+<xs:element name="datos">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"></xs:element>
+            <xs:element name="apellidos" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+<xs:element name="materia">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="OACE">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="cuestionario" type="xs:integer"></xs:element>
+                        <xs:element name="tareas" type="xs:integer"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="EEE">
+            <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="cuestionario" type="xs:integer"></xs:element>
+                        <xs:element name="tareas" type="xs:integer"></xs:element>
+                    </xs:sequence>
+                </xs:complexType></xs:element>
+            <xs:element name="BD">
+            <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="cuestionario" type="xs:integer"></xs:element>
+                        <xs:element name="tareas" type="xs:double"></xs:element>
+                    </xs:sequence>
+                </xs:complexType></xs:element>
+        </xs:sequence> 
+   </xs:complexType>
+</xs:element>
+</xs:schema>>

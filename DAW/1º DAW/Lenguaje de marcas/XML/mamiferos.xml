@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fauna>
+    <animales>
+        <mamíferos>
+            <animal1>Oso</animal1>
+            <animal2>Gato</animal2>
+            <animal3>Perro</animal3>
+            <animal4>Erizo</animal4>
+        </mamíferos>
+    </animales>
+</fauna>

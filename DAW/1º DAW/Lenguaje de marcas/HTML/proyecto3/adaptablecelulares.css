@@ -1,0 +1,24 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #009900;
+}
+
+    body{
+        background-color: bisque;
+    }
+}
+
+@media (max-width: 768px)
+{
+    body{
+        background-color: rgb(73, 0, 243);
+    }
+}
+
+@media (max-width: 480px)
+{
+    body{
+        background-color: rgb(255, 0, 212);
+    }
+}

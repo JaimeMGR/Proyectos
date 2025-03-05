@@ -1,0 +1,5 @@
+Lunes: Juego 1
+Martes: Juego 2
+Miércoles: Juego 3
+Jueves: Juego 4
+Viernes: Partidas que no dieron tiempo o a repetir
