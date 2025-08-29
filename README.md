@@ -1,5 +1,5 @@
 # 💫 About Me:
-🔭 I’m currently working on my final degree project, a web platform for a gym<br><br>💼 I’m looking to collaborate on: projects with JavaScript, HTML and CSS<br><br>🤝 I’m looking for help with integration of APIs in web applications<br><br>🌱 I’m currently learning PHP, JavaScript avanzado, Tailwind CSS and Docker<br><br>🔎 Fun fact: I like to listen to music when I program, it makes me think better
+💼 I’m looking to collaborate on: projects with JavaScript, HTML and CSS<br><br>🤝 I’m looking for help with integration of APIs in web applications<br><br>🌱 I’m currently learning PHP, JavaScript avanzado, Tailwind CSS and Docker<br><br>🔎 Fun fact: I like to listen to music when I program, it makes me think better
 
 
 ## 🌐 Socials:
