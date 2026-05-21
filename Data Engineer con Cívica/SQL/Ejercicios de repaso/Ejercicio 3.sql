@@ -1,0 +1,8 @@
+USE ROLE CURSO_DATA_ENGINEERING;
+USE WAREHOUSE WH_CURSO_DATA_ENGINEERING;
+USE CURSO_DATAENG_SQL_DE29.TABLAS_VENTA;
+
+select
+    sum(ventas) as importe_total
+from h_ventas;
+    
