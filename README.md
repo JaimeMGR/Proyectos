@@ -110,15 +110,5 @@ Pipeline de datos completo end-to-end sobre **67.000 juegos de Steam** y un domi
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=JaimeMGR&theme=dark&hide_border=false&include_all_commits=false&count_private=false" alt="Stats"/>
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=JaimeMGR&theme=dark&hide_border=false" alt="Streak"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=JaimeMGR&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact" alt="Top Langs"/>
-</p>
-
----
-
-<p align="center">
-  <a href="https://visitcount.itsvg.in">
-    <img src="https://visitcount.itsvg.in/api?id=JaimeMGR&icon=0&color=13" alt="Visitor Count"/>
-  </a>
 </p>
